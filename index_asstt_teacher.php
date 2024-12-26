@@ -20,7 +20,7 @@ if ($result01x->num_rows == 0) {
 </style>
 
 <?php include 'task-teacher.php'; ?>
-
+<?php include 'front-page-block/notice.php'; ?>
 
 
 <div class="card gg">
@@ -47,10 +47,10 @@ $mon = date('m');
 echo '';
 echo '<a class="btn btn-dark" style="margin-top:8px;"  href="mypr.php">My Receipts</a>';
 
-// include 'front-page-block/cashmanager.php';
+include 'front-page-block/cashmanager.php';
 include 'front-page-block/st-payment-block.php';
 
-// include 'front-page-block/clsteacherblock.php';
+include 'front-page-block/clsteacherblock.php';
 
 
 $sql0 = "SELECT count(*) as cntt FROM areas where sessionyear='$sy' and user='$rootuser' and halfdone=0";
@@ -139,7 +139,7 @@ if ($result01xe->num_rows > 0) {
 }
 
 
-include 'front-page-block/accountantsblock.php';
+// include 'front-page-block/accountantsblock.php';
 
 
 
@@ -147,7 +147,7 @@ include 'front-page-block/accountantsblock.php';
 
 ?>
 
-<?php include 'front-page-block/notice.php'; ?>
+
 
 
 <a href="https://www.web.eimbox.com/teachersedit.php?tid=<?php echo $userid; ?>" class="btn btn-info">My Pfofile</a>
