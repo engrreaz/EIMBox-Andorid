@@ -1,6 +1,6 @@
 <?php 
 include 'inc.php';
-$classname = $_GET['cls']; $sectionname = $_GET['sec']; 
+$classname = $_GET['cls']; $sectionname = $_GET['sec']; $box=0;//
 ?>
 
 <!doctype html>
