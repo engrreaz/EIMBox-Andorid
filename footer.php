@@ -52,7 +52,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
             style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px; z-index:999;">
             <table width="100%">
                 <tr>
-                    <td style="width:15%"></td>
+                    <td style="width:<?php echo $hb; ?>%"></td>
                     <td style="text-align:center;"><a style="color:white;" href="index.php"><i
                                 class="material-icons">home</i></a></td>
                     <td style="text-align:center;"><a style="color:white;" href="reporthome.php"><i
