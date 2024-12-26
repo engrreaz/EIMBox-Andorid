@@ -4,7 +4,6 @@
 $hb = 8;
 if ($htp == 'com.xeneen.eimbox' || $htp == 'com.xeneen.kmghs') {
     $hb = 10;
-    $hb = 15;
 }
 
 if ($usr == '' || $userlevel == 'Guest') {
@@ -72,7 +71,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
             <div style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px;">
                 <table width="100%">
                     <tr>
-                        <td style="width:8%"></td>
+                        <td style="width:<?php echo $hb; ?>%"></td>
                         <td style=""><a style="color:white;" href="index.php"><i class="material-icons">home</i></a></td>
                         <td style=""><a style="color:white;" href="#"><i class="material-icons">person</i></a></td>
                         <td style=""><a style="color:white;" href="globalsetting.php"><i class="material-icons">build</i></a></td>
