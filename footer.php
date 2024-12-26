@@ -1,7 +1,7 @@
 <?php
 // $htp = $_SERVER['HTTP_X_REQUESTED_WITH'];
 //echo $htp;
-$hb = 8;
+$hb = 15;
 if ($htp == 'com.xeneen.eimbox' || $htp == 'com.xeneen.kmghs') {
     $hb = 10;
 }
