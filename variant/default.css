@@ -1,0 +1,12 @@
+:root {
+  --darker: indigo;
+  --dark: darkviolet;
+  --normal: orchid;
+  --light: thistle;
+  --lighter: lavender;
+}
+* {
+  /* font-family : "Gothic A1"; */
+  /* font-family : "Great Vibes"; */
+  /* font-family : "JetBrain Mono"; */
+}
