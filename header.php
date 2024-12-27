@@ -38,6 +38,21 @@
     <script src="assets/pre-load.js"></script>
 
     <style>
+        .menu-text {
+            font-size: 1.3em;
+            font-weight: 700;
+            font-style: normal;
+            line-height: 1.5em;
+            color: black;
+        }
+
+        .menu-sub-title {
+            color: gray;
+            font-size: 14px;
+            padding: 0;
+            margin: 5px 0 0 ;
+        }
+
         .pic {
             width: 90px;
             height: 90px;
@@ -47,7 +62,7 @@
         }
 
         .a {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 700;
             font-style: normal;
             line-height: 18px;
