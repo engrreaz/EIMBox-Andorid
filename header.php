@@ -29,6 +29,9 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
@@ -39,10 +42,12 @@
 
     <style>
         .page-box {
-            border:0;
+            border: 0;
             border-radius: 0;
-  
+
         }
+
+        
         .page-icon {
             color: white;
             font-size: 24px;
@@ -82,7 +87,7 @@
             font-style: normal;
             line-height: 1.2em;
             color: black;
-            padding: 0; 
+            padding: 0;
             margin: 0;
         }
 
@@ -160,9 +165,9 @@
             transition: all .2s;
         }
 
-       
 
-     
+
+
         .wd {
             text-align: center;
             font-size: 30px;

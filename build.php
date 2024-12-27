@@ -5,8 +5,6 @@ include 'inc.php';
 
 
 <!-- Bootstrap CSS v5.2.1 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -69,7 +67,7 @@ include 'inc.php';
 
 
 
-    <div class="card no-rad" style="background:var(--lighter); color:var(--darker);" onclick="lnk3();">
+    <div class="card mb-1" style="background:var(--lighter); color:var(--darker);" onclick="lnk3();">
       <div class="card-body">
         <div class="row">
           <div class="col-1 d-flex">
