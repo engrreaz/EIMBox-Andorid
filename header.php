@@ -47,7 +47,7 @@
         .page-title {
             font-size: 24px;
             text-align: center;
-            padding: 12px 0;
+            padding: 15px 0;
             font-weight: 500;
             line-height: 15px;
         }
@@ -73,11 +73,11 @@
 
         .menu-text {
             font-size: 1.3em;
-            font-weight: 400;
+            font-weight: 500;
             font-style: normal;
             line-height: 1.2em;
             color: black;
-            padding: 0;
+            padding: 0 0 0 10px; 
             margin: 0;
         }
 
