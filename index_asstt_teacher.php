@@ -38,7 +38,7 @@ $randval = random_int(1000000, 99999999);
         <a class="btn btn-info" href="receipt.php?cls=Nine&sec=Science&roll=25">EPOS</a>
         <a class="btn btn-outline-warning "
             href="stattnd.php?cls=<?php echo $cteachercls; ?>&sec=<?php echo $cteachersec; ?>">Attendance</a>
-
+<button class="btn btn-outline-primary">outline</button>
     </div>
 </div>
 

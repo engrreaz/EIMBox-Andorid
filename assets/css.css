@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 * {
   font-family: "Gothic A1", "Noto Sans Bengali", sans-serif;
@@ -14,6 +14,12 @@ html {
 body {
   background: var(--light);
   margin-top: -1px;
+}
+
+.menu-icon {
+  color: var(--darker);
+  font-size:24px;
+  font-weight:700;
 }
 
 .gt {
@@ -131,6 +137,7 @@ body {
 
 input[type="checkbox"] {
   -webkit-transform: scale(1.5);
+  transform: scale(1.5);
   margin: 0px;
 }
 
