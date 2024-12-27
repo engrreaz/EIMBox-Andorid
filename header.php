@@ -38,11 +38,25 @@
     <script src="assets/pre-load.js"></script>
 
     <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+            line-height: .5rem;
+        }
+
+
         .menu-icon {
             color: var(--darker);
-            font-size:24px;
-            font-weight:700;
+            font-size: 24px;
+            font-weight: 700;
         }
+
         .menu-text {
             font-size: 1.3em;
             font-weight: 400;
@@ -50,14 +64,14 @@
             line-height: 1.2em;
             color: black;
             padding: 0;
-            margin: 0 ;
+            margin: 0;
         }
 
         .menu-sub-title {
             color: gray;
             font-size: 11px;
             padding: 0;
-            margin: 0 ;
+            margin: 0;
         }
 
         .pic {
