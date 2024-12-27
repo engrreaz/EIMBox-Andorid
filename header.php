@@ -40,9 +40,9 @@
     <style>
         .menu-text {
             font-size: 1.3em;
-            font-weight: 700;
+            font-weight: 400;
             font-style: normal;
-            line-height: 1.5em;
+            line-height: 1.2em;
             color: black;
         }
 
