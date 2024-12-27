@@ -144,7 +144,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 <script>
     // myStopFunction();
 
-    function logerx() {
+    function loger() {
         var infor = "page=<?php echo $curfile; ?>&size=<?php echo filesize($curfile); ?>";
         $("#logstatus").html("----");
         $.ajax({
@@ -159,10 +159,11 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
             }
         });
     }
-</script>
-<script>
+
+
+
     const element = document.getElementById("logstatus");
-    /*
+    
     setInterval(function () {
         var infor = "page=<?php echo $curfile; ?>& size=<?php echo filesize($curfile); ?>";
 
@@ -180,8 +181,8 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
             $('#logstatus').html(html);
         }
     });
-    }, 5000);
-    */
+    }, 1000);
+    
 
 
 
