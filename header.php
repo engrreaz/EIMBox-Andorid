@@ -77,7 +77,7 @@
             font-style: normal;
             line-height: 1.2em;
             color: black;
-            padding: 0 0 0 10px; 
+            padding: 0; 
             margin: 0;
         }
 
