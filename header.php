@@ -49,7 +49,9 @@
             padding: 0;
             line-height: .5rem;
         }
-
+.gastr {
+    
+}
 
         .menu-icon {
             color: var(--darker);
