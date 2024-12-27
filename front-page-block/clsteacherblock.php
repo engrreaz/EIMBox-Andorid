@@ -1,5 +1,5 @@
 <?php
-
+$paisi = $money3 = 0;
 if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' || $userlevel == 'Super Administrator') {
 
     if ($collectionby == 0) {
@@ -47,7 +47,7 @@ if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' 
         <script>
             function goclss() { window.location.href = 'finstudents.php?cls=<?php echo $cteachercls; ?>&sec=<?php echo $cteachersec; ?>'; }
         </script>
-d
+
         <div class="card ">
             <div class="card-header" style="color:var(--lighter); background:var(--dark);border-radius:0;"><b>Student's
                     Payment</b></div>

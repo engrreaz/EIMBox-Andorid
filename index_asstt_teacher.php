@@ -23,7 +23,7 @@ if ($result01x->num_rows == 0) {
 <?php include 'front-page-block/notice.php'; ?>
 
 
-<div class="card gg">
+<div class="card ">
     <div class="card-body">
 
         <a class="btn btn-warning" href="admin-sclist.php">Institute List</a>
@@ -47,10 +47,10 @@ $mon = date('m');
 echo '';
 echo '<a class="btn btn-dark" style="margin-top:8px;"  href="mypr.php">My Receipts</a>';
 
-include 'front-page-block/cashmanager.php';
-include 'front-page-block/st-payment-block.php';
+// include 'front-page-block/cashmanager.php';
+// include 'front-page-block/st-payment-block.php';
 
-include 'front-page-block/clsteacherblock.php';
+// include 'front-page-block/clsteacherblock.php';
 
 
 $sql0 = "SELECT count(*) as cntt FROM areas where sessionyear='$sy' and user='$rootuser' and halfdone=0";
@@ -139,7 +139,7 @@ if ($result01xe->num_rows > 0) {
 }
 
 
-// include 'front-page-block/accountantsblock.php';
+include 'front-page-block/accountantsblock.php';
 
 
 
