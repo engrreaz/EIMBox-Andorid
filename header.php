@@ -38,6 +38,21 @@
     <script src="assets/pre-load.js"></script>
 
     <style>
+        .page-icon {
+            color: white;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .page-title {
+            font-size: 20px;
+            text-align: center;
+            padding: 6px;
+            font-weight: 700;
+            line-height: 15px;
+        }
+
         h1,
         h2,
         h3,
@@ -49,9 +64,7 @@
             padding: 0;
             line-height: .5rem;
         }
-.gastr {
-    
-}
+
 
         .menu-icon {
             color: var(--darker);

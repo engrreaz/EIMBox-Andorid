@@ -57,41 +57,6 @@ include 'inc.php';
   </style>
 
 
-
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-    </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-    </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-  <script>
-
-
-
-    function lnk1() { window.location.href = "tools_allsubjects.php"; }
-    function lnk2() { window.location.href = "pibiprocess2.php"; }
-    function lnk3() { window.location.href = "settings.php"; }
-    function lnk4() { window.location.href = "transcriptselect.php"; }
-    function lnk5() { window.location.href = "userlist.php"; }
-    function lnk6() { window.location.href = "classes.php"; }
-    function lnk7() { window.location.href = "transcriptselect.php"; }
-    function lnk8() { window.location.href = "transcriptselect.php"; }
-    function lnk30() { window.location.href = "accountservices.php"; }
-    function lnk31() { window.location.href = "accountsecurity.php"; }
-    function lnk32() { window.location.href = "globalsetup.php"; }
-
-
-  </script>
-</head>
-
-<body>
-  <header>
-    <!-- place navbar here -->
-  </header>
   <main>
     <div class="container-fluidx">
 
@@ -101,10 +66,10 @@ include 'inc.php';
           <table width="100%" style="color:white;">
             <tr>
               <td>
-                <div class="logoo"><i class="bi bi-x-diamond-fill"></i></div>
+                <div class="page-icon"><i class="bi bi-x-diamond-fill"></i></div>
                 <div
-                  style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
-                  cPanel Tools
+                  class="page-title">
+                  Settings
                 </div>
               </td>
             </tr>
@@ -229,17 +194,24 @@ include 'inc.php';
 
   </main>
   <div style="height:52px;"></div>
-  <footer>
-    <!-- place footer here -->
-  </footer>
 
 
 
+  <script>
 
 
 
+    function lnk1() { window.location.href = "tools_allsubjects.php"; }
+    function lnk2() { window.location.href = "pibiprocess2.php"; }
+    function lnk3() { window.location.href = "settings.php"; }
+    function lnk4() { window.location.href = "transcriptselect.php"; }
+    function lnk5() { window.location.href = "userlist.php"; }
+    function lnk6() { window.location.href = "classes.php"; }
+    function lnk7() { window.location.href = "transcriptselect.php"; }
+    function lnk8() { window.location.href = "transcriptselect.php"; }
+    function lnk30() { window.location.href = "accountservices.php"; }
+    function lnk31() { window.location.href = "accountsecurity.php"; }
+    function lnk32() { window.location.href = "globalsetup.php"; }
 
 
-</body>
-
-</html>
+  </script>
