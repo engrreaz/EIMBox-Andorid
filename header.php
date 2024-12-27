@@ -38,6 +38,11 @@
     <script src="assets/pre-load.js"></script>
 
     <style>
+        .page-box {
+            border:0;
+            border-radius: 0;
+  
+        }
         .page-icon {
             color: white;
             font-size: 24px;
@@ -154,27 +159,10 @@
             border-width: 0;
             transition: all .2s;
         }
-        .no-red {
-            border-radius:0;
-        }
 
-        .card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-            word-wrap: break-word;
-            background-color: var(--lighter);
-            background-clip: border-box;
-            border: 1px solid rgba(26, 54, 126, 0.125);
-            border-radius: .25rem;
-        }
+       
 
-        .card-body {
-            flex: 1 1 auto;
-            padding: 1rem 1.25rem;
-        }
-
+     
         .wd {
             text-align: center;
             font-size: 30px;
