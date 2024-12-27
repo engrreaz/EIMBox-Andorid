@@ -38,6 +38,11 @@
     <script src="assets/pre-load.js"></script>
 
     <style>
+        .menu-icon {
+            color: var(--darker);
+            font-size:24px;
+            font-weight:700;
+        }
         .menu-text {
             font-size: 1.3em;
             font-weight: 400;
@@ -50,7 +55,7 @@
 
         .menu-sub-title {
             color: gray;
-            font-size: 14px;
+            font-size: 11px;
             padding: 0;
             margin: 0 ;
         }
