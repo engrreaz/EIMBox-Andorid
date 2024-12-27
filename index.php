@@ -143,7 +143,7 @@ if ($result0wwrtd->num_rows > 0) {
     </div>
 
 
-
+<?php include 'js.php';?>
 </main>
 
 <script>
@@ -168,39 +168,7 @@ if ($result0wwrtd->num_rows > 0) {
 
     });
 
-    function oneSecondFunction() {
-        var x = document.getElementById("kk").innerHTML;
-        x = parseInt(x) - 1;
-        var txt = '';
-        var d, h, m, s;
-        if (x > 3600 * 24) {
-            d = Math.floor(x / (3600 * 24));
-            s = x - (d * 3600 * 24);
-            h = Math.floor(s / 3600);
-            s = s - h * 3600;
-            m = Math.floor(s / 60);
-            s = s - m * 60;
-
-            txt = txt + d + " Days " + h + " Hours " + m + " Min " + s + " Sec.";
-        } else if (x > 3600) {
-            h = Math.floor(x / 3600);
-            s = x - h * 3600;
-            m = Math.floor(s / 60);
-            s = s - m * 60;
-            txt = txt + h + " Hours " + m + " Min " + s + " Sec.";
-
-        } else if (x > 60) {
-            m = Math.floor(x / 60);
-            s = x - m * 60;
-            txt = txt + m + " Min " + s + " Sec.";
-        } else {
-            txt = txt + s + " Sec.";
-        }
-
-
-        document.getElementById("kk").innerHTML = x;
-        document.getElementById("jj").innerHTML = txt;
-    }
+    
 </script>
 
 

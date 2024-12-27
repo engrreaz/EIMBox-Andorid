@@ -71,13 +71,6 @@ include 'front-page-block/clsteacherblock.php';
     </div>
 </div>
 
-<div class="card">
-    <div class="card-body">
-        <div id="kk">3600</div>
-        <div id="jj">500</div>
-    </div>
-</div>
-
 
 
 
