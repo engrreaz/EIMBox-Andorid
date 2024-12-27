@@ -86,104 +86,65 @@ if ($result0wwrtd->num_rows > 0) {
 
 ?>
 
-    <main>
-        <div class="containerx" style="width:100%;">
+<main>
+    <div class="containerx" style="width:100%;">
 
-            <div class="card text-center" style="background:var(--dark);  padding:50px 0 10px 0; border-radius:0;">
-                <center>
-                    <table width="100%" style="color:white;">
-                        <tr>
-                            <td style="text-align:center;">
-                                <img src="<?php echo $pth; ?>" class="pic" /><br>
-                                <div class="b"><?php echo $fullname; ?></div>
-                                <div class="c"><?php echo $userlevel; ?></div>
-                                <div class="d"><?php echo $scname; ?></div>
-                            </td>
-                        </tr>
+        <div class="card text-center" style="background:var(--dark);  padding:50px 0 10px 0; border-radius:0;">
+            <center>
+                <table width="100%" style="color:white;">
+                    <tr>
+                        <td style="text-align:center;">
+                            <img src="<?php echo $pth; ?>" class="pic" /><br>
+                            <div class="b"><?php echo $fullname; ?></div>
+                            <div class="c"><?php echo $userlevel; ?></div>
+                            <div class="d"><?php echo $scname; ?></div>
+                        </td>
+                    </tr>
 
-                    </table>
-                </center>
-            </div>
-
-
-
-
-
-        </div>
-
-
-        <div style="text-align:center; padding: 10px 15px;">
-            <table style=" width:100%; ">
-                <tr>
-                    <?php if ($userlevel == 'Administrator') {
-                        if ($ssx > 0) {
-                            $ccx = 'dark';
-                        } else {
-                            $ccx = 'lighter';
-                        }
-                        echo '<td class="wd" style="color:var(--' . $ccx . ');"><span class="" onclick="issue();"><i class="bi bi-patch-question-fill"></i></span></td>';
-                    }
-                    ?>
-
-                    <td class="wd" style="font-size:36px;"><span class="" onclick="act1"><i
-                                class="bi bi-node-plus-fill"></i></span></td>
-                    <td class="wd"><span class="" style="<?php if ($ccnntt > 0) {
-                        echo 'color:var(--dark);';
-                    } ?>" onclick="act22();"><i class="bi bi-bell-fill"></i></span></td>
-                    <td class="wd"><span class="" style="<?php if ($y + $n > 0 && $perc < 100) {
-                        echo 'color:var(--dark);';
-                    } ?>" onclick="act3();"><i class="bi bi-check2-circle"></i></span></td>
-                    <td class="wd" style="font-size:28px;"><span class="" onclick="act4"><i
-                                class="bi bi-chat-square-text-fill"></i></span></td>
-                </tr>
-                <tr>
-                    <td class="lbls"><?php echo ''; ?></td>
-                    <td class="lbls"><?php echo ''; ?></td>
-                    <td class="lbls"><?php if ($ccnntt > 0) {
-                        echo $ccnntt;
-                    } ?></td>
-                    <td class="lbls"><?php if ($y + $n > 0 && $perc < 100) {
-                        $tt = $y + $n;
-                        echo $y . '/' . $tt; ?>
-                            <div style="width:70%; border:0;   background:var(--lighter); margin:auto;">
-                                <div style="width:<?php echo $perc; ?>%; height:2px; background:var(--dark);">&nbsp;</div>
-                            </div>
-                        <?php } ?>
-                    </td>
-                    <td class="lbls"><?php echo ''; ?></td>
-                </tr>
-            </table>
-        </div>
-        <div class="clearfix"></div>
-
-
-        <div class="containerx" style="width:100%;">
-            <?php
-            if ($userlevel == 'Guest') {
-                include 'index_guest.php';
-                //echo "<br><br>" . $token . "<br><br>" . $query33;
-            } else if ($userlevel == 'Student') {
-                include 'index_student.php';
-            } else if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $userlevel == 'Administrator') {
-                include 'index_teacher.php';
-
-            } else if ($userlevel == 'Visitor') {
-                include 'index_visitor.php';
-
-            } else if ($userlevel == 'Guardian') {
-                include 'index_guardian.php';
-            } else if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
-                include 'index_asstt_teacher.php';
-            } else {
-                include 'index_undef.php';
-            }
-            ?>
-
+                </table>
+            </center>
         </div>
 
 
 
-    </main>
+
+
+    </div>
+
+    <?php 
+    include 'front-page-block/notific-bar.php'; 
+    ?>
+
+    <div class="clearfix"></div>
+
+
+    <div class="containerx" style="width:100%;">
+        <?php
+        if ($userlevel == 'Guest') {
+            include 'index_guest.php';
+            //echo "<br><br>" . $token . "<br><br>" . $query33;
+        } else if ($userlevel == 'Student') {
+            include 'index_student.php';
+        } else if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $userlevel == 'Administrator') {
+            include 'index_teacher.php';
+
+        } else if ($userlevel == 'Visitor') {
+            include 'index_visitor.php';
+
+        } else if ($userlevel == 'Guardian') {
+            include 'index_guardian.php';
+        } else if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
+            include 'index_asstt_teacher.php';
+        } else {
+            include 'index_undef.php';
+        }
+        ?>
+
+    </div>
+
+
+
+</main>
 
 <script>
     function go(id) {

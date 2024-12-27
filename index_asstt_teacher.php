@@ -11,6 +11,15 @@ if ($result01x->num_rows == 0) {
 }
 
 
+//   echo 'xxx';
+$sql0 = "SELECT sum(amount) as paisi FROM stpr where sessionyear='$sy' and sccode='$sccode' and entryby='$usr'";
+$result01xe = $conn->query($sql0);
+if ($result01xe->num_rows > 0) {
+    while ($row0 = $result01xe->fetch_assoc()) {
+        $paisi = $row0["paisi"];
+    }
+}
+
 // INSERT NECESSARY TO-DO-LIST ***************************************************************************************************************************
 ?>
 
@@ -20,12 +29,17 @@ if ($result01x->num_rows == 0) {
 </style>
 
 <?php
-include 'task-teacher.php';
+include 'front-page-block/schedule.php';
+include 'front-page-block/task-teacher.php';
 include 'front-page-block/notice.php';
 $randval = random_int(1000000, 99999999);
-?>
-<?php ?>
+include 'front-page-block/cls-teacher-attendance.php';
+include 'front-page-block/clsteacherblock.php';
+// include 'front-page-block/st-payment-block.php';
+// include 'front-page-block/cashmanager.php';
+// include 'front-page-block/accountantsblock.php';
 
+?>
 
 <div class="card ">
     <div class="card-body">
@@ -38,46 +52,24 @@ $randval = random_int(1000000, 99999999);
         <a class="btn btn-info" href="receipt.php?cls=Nine&sec=Science&roll=25">EPOS</a>
         <a class="btn btn-outline-warning "
             href="stattnd.php?cls=<?php echo $cteachercls; ?>&sec=<?php echo $cteachersec; ?>">Attendance</a>
-<button class="btn btn-outline-primary">outline</button>
+        <button class="btn btn-outline-primary">outline</button>
+        <a class="btn btn-block btn-dark m-2 " href="?time=<?php echo $randval; ?>">Force Reload</a>
+
+
+        <a href="https://www.web.eimbox.com/teachersedit.php?tid=<?php echo $userid; ?>" class="btn btn-info">My
+            Pfofile</a>
+
+        <?php
+        //*****h*****************************************************************************************************************************************************************   
+        
+
+        $mon = date('m');
+        echo '';
+        echo '<a class="btn btn-dark" style="margin-top:8px;"  href="mypr.php">My Receipts</a>';
+        ?>
+
     </div>
 </div>
-
-<a class="btn btn-block btn-dark m-2 " href="?time=<?php echo $randval;?>">Force Reload</a>
-<?php
-//*****h*****************************************************************************************************************************************************************   
-
-
-$mon = date('m');
-echo '';
-echo '<a class="btn btn-dark" style="margin-top:8px;"  href="mypr.php">My Receipts</a>';
-
-// include 'front-page-block/cashmanager.php';
-include 'front-page-block/st-payment-block.php';
-
-// include 'front-page-block/clsteacherblock.php';
-
-
-//**********************************************************************************************************************************************************************   
-
-//   echo 'xxx';
-$sql0 = "SELECT sum(amount) as paisi FROM stpr where sessionyear='$sy' and sccode='$sccode' and entryby='$usr'";
-$result01xe = $conn->query($sql0);
-if ($result01xe->num_rows > 0) {
-    while ($row0 = $result01xe->fetch_assoc()) {
-        $paisi = $row0["paisi"];
-    }
-}
-
-
-// include 'front-page-block/accountantsblock.php';
-
-
-
-
-
-?>
-
-
 
 <div class="card">
     <div class="card-body">
@@ -88,19 +80,8 @@ if ($result01xe->num_rows > 0) {
 
 
 
-<a href="https://www.web.eimbox.com/teachersedit.php?tid=<?php echo $userid; ?>" class="btn btn-info">My Pfofile</a>
-
 
 <div style="height:52px;"></div>
-
-
-
-
-
-
-
-
-
 
 
 <script>
