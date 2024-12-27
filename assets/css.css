@@ -1,14 +1,14 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
 * {
-  font-family: "Gothic A1";
+  font-family: "Gothic A1", "Noto Sans Bengali", sans-serif;
   /* font-family : "Great Vibes"; */
   /* font-family : "JetBrain Mono"; */
-  font-size: 18px;
+  font-size: 1.0em;
 }
 
 html {
-  font-size: 16px;
+  font-size: 1.0em;
 }
 
 body {

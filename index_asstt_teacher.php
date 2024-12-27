@@ -30,19 +30,19 @@ $randval = random_int(1000000, 99999999);
 <div class="card ">
     <div class="card-body">
 
-        <a class="btn btn-warning" href="admin-sclist.php">Institute List</a>
+        <a class="btn btn-outline-primary" href="admin-sclist.php">Institute List</a>
         <a class="btn btn-danger" href="sout.php">Log Out</a>
         <br>
-        <a class="btn btn-danger" href="kbase.php">Knowledge Base</a><br>
+        <a class="btn btn-secondary" href="kbase.php">Knowledge Base জ্ঞানভান্ডার তথ্য ভান্ডার</a><br>
         <a class="btn btn-success" href="kbaseadd.php">Knowledge Add</a>
         <a class="btn btn-info" href="receipt.php?cls=Nine&sec=Science&roll=25">EPOS</a>
-        <a class="btn btn-warning"
+        <a class="btn btn-outline-warning "
             href="stattnd.php?cls=<?php echo $cteachercls; ?>&sec=<?php echo $cteachersec; ?>">Attendance</a>
 
     </div>
 </div>
 
-<a class="btn btn-block btn-primary m-2 " href="?time=<?php echo $randval;?>">Force Reload</a>
+<a class="btn btn-block btn-dark m-2 " href="?time=<?php echo $randval;?>">Force Reload</a>
 <?php
 //*****h*****************************************************************************************************************************************************************   
 

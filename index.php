@@ -86,11 +86,6 @@ if ($result0wwrtd->num_rows > 0) {
 
 ?>
 
-<link rel="stylesheet" href="assets/front.css">
-
-
-<body>
-
     <main>
         <div class="containerx" style="width:100%;">
 
@@ -189,12 +184,6 @@ if ($result0wwrtd->num_rows > 0) {
 
 
     </main>
-
-
-    <?php include 'footer.php';?>
-
-</body>
-
 
 <script>
     function go(id) {

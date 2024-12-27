@@ -1,9 +1,9 @@
 <?php
 // $htp = $_SERVER['HTTP_X_REQUESTED_WITH'];
 //echo $htp;
-$hb = 15;
+$hb = 0;
 if ($htp == 'com.xeneen.eimbox' || $htp == 'com.xeneen.kmghs') {
-    $hb = 10;
+    $hb = 0;
 }
 
 if ($usr == '' || $userlevel == 'Guest') {
