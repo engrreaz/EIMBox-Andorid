@@ -44,13 +44,15 @@
             font-style: normal;
             line-height: 1.2em;
             color: black;
+            padding: 0;
+            margin: 0 ;
         }
 
         .menu-sub-title {
             color: gray;
             font-size: 14px;
             padding: 0;
-            margin: 5px 0 0 ;
+            margin: 0 ;
         }
 
         .pic {

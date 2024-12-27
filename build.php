@@ -124,8 +124,8 @@ include 'inc.php';
             <i class="bi bi-alt menu-icon text-center"></i>
             </div>
             <div class="col-11">
-              <h4 class="p-0 m-0 menu-text">Administrative Setup</h4>
-              <div class="menu-sub-title"><small>Class & Sections, Subjects, Teachers, Users etc.</small></div>
+              <h4 class="menu-text">Administrative Setup</h4>
+              <div class="menu-sub-title">Class & Sections, Subjects, Teachers, Users etc.</div>
 
             </div>
           </div>
