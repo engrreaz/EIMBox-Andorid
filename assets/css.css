@@ -1,7 +1,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 * {
-  font-family: "Gothic A1", "Noto Sans Bengali", sans-serif;
+  font-family: Roboto, "Gothic A1", "Noto Sans Bengali", sans-serif;
   /* font-family : "Great Vibes"; */
   /* font-family : "JetBrain Mono"; */
   font-size: 1.0em;

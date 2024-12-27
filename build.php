@@ -125,7 +125,7 @@ include 'inc.php';
             </div>
             <div class="col-11">
               <h4 class="p-0 m-0">Administrative Setup</h4>
-              <div class="text-small text-muted p-0 m-0">Class & Sections, Subjects, Teachers, Users etc.</div>
+              <div class="text-small text-muted p-0 m-0"><small>Class & Sections, Subjects, Teachers, Users etc.</small></div>
 
             </div>
           </div>
