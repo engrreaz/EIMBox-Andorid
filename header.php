@@ -46,10 +46,10 @@
         }
 
         .page-title {
-            font-size: 20px;
+            font-size: 24px;
             text-align: center;
-            padding: 6px;
-            font-weight: 700;
+            padding: 12px;
+            font-weight: 500;
             line-height: 15px;
         }
 

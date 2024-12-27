@@ -63,19 +63,13 @@ include 'inc.php';
       <div class="card text-left" style="background:var(--dark); color:var(--lighter);" onclick="go(<?php echo $id; ?>)">
 
         <div class="card-body">
-          <table width="100%" style="color:white;">
-            <tr>
-              <td>
-                <div class="page-icon"><i class="bi bi-x-diamond-fill"></i></div>
-                <div
-                  class="page-title">
-                  Settings
-                </div>
-              </td>
-            </tr>
-
-
-          </table>
+          <div class="row">
+            <div class="px d-flex">
+              <div class="page-icon pe-3"><i class="bi bi-x-diamond-fill"></i></div>
+              <div class="page-title py"> Settings </div>
+            </div>
+          </div>
+          
         </div>
       </div>
 
@@ -88,7 +82,7 @@ include 'inc.php';
             <div class="col-1 d-flex">
             <i class="bi bi-alt menu-icon text-center"></i>
             </div>
-            <div class="col-11 ps-5">
+            <div class="col-11 ps-3">
               <h4 class="menu-text">Administrative Setup</h4>
               <div class="menu-sub-title">Class & Sections, Subjects, Teachers, Users etc.</div>
 
