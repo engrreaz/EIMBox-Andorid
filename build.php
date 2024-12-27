@@ -88,7 +88,7 @@ include 'inc.php';
             <div class="col-1 d-flex">
             <i class="bi bi-alt menu-icon text-center"></i>
             </div>
-            <div class="col-11 ps-3 gastr">
+            <div class="col-11 ps-5">
               <h4 class="menu-text">Administrative Setup</h4>
               <div class="menu-sub-title">Class & Sections, Subjects, Teachers, Users etc.</div>
 
