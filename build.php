@@ -75,8 +75,7 @@ include 'inc.php';
 
 
 
-      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk3();">
-        <img class="card-img-top" alt="">
+      <div class="card no-rad" style="background:var(--lighter); color:var(--darker);" onclick="lnk3();">
         <div class="card-body">
           <div class="row">
             <div class="col-1 d-flex">
