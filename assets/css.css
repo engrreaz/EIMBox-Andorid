@@ -16,11 +16,7 @@ body {
   margin-top: -1px;
 }
 
-.menu-icon {
-  color: var(--darker);
-  font-size:24px;
-  font-weight:700;
-}
+
 
 .gt {
   margin-top: 1px;
