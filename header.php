@@ -90,8 +90,8 @@
             font-size:1.0em;
             color:white;
             background:seagreen;
-            width:1.5em;
-            height:1.5em;
+            width:1.75em;
+            height:1.75em;
             border-radius:50%;
             padding:0px;
             text-align:center;
@@ -107,7 +107,7 @@
         }
         .notice-by {
             font-style:italic;
-            
+
         }
 
         .menu-icon {
