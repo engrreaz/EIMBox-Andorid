@@ -23,7 +23,7 @@ if ($cteachercls != '' && $cteachersec != '') {
     // $tperc = rand(10,100);
     $tattdeg = $tperc * 3.6;
     ?>
-    <div class="card">
+    <div class="card pb-1">
         <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;"><b>Student's
                 Attendance</b></div>
         <div class="card-body" style="background:var(--lighter);" onclick="goclsatt('<?php echo $x1; ?>','<?php echo $x2; ?>');">
