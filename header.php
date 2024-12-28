@@ -86,6 +86,15 @@
             line-height: .5rem;
         }
 
+        .notice-icon{
+            font-size:1.0em;
+            color:white;
+            background:seagreen;
+            width:1.5em;
+            height:1.5em;
+            border-radius:50%;
+            padding:3px;
+        }
 
         .menu-icon {
             color: var(--darker);
