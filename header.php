@@ -102,8 +102,9 @@
             color:black;
         }
 
-        .gray {
+        .notice-small-gray {
             color: gray;;
+            font-size:.75em;
         }
         .notice-by {
             font-style:italic;
