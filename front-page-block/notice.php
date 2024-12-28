@@ -9,7 +9,7 @@
         </div>
         <div class="">
             <h6 class="notice-text">Holidays</h6>
-            <div class="text-small gray"><small>2 Hrs ago <span class="notice-by">by Mr. Aminul Islam</span></small></div>
+            <div class="notice-small-gray"><small>2 Hrs ago <span class="notice-by">by Mr. Aminul Islam</span></small></div>
         </div>
     </div>
 
