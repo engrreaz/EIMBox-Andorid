@@ -148,15 +148,15 @@ $dur_sec = strtotime($te) - strtotime($cur);
                 } else if ($day == 'Saturday') {
                     $wday = 5;
                 }
-echo $userlevel;
-echo $userid;
+                echo $userlevel;
+                echo $userid;
 
                 if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
                     $sql0 = "SELECT * FROM clsroutine where sccode='$sccode' and sessionyear='$sy' and period>='$period' and wday='$wday' and tid='$userid' order by classname, sectionname;";
                 } else {
                     $sql0 = "SELECT * FROM clsroutine where sccode='$sccode' and sessionyear='$sy' and period='$period' and wday='$wday' order by classname, sectionname;";
                 }
-                echo $sql0; 
+                echo $sql0;
                 $result0a = $conn->query($sql0);
                 if ($result0a->num_rows > 0) {
                     while ($row0 = $result0a->fetch_assoc()) {
@@ -164,6 +164,7 @@ echo $userid;
                         $sec = $row0["sectionname"];
                         $tid = $row0["tid"];
                         $subj = $row0["subcode"];
+                        $peri = $row0["period"];
                         $tname = $subname = '';
                         $ind1 = array_search($tid, array_column($tlist, 'tid'));
                         if ($ind1 != '') {
@@ -178,7 +179,15 @@ echo $userid;
                             <td><?php echo $cls; ?></td>
                             <td><?php echo $sec; ?></td>
                             <td><?php echo $subname; ?></td>
-                            <td><?php echo $tname; ?></td>
+
+                            <?php
+                            if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
+                                echo  '<td>Period : '.$peri . '</td>';
+                            } else {
+                                echo '<td>'.$tname . '</td>';
+                            }
+                            ?>
+                            
                         </tr>
                         <?php
                     }

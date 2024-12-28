@@ -49,7 +49,7 @@ if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' 
         </script>
 
         <div class="card ">
-            <div class="card-header" style="color:var(--lighter); background:var(--dark);border-radius:0;"><b>Student's
+            <div class="card-header" style="color:var(--darker); background:var(--lighter);border-radius:0;"><b>Student's
                     Payment</b></div>
             <div class="card-body" onclick="goclss();">
 
@@ -103,7 +103,7 @@ if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' 
 
     <?php } ?>
 
-   
+
 
 
 
