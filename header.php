@@ -44,13 +44,18 @@
         body {
             background: #fdfbf4;
         }
+
+        .shadow {
+            text-shadow: 2px 2px 4px #000000;
+        }
+
         .page-box {
             border: 0;
             border-radius: 0;
 
         }
 
-        
+
         .page-icon {
             color: white;
             font-size: 24px;
