@@ -93,7 +93,21 @@
             width:1.5em;
             height:1.5em;
             border-radius:50%;
-            padding:3px;
+            padding:0px;
+            text-align:center;
+            margin-right:1em;
+        }
+
+        .notice-text {
+            color:black;
+        }
+
+        .gray {
+            color: gray;;
+        }
+        .notice-by {
+            font-style:italic;
+            
         }
 
         .menu-icon {
