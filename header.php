@@ -103,12 +103,13 @@
         }
 
         .notice-small-gray {
-            color: lightgrey;;
+            color: var(--light);
             font-size:.75em;
+            font-weight:400;
         }
         .notice-by {
             font-style:italic;
-
+            font-weight:500;
         }
 
         .menu-icon {
