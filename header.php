@@ -41,6 +41,9 @@
     <script src="assets/pre-load.js"></script>
 
     <style>
+        body {
+            background: #fef9e7;
+        }
         .page-box {
             border: 0;
             border-radius: 0;
