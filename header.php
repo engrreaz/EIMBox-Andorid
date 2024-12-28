@@ -103,7 +103,7 @@
         }
 
         .notice-small-gray {
-            color: var(--light);
+            color: var(--normal);
             font-size:.75em;
             font-weight:400;
         }
