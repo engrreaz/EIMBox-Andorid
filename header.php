@@ -88,8 +88,7 @@
 
         .notice-icon{
             font-size:1.0em;
-            color:white;
-            background:seagreen;
+            color:seagreen;
             width:1.75em;
             height:1.75em;
             border-radius:50%;
@@ -109,7 +108,7 @@
         }
         .notice-by {
             font-style:italic;
-            font-weight:500;
+            font-weight:600;
         }
 
         .menu-icon {
