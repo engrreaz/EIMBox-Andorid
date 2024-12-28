@@ -103,7 +103,7 @@
         }
 
         .notice-small-gray {
-            color: gray;;
+            color: lightgrey;;
             font-size:.75em;
         }
         .notice-by {
