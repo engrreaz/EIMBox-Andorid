@@ -41,7 +41,7 @@ include 'front-page-block/clsteacherblock.php';
 
 ?>
 
-<div class="card ">
+<div class="card " hidden>
     <div class="card-body">
 
         <a class="btn btn-outline-primary" href="admin-sclist.php">Institute List</a>

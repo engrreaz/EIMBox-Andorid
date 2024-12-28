@@ -96,7 +96,7 @@ if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' 
                 <a class="btn btn-dark" style="margin-top:8px;" href="mypr.php">My Receipts</a>
 
 
-                <div style="height:52px;"></div>
+              
             </div>
         </div>
 
