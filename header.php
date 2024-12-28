@@ -87,14 +87,10 @@
         }
 
         .notice-icon{
-            font-size:1.0em;
+            font-size:1.25em;
             color:seagreen;
-            width:1.75em;
-            height:1.75em;
-            border-radius:50%;
-            padding:0px;
             text-align:center;
-            margin-right:1em;
+            margin-right:.75em;
         }
 
         .notice-text {
