@@ -42,7 +42,7 @@
 
     <style>
         body {
-            background: #fef9e7;
+            background: #fdfbf4;
         }
         .page-box {
             border: 0;
