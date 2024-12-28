@@ -23,14 +23,18 @@ if ($cteachercls != '' && $cteachersec != '') {
     // $tperc = rand(10,100);
     $tattdeg = $tperc * 3.6;
     ?>
-    <div class="card pb-1 shadow">
+    <div class="card pb-1 box-shadow">
         <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;"><b>Student's
                 Attendance</b></div>
         <div class="card-body" style="background:var(--lighter);" onclick="goclsatt('<?php echo $x1; ?>','<?php echo $x2; ?>');">
             <table width="100%">
                 <tr>
                     <td>
-                        <div class="" style="color:var(--dark); font-size:15px;  font-weight:600;"><small> </small><span
+                        
+                    <div style="color:var(--dark); font-weight:700; font-size:36px;">
+                        <?php echo $astu;?> <span style="font-size:18px; font-weight:400;" class=""><small> Out of </small> <span style="font-size:22px; font-weight:600;"><?php echo $tstu;?></span></span>
+                    </div>
+                    <div class="" style="color:var(--dark); font-size:15px;  font-weight:600;"><small> </small><span
                                 id="duess"><?php echo $x1 . ' | ' . $x2; ?></span></div>
                         <small>
                             <span style="font-style:normal; color:gray;">

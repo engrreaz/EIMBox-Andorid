@@ -45,8 +45,12 @@
             background: #fdfbf4;
         }
 
-        .shadow {
-            text-shadow: 2px 2px 4px #000000;
+        .text-shadow {
+            text-shadow: 2px 2px 4px #444;
+        }
+
+        .box-shadow {
+            box-shadow: 2px 2px 4px #444;
         }
 
         .page-box {
