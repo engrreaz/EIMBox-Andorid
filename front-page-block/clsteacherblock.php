@@ -49,9 +49,9 @@ if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' 
         </script>
 
         <div class="card ">
-            <div class="card-header" style="color:var(--darker); background:var(--lighter);border-radius:0;"><b>Student's
+            <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;"><b>Student's
                     Payment</b></div>
-            <div class="card-body" style="background:var(--light);" onclick="goclss();">
+            <div class="card-body" style="background:var(--lighter);" onclick="goclss();">
 
 
                 <table width="100%">
