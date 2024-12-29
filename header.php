@@ -151,6 +151,16 @@
             line-height:11px;
         }
 
+        .period-icon {
+            margin-left:5px;
+            font-size:30px;
+            color: var(--dark);
+        }
+
+        .period-text {
+            font-size:.85em;
+        }
+
         .pic {
             width: 90px;
             height: 90px;

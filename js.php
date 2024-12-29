@@ -40,15 +40,17 @@
             class_perc = x * 100 / cd;
         }
         document.getElementById("kk").innerHTML = x;
-        document.getElementById("jj").innerHTML = txt;
+        document.getElementById("jj").innerHTML = '<b>' + txt + '</b> Remaining';
         document.getElementById("class-progress-bar").style.width = class_perc + '%';
         document.getElementById("class-bar-val").innerHTML = class_perc + '%';
-        
-        
+
+
         var period = document.getElementById("main-29").innerHTML;
         var times = document.getElementById("main-30").innerHTML;
         var timee = document.getElementById("main-31").innerHTML;
-        document.getElementById("time-slot").innerHTML = times + ' - ' + timee;
+        // document.getElementById("time-slot").innerHTML =  times + ' - ' + timee;
+        document.getElementById("time-frame").innerHTML = 'Period : ' + times + ' - ' + timee;
+
 
     }
 

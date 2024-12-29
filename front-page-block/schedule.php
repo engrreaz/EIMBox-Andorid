@@ -96,7 +96,7 @@ if ($result0rtx->num_rows > 0) {
 $dur_sec = strtotime($te) - strtotime($cur);
 ?>
 
-<div >
+<div hidden>
     <div id="total_students"><?php echo $total_students; ?></div>
     <div id="st_attnd"><?php echo $today_st_attnd; ?></div>
     <div id="t_attnd"><?php echo $today_t_attnd; ?></div>
@@ -109,8 +109,15 @@ $dur_sec = strtotime($te) - strtotime($cur);
 
 <div class="card gg">
     <div class="card-body" style="background:var(--lighter);">
-        <div id="kk"><?php echo $dur_sec; ?></div>
-        <div id="jj">0</div>
+        <div id="kk" hidden><?php echo $dur_sec; ?></div>
+    
+        <div class="d-flex">
+            <div><i class="bi bi-7-circle-fill period-icon"></i></div>
+            <div class="d-block flex-grow-1">
+                <div class="text-right period-text" id="time-frame"></div>
+                <div class="text-right period-text" id="jj">0</div>
+            </div>
+        </div>
 
         <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="70" id="class-progress-bar" aria-valuemin="0"
@@ -118,9 +125,7 @@ $dur_sec = strtotime($te) - strtotime($cur);
                 <span class="sr-only" id="class-bar-val">70% Complete</span>
             </div>
         </div>
-        <div class="text-small" id="time-slot">
-            
-        </div>
+
 
 
         <div id="sche" class="table-responsive mt-2 ">
