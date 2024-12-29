@@ -96,7 +96,7 @@ if ($result0rtx->num_rows > 0) {
 $dur_sec = strtotime($te) - strtotime($cur);
 ?>
 
-<div hidden>
+<div >
     <div id="total_students"><?php echo $total_students; ?></div>
     <div id="st_attnd"><?php echo $today_st_attnd; ?></div>
     <div id="t_attnd"><?php echo $today_t_attnd; ?></div>
@@ -117,6 +117,9 @@ $dur_sec = strtotime($te) - strtotime($cur);
                 aria-valuemax="100" style="width:70%">
                 <span class="sr-only" id="class-bar-val">70% Complete</span>
             </div>
+        </div>
+        <div class="text-small" id="time-slot">
+            
         </div>
 
 
