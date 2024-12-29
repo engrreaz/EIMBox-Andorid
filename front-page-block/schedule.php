@@ -76,6 +76,7 @@ if ($result0rttfts->num_rows > 0) {
 
 $ccur = date('H:i:s');
 $sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and sessionyear='$sy' and timestart<='$ccur' and timeend>='$ccur';";
+// echo $sql0 ;
 $result0rtx = $conn->query($sql0);
 if ($result0rtx->num_rows > 0) {
     while ($row0 = $result0rtx->fetch_assoc()) {
@@ -95,24 +96,21 @@ if ($result0rtx->num_rows > 0) {
 $dur_sec = strtotime($te) - strtotime($cur);
 ?>
 
-
-<div id="total_students"><?php echo $total_students; ?></div>
-<div id="st_attnd"><?php echo $today_st_attnd; ?></div>
-
-<div id="t_attnd"><?php echo $today_t_attnd; ?></div>
-
-<div id="main-29"><?php echo $period; ?></div>
-<div id="main-30"><?php echo $ts; ?></div>
-<div id="main-31"><?php echo $te; ?></div>
-<div id="class-dur"><?php echo $dur; ?></div>
-
+<div hidden>
+    <div id="total_students"><?php echo $total_students; ?></div>
+    <div id="st_attnd"><?php echo $today_st_attnd; ?></div>
+    <div id="t_attnd"><?php echo $today_t_attnd; ?></div>
+    <div id="main-29"><?php echo $period; ?></div>
+    <div id="main-30"><?php echo $ts; ?></div>
+    <div id="main-31"><?php echo $te; ?></div>
+    <div id="class-dur"><?php echo $dur; ?></div>
+</div>
 
 
-<div class="card" style="background:var(--lighter);">
-    <div class="card-body">
+<div class="card gg">
+    <div class="card-body" style="background:var(--lighter);">
         <div id="kk"><?php echo $dur_sec; ?></div>
-        <div id="jj">500</div>
-
+        <div id="jj">0</div>
 
         <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="70" id="class-progress-bar" aria-valuemin="0"
@@ -120,114 +118,116 @@ $dur_sec = strtotime($te) - strtotime($cur);
                 <span class="sr-only" id="class-bar-val">70% Complete</span>
             </div>
         </div>
-    </div>
-</div>
 
 
-
-<div id="sche" class="table-responsive mt-2 ">
-    <?php
-    if ($examrun == 0) {
-        ?>
-        <div class="table-responsive">
-            <table class="table table-condensed ">
-                <?php
-                $day = date('l', strtotime($td));
-                if ($day == 'Sunday') {
-                    $wday = 1;
-                } else if ($day == 'Monday') {
-                    $wday = 2;
-                } else if ($day == 'Tuesday') {
-                    $wday = 3;
-                } else if ($day == 'Wednesday') {
-                    $wday = 4;
-                } else if ($day == 'Thursday') {
-                    $wday = 5;
-                } else if ($day == 'Friday') {
-                    $wday = 5;
-                } else if ($day == 'Saturday') {
-                    $wday = 5;
-                }
-                echo $userlevel;
-                echo $userid;
-
-                if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
-                    $sql0 = "SELECT * FROM clsroutine where sccode='$sccode' and sessionyear='$sy' and period>='$period' and wday='$wday' and tid='$userid' order by classname, sectionname;";
-                } else {
-                    $sql0 = "SELECT * FROM clsroutine where sccode='$sccode' and sessionyear='$sy' and period='$period' and wday='$wday' order by classname, sectionname;";
-                }
-                echo $sql0;
-                $result0a = $conn->query($sql0);
-                if ($result0a->num_rows > 0) {
-                    while ($row0 = $result0a->fetch_assoc()) {
-                        $cls = $row0["classname"];
-                        $sec = $row0["sectionname"];
-                        $tid = $row0["tid"];
-                        $subj = $row0["subcode"];
-                        $peri = $row0["period"];
-                        $tname = $subname = '';
-                        $ind1 = array_search($tid, array_column($tlist, 'tid'));
-                        if ($ind1 != '') {
-                            $tname = $tlist[$ind1]['tname'];
+        <div id="sche" class="table-responsive mt-2 ">
+            <?php
+            if ($examrun == 0) {
+                ?>
+                <div class="table-responsive table-borderless m-0">
+                    <table class="table table-condensed ">
+                        <?php
+                        $day = date('l', strtotime($td));
+                        if ($day == 'Sunday') {
+                            $wday = 1;
+                        } else if ($day == 'Monday') {
+                            $wday = 2;
+                        } else if ($day == 'Tuesday') {
+                            $wday = 3;
+                        } else if ($day == 'Wednesday') {
+                            $wday = 4;
+                        } else if ($day == 'Thursday') {
+                            $wday = 5;
+                        } else if ($day == 'Friday') {
+                            $wday = 5;
+                        } else if ($day == 'Saturday') {
+                            $wday = 5;
                         }
-                        $ind2 = array_search($subj, array_column($sublist, 'subcode'));
-                        if ($ind2 != '') {
-                            $subname = $sublist[$ind2]['subject'];
+                        // echo $userlevel;
+                        // echo $userid;
+                    
+                        if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
+                            $sql0 = "SELECT * FROM clsroutine where sccode='$sccode' and sessionyear='$sy' and period>='$period' and wday='$wday' and tid='$userid' order by classname, sectionname;";
+                        } else {
+                            $sql0 = "SELECT * FROM clsroutine where sccode='$sccode' and sessionyear='$sy' and period='$period' and wday='$wday' order by classname, sectionname;";
+                        }
+                        // echo $sql0;
+                        $result0a = $conn->query($sql0);
+                        if ($result0a->num_rows > 0) {
+                            while ($row0 = $result0a->fetch_assoc()) {
+                                $cls = $row0["classname"];
+                                $sec = $row0["sectionname"];
+                                $tid = $row0["tid"];
+                                $subj = $row0["subcode"];
+                                $peri = $row0["period"];
+                                $tname = $subname = '';
+                                $ind1 = array_search($tid, array_column($tlist, 'tid'));
+                                if ($ind1 != '') {
+                                    $tname = $tlist[$ind1]['tname'];
+                                }
+                                $ind2 = array_search($subj, array_column($sublist, 'subcode'));
+                                if ($ind2 != '') {
+                                    $subname = $sublist[$ind2]['subject'];
+                                }
+                                ?>
+                                <tr>
+                                    <td><?php echo $cls; ?></td>
+                                    <td><?php echo $sec; ?></td>
+                                    <td><?php echo $subname; ?></td>
+
+                                    <?php
+                                    if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
+                                        echo '<td>Period : ' . $peri . '</td>';
+                                    } else {
+                                        echo '<td>' . $tname . '</td>';
+                                    }
+                                    ?>
+
+                                </tr>
+                                <?php
+                            }
                         }
                         ?>
-                        <tr>
-                            <td><?php echo $cls; ?></td>
-                            <td><?php echo $sec; ?></td>
-                            <td><?php echo $subname; ?></td>
+                    </table>
+                </div>
 
-                            <?php
-                            if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
-                                echo  '<td>Period : '.$peri . '</td>';
-                            } else {
-                                echo '<td>'.$tname . '</td>';
-                            }
-                            ?>
-                            
-                        </tr>
-                        <?php
-                    }
-                }
+
+                <?php
+            } else {
                 ?>
-            </table>
-        </div>
+                <h6 class="font-weight-bold pt-3 text-warning">Examination Schedule</h6>
+                <div class="table-responsive ">
+                    <table class="table table-condensed " style="width:100%;">
+                        <?php
 
 
-        <?php
-    } else {
-        ?>
-        <h6 class="font-weight-bold pt-3 text-warning">Examination Schedule</h6>
-        <div class="table-responsive ">
-            <table class="table table-condensed " style="width:100%;">
+                        foreach ($examtxt as $exx) {
+                            $tmm = $exx["time"];
+                            $cls = $exx["clsname"];
+                            $sec = $exx["secname"];
+                            $subj = $exx["subj"];
+                            ?>
+                            <tr>
+                                <td><?php echo $tmm; ?></td>
+                                <td><?php echo $cls; ?></td>
+                                <td><?php echo $sec; ?></td>
+                                <td><?php echo $subj; ?></td>
+                            </tr>
+                            <?php
+
+                        }
+                        ?>
+                    </table>
+                </div>
+
                 <?php
 
+            }
+            ?>
 
-                foreach ($examtxt as $exx) {
-                    $tmm = $exx["time"];
-                    $cls = $exx["clsname"];
-                    $sec = $exx["secname"];
-                    $subj = $exx["subj"];
-                    ?>
-                    <tr>
-                        <td><?php echo $tmm; ?></td>
-                        <td><?php echo $cls; ?></td>
-                        <td><?php echo $sec; ?></td>
-                        <td><?php echo $subj; ?></td>
-                    </tr>
-                    <?php
-
-                }
-                ?>
-            </table>
         </div>
 
-        <?php
 
-    }
-    ?>
 
+    </div>
 </div>
