@@ -119,9 +119,9 @@ $dur_sec = strtotime($te) - strtotime($cur);
             </div>
         </div>
 
-        <div class="progress">
+        <div class="progress" style=" height:3px;">
             <div class="progress-bar" role="progressbar" aria-valuenow="70" id="class-progress-bar" aria-valuemin="0"
-                aria-valuemax="100" style="width:70%">
+                aria-valuemax="100" style="width:70%;">
                 <span class="sr-only" id="class-bar-val">70% Complete</span>
             </div>
         </div>
