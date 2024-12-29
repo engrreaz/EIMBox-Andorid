@@ -72,13 +72,10 @@ if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' 
                                     Total dues till today.
                                 </span>
                             </small>
-                            <div style="font-size:11px; padding-top:8px; color:purple;">
-                                Total Collection <b><?php echo number_format($tpaid, 2, ".", ","); ?></b> <br>out of Total Dues
-                                <b><?php echo number_format($tpaya, 2, ".", ","); ?></b>.
-                            </div>
+
                         </td>
 
-                        <td class="prog">
+                        <td class="prog" style="text-align:right;">
                             <div
                                 style="border:1px solid purple; poisition:relative; margin:auto; text-align:center; border-radius:50%; height:72px; width:72px; background-image: conic-gradient(var(--dark) 0deg, var(--dark) <?php echo $deg; ?>deg, var(--lighter) <?php echo $deg; ?>deg, var(--lighter) 360deg);">
                                 <div
@@ -88,15 +85,29 @@ if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' 
                             </div>
                         </td>
                     </tr>
+
+
+                    <tr>
+                        <td>
+                            <div style="font-size:11px; padding-top:8px; color:purple;">
+                                Total Collection <b><?php echo number_format($tpaid, 2, ".", ","); ?></b> <br>out of Total Dues
+                                <b><?php echo number_format($tpaya, 2, ".", ","); ?></b>.
+                            </div>
+                        </td>
+
+                        <td>
+
+                            <a class="btn btn-dark" style="margin-top:8px;" href="mypr.php">My Receipts</a>
+                        </td>
+                    </tr>
                 </table>
 
 
 
 
-                <a class="btn btn-dark" style="margin-top:8px;" href="mypr.php">My Receipts</a>
 
 
-              
+
             </div>
         </div>
 

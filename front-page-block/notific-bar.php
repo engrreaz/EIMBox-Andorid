@@ -27,7 +27,7 @@ $sms_clr = 'var(--dark)';
             }
             ?>
 
-            <td class="wd" style="font-size:36px; color:<?php echo $kbase_clr;?>"><span class="" onclick="act1"><i
+            <td class="wd" style="font-size:36px; color:<?php echo $kbase_clr;?>"><span class="" onclick="kbase();"><i
                         class="bi bi-node-plus-fill"></i></span></td>
             <td class="wd"><span class="" style="<?php  echo 'color:' . $bell_clr . ';'; ?>" onclick="act22();"><i class="bi bi-bell-fill"></i></span></td>
             <td class="wd"><span class="" style="<?php if ($y + $n > 0 && $perc < 100) {

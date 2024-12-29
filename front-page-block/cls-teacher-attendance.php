@@ -31,12 +31,11 @@ if ($cteachercls != '' && $cteachersec != '') {
             <table width="100%">
                 <tr>
                     <td>
-
                         <div style="color:var(--dark); font-weight:700; font-size:36px; line-height:24px;">
                             <?php echo $astu; ?> <span style="font-size:18px; font-weight:400;" class=""><small> Out of
                                 </small> <span style="font-size:22px; font-weight:600;"><?php echo $tstu; ?></span></span>
                         </div>
-                        
+
                         <small>
                             <span style="font-style:normal; color:gray; line-height:10px;">
                                 Today's Attendance
@@ -44,10 +43,6 @@ if ($cteachercls != '' && $cteachersec != '') {
                         </small>
                         <div class="" style="color:var(--dark); font-size:15px;  font-weight:600;"><small> </small><span
                                 id="duess"><?php echo $x1 . ' | ' . $x2; ?></span></div>
-                        <br>
-                        <a href="stattndregister.php?cls=<?php echo $x1; ?>&sec=<?php echo $x2; ?>"
-                            class="btn btn-info mt-3">View Attendance Register</a>
-
                     </td>
                     <td class="prog">
                         <div
@@ -58,6 +53,13 @@ if ($cteachercls != '' && $cteachersec != '') {
                             </div>
                         </div>
                     </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <a href="stattndregister.php?cls=<?php echo $x1; ?>&sec=<?php echo $x2; ?>"
+                            class="btn btn-info btn-block mt-3">View Attendance Register</a>
+                    </td> 
                 </tr>
             </table>
 

@@ -57,4 +57,11 @@
     }
 
 
+
+
+
+
+function kbase(){
+    window.location.href='kbase.php';
+}
 </script>
