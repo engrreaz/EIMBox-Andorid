@@ -86,25 +86,26 @@
             line-height: .5rem;
         }
 
-        .notice-icon{
-            font-size:1.25em;
-            color:seagreen;
-            text-align:center;
-            margin-right:.75em;
+        .notice-icon {
+            font-size: 1.25em;
+            color: seagreen;
+            text-align: center;
+            margin-right: .75em;
         }
 
         .notice-text {
-            color:black;
+            color: black;
         }
 
         .notice-small-gray {
             color: var(--normal);
-            font-size:.75em;
-            font-weight:400;
+            font-size: .75em;
+            font-weight: 400;
         }
+
         .notice-by {
-            font-style:italic;
-            font-weight:600;
+            font-style: italic;
+            font-weight: 600;
         }
 
         .menu-icon {
@@ -128,6 +129,26 @@
             font-size: 11px;
             padding: 0;
             margin: 0;
+        }
+
+        .tit {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .descrip {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--darker);
+            line-height:11px;
+        }
+
+        .comm {
+            font-size: 11px;
+            font-weight: 400;
+            color: gray;
+            font-style: italic;
+            line-height:11px;
         }
 
         .pic {
