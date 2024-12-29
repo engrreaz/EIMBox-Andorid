@@ -140,7 +140,7 @@
             font-size: 11px;
             font-weight: 400;
             color: var(--darker);
-            line-height:11px;
+            line-height: 11px;
         }
 
         .comm {
@@ -148,17 +148,17 @@
             font-weight: 400;
             color: gray;
             font-style: italic;
-            line-height:11px;
+            line-height: 11px;
         }
 
         .period-icon {
-            margin-left:5px;
-            font-size:30px;
+            margin-left: 5px;
+            font-size: 30px;
             color: var(--dark);
         }
 
         .period-text {
-            font-size:.85em;
+            font-size: .85em;
         }
 
         .pic {
@@ -216,9 +216,12 @@
         }
 
 
-        .table-schedule{
-            font-size:14px;
-            border:0;
+        table.table-schedule,
+        tr.table-schedule,
+        td.table-schedule {
+            font-size: 14px;
+            color: var(--darker);
+            border: 0;
         }
 
 

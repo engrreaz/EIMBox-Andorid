@@ -7,6 +7,9 @@
     function oneSecondFunction() {
         var x = document.getElementById("kk").innerHTML;
         x = parseInt(x) - 1;
+        if (x < 1) {
+            window.location.href = 'index.php';
+        }
         var cd = document.getElementById("class-dur").innerHTML;
         cd = parseInt(cd) * 1;
         var txt = '';
