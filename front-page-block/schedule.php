@@ -2,6 +2,8 @@
 // date_default_timezone_set('Asia/Dhaka');
 // include('incb.php');
 
+$num_ordinal = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '0');
+$num_cardinal = array('1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '');
 
 $today_st_attnd = 0;
 $today_t_attnd = 0;
@@ -110,7 +112,7 @@ $dur_sec = strtotime($te) - strtotime($cur);
 <div class="card gg">
     <div class="card-body" style="background:var(--lighter);">
         <div id="kk" hidden><?php echo $dur_sec; ?></div>
-    
+
         <div class="d-flex">
             <div id="period-icon"><i class="bi bi-circle-fill period-icon"></i></div>
             <div class="d-block flex-grow-1">
@@ -128,12 +130,12 @@ $dur_sec = strtotime($te) - strtotime($cur);
 
 
 
-        <div id="sche" class="table-responsive mt-2 ">
+        <div id="sche" class="table-responsive mt-1 ">
             <?php
             if ($examrun == 0) {
                 ?>
                 <div class="table-responsive table-borderless m-0">
-                    <table class="table table-condensed ">
+                    <table class="table table-condensed table-schedule">
                         <?php
                         $day = date('l', strtotime($td));
                         if ($day == 'Sunday') {
@@ -179,17 +181,19 @@ $dur_sec = strtotime($te) - strtotime($cur);
                                 }
                                 ?>
                                 <tr>
-                                    <td><?php echo $cls; ?></td>
-                                    <td><?php echo $sec; ?></td>
-                                    <td><?php echo $subname; ?></td>
-
                                     <?php
                                     if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
-                                        echo '<td>Period : ' . $peri . '</td>';
+                                        echo '<td><b>(' . str_replace($num_ordinal, $num_cardinal, $peri) . ')</b></td>';
                                     } else {
                                         echo '<td>' . $tname . '</td>';
                                     }
                                     ?>
+
+                                    <td><?php echo $cls; ?></td>
+                                    <td><?php echo $sec; ?></td>
+                                    <td><?php echo $subname; ?></td>
+
+
 
                                 </tr>
                                 <?php

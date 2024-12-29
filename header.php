@@ -216,6 +216,10 @@
         }
 
 
+        .table-schedule{
+            font-size:14px;
+            border:0;
+        }
 
 
 
