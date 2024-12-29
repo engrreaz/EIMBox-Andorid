@@ -35,9 +35,9 @@ $sms_clr = 'var(--dark)';
             } ?>" onclick="act3();"><i class="bi bi-check2-circle"></i></span></td>
             <td class="wd" style="font-size:28px; ">
                 <div onclick="act4" style=" position:relative;">
-                    <span class="" style="color:<?php echo $sms_clr; ?>"><i class="bi bi-chat-square-fill"></i></span>
+                    <span class="" style="color:<?php echo $sms_clr; ?>; font-size:32px;"><i class="bi bi-chat-square-fill"></i></span>
                     <div class="d-flex"
-                        style="text-align:center; position:absolute; color:var(--lighter); top:1em; left:48%; font-size:11px;">
+                        style="text-align:center; position:absolute; color:var(--lighter); top:1.05em; left:48%; font-size:11px;">
                         <?php echo $sms_cnt; ?>
                     </div>
                 </div>
