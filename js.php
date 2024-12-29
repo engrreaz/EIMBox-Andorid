@@ -50,8 +50,7 @@
         var timee = document.getElementById("main-31").innerHTML;
         // document.getElementById("time-slot").innerHTML =  times + ' - ' + timee;
         document.getElementById("time-frame").innerHTML = 'Period : ' + times + ' - ' + timee;
-
-
+        document.getElementById("period-icon").innerHTML = '<i class="bi bi-' + period + '-circle-fill period-icon"></i>';
     }
 
 
