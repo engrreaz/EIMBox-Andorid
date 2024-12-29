@@ -112,7 +112,7 @@ $dur_sec = strtotime($te) - strtotime($cur);
         <div id="kk" hidden><?php echo $dur_sec; ?></div>
     
         <div class="d-flex">
-            <div id="period-icon"><i class="bi bi-7-circle-fill period-icon"></i></div>
+            <div id="period-icon"><i class="bi bi-circle-fill period-icon"></i></div>
             <div class="d-block flex-grow-1">
                 <div class="text-right period-text" id="time-frame"></div>
                 <div class="text-right period-text" id="jj">0</div>
