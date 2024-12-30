@@ -142,11 +142,16 @@
 
         }
 
-        .menu-item-block .card-body {}
+        .menu-item-block h4 {
+            font-weight:400;
+            color: var(--dark);
+        }
 
-        .menu-item-block small {
-            color: darkgrey;
-            line-height:10px;
+        .menu-item-sub-text {
+            margin-top:8px;
+            color: #333;
+            line-height:15px;
+            font-size:12px;
         }
 
         .menu-separator {

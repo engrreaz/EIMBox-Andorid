@@ -92,7 +92,7 @@ include 'inc.php';
                 $tail_text = ' (All Classes)';
               }
               ?>
-              <small>Manage Attendace </small>
+              <div class="menu-item-sub-text">Manage Attendace </div>
             </td>
           </tr>
         </table>
@@ -109,7 +109,7 @@ include 'inc.php';
             <td class="menu-item-icon"><i class="bi bi-playstation"></i></td>
             <td>
               <h4>Co-Curricular Activities</h4>
-              <small>Manage all kinds of co-curricular activities of students</small>
+              <div class="menu-item-sub-text">Manage all kinds of co-curricular activities of students</div>
             </td>
           </tr>
         </table>
@@ -126,7 +126,7 @@ include 'inc.php';
             <td class="menu-item-icon"><i class="bi bi-pencil-square"></i></td>
             <td>
               <h4>Marks Entry</h4>
-              <small>Entry Marks and Edit, manage, ...</small>
+              <div class="menu-item-sub-text">Entry Marks and Edit, manage, ...</div>
             </td>
           </tr>
         </table>
@@ -141,7 +141,7 @@ include 'inc.php';
             <td class="menu-item-icon"><i class="bi bi-file-earmark"></i></td>
             <td>
               <h4>Class Test</h4>
-              <small>Manage your students class test (create new test and assessment test)</small>
+              <div class="menu-item-sub-text">Manage your students class test (create new test and assessment test)</div>
             </td>
           </tr>
         </table>
