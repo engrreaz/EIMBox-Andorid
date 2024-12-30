@@ -119,7 +119,7 @@
         .menu-text {
             font-size: 1.3em;
             text-align: center;
-            font-weight: 500;
+            font-weight: 600;
             font-style: normal;
             line-height: 1.2em;
             color: black;
@@ -143,7 +143,7 @@
         }
 
         .menu-item-block h4 {
-            font-weight:400;
+            font-weight:500;
             color: var(--dark);
             letter-spacing: 0.5px;;
         }

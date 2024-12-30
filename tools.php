@@ -63,7 +63,7 @@ include 'inc.php';
             <td>
               <div class="menu-icon"><i class="bi bi-ui-checks-grid"></i></div>
               <div class="menu-text"
-                style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
+                style="">
                 Modules
               </div>
             </td>
