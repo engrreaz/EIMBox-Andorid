@@ -110,6 +110,7 @@
 
         .menu-icon {
             color: var(--darker);
+            padding-left:10px;
             font-size: 24px;
             text-align: center;
             font-weight: 700;
@@ -140,6 +141,11 @@
             color: var(--dark);
            border:1px solid red;
 
+        }
+
+        .disable {
+            color: var(--dark) !important;
+            background:var(--dark) !important;
         }
 
         .menu-item-block h4 {

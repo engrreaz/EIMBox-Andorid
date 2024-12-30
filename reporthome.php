@@ -110,7 +110,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block disable" onclick="lnk3();">
       <div class="card-body">
         <table style="">
           <tr>
