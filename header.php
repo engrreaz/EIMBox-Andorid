@@ -109,7 +109,7 @@
         }
 
         .menu-icon {
-            color: var(--darker);
+            color: var(--lighter);
             font-size: 24px;
             text-align: center;
             font-weight: 700;
