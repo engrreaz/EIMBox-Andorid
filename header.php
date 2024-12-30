@@ -110,11 +110,9 @@
 
         .menu-icon {
             color: var(--darker);
-            padding-left:10px;
             font-size: 24px;
             text-align: center;
             font-weight: 700;
-            color: var(--lighter);
         }
 
         .menu-text {
@@ -170,6 +168,7 @@
             font-size:30px;
             width: 50px;
             color: var(--dark);
+            padding-left:10px;
         }
 
         .tit {
