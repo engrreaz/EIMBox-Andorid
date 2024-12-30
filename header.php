@@ -145,7 +145,7 @@
         .menu-item-block h4 {
             font-weight:400;
             color: var(--dark);
-            letter-spacing: 1.0px;;
+            letter-spacing: 0.5px;;
         }
 
         .menu-item-sub-text {
