@@ -89,7 +89,7 @@ include 'inc.php';
       </div>
     </div>
 
-
+<div class="menu-separator"></div>
     <div class="card menu-item-block"  onclick="student_attendace();">
       <img class="card-img-top" alt="">
       <div class="card-body">
@@ -111,6 +111,7 @@ include 'inc.php';
         </table>
       </div>
     </div>
+    <div class="menu-separator"></div>
 
 
 
@@ -129,6 +130,7 @@ include 'inc.php';
     </div>
 
 
+    <div class="menu-separator"></div>
 
     <div class="card menu-item-block"  onclick="class_test();">
       <img class="card-img-top" alt="">
@@ -144,6 +146,7 @@ include 'inc.php';
         </table>
       </div>
     </div>
+    <div class="menu-separator"></div>
 
     <!-- 
       ***************************************************************

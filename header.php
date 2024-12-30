@@ -138,9 +138,7 @@
         .menu-item-block {
             background: var(--lighter);
             color: var(--dark);
-            margin-bottom: 10px;
-            box-shadow: 0 4px 8px 0 var(--dark), 0 6px 20px 0 var(--dark);
-
+           border:1px solid red;
 
         }
 
