@@ -106,7 +106,7 @@ include 'inc.php';
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-playstation"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-universal-access-circle"></i></td>
             <td>
               <h4>Co-Curricular Activities</h4>
               <div class="menu-item-sub-text">Manage all kinds of co-curricular activities of students</div>
