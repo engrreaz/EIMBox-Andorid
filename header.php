@@ -138,15 +138,19 @@
         .menu-item-block {
             background: var(--lighter);
             color: var(--darker);
+            border-bottom: 1px solid var(--darker);
+            margin-bottom:10px;
         }
+
         .menu-item-block small {
             color: darkgrey;
         }
 
-        .menu-separator{
-            height:1px;
-            background:var(--dark);
+        .menu-separator {
+            height: 1px;
+            background: var(--dark);
         }
+
         .menu-item-icon {
             width: 50px;
             color: var(--dark);
