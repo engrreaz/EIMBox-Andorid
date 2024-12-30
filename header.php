@@ -146,6 +146,7 @@
 
         .menu-item-block small {
             color: darkgrey;
+            line-height:14px;
         }
 
         .menu-separator {
