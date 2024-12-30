@@ -168,7 +168,7 @@
             font-size:30px;
             width: 50px;
             color: var(--dark);
-            padding-left:10px;
+            padding: 0 5px;
         }
 
         .tit {
