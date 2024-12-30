@@ -75,11 +75,11 @@ include 'inc.php';
     </div>
 
 
-    <div class="card menu-item-block"  onclick="lnk3();">
+    <div class="card menu-item-block" onclick="lnk3();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td style="width:50px;color:var(--dark);"><i class="material-icons">report</i></td>
+            <td class="menu-item-icon"><i class="material-icons">report</i></td>
             <td>
               <h4>Marks Entry</h4>
               <small>Entry Marks and Edit, manage, ...</small>
@@ -89,13 +89,12 @@ include 'inc.php';
       </div>
     </div>
 
-<div class="menu-separator"></div>
-    <div class="card menu-item-block"  onclick="student_attendace();">
-      <img class="card-img-top" alt="">
+    <div class="menu-separator"></div>
+    <div class="card menu-item-block" onclick="student_attendace();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td style="width:50px;color:var(--dark);"><i class="material-icons">report</i></td>
+            <td class="menu-item-icon"><i class="material-icons">report</i></td>
             <td>
               <h4>Attendance</h4>
               <?php
@@ -115,7 +114,7 @@ include 'inc.php';
 
 
 
-    <div class="card menu-item-block"  onclick="co_curricular_entry();">
+    <div class="card menu-item-block" onclick="co_curricular_entry();">
       <div class="card-body">
         <table style="">
           <tr>
@@ -132,12 +131,11 @@ include 'inc.php';
 
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block"  onclick="class_test();">
-      <img class="card-img-top" alt="">
+    <div class="card menu-item-block" onclick="class_test();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td style="width:50px;color:var(--dark);"><i class="material-icons">description</i></td>
+            <td class="menu-item-icon"><i class="material-icons">description</i></td>
             <td>
               <h4>Class Test</h4>
               <small>Manage your students class test (create new test and assessment test)</small>
@@ -157,8 +155,7 @@ include 'inc.php';
       *************************************************************** -->
 
 
-    <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk1();" hidden>
-      <img class="card-img-top" alt="">
+    <div class="card menu-item-block" onclick="lnk1();" hidden>
       <div class="card-body">
         <table style="">
           <tr>
