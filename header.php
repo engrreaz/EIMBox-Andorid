@@ -169,6 +169,7 @@
             width: 50px;
             color: var(--dark);
             padding: 0 5px;
+            line-height:24px;
         }
 
         .tit {
