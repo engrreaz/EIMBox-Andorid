@@ -150,6 +150,7 @@
             font-weight:400;
             color: var(--dark);
             letter-spacing: 0.5px;;
+            margin-top:5px;
         }
 
         .menu-item-sub-text {
