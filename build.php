@@ -51,22 +51,153 @@ include 'inc.php';
 <main>
   <div class="container-fluidx">
 
-    <div class="card page-box  no-rad text-left" style="background:var(--dark); color:var(--lighter);"
-      onclick="go(<?php echo $id; ?>)">
-
+    <div class="card text-left" style="background:var(--dark); color:var(--lighter);">
       <div class="card-body">
-        <div class="row">
-          <div class="px d-flex">
-            <div class="page-icon pe-3"><i class="bi bi-x-diamond-fill"></i></div>
-            <div class="page-title py"> Settings </div>
-          </div>
-        </div>
-
+        <table width="100%" style="color:white;">
+          <tr>
+            <td>
+              <div class="menu-icon"><i class="bi bi-gear-fill"></i></div>
+              <div class="menu-text"> Settings </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
 
 
 
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-person-circle"></i></td>
+            <td>
+              <h4> My Profile </h4>
+              <div class="menu-item-sub-text"> Edit/Update my profile </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-fingerprint"></i></td>
+            <td>
+              <h4> My Attendance </h4>
+              <div class="menu-item-sub-text"> My daily attendance record </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-currency-exchange"></i></td>
+            <td>
+              <h4> My Transactions </h4>
+              <div class="menu-item-sub-text"> All of my transaction with accoutants that I collected </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-journal"></i></td>
+            <td>
+              <h4> My Memos </h4>
+              <div class="menu-item-sub-text"> All of my memos I've received </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-chat-fill"></i></td>
+            <td>
+              <h4> My Messages </h4>
+              <div class="menu-item-sub-text"> Messages with my selected friends and EIMBox community </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-person-fill-gear"></i></td>
+            <td>
+              <h4> Settings </h4>
+              <div class="menu-item-sub-text"> Relevant setting of my accounts </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-lock-fill"></i></td>
+            <td>
+              <h4> Security </h4>
+              <div class="menu-item-sub-text"> My security setting, login method </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- *******************************************************
+    *******************************************************
+    *******************************************************
+    *******************************************************
+    *******************************************************
+    *******************************************************
+    ******************************************************* -->
     <div class="card mb-1" style="background:var(--lighter); color:var(--darker);" onclick="lnk3();">
       <div class="card-body">
         <div class="row">

@@ -14,7 +14,7 @@ include 'inc.php';
         <table width="100%" style="color:white;">
           <tr>
             <td>
-              <div class="menu-icon"><i class="bi bi-ui-checks-grid"></i></div>
+              <div class="menu-icon"><i class="bi bi-tools"></i></div>
               <div class="menu-text"> Modules </div>
             </td>
           </tr>

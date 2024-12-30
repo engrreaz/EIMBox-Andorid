@@ -5,8 +5,7 @@ include 'inc.php';
 <main>
   <div class="container-fluidx">
 
-    <div class="card text-left" style="background:var(--dark); color:var(--lighter);" onclick="go(<?php echo $id; ?>)">
-
+    <div class="card text-left" style="background:var(--dark); color:var(--lighter);" >
       <div class="card-body">
         <table width="100%" style="color:white;">
           <tr>
@@ -21,38 +20,179 @@ include 'inc.php';
 
 
 
-    <div class="card menu-item-block"  onclick="lnk3();"> 
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-people-fill"></i></td>
+            <td>
+              <h4>Student's List</h4>
+              <div class="menu-item-sub-text"> All of students list accourding to class/section </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-diagram-2-fill"></i></td>
+            <td>
+              <h4>My Class</h4>
+              <div class="menu-item-sub-text"> Student's Report <br>(Attendance, Result, Dues, Co-Curricular Activities) </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-coin"></i></td>
+            <td>
+              <h4>Collection</h4>
+              <div class="menu-item-sub-text"> All of my collection recorded in cloud </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
       <div class="card-body">
         <table style="">
           <tr>
             <td class="menu-item-icon"><i class="bi bi-fingerprint"></i></td>
             <td>
-              <h4>Student's List</h4>
-              <div class="menu-item-sub-text"> All of students list accourding to class/section </div>
-              <small></small>
+              <h4> Attendance </h4>
+              <div class="menu-item-sub-text"> View Students Attendance Report </div>
             </td>
           </tr>
         </table>
       </div>
     </div>
+    <div class="menu-separator"></div>
 
-
-    <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk30();">
-      <img class="card-img-top" alt="">
+    <div class="card menu-item-block" onclick="lnk3();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td style="width:50px;color:var(--dark);"><i class="bi bi-door-open-fill"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-clock-history"></i></td>
+            <td>
+              <h4> Class Routine </h4>
+              <div class="menu-item-sub-text"> Whole routine, based on class and my routine </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-file-text"></i></td>
+            <td>
+              <h4> My Subjects </h4>
+              <div class="menu-item-sub-text"> All of my subjects that I teaches </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-book-half"></i></td>
+            <td>
+              <h4> E-Books </h4>
+              <div class="menu-item-sub-text"> E-books relevant me </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-calendar-check"></i></td>
+            <td>
+              <h4> Our Academic Calendar</h4>
+              <div class="menu-item-sub-text"> Schedule / Events of our institutions including holidays, exam schedule </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-bell-fill"></i></td>
+            <td>
+              <h4> Notices </h4>
+              <div class="menu-item-sub-text"> All of notices relevant me </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-chat-right-fill"></i></td>
+            <td>
+              <h4> Notifications </h4>
+              <div class="menu-item-sub-text"> My notifications </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <!-- **************************************************************************************
+    **************************************************************************************
+    **************************************************************************************
+    **************************************************************************************
+    **************************************************************************************
+    **************************************************************************************
+    ************************************************************************************** -->
+
+    <div class="card menu-item-block" onclick="lnk30();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-door-open-fill"></i></td>
             <td>
               <h4>Tracking Student</h4>
-              <small>Tracking 10th Grade students daily performance</small>
+              <div class="menu-item-text">Tracking 10th Grade students daily performance</div>
             </td>
           </tr>
         </table>
       </div>
     </div>
 
-
+    <div class="menu-separator"></div>
 
     <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk37();">
       <img class="card-img-top" alt="">
@@ -69,7 +209,7 @@ include 'inc.php';
       </div>
     </div>
 
-
+    <div class="menu-separator"></div>
     <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="academic_calendar();">
       <img class="card-img-top" alt="">
       <div class="card-body">
@@ -86,7 +226,7 @@ include 'inc.php';
     </div>
 
 
-
+    <div class="menu-separator"></div>
 
 
 

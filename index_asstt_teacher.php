@@ -99,3 +99,7 @@ include 'front-page-block/clsteacherblock.php';
 
     function goclsattall() { window.location.href = 'attndclssec.php'; }
 </script>
+
+
+
+<?php 
