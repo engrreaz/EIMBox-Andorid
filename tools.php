@@ -51,12 +51,10 @@ include 'inc.php';
 </style>
 </head>
 
-<body>
-  <header>
-    <!-- place navbar here -->
-  </header>
   <main>
     <div class="container-fluids">
+
+
       <div class="card text-left" style="background:var(--dark); color:var(--lighter);"
         onclick="go(<?php echo $id; ?>)">
 
@@ -64,8 +62,8 @@ include 'inc.php';
           <table width="100%" style="color:white;">
             <tr>
               <td>
-                <div class="logoo"><i class="bi bi-ui-checks-grid"></i></div>
-                <div
+                <div class="menu-icon"><i class="bi bi-ui-checks-grid"></i></div>
+                <div class="menu-text"
                   style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
                   Modules
                 </div>
@@ -78,7 +76,7 @@ include 'inc.php';
       </div>
 
 
-      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk3();">
+      <div class="card mb-1" style="background:var(--lighter); color:var(--darker);" onclick="lnk3();">
         <img class="card-img-top" alt="">
         <div class="card-body">
           <table style="">
@@ -86,7 +84,7 @@ include 'inc.php';
               <td style="width:50px;color:var(--dark);"><i class="material-icons">report</i></td>
               <td>
                 <h4>Marks Entry</h4>
-                <small>Entry Marks for the student of class SIX - TEN</small>
+                <small>Entry Marks and Edit, manage, ...</small>
               </td>
             </tr>
           </table>
@@ -94,7 +92,54 @@ include 'inc.php';
       </div>
 
 
-      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk1();">
+      <div class="card mb-1" style="background:var(--lighter); color:var(--darker);" onclick="student_attendace();">
+        <img class="card-img-top" alt="">
+        <div class="card-body">
+          <table style="">
+            <tr>
+              <td style="width:50px;color:var(--dark);"><i class="material-icons">report</i></td>
+              <td>
+                <h4>Attendance</h4>
+                <?php 
+                    if($cteachercls !='' && $cteachersec !=''){
+                      $tail_text = ' (' . $cteachercls . ' | ' . $cteachersec . ')';
+                    } else {
+                      $tail_text = ' (All Classes)';
+                    }
+                ?>
+                <small>Manage Attendace </small>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+
+      <div class="card mb-1 menu-item-block" style="" onclick="co_curricular_entry();">
+        <div class="card-body">
+          <table style="">
+            <tr>
+              <td class="menu-item-icon"><i class="material-icons">group</i></td>
+              <td>
+                <h4>Co-Curricular Activities</h4>
+                <small>Manage all kinds of co-curricular activities of students</small>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+
+<!-- 
+      ***************************************************************
+      ***************************************************************
+      ***************************************************************
+      ***************************************************************
+      ***************************************************************
+      *************************************************************** -->
+
+
+      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk1();" hidden>
         <img class="card-img-top" alt="">
         <div class="card-body">
           <table style="">
@@ -110,8 +155,7 @@ include 'inc.php';
       </div>
 
 
-
-      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk2();">
+      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk2();" hidden>
         <img class="card-img-top" alt="">
         <div class="card-body">
           <table style="">
@@ -127,22 +171,22 @@ include 'inc.php';
       </div>
 
 
-      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk4();">
+      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="class_test();" >
         <img class="card-img-top" alt="">
         <div class="card-body">
           <table style="">
             <tr>
               <td style="width:50px;color:var(--dark);"><i class="material-icons">description</i></td>
               <td>
-                <h4>Transcript</h4>
-                <small>Process Transcript for Students</small>
+                <h4>Class Test</h4>
+                <small>Manage your students class test (create new test and assessment test)</small>
               </td>
             </tr>
           </table>
         </div>
       </div>
 
-      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk40();">
+      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk40();" hidden>
         <img class="card-img-top" alt="">
         <div class="card-body">
           <table style="">
@@ -158,20 +202,7 @@ include 'inc.php';
       </div>
 
 
-      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk42();">
-        <img class="card-img-top" alt="">
-        <div class="card-body">
-          <table style="">
-            <tr>
-              <td style="width:50px;font-size:20px; color:var(--dark);"><i class="bi bi-megaphone-fill"></i></td>
-              <td>
-                <h4>Academic Calendar</h4>
-                <small>Academic Calendar for this Institution</small>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
+   
 
 
 
@@ -265,6 +296,3 @@ include 'inc.php';
     }
   </script>
 
-
-
-</body>

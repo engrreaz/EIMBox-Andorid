@@ -1,23 +1,7 @@
 <?php 
 include 'inc.php';
-$classname = $_GET['cls']; $sectionname = $_GET['sec']; 
 ?>
 
-<!doctype html>
-<html lang="en">
-
-<head>
-  <title>Title</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css.css?v=a">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
     <style>
         .pic{
             width:45px; height:45px; padding:1px; border-radius:50%; border:1px solid var(--dark); margin:5px;
@@ -37,27 +21,16 @@ $classname = $_GET['cls']; $sectionname = $_GET['sec'];
         
     </style>
     
-    
-    <style>
 
-</style>          
-            
-
-</head>
-
-<body>
-  <header>
-    <!-- place navbar here -->
-  </header>
   <main>
     <div class="container-fluidx">
-        <div class="card text-left" style="background:var(--dark); color:var(--lighter);"  onclick="gox()">
+        <div class="card page-box  no-rad text-left" style="background:var(--dark); color:var(--lighter);"  onclick="gox()">
           
             <div class="card-body">
                 <table width="100%" style="color:white;">
                     <tr>
                         <td>
-                            <div class="logoo"><i class="bi bi-patch-question-fill"></i></div>
+                            <div class="page-icon "><i class="bi bi-patch-question-fill"></i></div>
                             <div style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:25px;">
                                 Knowledge Base<br>জ্ঞান কোষ
                             </div>
@@ -145,17 +118,8 @@ $classname = $_GET['cls']; $sectionname = $_GET['sec'];
   <footer>
     <!-- place footer here -->
   </footer>
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  
-  
+
   
   <script>
   document.getElementById("cnt").innerHTML = "<?php echo $cnt;?>";
@@ -230,7 +194,3 @@ $classname = $_GET['cls']; $sectionname = $_GET['sec'];
   </script>
     
     
-  
-</body>
-
-</html>

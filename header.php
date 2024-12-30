@@ -111,17 +111,21 @@
         .menu-icon {
             color: var(--darker);
             font-size: 24px;
+            text-align: center;
             font-weight: 700;
+            color: var(--lighter);
         }
 
         .menu-text {
             font-size: 1.3em;
+            text-align: center;
             font-weight: 500;
             font-style: normal;
             line-height: 1.2em;
             color: black;
             padding: 0;
             margin: 0;
+            color: var(--lighter);
         }
 
         .menu-sub-title {
@@ -129,6 +133,19 @@
             font-size: 11px;
             padding: 0;
             margin: 0;
+        }
+
+        .menu-item-block {
+            background: var(--lighter);
+            color: var(--darker);
+        }
+        .menu-item-block small {
+            color: darkgrey;
+        }
+
+        .menu-item-icon {
+            width: 50px;
+            color: var(--dark);
         }
 
         .tit {
