@@ -137,10 +137,14 @@
 
         .menu-item-block {
             background: var(--lighter);
-            color: var(--darker);
-            border-bottom: 1px solid var(--darker);
-            margin-bottom:10px;
+            color: var(--dark);
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px 0 var(--dark), 0 6px 20px 0 var(--dark);
+
+
         }
+
+        .menu-item-block .card-body {}
 
         .menu-item-block small {
             color: darkgrey;
