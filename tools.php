@@ -4,72 +4,20 @@ include 'inc.php';
 // $sectionname = $_GET['sec'];
 ?>
 
-<style>
-  .pic {
-    width: 45px;
-    height: 45px;
-    padding: 1px;
-    border-radius: 50%;
-    border: 1px solid var(--dark);
-    margin: 5px;
-  }
-
-  .a {
-    font-size: 18px;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 22px;
-    color: var(--dark);
-  }
-
-  .b {
-    font-size: 16px;
-    font-weight: 600;
-    font-style: normal;
-    line-height: 22px;
-  }
-
-  .c {
-    font-size: 11px;
-    font-weight: 400;
-    font-style: italic;
-    line-height: 16px;
-  }
-
-  h4 {
-    font-size: 18px;
-    color: var(--darker);
-    line-height: 12px;
-    font-weight: 700;
-  }
-
-  small {
-    font-size: 10px;
-    color: var(--dark);
-    line-height: 10px;
-  }
-</style>
-</head>
 
 <main>
   <div class="container-fluids">
 
 
-    <div class="card text-left" style="background:var(--dark); color:var(--lighter);" onclick="go(<?php echo $id; ?>)">
-
+    <div class="card " style="background:var(--dark); color:var(--lighter);">
       <div class="card-body">
         <table width="100%" style="color:white;">
           <tr>
             <td>
               <div class="menu-icon"><i class="bi bi-ui-checks-grid"></i></div>
-              <div class="menu-text"
-                style="">
-                Modules
-              </div>
+              <div class="menu-text"> Modules </div>
             </td>
           </tr>
-
-
         </table>
       </div>
     </div>
@@ -141,7 +89,8 @@ include 'inc.php';
             <td class="menu-item-icon"><i class="bi bi-file-earmark"></i></td>
             <td>
               <h4>Class Test</h4>
-              <div class="menu-item-sub-text">Manage your students class test (create new test and assessment test)</div>
+              <div class="menu-item-sub-text">Manage your students class test (create new test and assessment test)
+              </div>
             </td>
           </tr>
         </table>
