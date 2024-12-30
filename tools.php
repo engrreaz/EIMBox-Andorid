@@ -92,7 +92,7 @@ include 'inc.php';
       </div>
 
 
-      <div class="card mb-1" style="background:var(--lighter); color:var(--darker);" onclick="student_attendace();">
+      <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="student_attendace();">
         <img class="card-img-top" alt="">
         <div class="card-body">
           <table style="">
@@ -114,6 +114,9 @@ include 'inc.php';
         </div>
       </div>
 
+<div class="menu-separator">
+  
+</div>
 
       <div class="card mb-1 menu-item-block" style="" onclick="co_curricular_entry();">
         <div class="card-body">

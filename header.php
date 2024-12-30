@@ -143,6 +143,10 @@
             color: darkgrey;
         }
 
+        .menu-separator{
+            height:1px;
+            background:var(--dark);
+        }
         .menu-item-icon {
             width: 50px;
             color: var(--dark);
