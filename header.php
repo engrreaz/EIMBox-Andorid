@@ -143,7 +143,7 @@
         }
 
         .menu-item-block h4 {
-            font-weight:500;
+            font-weight:400;
             color: var(--dark);
             letter-spacing: 0.5px;;
         }
