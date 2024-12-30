@@ -155,6 +155,7 @@
         }
 
         .menu-item-icon {
+            font-size:30px;
             width: 50px;
             color: var(--dark);
         }

@@ -75,26 +75,14 @@ include 'inc.php';
     </div>
 
 
-    <div class="card menu-item-block" onclick="lnk3();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="material-icons">report</i></td>
-            <td>
-              <h4>Marks Entry</h4>
-              <small>Entry Marks and Edit, manage, ...</small>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
 
-    <div class="menu-separator"></div>
+
+
     <div class="card menu-item-block" onclick="student_attendace();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="material-icons">report</i></td>
+            <td class="menu-item-icon"><i class="bi bi-fingerprint"></i></td>
             <td>
               <h4>Attendance</h4>
               <?php
@@ -118,7 +106,7 @@ include 'inc.php';
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="material-icons">group</i></td>
+            <td class="menu-item-icon"><i class="bi bi-playstation"></i></td>
             <td>
               <h4>Co-Curricular Activities</h4>
               <small>Manage all kinds of co-curricular activities of students</small>
@@ -131,11 +119,26 @@ include 'inc.php';
 
     <div class="menu-separator"></div>
 
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-pencil-square"></i></td>
+            <td>
+              <h4>Marks Entry</h4>
+              <small>Entry Marks and Edit, manage, ...</small>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
     <div class="card menu-item-block" onclick="class_test();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="material-icons">description</i></td>
+            <td class="menu-item-icon"><i class="bi bi-file-earmark"></i></td>
             <td>
               <h4>Class Test</h4>
               <small>Manage your students class test (create new test and assessment test)</small>
