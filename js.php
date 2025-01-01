@@ -14,6 +14,8 @@
                 window.location.href = 'index.php';
             } else {
                 document.getElementById("jj").innerHTML = 'Class Routine & Schedule are missing.';
+                document.getElementById("class-progress-bar").style.width = class_perc + '%';
+                document.getElementById("class-bar-val").innerHTML = class_perc + '%';
             }
 
         } else {
