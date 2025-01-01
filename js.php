@@ -13,7 +13,7 @@
             if(cd>0){
                 window.location.href = 'index.php';
             } else {
-                document.getElementById("kk").innerHTML = 'Class Routine & Schedule are missing.';
+                document.getElementById("jj").innerHTML = 'Class Routine & Schedule are missing.';
             }
             
         }
