@@ -13,7 +13,7 @@
             if(cd>0){
                 window.location.href = 'index.php';
             } else {
-                alert('no schedule found');
+                document.getElementById("kk").innerHTML = 'Class Routine & Schedule are missing.';
             }
             
         }
