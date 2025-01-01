@@ -7,11 +7,17 @@
     function oneSecondFunction() {
         var x = document.getElementById("kk").innerHTML;
         x = parseInt(x) - 1;
-        if (x < 1) {
-            window.location.href = 'index.php';
-        }
-        var cd = document.getElementById("class-dur").innerHTML;
+         var cd = document.getElementById("class-dur").innerHTML;
         cd = parseInt(cd) * 1;
+        if (x < 1) {
+            if(cd>0){
+                window.location.href = 'index.php';
+            } else {
+                alert('no schedule found');
+            }
+            
+        }
+       
         var txt = '';
         var d, h, m, s;
         if (x > 3600 * 24) {
