@@ -143,7 +143,7 @@ if ($result0wwrtd->num_rows > 0) {
     </div>
 
 
-<?php include 'js.php';?>
+
 </main>
 
 <script>

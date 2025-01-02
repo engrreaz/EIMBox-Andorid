@@ -72,4 +72,12 @@
     function kbase() {
         window.location.href = 'kbase.php';
     }
+
+
+
+
+    // NAVIGATION...........
+    function report_menu_student_list() {
+        window.location.href= 'student-list.php';
+    }
 </script>

@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="assets/front.css">
 
     <script src="assets/pre-load.js"></script>
-
+    <?php include 'js.php';?>
     <style>
         body {
             background: #fdfbf4;
@@ -270,8 +270,23 @@
         }
 
 
+        .st-list-photo {
+            width:70px;
+            height:70px;
+            border-radius:50%;
+            margin:1px;
+            border:1px solid var(--darker);
+        }
 
 
+        .stname-eng {
+            font-size:18px;
+            font-weight:700;
+            line-height: 18px;
+        }
+        .stname-ben {
+            font-size:14px;
+        }
 
 
         .card {

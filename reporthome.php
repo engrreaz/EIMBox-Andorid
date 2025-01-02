@@ -20,7 +20,7 @@ include 'inc.php';
 
 
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="report_menu_student_list();">
       <div class="card-body">
         <table style="">
           <tr>
