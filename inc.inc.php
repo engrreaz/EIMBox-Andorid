@@ -82,7 +82,7 @@ if ($result0->num_rows > 0) {
         $userid = $row0["userid"];
         $pth = $row0["photourl"];
         $curexam = $row0["curexam"];
-        $sy = $row0["session"];
+        // $sy = $row0["session"];
         $otp = $row0["otp"];
         $otptime = $row0["otptime"];
     }

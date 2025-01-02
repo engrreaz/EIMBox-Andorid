@@ -77,7 +77,10 @@
 
 
     // NAVIGATION...........
-    function report_menu_student_list() {
+    function report_menu_my_class() {
         window.location.href= 'student-list.php';
+    }
+    function report_menu_student_list() {
+        window.location.href= 'students.php';
     }
 </script>

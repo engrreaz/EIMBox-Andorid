@@ -20,13 +20,13 @@ include 'inc.php';
 
 
 
-    <div class="card menu-item-block" onclick="report_menu_student_list();">
+    <div class="card menu-item-block" onclick="report_menu_my_class();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-people-fill"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-diagram-2-fill"></i></td>
             <td>
-              <h4>Student's List</h4>
+              <h4>My Class</h4>
               <div class="menu-item-sub-text"> All of students list accourding to class/section </div>
             </td>
           </tr>
@@ -35,13 +35,13 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="report_menu_student_list();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-diagram-2-fill"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-people-fill"></i></td>
             <td>
-              <h4>My Class</h4>
+              <h4>Students List</h4>
               <div class="menu-item-sub-text"> Student's Report <br>(Attendance, Result, Dues, Co-Curricular Activities) </div>
             </td>
           </tr>
