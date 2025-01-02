@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
-    <link rel="stylesheet" href="assets/css.css?v=a8">
+    <link rel="stylesheet" href="assets/css.css?v=a9">
     <link rel="stylesheet" href="assets/front.css">
 
     <script src="assets/pre-load.js"></script>
@@ -59,6 +59,9 @@
 
         }
 
+        .footer-nav-icon{
+            font-size:20px;
+        }
 
         .page-icon {
             color: white;
@@ -147,9 +150,9 @@
         }
 
         .menu-item-block h4 {
-            font-weight:400;
+            font-weight:600;
             color: var(--dark);
-            letter-spacing: 0.5px;;
+            letter-spacing: 0.75px;;
             margin-top:5px;
         }
 

@@ -17,9 +17,7 @@
                 document.getElementById("class-progress-bar").style.width =  '100%';
                 document.getElementById("class-bar-val").innerHTML = '100%';
             }
-
         } else {
-
             var txt = '';
             var d, h, m, s;
             if (x > 3600 * 24) {

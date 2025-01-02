@@ -33,14 +33,13 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
         <table width="100%">
             <tr>
                 <td style="width:10%"></td>
-                <td style="text-align:center;"><a style="color:white;" href="index.php"><i
-                            class="material-icons">home</i></a></td>
+                <td style="text-align:center;"><a style="color:white;" href="index.php">
+                        <i class="bi bi-home"></i></a></td>
                 <td style="text-align:center;"><a style="color:white;" href="reporthome.php"><i
-                            class="material-icons">description</i></a></td>
+                            class="bi bi-school"></i></a></td>
                 <td style="text-align:center;"><a style="color:white;" href="tools.php"><i
-                            class="material-icons">spa</i></a></td>
-                <td style="text-align:center;"><a style="color:white;" href="build.php"><i
-                            class="material-icons">build</i></a></td>
+                            class="bi bi-view-module"></i></a></td>
+                <td style="text-align:center;"><a style="color:white;" href="build.php"><i class="bi bi-gear"></i></a></td>
                 <td style="width:<?php echo $hb; ?>%"></td>
             </tr>
         </table>
@@ -48,19 +47,17 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 
 <?php } else if ($userlevel == 'Class Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Teacher') { ?>
 
-        <div class="noprint"
+        <div class="noprint" id="footer-nav"
             style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px; z-index:999;">
             <table width="100%">
                 <tr>
                     <td style="width:<?php echo $hb; ?>%"></td>
-                    <td style="text-align:center;"><a style="color:white;" href="index.php"><i
-                                class="material-icons">home</i></a></td>
+                    <td style="text-align:center;"><a style="color:white;" href="index.php"><i class="footer-nav-icon bi bi-house-fill"></i></a></td>
                     <td style="text-align:center;"><a style="color:white;" href="reporthome.php"><i
-                                class="material-icons">description</i></a></td>
+                                class="footer-nav-icon bi bi-mortarboard-fill"></i></a></td>
                     <td style="text-align:center;"><a style="color:white;" href="tools.php"><i
-                                class="material-icons">spa</i></a></td>
-                    <td style="text-align:center;"><a style="color:white;" href="build.php"><i
-                                class="material-icons">build</i></a></td>
+                                class="footer-nav-icon bi bi-circle-square"></i></a></td>
+                    <td style="text-align:center;"><a style="color:white;" href="build.php"><i class="footer-nav-icon bi bi-tools"></i></a></td>
                     <td style="width:<?php echo $hb; ?>%"></td>
                 </tr>
             </table>
@@ -163,26 +160,26 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 
 
     const element = document.getElementById("logstatus");
-    
+
     setInterval(function () {
         var infor = "page=<?php echo $curfile; ?>& size=<?php echo filesize($curfile); ?>";
 
-    $("#logstatus").html("----");
+        $("#logstatus").html("----");
 
-    $.ajax({
-        type: "POST",
-        url: "backend/save-log.php",
-        data: infor,
-        cache: false,
-        beforeSend: function () {
-            $('#logstatus').html('<span></span>');
-        },
-        success: function (html) {
-            $('#logstatus').html(html);
-        }
-    });
+        $.ajax({
+            type: "POST",
+            url: "backend/save-log.php",
+            data: infor,
+            cache: false,
+            beforeSend: function () {
+                $('#logstatus').html('<span></span>');
+            },
+            success: function (html) {
+                $('#logstatus').html(html);
+            }
+        });
     }, 1000);
-    
+
 
 
 
