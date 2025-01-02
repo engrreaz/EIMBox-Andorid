@@ -133,16 +133,16 @@ $collection = $accountant = 0;
           <tr>
             <td>
               <div style="font-size:36px; font-weight:700; line-height:15px;" id="cntamt"></div>
-              <div style="color:var(--darker); font-size:12px; font-weight:400; font-style:italic; line-height:40px;">
+              <div style="color:var(--light); font-size:12px; font-weight:400; font-style:italic; line-height:40px;">
                 Cash-in-hand</div>
             </td>
             <td style="text-align:right;">
-              <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt"></div>
+              <div style="font-size:24px; font-weight:700; line-height:20px;" id="cnt"></div>
               <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Receipt</div>
 
-              <div style="font-size:12px; color:graylight; ">Total Collections : <span style="font-weight:700; "
+              <div style="font-size:11px; color:graylight; font-style:italic; ">Total Collections : <span style="font-weight:700;  font-style:normal;"
                   id="collection"></span></div>
-              <div style="font-size:12px; color:graylight; ">To Accountants : <span style="font-weight:700; "
+              <div style="font-size:11px; color:graylight;  font-style:italic;">To Accountants : <span style="font-weight:700; font-style:normal; "
                   id="accountant"></span></div>
 
             </td>
