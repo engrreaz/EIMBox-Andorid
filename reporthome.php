@@ -10,7 +10,7 @@ include 'inc.php';
         <table width="100%" style="color:white;">
           <tr>
             <td>
-              <div class="menu-icon"><i class="bi bi-file-earmark-fill"></i></div>
+              <div class="menu-icon"><i class="bi bi-mortarboard-fill"></i></div>
               <div class="menu-text"> Reports </div>
             </td>
           </tr>
