@@ -41,7 +41,7 @@ include 'inc.back.php';
     $loop = ''; $item=1;
 	$sql0r = "SELECT * FROM stfinance where pr1no='$prno' || pr2no='$prno' "; 
     $result0bg = $conn->query($sql0r); if ($result0bg->num_rows > 0) {while($row0r = $result0bg->fetch_assoc()) { 
-        $item = $item;
+        // $item = $item;
         $partid=$row0r["partid"]; 
         $de=$row0r["particulareng"]; 
         $de = str_replace("Tution Fee : ","", $de);
