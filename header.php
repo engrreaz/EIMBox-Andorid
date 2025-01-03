@@ -39,10 +39,26 @@
     <link rel="stylesheet" href="assets/front.css">
 
     <script src="assets/pre-load.js"></script>
-    <?php include 'js.php';?>
+    <?php include 'js.php'; ?>
     <style>
         body {
             background: #fdfbf4;
+        }
+
+        .page-top-box {
+            background:var(--dark);
+            color: var(--lighter);
+            border-radius: 0;
+        }
+        .page-info-box {
+            background:var(--darker);
+            color: var(--light);
+            border-radius: 0;
+        }
+
+        .text-small {
+            font-size: small;
+            font-weight:400;
         }
 
         .text-shadow {
@@ -59,8 +75,8 @@
 
         }
 
-        .footer-nav-icon{
-            font-size:20px;
+        .footer-nav-icon {
+            font-size: 20px;
         }
 
         .page-icon {
@@ -140,27 +156,28 @@
         .menu-item-block {
             background: var(--lighter);
             color: var(--dark);
-           border:1px solid red;
+            border: 1px solid red;
 
         }
 
         .disable {
             color: var(--dark) !important;
-            background:var(--dark) !important;
+            background: var(--dark) !important;
         }
 
         .menu-item-block h4 {
-            font-weight:500;
+            font-weight: 500;
             color: var(--dark);
-            letter-spacing: 0.75px;;
-            margin-top:5px;
+            letter-spacing: 0.75px;
+            ;
+            margin-top: 5px;
         }
 
         .menu-item-sub-text {
-            margin-top:8px;
+            margin-top: 8px;
             color: #333;
-            line-height:15px;
-            font-size:12px;
+            line-height: 15px;
+            font-size: 12px;
         }
 
         .menu-separator {
@@ -169,11 +186,11 @@
         }
 
         .menu-item-icon {
-            font-size:30px;
+            font-size: 30px;
             width: 50px;
             color: var(--dark);
             padding: 0 5px;
-            line-height:24px;
+            line-height: 24px;
         }
 
         .tit {
@@ -204,6 +221,14 @@
 
         .period-text {
             font-size: .85em;
+        }
+
+        .st-pic-normal {
+            width: 60px;
+            height: 60px;
+            padding: 1px;
+            border-radius: 50%;
+            border: 0px solid var(--light);
         }
 
         .pic {
@@ -271,25 +296,28 @@
 
 
         .st-list-photo {
-            width:70px;
-            height:70px;
-            border-radius:50%;
-            margin:1px;
-            border:1px solid var(--darker);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 1px;
+            border: 1px solid var(--darker);
         }
 
 
         .stname-eng {
-            font-size:18px;
-            font-weight:700;
+            font-size: 18px;
+            font-weight: 700;
             line-height: 18px;
         }
+
         .stname-ben {
-            font-size:14px;
+            font-size: 14px;
         }
+
         .st-id {
             font-size: 11px;
         }
+
         .roll-no {
             font-size: 13px;
         }

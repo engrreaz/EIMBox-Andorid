@@ -1,119 +1,112 @@
-<?php 
+<?php
 include 'inc.php';
 $prno = $_GET['prno'];
-$prdate = $_GET['prdate']; $stname=$_GET['stname'];  $collname=$_GET['collname'];  $cls = $_GET['cls'];  $sec = $_GET['sec'];  $roll = $_GET['roll'];  $stid = $_GET['stid'];  $cnt = $_GET['cnt'];  $total = $_GET['total'];  //$ = $_GET[''];  $ = $_GET[''];  
+$prdate = $_GET['prdate'];
+$stname = $_GET['stname'];
+$collname = $_GET['collname'];
+$cls = $_GET['cls'];
+$sec = $_GET['sec'];
+$roll = $_GET['roll'];
+$stid = $_GET['stid'];
+$cnt = $_GET['cnt'];
+$total = $_GET['total'];  //$ = $_GET[''];  $ = $_GET[''];  
 ?>
 
-<!doctype html>
-<html lang="en">
+<div class="container-fluids">
 
-<head>
-  <title>-</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <div class="card text-start page-top-box ">
+        <div class="card-body">
+            <table width="100%" style="color:white;">
+                <tr>
+                    <td>
+                        <div class="menu-icon"><i class="bi bi-receipt"></i></div>
+                        <div class="menu-text"> Payments Receipt </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="card text-start page-info-box ">
+        <div class="card-body">
+            <table width="100%" style="color:white;">
+                <tr>
+                    <td colspan="2">
+                        <div class="d-flex pt-2 pb-2">
+                            <img class="st-pic-normal" src="<?php echo $pth; ?>" />
 
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css.css?v=a">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
-    <style>
-        .right{
-            float:right; font-size:11px;
-        }
-        .left{
-            font-size:11px;
-        }
-        .title{
-            font-weight:bold;
-        }
-    </style>
-</head>
-
-<body>
-
-
-    <div class="container-fluids">
-        <div class="card text-left" style="background:var(--dark); color:var(--lighter);" >
-          
-            <div class="card-body">
-                <table width="100%" style="color:white;">
-                    <tr>
-                        <td>
-                            <div class="logoo"><i class="bi bi-ui-checks-grid"></i></div>
-                            <div style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">......
+                            <div class="ms-3 ">
+                                <div class="stname-eng pb-1"><?php echo $stname; ?></div>
+                                <div class="st-id">Id # <?php echo $stid; ?></div>
+                                <div class="roll-no">Roll # <?php echo $roll; ?></div>
+                                <div class="roll-no">class : <b><?php echo strtoupper($cls);
+                                ; ?></b> <i class="bi bi-arrow-right-circle-fill"></i>
+                                    <b><?php echo strtoupper($sec); ?></b>
+                                </div>
                             </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
-        
-        
-        
-        <div class="card text-left" style="background:var(--lighter); color:var(--darker);"  >
-            <div class="card-body">
-                <div class="right"><b><?php echo $prno;?></b></div>
-                <div class="left">Reciept No. </div>
-                
-                <div class="right"><?php echo $prdate;?></div>
-                <div class="left">Date :</div>
-            </div>
-        </div>
-        
-        <div class="card text-left" style="background:var(--lighter); color:var(--darker);"  >
-            <div class="card-body">
-                <div class="left"><b><?php echo $stname;?></b></div>
-                <div class="left">Class : <?php echo $cls . ' (' . $sec . ') - ' . $roll;?></div>
-                <div class="left">ID : <?php echo $stid;?></div>
-            </div>
-        </div>
-        
-        <div class="card text-left" style="background:var(--lighter); color:var(--darker);"  >
-            <div class="card-body">
-                <?php
-                    for($a=1; $a<=$cnt; $a++){
-                        ?>
-                            <div class="right"><?php echo  $_GET['item'.$a.'taka'].'.00';;?></div>
-                            <div class="left"><?php echo  $_GET['item'.$a.'txt'];;?></div>
-                        <?php
-                    }
-                ?>
-                            
-            </div>
-        </div>
-        
-        <div class="card text-left" style="background:var(--lighter); color:var(--darker);"  >
-            <div class="card-body">
-                <div class="right"><b><?php echo $total.'.00';?></b></div>
-                <div class="left">Total Amount : </div>
-            </div>
-        </div>
-        
-        <div class="card text-left" style="background:var(--lighter); color:var(--darker);"  >
-            <div class="card-body">
-                <div class="right"><b><?php echo $collname;?></b></div>
-                <div class="left">Collected By : </div>
-            </div>
-        </div>
+    </div>
 
-        <div style="padding:8px;text-align:center;">
-            <button class="btn btn-danger" onclick="history.go(-1);">Back </button>
+    <div class="card text-left" style="background:var(--light); color:var(--darker);">
+        <div class="card-body">
+            <div class="float-end"><b><?php echo $prno; ?></b></div>
+            <div class="left">Reciept No. </div>
+
+            <div class="float-end"><?php echo $prdate; ?></div>
+            <div class="left">Date :</div>
         </div>
-        
-        
     </div>
 
   
-  
-  
-  
-  
-  <div style="height:52px;"></div>
 
-  
-</body>
+    <div class="card text-left" style="background:var(--lighter); color:var(--darker);">
+        <div class="card-body">
+            <?php
+            for ($a = 1; $a <= $cnt; $a++) {
+                ?>
+                <div class="border-bottom">
 
-</html>
+                
+                <div class="float-end"><?php echo $_GET['item' . $a . 'taka'] . '.00';
+                ; ?></div>
+                <div class="left"><?php echo $_GET['item' . $a . 'txt'];
+                ; ?></div>
+</div>
+
+                <?php
+            }
+            ?>
+
+        </div>
+    </div>
+
+    <div class="card text-left" style="background:var(--lighter); color:var(--darker);">
+        <div class="card-body">
+            <div class="float-end"><b><?php echo $total . '.00'; ?></b></div>
+            <div class="left">Total Amount : </div>
+        </div>
+    </div>
+
+    <div class="card text-left" style="background:var(--lighter); color:var(--darker);">
+        <div class="card-body">
+            <div class="float-end"><b><?php echo $collname; ?></b></div>
+            <div class="left">Collected By : </div>
+        </div>
+    </div>
+
+    <div style="padding:8px;text-align:center;">
+        <button class="btn btn-info mt-2 btn-block" onclick="history.go(-1);">Back </button>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<div style="height:52px;"></div>

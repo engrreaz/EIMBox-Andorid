@@ -9,7 +9,7 @@ $totaldues = 0;
 
 $month = date('m');
 $st_dues_list = array();
-$sql0 = "SELECT stid, sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname='$sectionname' and month<='$month'";
+$sql0 = "SELECT stid, sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname='$sectionname' and month<='$month' group by stid order by rollno";
 $result01x = $conn->query($sql0);
 if ($result01x->num_rows > 0) {
   while ($row0 = $result01x->fetch_assoc()) {
@@ -139,7 +139,7 @@ if ($result01x->num_rows > 0) {
               <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Section</div>
               <div>
                 <input type="text" id="mylastpr" value="23272003" hidden />
-                <button class="btn btn-primary text-small mt-2" onclick="epos();">Print Last PR (POS)</button>
+                <button class="btn btn-info text-small mt-2" onclick="epos();">Print Last PR (POS)</button>
                 <div id="eposlink"></div>
               </div>
             </td>
@@ -154,7 +154,7 @@ if ($result01x->num_rows > 0) {
         </table>
       </div>
     </div>
-    <div style="height:8px;"></div>
+    <div style="height:4px;"></div>
 
 
     <?php
@@ -237,14 +237,14 @@ if ($result01x->num_rows > 0) {
                   <span style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span>
                 </td>
                 <td style="text-align:left; padding-left:5px;">
-                  <div class="a"><?php echo $neng; ?></div>
-                  <div class="b"><?php echo $nben; ?></div>
-                  <div class="c" style="font-weight:600; font-style:normal; color:gray;">ID # <?php echo $stid; ?></div>
-                  <div class="c"><?php echo $vill; ?></div>
+                  <div class="stname-eng"><?php echo $neng; ?></div>
+                  <div class="stname-ben"><?php echo $nben; ?></div>
+                  <div class="st-id" style="font-weight:600; font-style:normal; color:gray;">ID # <?php echo $stid; ?></div>
+                  <div class="st-id"><?php echo $vill; ?></div>
                 </td>
                 <td style="text-align:right; font-size:20px; font-weight:600;">
                   <?php echo number_format($totaldues, 2, ".", ","); ?>
-                  <br><a class="btn btn-<?php echo $btn; ?>" style="font-size:10px;"
+                  <br><a class="btn btn-<?php echo $btn; ?> " style="font-size:12px;"
                     href="stprdetails.php?id=<?php echo $stid; ?>">Payment History</a>
                 </td>
               </tr>

@@ -83,49 +83,87 @@ if (isset($_GET['edit'])) {
         }
         ?>
 
+
+
+
         <div class="containerx-fluid" style=" ">
             <div style="position:relative; z-index:99; width:100%;">
+
+            <div class="card text-start page-top-box ">
+                <div class="card-body">
+                    <table width="100%" style="color:white;">
+                        <tr>
+                            <td>
+                            <div class="menu-icon"><i class="bi bi-coin"></i></div>
+                            <div class="menu-text"> Payments Collection </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="card text-start page-info-box ">
+                <div class="card-body">
+                    <table width="100%" style="color:white;">
+                        <tr>
+                            <td colspan="2">
+                                <div class="d-flex pt-2 pb-2">
+                                    <img class="st-pic-normal" src="<?php echo $pth; ?>" />
+
+                                    <div class="ms-3 ">
+                                        <div class="stname-eng"><?php echo $neng; ?></div>
+                                        <div class="stname-ben"><?php echo $nben; ?></div>
+                                        <div class="st-id">Id # <?php echo $stid; ?></div>
+                                        <div class="roll-no">Roll # <?php echo $rollno; ?></div>
+                                        <div class="roll-no">class : <b><?php echo strtoupper($ccc);
+                                        ; ?></b> <i class="bi bi-arrow-right-circle-fill"></i>
+                                            <b><?php echo strtoupper($sss); ?></b>
+                                        </div>
+
+                                        <div class="mt-3 d-flex col-12">
+                                            <div class="col-7">
+                                                <div style="font-size:36px; font-weight:700; line-height:20px;" id="cnt">
+                                                0.00
+                                            </div>
+                                            <div
+                                                style="color: var(--light); font-size:12px; font-weight:400; font-style:italic; line-height:30px;">
+                                                Total Dues</div>
+                                            </div>
+                                            <div class="col-5 text-right">
+                                  
+                                        <input type="text" id="mylastpr" value="23272003" hidden />
+                                        <button class="btn btn-info mt-2 text-small text-end" onclick="epos();">Print Last PR (POS)</button>
+                                        <div id="eposlink" style="display:none;">***</div>
+                                    </div>
+                                        
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            
                 <div class="card text-left" style="background:var(--dark); color:var(--lighter);border-radius:0;"
-                    onclick="gol(<?php echo $id; ?>)">
+                    onclick="gol(<?php echo $id; ?>)"  hidden>
 
                     <div class="card-body">
-                        <table width="100%" style="color:white;">
+                        <table width="100%" style="color:var(--lighter);">
 
-                        <tr>
-    <td colspan="2">
-        <div class="menu-icon"><i class="bi bi-coin"></i></div>
-        <div class="menu-text"> Student's Payment </div>
-    </td>
-</tr>
+
 
                             <tr>
-                                <td colspan="2">
-                                    <div
-                                        style="font-size:20px; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
-                                        <span class="stname-eng"><?php echo $neng; ?></span><br>
-                                        <span class="stname-ben"><?php echo $nben; ?></span><br>
-                                        <span class="st-id">Id # <?php echo $stid; ?></span><br>
-                                        <span class="roll-no">Roll #<?php echo $rollno; ?></span>
-                                    </div>
-                                </td>
+                                
                             </tr>
                             <tr>
                                 <td>
-                                    <div style="font-size:16px; font-weight:700; line-height:15px;">
-                                        <?php echo strtoupper($ccc); ?></div>
-                                    <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">
-                                        Name of Class</div>
+                                 
 
-                                    <div style="font-size:16px; font-weight:700; line-height:15px; margin-top:8px;">
-                                        <?php echo strtoupper($sss); ?></div>
-                                    <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">
-                                        Name of Section</div>
+                                  
 
-                                    <div>
-                                        <input type="text" id="mylastpr" value="23272003" hidden />
-                                        <button class="btn btn-info mt-2" onclick="epos();">Print Last PR (POS)</button>
-                                        <div id="eposlink" style="display:none;">***</div>
-                                    </div>
+                                    
 
                                 </td>
                                 <td style="text-align:right;">
@@ -160,39 +198,46 @@ if (isset($_GET['edit'])) {
                             <tr>
                                 <td>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="prno" placeholder=""
+                                        <span class="input-group-text"><i class="bi bi-file-earmark-post text-small"></i></span>
+                                        <input type="text" class="form-control text-center" id="prno" placeholder=""
                                             value="<?php echo $prno; ?>" disabled>
+                                            
                                     </div>
 
                                 </td>
                                 <td style="width:10px;" rowspan="4"></td>
                                 <td>
-                                    <input type="number" id="amt" class="input form-control text-right"
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-coin text-small"></i></span>
+                                <input type="number" id="amt" class="input form-control text-right"
                                         format="dd/mm/yyyy" value="0"
                                         style=" font-size:16px; color:var(--dark); font-weight:700; text-align:right;"
                                         disabled />
+                                    </div>
+                                
                                 </td>
 
                             </tr>
                             <tr>
-                                <td class="lbl">Receipt Number</td>
-                                <td class="lbl">Pay Now</td>
+                                <td class="lbl text-small pb-2">Receipt Number</td>
+                                <td class="lbl text-small pb-2">Pay Amount</td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="input-group">
-                                        <input type="date" class="form-control" placeholder="" id="prdate"
+                                    <span class="input-group-text"><i class="bi bi-calendar-check text-small"></i></span>
+                                    <input type="date" class="form-control text-center" placeholder="" id="prdate"
                                             value="<?php echo date('Y-m-d'); ?>" <?php echo $dtds; ?>>
                                     </div>
 
                                 </td>
                                 <td style="text-align:center;" id="btnblock">
-                                    <button class="btn btn-danger" style="width:100%;" onclick="save();" <?php echo $dnx; ?>>Save Payment</button>
+                                    <button class="btn btn-danger" style="width:100%;" onclick="save();" <?php echo $dnx; ?>>Pay Now</button>
                                 </td>
 
                             </tr>
                             <tr>
-                                <td class="lbl">Payment Date</td>
+                                <td class="lbl text-small">Payment Date</td>
                                 <td class="lbl"></td>
                             </tr>
                         </table>
@@ -467,26 +512,6 @@ if (isset($_GET['edit'])) {
             });
         }
 
-
-
-        function epos() {
-            let lastpr = document.getElementById("mylastpr").value;
-            infor = "prno=" + lastpr;
-            $("#eposlink").html("");
-
-            $.ajax({
-                type: "POST",
-                url: "getprinfo.php",
-                data: infor,
-                cache: false,
-                beforeSend: function () {
-                    $("#eposlink").html('.....');
-                },
-                success: function (html) {
-                    $("#eposlink").html(html);
-                }
-            });
-        }
 
 
         function save() {
