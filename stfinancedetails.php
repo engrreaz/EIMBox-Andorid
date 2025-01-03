@@ -130,9 +130,9 @@ if (isset($_GET['edit'])) {
                                             </div>
                                             <div class="col-5 text-right">
                                   
-                                        <input type="text" class="text-danger" id="mylastpr" value="23272003"  />
+                                        <input type="text" class="text-danger" id="mylastpr" value="23272003" hidden />
                                         <button class="btn btn-info mt-2 text-small text-end" onclick="epos();">Print Last PR (POS)</button>
-                                        <div id="eposlink" style="display:block;">***</div>
+                                        <div id="eposlink" style="display:block;"></div>
                                     </div>
                                         
                                         

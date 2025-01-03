@@ -138,7 +138,7 @@ if ($result01x->num_rows > 0) {
               </div>
               <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Section</div>
               <div>
-                <input type="text" id="mylastpr" value="23272003"  />
+                <input type="text" id="mylastpr" value="23272003" hidden />
                 <button class="btn btn-info text-small mt-2" onclick="epos();">Print Last PR (POS)</button>
                 <div id="eposlink"></div>
               </div>

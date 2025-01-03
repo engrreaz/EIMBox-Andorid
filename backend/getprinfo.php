@@ -56,7 +56,7 @@ include 'inc.back.php';
 	
 	
 	
-	echo $loop;
+	// echo $loop;
 	
 	
 	$lnk = 'https://playstore.eimbox.com/receipt.php?prno='.$prno.'&prdate='.$prdate.'&stname='.$stname.'&cls='.$cls.'&sec='.$sec.'&roll='.$roll.'&total='.$total.'&stid='.$stid.'&collname='.$collname.'&cnt='.$cnt.$loop;
