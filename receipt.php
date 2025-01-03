@@ -83,7 +83,7 @@ $total = $_GET['total'];  //$ = $_GET[''];  $ = $_GET[''];
         </div>
     </div>
 
-    <div class="card text-left" style="background:var(--lighter); color:var(--darker);">
+    <div class="card text-left" style="background:var(--light); color:var(--darker);">
         <div class="card-body">
             <div class="float-end"><b><?php echo $total . '.00'; ?></b></div>
             <div class="left">Total Amount : </div>
