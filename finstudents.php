@@ -177,6 +177,13 @@ if ($result01x->num_rows > 0) {
         $nben = $datam_st_profile[$st_ind]["stnameben"];
         $vill = $datam_st_profile[$st_ind]["previll"];
 
+        $pth = '../students/' . $stid . '.jpg';
+        if (file_exists($pth)) {
+            $pth = 'https://eimbox.com/students/' . $stid . '.jpg';
+        } else {
+            $pth = 'https://eimbox.com/students/noimg.jpg';
+        }
+
         // $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
         // $result00 = $conn->query($sql00);
         // if ($result00->num_rows > 0) {
@@ -233,8 +240,11 @@ if ($result01x->num_rows > 0) {
           <div class="card-body" style="border-radius:0;" onclick="go(<?php echo $stid; ?>)">
             <table width="100%">
               <tr>
-                <td style="width:30px;">
+                <td style="width:36px; text-align:center;">
                   <span style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span>
+                  <br>
+                  <img class="st-pic-small" src="<?php echo $pth; ?>" />
+
                 </td>
                 <td style="text-align:left; padding-left:5px;">
                   <div class="stname-eng"><?php echo $neng; ?></div>

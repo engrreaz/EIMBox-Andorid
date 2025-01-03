@@ -230,6 +230,13 @@
             border-radius: 50%;
             border: 0px solid var(--light);
         }
+        .st-pic-small {
+            width: 30px;
+            height: 30px;
+            padding: 1px;
+            border-radius: 50%;
+            border: 0px solid var(--light);
+        }
 
         .pic {
             width: 90px;
