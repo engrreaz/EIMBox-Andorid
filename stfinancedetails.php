@@ -131,7 +131,7 @@ if (isset($_GET['edit'])) {
                                             <div class="col-12 text-right">
                                   
                                         <input type="text" class="text-danger" id="mylastpr" value="23272003" hidden />
-                                        <button class="btn btn-dark btn-block mt-2 text-small text-end" onclick="epos();">
+                                        <button class="btn btn-secondary btn-block mt-2 text-small text-end " onclick="epos();">
                                         <span class="float-start"><i class="bi bi-printer-fill"></i></span>    
                                         <span class="float-end">Print Last PR (POS)</span>    
                                         
