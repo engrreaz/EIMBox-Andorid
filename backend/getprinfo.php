@@ -62,6 +62,6 @@ include 'inc.back.php';
 	// echo $lnk;
 	?>
 	
-	<meta http-equiv="refresh" content="0; URL=<?php echo $lnk;?>" />
+	<!-- <meta http-equiv="refresh" content="0; URL=<?php echo $lnk;?>" /> -->
 
      
