@@ -287,6 +287,12 @@
         .stname-ben {
             font-size:14px;
         }
+        .st-id {
+            font-size: 11px;
+        }
+        .roll-no {
+            font-size: 13px;
+        }
 
 
         .card {

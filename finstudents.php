@@ -1,42 +1,25 @@
 <?php
 include 'inc.php';
-include 'header.php';
+include 'datam/datam-stprofile.php';
 
 $classname = $_GET['cls'];
 $sectionname = $_GET['sec'];
 $totaldues = 0;
+
+
+$month = date('m');
+$st_dues_list = array();
+$sql0 = "SELECT stid, sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname='$sectionname' and month<='$month'";
+$result01x = $conn->query($sql0);
+if ($result01x->num_rows > 0) {
+  while ($row0 = $result01x->fetch_assoc()) {
+    $st_dues_list[] = $row0;
+  }
+}
 ?>
 
 
 <script>
-  function epos() {
-    let lastpr = document.getElementById("mylastpr").value;
-    infor = "prno=" + lastpr;
-    $("#eposlink").html("");
-
-    $.ajax({
-      type: "POST",
-      url: "getprinfo.php",
-      data: infor,
-      cache: false,
-      beforeSend: function () {
-        $("#eposlink").html('.....');
-      },
-      success: function (html) {
-        $("#eposlink").html(html);
-      }
-    });
-  }
-
-
-  function more() {
-    let val = document.getElementById("myswitch").checked;
-    if (val == true) {
-      $(".sele").show();
-    } else {
-      $(".sele").hide();
-    }
-  }
 
   function grp(id) {
     var val = document.getElementById("sel" + id).value;
@@ -134,32 +117,30 @@ $totaldues = 0;
 
 <main>
   <div class="containerx-fluid">
-    <div class="card text-left" style="background:var(--dark); color:var(--lighter);border-radius:0; "
-      onclick="">
-
+    <div class="card text-left" style="background:var(--dark); color:var(--lighter);border-radius:0; " onclick="">
       <div class="card-body" style="border-radius:0;">
         <table width="100%" style="color:white;">
           <tr>
             <td colspan="2">
-              <div style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
-                Student's Dues
-
-              </div>
+              <div class="menu-icon"> <i class="bi bi-cash-coin"></i> </div>
+              <div class="menu-text"> Student's Dues </div>
             </td>
           </tr>
+
           <tr>
             <td>
               <div style="font-size:20px; font-weight:700; line-height:15px;"><?php echo strtoupper($classname); ?>
               </div>
               <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Class</div>
-              <br>
-              <div style="font-size:16px; font-weight:700; line-height:15px;"><?php echo strtoupper($sectionname); ?>
+
+              <div class="mt-3" style="font-size:16px; font-weight:700; line-height:15px;">
+                <?php echo strtoupper($sectionname); ?>
               </div>
               <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Section</div>
               <div>
-                <input type="text" id="mylastpr" value="23272003" />
-                <button onclick="epos();">ESC-POS</button>
-                <div id="eposlink">***</div>
+                <input type="text" id="mylastpr" value="23272003" hidden />
+                <button class="btn btn-primary text-small mt-2" onclick="epos();">Print Last PR (POS)</button>
+                <div id="eposlink"></div>
               </div>
             </td>
             <td style="text-align:right;">
@@ -170,7 +151,6 @@ $totaldues = 0;
               <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Total Dues</div>
             </td>
           </tr>
-
         </table>
       </div>
     </div>
@@ -192,17 +172,21 @@ $totaldues = 0;
         $rel = $row0["religion"];
         $four = $row0["fourth_subject"];
 
+        $st_ind = array_search($stid, array_column($datam_st_profile, 'stid'));
+        $neng = $datam_st_profile[$st_ind]["stnameeng"];
+        $nben = $datam_st_profile[$st_ind]["stnameben"];
+        $vill = $datam_st_profile[$st_ind]["previll"];
 
-        $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
-        $result00 = $conn->query($sql00);
-        if ($result00->num_rows > 0) {
-          while ($row00 = $result00->fetch_assoc()) {
-            $neng = $row00["stnameeng"];
-            $nben = $row00["stnameben"];
-            $vill = $row00["previll"];
-          }
-        }
-
+        // $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
+        // $result00 = $conn->query($sql00);
+        // if ($result00->num_rows > 0) {
+        //   while ($row00 = $result00->fetch_assoc()) {
+        //     $neng = $datam_st_profile[$st_ind]["stnameeng"];
+        //     $nben = $datam_st_profile[$st_ind]["stnameben"];
+        //     $vill = $datam_st_profile[$st_ind]["previll"];
+        //   }
+        // }
+    
         if ($totaldues < 100) {
           $bgc = '--var(dark)';
         }
@@ -218,16 +202,25 @@ $totaldues = 0;
 
         //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
     
-        $month = date('m');
-        $sql0 = "SELECT sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname='$sectionname' and month<='$month' and stid='$stid'";
-        $result01x = $conn->query($sql0);
-        if ($result01x->num_rows > 0) {
-          while ($row0 = $result01x->fetch_assoc()) {
-            $totaldues = $row0["dues"];
-            $tpaya = $row0["paya"];
-            $tpaid = $row0["paid"];
-          }
-        }
+        $dues_ind = array_search($stid, array_column($st_dues_list, 'stid'));
+        $totaldues = $st_dues_list[$dues_ind]["dues"];
+        $tpaya = $st_dues_list[$dues_ind]["paya"];
+        $tpaid = $st_dues_list[$dues_ind]["paid"];
+
+
+        // $month = date('m');
+        // $sql0 = "SELECT sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname='$sectionname' and month<='$month' and stid='$stid'";
+        // $result01x = $conn->query($sql0);
+        // if ($result01x->num_rows > 0) {
+        //   while ($row0 = $result01x->fetch_assoc()) {
+        //     $totaldues = $row0["dues"];
+        //     $tpaya = $row0["paya"];
+        //     $tpaid = $row0["paid"];
+        //   }
+        // }
+    
+
+
         if ($totaldues < 100) {
           $bgc = 'white';
           $btn = 'success';

@@ -83,4 +83,27 @@
     function report_menu_student_list() {
         window.location.href= 'students.php';
     }
+
+
+    
+  function epos() {
+    let lastpr = document.getElementById("mylastpr").value;
+    infor = "prno=" + lastpr;
+    $("#eposlink").html("");
+
+    $.ajax({
+      type: "POST",
+      url: "backend/getprinfo.php",
+      data: infor,
+      cache: false,
+      beforeSend: function () {
+        $("#eposlink").html('.....');
+      },
+      success: function (html) {
+        $("#eposlink").html(html);
+      }
+    });
+  }
+
+
 </script>

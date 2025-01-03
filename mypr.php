@@ -90,7 +90,7 @@ $collection = $accountant = 0;
 
     $.ajax({
       type: "POST",
-      url: "delmypr.php",
+      url: "backend/delmypr.php",
       data: infor,
       cache: false,
       beforeSend: function () {

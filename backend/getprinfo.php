@@ -1,5 +1,5 @@
 <?php
-include 'inc.php';
+include 'inc.back.php';
 	
 	
     $sql0r = "SELECT * FROM stpr where sccode='$sccode' and entryby='$usr' order by entrytime desc limit 1 "; 

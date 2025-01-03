@@ -1,5 +1,5 @@
 <?php
-include 'inc.php';
+include 'inc.back.php';
 	
 
 
