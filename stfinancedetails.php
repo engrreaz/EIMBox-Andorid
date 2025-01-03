@@ -109,7 +109,7 @@ if (isset($_GET['edit'])) {
                                 <div class="d-flex pt-2 pb-2">
                                     <img class="st-pic-normal" src="<?php echo $pth; ?>" />
 
-                                    <div class="ms-3 ">
+                                    <div class="ms-3 flex-grow-1">
                                         <div class="stname-eng"><?php echo $neng; ?></div>
                                         <div class="stname-ben"><?php echo $nben; ?></div>
                                         <div class="st-id">Id # <?php echo $stid; ?></div>
@@ -119,8 +119,8 @@ if (isset($_GET['edit'])) {
                                             <b><?php echo strtoupper($sss); ?></b>
                                         </div>
 
-                                        <div class="mt-3 d-flex col-12">
-                                            <div class="col-7">
+                                        <div class="mt-3 d-block col-12">
+                                            <div class="col-12">
                                                 <div style="font-size:36px; font-weight:700; line-height:20px;" id="cnt">
                                                 0.00
                                             </div>
@@ -128,10 +128,14 @@ if (isset($_GET['edit'])) {
                                                 style="color: var(--light); font-size:12px; font-weight:400; font-style:italic; line-height:30px;">
                                                 Total Dues</div>
                                             </div>
-                                            <div class="col-5 text-right">
+                                            <div class="col-12 text-right">
                                   
                                         <input type="text" class="text-danger" id="mylastpr" value="23272003" hidden />
-                                        <button class="btn btn-info mt-2 text-small text-end" onclick="epos();">Print Last PR (POS)</button>
+                                        <button class="btn btn-dark btn-block mt-2 text-small text-end" onclick="epos();">
+                                        <span class="float-start"><i class="bi bi-printer-fill"></i></span>    
+                                        <span class="float-end">Print Last PR (POS)</span>    
+                                        
+                                        </button>
                                         <div id="eposlink" style="display:block;"></div>
                                     </div>
                                         
