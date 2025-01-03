@@ -21,6 +21,8 @@ include 'inc.back.php';
         $stname=$row0r["stnameeng"]; 
     }}
 	echo $stname; 
+
+    /*
 	$sql0r = "SELECT count(*) as cnt FROM stfinance where pr1no='$prno' || pr2no='$prno' "; 
     $result0bt = $conn->query($sql0r); if ($result0bt->num_rows > 0) {while($row0r = $result0bt->fetch_assoc()) { 
         $cnt=$row0r["cnt"]; 
@@ -64,4 +66,4 @@ include 'inc.back.php';
 	
 	<!-- <meta http-equiv="refresh" content="0; URL=<?php echo $lnk;?>" /> -->
 
-     
+     */
