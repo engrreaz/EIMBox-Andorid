@@ -20,7 +20,7 @@ include 'inc.back.php';
     $result0b = $conn->query($sql0r); if ($result0b->num_rows > 0) {while($row0r = $result0b->fetch_assoc()) { 
         $stname=$row0r["stnameeng"]; 
     }}
-	
+	echo $stname; 
 	$sql0r = "SELECT count(*) as cnt FROM stfinance where pr1no='$prno' || pr2no='$prno' "; 
     $result0bt = $conn->query($sql0r); if ($result0bt->num_rows > 0) {while($row0r = $result0bt->fetch_assoc()) { 
         $cnt=$row0r["cnt"]; 
@@ -54,7 +54,7 @@ include 'inc.back.php';
 	
 	
 	
-	
+	echo $loop;
 	
 	
 	$lnk = 'https://playstore.eimbox.com/receipt.php?prno='.$prno.'&prdate='.$prdate.'&stname='.$stname.'&cls='.$cls.'&sec='.$sec.'&roll='.$roll.'&total='.$total.'&stid='.$stid.'&collname='.$collname.'&cnt='.$cnt.$loop;
@@ -62,6 +62,6 @@ include 'inc.back.php';
 	echo $lnk;
 	?>
 	
-	<meta http-equiv="refresh" content="0; URL=<?php echo $lnk;?>" />
+	<!-- <meta http-equiv="refresh" content="0; URL=<?php echo $lnk;?>" /> -->
 
      
