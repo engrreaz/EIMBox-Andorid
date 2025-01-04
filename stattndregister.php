@@ -154,8 +154,8 @@ if ($period >= 2) {
         </div>
         <div class="table-responsive">
             <table width="100%" class="table table-condensed">
-                <thead class="sticky">
-                    <tr class="sticky">
+                <thead class="">
+                    <tr class="">
                         <th class="sticky"></th>
                         <th class="sticky"></th>
                         <th class="sticky"></th>
