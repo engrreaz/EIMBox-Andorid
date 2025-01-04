@@ -220,9 +220,9 @@ $collection = $accountant = 0;
                 <td style="text-align:left; padding-left:5px;">
                   <div class="stname-eng"><?php echo $neng; ?></div>
                   <div class="stname-ben"><?php echo $nben; ?></div>
-                  <div class="c" style="font-weight:600; font-style:normal; color:gray;">ID # <?php echo $stid; ?></div>
-                  <div class="c"><b><?php echo $clsp . ' / ' . $secp; ?></b></div>
-                  <div class="c">Date : <b><?php echo date('d/m/Y', strtotime($prdate)) . ' No. ' . $prno; ?></b></div>
+                  <div class="c" style="font-weight:400; font-style:normal; color:gray;">ID # <?php echo $stid; ?></div>
+                  <div class="c" style="font-weight:400; font-style:normal;"><b><?php echo $clsp . ' / ' . $secp; ?></b></div>
+                  <div class="c" style="font-weight:500; font-style:normal; color:gray;">Date : <b><?php echo date('d/m/Y', strtotime($prdate)) . '</b><br>Receipt No. : </b>' . $prno; ?></b></div>
                 </td>
                 <td style="text-align:right; font-size:20px; font-weight:600;">
                   <?php echo number_format($amount, 2, ".", ",");
