@@ -32,7 +32,13 @@ if ($period >= 2) {
 
 // 	echo var_dump($datam);
 ?>
-
+<style>
+    .sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+    }
+</style>
 <script>
     function att(id, roll, bl, per) {
         if (per >= 2) {
@@ -122,14 +128,18 @@ if ($period >= 2) {
                         </td>
                         <td style="text-align:right;">
                             <div style="font-size:30px; font-weight:700; line-height:20px;"><span id="cnt"></span></div>
-                            <div style="color: var(--dark); font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of
+                            <div
+                                style="color: var(--dark); font-size:12px; font-weight:400; font-style:italic; line-height:24px;">
+                                No. of
                                 Students</div>
 
-                          
+
                             <div class="mt-3" style="font-size:15px; font-weight:600; line-height:15px;" id="dddate">
                                 <?php echo date(' F, Y', strtotime($td)); ?>
                             </div>
-                            <div style="color: var(--dark); font-size:12px; font-weight:400; font-style:italic; line-height:24px;"> Month </div>
+                            <div
+                                style="color: var(--dark); font-size:12px; font-weight:400; font-style:italic; line-height:24px;">
+                                Month </div>
 
 
                         </td>
@@ -146,11 +156,11 @@ if ($period >= 2) {
         <div class="table-responsive">
             <table width="100%" class="table table-condensed">
                 <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th class="sticky"></th>
+                    <th class="sticky"></th>
+                    <th class="sticky"></th>
                     <?php for ($h = 1; $h <= 31; $h++) {
-                        echo '<th>' . $h . '</th>';
+                        echo '<th class="sticky">' . $h . '</th>';
                     }
                     ?>
                 </tr>
