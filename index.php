@@ -89,7 +89,7 @@ if ($result0wwrtd->num_rows > 0) {
 <main>
     <div class="containerx" style="width:100%;">
 
-        <div class="card text-center" style="background:var(--dark);  padding:50px 0 10px 0; border-radius:0;">
+        <div class="card text-center" style="background:var(--dark);  padding:40px 0 10px 0; border-radius:0;">
             <center>
                 <table width="100%" style="color:white;">
                     <tr>
