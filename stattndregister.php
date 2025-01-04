@@ -34,7 +34,7 @@ if ($period >= 2) {
 ?>
 <style>
     .sticky {
-        position: sticky;
+        position: sticky !important;
         top: 0;
     }
 </style>
@@ -133,14 +133,17 @@ if ($period >= 2) {
                                 Students</div>
 
 
-                            <div class="mt-3" style="font-size:15px; font-weight:600; line-height:15px;" id="dddate">
+
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="mt-3" style="font-size:22px; text-align:center; font-weight:600; line-height:15px;" id="dddate">
                                 <?php echo date(' F, Y', strtotime($td)); ?>
                             </div>
-                            <div
-                                style="color: var(--dark); font-size:12px; font-weight:400; font-style:italic; line-height:24px;">
-                                Month </div>
-
-
+                     
                         </td>
                     </tr>
 
@@ -153,7 +156,7 @@ if ($period >= 2) {
 
         </div>
         <div class="table-responsive">
-            <table width="100%" class="table table-condensed">
+            <table class="table table-condensed">
                 <thead class="">
                     <tr class="">
                         <th class="sticky"></th>
