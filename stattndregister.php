@@ -155,15 +155,18 @@ if ($period >= 2) {
         </div>
         <div class="table-responsive">
             <table width="100%" class="table table-condensed">
-                <tr class="sticky">
-                    <th class="sticky"></th>
-                    <th class="sticky"></th>
-                    <th class="sticky"></th>
-                    <?php for ($h = 1; $h <= 31; $h++) {
-                        echo '<th class="sticky">' . $h . '</th>';
-                    }
-                    ?>
-                </tr>
+                <thead class="table_header table_header--skicky sticky">
+                    <tr class="sticky">
+                        <th class="sticky"></th>
+                        <th class="sticky"></th>
+                        <th class="sticky"></th>
+                        <?php for ($h = 1; $h <= 31; $h++) {
+                            echo '<th class="sticky">' . $h . '</th>';
+                        }
+                        ?>
+                    </tr>
+                </thead>
+
                 <?php
                 $cnt = 0;
                 $found = 0;
