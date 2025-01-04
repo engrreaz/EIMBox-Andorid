@@ -119,8 +119,8 @@ if ($period >= 2) {
 
 
                             <div style="font-size:15px; font-weight:600; line-height:15px;" id="dddate">
-                                <input style="text-align:center;" onchange="dtcng();" max="<?php echo $td; ?>" id="xp"
-                                    class="form-control" type="date" value="<?php echo $td; ?>" />
+                                <input  onchange="dtcng();" max="<?php echo $td; ?>" id="xp"
+                                    class="form-control text-center pt-0" type="date" value="<?php echo $td; ?>" />
 
                             </div>
                             <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Date
