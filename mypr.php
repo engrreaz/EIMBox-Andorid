@@ -214,7 +214,7 @@ $collection = $accountant = 0;
           <div class="card-body" style="border-radius:0;" onclick="go(<?php echo $stid; ?>)">
             <table width="100%">
               <tr>
-                <td style="width:30px;">
+                <td style="width:40px; text-align:center;">
                   <span style="font-size:24px; font-weight:700;">
                     <?php echo $rollno; ?>
                   <br><img class="st-pic-small mt-2" src="<?php echo $pth; ?>" />
