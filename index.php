@@ -94,7 +94,7 @@ if ($result0wwrtd->num_rows > 0) {
                 <table width="100%" style="color:white;">
                     <tr>
                         <td style="text-align:center;">
-                            <img src="<?php echo $pth; ?>" class="pic" /><br>
+                            <img src="<?php echo $pth; ?>" class="st-pic-normal" /><br>
                             <div class="b"><?php echo $fullname; ?></div>
                             <div class="c"><?php echo $userlevel; ?></div>
                             <div class="d"><?php echo $scname; ?></div>
