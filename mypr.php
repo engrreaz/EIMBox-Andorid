@@ -222,6 +222,7 @@ $collection = $accountant = 0;
                   <div class="stname-ben"><?php echo $nben; ?></div>
                   <div class="c" style="font-weight:600; font-style:normal; color:gray;">ID # <?php echo $stid; ?></div>
                   <div class="c"><b><?php echo $clsp . ' / ' . $secp; ?></b></div>
+                  <div class="c">Date : <b><?php echo date('d/m/Y', $prdate) . ' No. ' . $prno; ?></b></div>
                 </td>
                 <td style="text-align:right; font-size:20px; font-weight:600;">
                   <?php echo number_format($amount, 2, ".", ",");

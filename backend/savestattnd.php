@@ -1,6 +1,6 @@
 <?php
 
-	include ('incb.php');;
+	include ('inc.back.php');;
 	$adate= $_POST['adate'];;
     $cn = $_POST['cls'];
 	$sn = $_POST['sec'];
@@ -33,8 +33,8 @@
             $query33 ="insert into stattnd (id, sccode, sessionyear, stid, adate, yn, entryby, classname, sectionname, rollno, period1) values 	(NULL, '$sccode', '$sy', '$iii','$adate','$yn','$usr','$cn','$sn', '$roll', '$yn')"; 
             $conn->query($query33);
         }
-        // echo $query33;
-        
+echo $query33;
+
         if($yn==1){
             echo '<span class="chk green"><i class="bi bi-check2-circle"></i></span>';
         } else {
@@ -47,11 +47,8 @@
         $rate = $fnd*100/$cnt;
         $query33 ="insert into stattndsummery (id, sccode, sessionyear, date, classname, sectionname, totalstudent, attndstudent, attndrate, submitby, submittime) 
                                             values 	(NULL, '$sccode', '$sy', '$adate','$cn','$sn','$cnt','$fnd','$rate', '$usr', '$cur')"; 
-        $conn->query($query33);echo $query33;
+        $conn->query($query33);
+        
+        // echo $query33;
         echo 'Submit Successfully.';
     }
-    
-    	
-    
-    ?>
-    

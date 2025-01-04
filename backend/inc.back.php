@@ -32,7 +32,7 @@ if ($result0->num_rows > 0) {
         $userid = $row0["userid"];
         $pth = $row0["photourl"];
         $exam = $row0["curexam"];
-        $sy = $row0["session"];
+        // $sy = $row0["session"];
     }
 } else {
     $query33p = "insert into usersapp (sccode, email, token, firstlogin, lastlogin, photourl) values ('0', '$usr', '$token', '$cur', '$cur', '$pth' )";
