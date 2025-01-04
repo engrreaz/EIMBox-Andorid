@@ -54,7 +54,6 @@ if ($opt == 2) {  // save attandance
     $query33 = "insert into stattndsummery (id, sccode, sessionyear, date, classname, sectionname, totalstudent, attndstudent, attndrate, submitby, submittime) 
                                             values 	(NULL, '$sccode', '$sy', '$adate','$cn','$sn','$cnt','$fnd','$rate', '$usr', '$cur')";
     $conn->query($query33);
-
-    // echo $query33;
-    echo 'Submit Successfully.';
+    
+    echo '<i class="bi bi-check-circle-fill"></i> Submit Successfully.';
 }

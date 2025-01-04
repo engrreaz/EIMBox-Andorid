@@ -27,7 +27,7 @@ if ($result0rtx->num_rows > 0) {
     $te = 0;
     $dur = 0;
 }
-// $period = 1;
+// $period = 3;
 
 $sql00 = "SELECT * FROM stattnd where  (adate='$td' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname') or yn=100 order by rollno";
 $result00gt = $conn->query($sql00);
@@ -104,7 +104,7 @@ if ($period >= 2) {
                             <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name
                                 of Class | Section</div>
                             <br>
-                            <div style="font-size:16px; font-weight:700; line-height:15px;">
+                            <div class="roll-no" style="font-size:24px;">
                                 <?php echo strtoupper($period); ?>
                             </div>
                             <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">
@@ -113,19 +113,19 @@ if ($period >= 2) {
                         <td style="text-align:right;">
                             <div style="font-size:30px; font-weight:700; line-height:40px;"><span id="att"></span>/<span
                                     id="cnt"></span></div>
-                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">
+                                    <div class="st-id">Bunk : <b><span id="bunk">0</span></b> out of <span id="found2"></span></div>
+                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px; color:var(--light);">
                                 Attendance Found
                             </div>
 
 
                             <div style="font-size:15px; font-weight:600; line-height:15px;" id="dddate">
-                                <input  onchange="dtcng();" max="<?php echo $td; ?>" id="xp"
+                                <input onchange="dtcng();" max="<?php echo $td; ?>" id="xp"
                                     class="form-control text-center pt-0" type="date" value="<?php echo $td; ?>" />
 
                             </div>
                             <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Date
                             </div>
-
 
 
                             <div class="form-check form-switch" style="float:right; display:none;">
@@ -153,7 +153,7 @@ if ($period >= 2) {
         <?php
         $cnt = 0;
         $found = 0;
-
+        $bunk = 0;
         $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by $stattnd_sort";
         $result0 = $conn->query($sql0);
         if ($result0->num_rows > 0) {
@@ -226,6 +226,10 @@ if ($period >= 2) {
                     $dsbl = '';
                     $gip = 'checked';
                     $found++;
+
+                    if ($per1 * $per2 * $per3 * $per4 * $per5 * $per6 * $per7 * $per8 == 0) {
+                        $bunk++;
+                    }
                 }
                 ?>
                 <div class="card text-center" style="background:var(<?php echo $bgc; ?>); color:var(--darker);"
@@ -400,19 +404,21 @@ if ($period >= 2) {
             }
         });
     }
-
+</script>
+<script>
     function submitfinal() {
         var fnd = parseInt(document.getElementById("att").innerHTML) * 1;
         var cnt = parseInt(document.getElementById("cnt").innerHTML) * 1;
         var infor = "cnt=" + cnt + "&fnd=" + fnd + "&opt=5&cls=<?php echo $classname; ?>&sec=<?php echo $sectionname; ?>&adate=<?php echo $td; ?>";
+        // alert(infor);
         $("#sfinal").html("");
         $.ajax({
             type: "POST",
-            url: "savestattnd.php",
+            url: "backend/savestattnd.php",
             data: infor,
             cache: false,
             beforeSend: function () {
-                $("#sfinal").html('<span class="chk blue"><i class="bi bi-server"></i></span>');
+                $("#sfinal").html('<span class="chk blue"><i class="bi bi-floppy-fill"></i></span>');
             },
             success: function (html) {
                 $("#sfinal").html(html);
@@ -424,6 +430,8 @@ if ($period >= 2) {
 <script>
     document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
     document.getElementById("att").innerHTML = "<?php echo $found; ?>";
+    document.getElementById("found2").innerHTML = "<?php echo $found; ?>";
+    document.getElementById("bunk").innerHTML = "<?php echo $bunk; ?>";
 
     function go(id) {
         window.location.href = "student.php?id=" + id;
