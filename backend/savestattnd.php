@@ -39,7 +39,7 @@ if ($opt == 2) {  // save attandance
         $query33 = "insert into stattnd (id, sccode, sessionyear, stid, adate, yn, entryby, classname, sectionname, rollno, period1) values 	(NULL, '$sccode', '$sy', '$iii','$adate','$yn','$usr','$cn','$sn', '$roll', '$yn')";
         $conn->query($query33);
     }
-    echo $query33;
+    // echo $query33;
 
     if ($yn == 1) {
         echo '<span class="chk green"><i class="bi bi-check2-circle"></i></span>';
