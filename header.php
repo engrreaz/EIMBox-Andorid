@@ -239,6 +239,13 @@
             border-radius: 50%;
             border: 0px solid var(--light);
         }
+        .st-pic-big {
+            width: 100px;
+            height: 100px;
+            padding: 1px;
+            border-radius: 50%;
+            border: 0px solid var(--light);
+        }
 
 
         .a {
