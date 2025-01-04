@@ -168,7 +168,7 @@ $collection = $accountant = 0;
 
     $cnt = 0;
     $cntamt = 0;
-    $sql0 = "SELECT * FROM stpr where sessionyear='$sy' and sccode='$sccode' and entryby='$usr' and entrytime >= '2024-11-27' order by entrytime desc";
+    $sql0 = "SELECT * FROM stpr where sessionyear='$sy' and sccode='$sccode' and entryby='$usr' and entrytime >= '2025-01-01' order by entrytime desc";
     $result0 = $conn->query($sql0);
     if ($result0->num_rows > 0) {
       while ($row0 = $result0->fetch_assoc()) {
@@ -222,7 +222,7 @@ $collection = $accountant = 0;
                   <div class="stname-ben"><?php echo $nben; ?></div>
                   <div class="c" style="font-weight:600; font-style:normal; color:gray;">ID # <?php echo $stid; ?></div>
                   <div class="c"><b><?php echo $clsp . ' / ' . $secp; ?></b></div>
-                  <div class="c">Date : <b><?php echo date('d/m/Y', $prdate) . ' No. ' . $prno; ?></b></div>
+                  <div class="c">Date : <b><?php echo date('d/m/Y', strtotime($prdate)) . ' No. ' . $prno; ?></b></div>
                 </td>
                 <td style="text-align:right; font-size:20px; font-weight:600;">
                   <?php echo number_format($amount, 2, ".", ",");
