@@ -1,12 +1,14 @@
 <?php
 include 'inc.php';
+include 'datam/datam-stprofile.php';
+
 $classname = $_GET['cls'];
 $sectionname = $_GET['sec'];
 if (isset($_GET['dt'])) {
     $td = $_GET['dt'];
 }
 
-$period = 2;
+$period = 1;
 
 $sql00 = "SELECT * FROM stattnd where  (adate='$td' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname') or yn=100 order by rollno";
 $result00gt = $conn->query($sql00);
@@ -37,37 +39,6 @@ if ($period >= 2) {
 ?>
 
 <style>
-    .pic {
-        width: 60px;
-        height: 60px;
-        padding: 1px;
-        border-radius: 50%;
-        border: 1px solid var(--dark);
-        margin: 5px;
-    }
-
-    .a {
-        font-size: 18px;
-        font-weight: 700;
-        font-style: normal;
-        line-height: 22px;
-        color: var(--dark);
-    }
-
-    .b {
-        font-size: 16px;
-        font-weight: 600;
-        font-style: normal;
-        line-height: 22px;
-    }
-
-    .c {
-        font-size: 11px;
-        font-weight: 400;
-        font-style: italic;
-        line-height: 16px;
-    }
-
     .chk {
         font-size: 36px;
     }
@@ -94,7 +65,7 @@ if ($period >= 2) {
             echo 'var(--dark)';
         } ?>; color:var(--lighter);" onclick="gol(<?php echo $id; ?>)">
 
-            <div class="card-body">
+            <div class="card-body page-top-box">
                 <table width="100%" style="color:white;">
                     <tr>
                         <td colspan="2">
@@ -102,6 +73,10 @@ if ($period >= 2) {
                             <div class="menu-text"> Attendance </div>
                         </td>
                     </tr>
+                </table>
+            </div>
+            <div class="card-body page-info-box">
+                <table width="100%" style="color:white;">
                     <tr>
                         <td>
                             <div class="stname-eng">
@@ -125,8 +100,8 @@ if ($period >= 2) {
 
 
                             <div style="font-size:15px; font-weight:600; line-height:15px;" id="dddate">
-                                <input style="text-align:center;" onchange="dtcng();" id="xp" class="form-control"
-                                    type="date" value="<?php echo $td; ?>" />
+                                <input style="text-align:center;" onchange="dtcng();" max="<?php echo $td; ?>" id="xp"
+                                    class="form-control" type="date" value="<?php echo $td; ?>" />
 
                             </div>
                             <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Date
@@ -172,25 +147,26 @@ if ($period >= 2) {
                 $rel = $row0["religion"];
                 $four = $row0["fourth_subject"];
 
+                include 'component/student-image-path.php';
 
-                $pth = '../students/' . $stid . '.jpg';
-                if (file_exists($pth)) {
-                    $pth = 'https://eimbox.com/students/' . $stid . '.jpg';
-                } else {
-                    $pth = 'https://eimbox.com/students/noimg.jpg';
-                }
+                $st_ind = array_search($stid, array_column($datam_st_profile, 'stid'));
+                $neng = $datam_st_profile[$st_ind]["stnameeng"];
+                $nben = $datam_st_profile[$st_ind]["stnameben"];
+                $vill = $datam_st_profile[$st_ind]["previll"];
+                $grnametxt = '';
 
-                $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
-                $result00 = $conn->query($sql00);
-                if ($result00->num_rows > 0) {
-                    while ($row00 = $result00->fetch_assoc()) {
-                        $neng = $row00["stnameeng"];
-                        $nben = $row00["stnameben"];
-                        $vill = $row00["previll"];
-                        $grnametxt = '';
-                    }
-                }
 
+                // $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
+                // $result00 = $conn->query($sql00);
+                // if ($result00->num_rows > 0) {
+                //     while ($row00 = $result00->fetch_assoc()) {
+                //         $neng = $row00["stnameeng"];
+                //         $nben = $row00["stnameben"];
+                //         $vill = $row00["previll"];
+                //         $grnametxt = '';
+                //     }
+                // }
+        
 
                 //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
         
@@ -199,8 +175,25 @@ if ($period >= 2) {
                 $key = array_search($stid, array_column($datam, 'stid'));
                 if ($key != NULL || $key != '') {
                     $status = $datam[$key]['yn'];
+
+                    $per1 = $datam[$key]['period1'];
+                    $per2 = $datam[$key]['period2'];
+                    $per3 = $datam[$key]['period3'];
+                    $per4 = $datam[$key]['period4'];
+                    $per5 = $datam[$key]['period5'];
+                    $per6 = $datam[$key]['period6'];
+                    $per7 = $datam[$key]['period7'];
+                    $per8 = $datam[$key]['period8'];
                 } else {
                     $status = 0;
+                    $per1 = '5';
+                    $per2 = '5';
+                    $per3 = '5';
+                    $per4 = '5';
+                    $per5 = '5';
+                    $per6 = '5';
+                    $per7 = '5';
+                    $per8 = '5';
                 }
 
 
@@ -224,7 +217,6 @@ if ($period >= 2) {
                         <table width="100%">
                             <tr>
                                 <td style="padding-left:10px; width:50px;">
-
                                     <?php if ($period < 2) { ?>
                                         <input style="scale:1.5; border:1px solid var(--dark); " class="form-check-input"
                                             type="checkbox" name="darkmode" id="sta<?php echo $stid; ?>"
@@ -244,16 +236,46 @@ if ($period >= 2) {
                                     </span>
                                 </td>
                                 <td style="text-align:left; padding-left:5px;">
-                                    <div class="a"><?php echo $neng; ?></div>
-                                    <div class="b"><?php echo $nben; ?></div>
-                                    <div class="c" style="font-weight:600; font-style:normal; color:gray;">ID #
+                                    <div class="stname-eng"><?php echo $neng; ?></div>
+                                    <div class="stname-ben"><?php echo $nben; ?></div>
+                                    <div class="st-id" style="font-weight:600; font-style:normal; color:gray;">ID #
                                         <?php echo $stid . $grnametxt; ?>
                                     </div>
-                                    <div class="c"><?php echo $vill;
-                                    ; ?></div>
+                                    <div class="st-id text-secondary"><?php echo $vill;
+                                    ; ?>
+
+                                        <div class="d-flex">
+                                            <?php
+                                            for ($u = 1; $u <= 8; $u++) {
+                                                if ($per1 == 0) {
+                                                    $clr = 'clr-2';
+                                                } else if ($per1 == 5) {
+                                                    $clr = 'clr-5';
+                                                } else {
+                                                    $clr = 'clr-5';
+                                                    $varvar = 'per' . $u;
+                                                    if ($$varvar == '1') {
+                                                        $clr = 'clr-1';
+                                                    } else if ($$varvar == '0') {
+                                                        $clr = 'clr-0';
+                                                    } else if ($$varvar == '5') {
+                                                        $clr = 'clr-2';
+                                                    }
+                                                }
+
+                                                // echo $clr;
+                                                ?>
+                                                <div class="attnd-dot <?php echo $clr; ?>"></div>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
+
+
+                                    </div>
                                 </td>
                                 <td style="text-align:right;" id="ut<?php echo $stid; ?>"><img src="<?php echo $pth; ?>"
-                                        class="pic" /></td>
+                                        class="st-pic-normal" /></td>
                             </tr>
                         </table>
 

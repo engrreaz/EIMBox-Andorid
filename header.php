@@ -46,19 +46,20 @@
         }
 
         .page-top-box {
-            background:var(--dark);
+            background: var(--dark);
             color: var(--lighter);
             border-radius: 0;
         }
+
         .page-info-box {
-            background:var(--darker);
+            background: var(--darker);
             color: var(--light);
             border-radius: 0;
         }
 
         .text-small {
             font-size: small;
-            font-weight:400;
+            font-weight: 400;
         }
 
         .text-shadow {
@@ -230,6 +231,7 @@
             border-radius: 50%;
             border: 0px solid var(--light);
         }
+
         .st-pic-small {
             width: 36px;
             height: 36px;
@@ -238,13 +240,6 @@
             border: 0px solid var(--light);
         }
 
-        .pic {
-            width: 90px;
-            height: 90px;
-            padding: 1px;
-            border-radius: 50%;
-            border: 0px solid var(--light);
-        }
 
         .a {
             font-size: 1.5rem;
@@ -338,6 +333,29 @@
 
 
 
+        .attnd-dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            margin-right: 4px;
+            background: black:
+        }
+
+        .clr-5 {
+            background: black:
+        }
+
+        .clr-1 {
+            background: seagreen;
+        }
+
+        .clr-0 {
+            background: orange;
+        }
+
+        .clr-2 {
+            background: red;
+        }
 
         .wd {
             text-align: center;
