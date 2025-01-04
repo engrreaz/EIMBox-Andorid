@@ -8,7 +8,26 @@ if (isset($_GET['dt'])) {
     $td = $_GET['dt'];
 }
 
-$period = 1;
+
+
+$ccur = date('H:i:s');
+$sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and sessionyear='$sy' and timestart<='$ccur' and timeend>='$ccur';";
+// echo $sql0 ;
+$result0rtx = $conn->query($sql0);
+if ($result0rtx->num_rows > 0) {
+    while ($row0 = $result0rtx->fetch_assoc()) {
+        $period = $row0["period"];
+        $ts = $row0["timestart"];
+        $te = $row0["timeend"];
+        $dur = $row0["duration"];
+    }
+} else {
+    $period = 1;
+    $ts = 0;
+    $te = 0;
+    $dur = 0;
+}
+// $period = 1;
 
 $sql00 = "SELECT * FROM stattnd where  (adate='$td' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname') or yn=100 order by rollno";
 $result00gt = $conn->query($sql00);
