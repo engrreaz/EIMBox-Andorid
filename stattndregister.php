@@ -226,8 +226,8 @@ if ($period >= 2) {
                             <td style="width:36px; text-align:center;"><span
                                     style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span></td>
                             <td style="text-align:left; padding-left:5px;">
-                                <span class="stname-ben"><?php echo $neng; ?></span>
-                                <span class="stname-ben"><?php echo $nben; ?></span>
+                                <div class="stname-ben"><?php echo $neng; ?></div>
+                                <div class="stname-ben"><?php echo $nben; ?></div>
                             </td>
 
                             <?php for ($h = 1; $h <= 31; $h++) {
