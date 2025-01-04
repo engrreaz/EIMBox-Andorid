@@ -34,7 +34,6 @@ if ($period >= 2) {
 ?>
 <style>
     .sticky {
-        position: -webkit-sticky;
         position: sticky;
         top: 0;
     }
@@ -155,7 +154,7 @@ if ($period >= 2) {
         </div>
         <div class="table-responsive">
             <table width="100%" class="table table-condensed">
-                <thead class="table_header table_header--skicky sticky">
+                <thead class="sticky">
                     <tr class="sticky">
                         <th class="sticky"></th>
                         <th class="sticky"></th>
