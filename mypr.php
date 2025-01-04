@@ -215,7 +215,10 @@ $collection = $accountant = 0;
             <table width="100%">
               <tr>
                 <td style="width:30px;">
-                  <span style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span>
+                  <span style="font-size:24px; font-weight:700;">
+                    <?php echo $rollno; ?>
+                  <br><img class="st-pic-small mt-2" src="<?php echo $pth; ?>" />
+                  </span>
                 </td>
                 <td style="text-align:left; padding-left:5px;">
                   <div class="stname-eng"><?php echo $neng; ?></div>

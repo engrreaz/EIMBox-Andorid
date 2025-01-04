@@ -48,13 +48,7 @@ if (isset($_GET['edit'])) {
                 $sector = $row0["sector"];
                 $rate = $row0["rate"];
 
-
-                $pth = '../students/' . $stid . '.jpg';
-                if (file_exists($pth)) {
-                    $pth = 'https://eimbox.com/students/' . $stid . '.jpg';
-                } else {
-                    $pth = 'https://eimbox.com/students/noimg.jpg';
-                }
+                include 'component/student-image-path.php';
 
                 $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
                 $result00 = $conn->query($sql00);
