@@ -121,14 +121,14 @@ if ($period >= 2) {
                             <div style="font-size:20px; font-weight:700; line-height:15px;">
                                 <?php echo strtoupper($classname); ?> | <?php echo strtoupper($sectionname); ?>
                             </div>
-                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:22px;">Name of
+                            <div style="color: var(--light); font-size:12px; font-weight:400; font-style:italic; line-height:22px;">Name of
                                 Class | Section</div>
 
                         </td>
                         <td style="text-align:right;">
                             <div style="font-size:30px; font-weight:700; line-height:20px;"><span id="cnt"></span></div>
                             <div
-                                style="color: var(--dark); font-size:12px; font-weight:400; font-style:italic; line-height:24px;">
+                                style="color: var(--light); font-size:12px; font-weight:400; font-style:italic; line-height:24px;">
                                 No. of
                                 Students</div>
 
@@ -140,7 +140,7 @@ if ($period >= 2) {
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <div class="mt-3" style="font-size:22px; text-align:center; font-weight:600; line-height:15px;" id="dddate">
+                            <div class="mt-3" style="color: var(--lighter); font-size:22px; text-align:center; font-weight:600; line-height:15px;" id="dddate">
                                 <?php echo date(' F, Y', strtotime($td)); ?>
                             </div>
                      
