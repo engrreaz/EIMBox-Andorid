@@ -121,7 +121,7 @@ $collection = $accountant = 0;
 <main>
   <div class="containerx-fluid">
 
-    <div class="card " style="background:var(--dark); color:var(--lighter);">
+    <div class="card page-top-box" >
       <div class="card-body">
         <table width="100%" style="color:white;">
           <tr>
@@ -130,6 +130,15 @@ $collection = $accountant = 0;
               <div class="menu-text"> My Collections </div>
             </td>
           </tr>
+ 
+
+        </table>
+      </div>
+    </div>
+    <div class="card page-info-box" >
+      <div class="card-body">
+        <table width="100%" style="color:white;">
+
           <tr>
             <td>
               <div style="font-size:36px; font-weight:700; line-height:15px;" id="cntamt"></div>
