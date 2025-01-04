@@ -117,7 +117,7 @@ if ($result01x->num_rows > 0) {
 
 <main>
   <div class="containerx-fluid">
-    <div class="card text-left" style="background:var(--dark); color:var(--lighter);border-radius:0; " onclick="">
+    <div class="card page-top-box" >
       <div class="card-body" style="border-radius:0;">
         <table width="100%" style="color:white;">
           <tr>
@@ -126,6 +126,13 @@ if ($result01x->num_rows > 0) {
               <div class="menu-text"> Student's Dues </div>
             </td>
           </tr>
+
+        </table>
+      </div>
+    </div>
+    <div class="card page-info-box" >
+      <div class="card-body" style="border-radius:0;">
+        <table width="100%" style="color:white;">
 
           <tr>
             <td>
@@ -154,6 +161,9 @@ if ($result01x->num_rows > 0) {
         </table>
       </div>
     </div>
+
+
+
     <div style="height:4px;"></div>
 
 
