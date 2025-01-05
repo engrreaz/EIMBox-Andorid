@@ -159,8 +159,8 @@ if ($result01x->num_rows > 0) {
         <table width="100%" style="color:white;">
           <tr>
             <td colspan="2">
-              <div class="menu-icon"> <i class="bi bi-coin"></i> </div>
-              <div class="menu-text"> Student's Dues </div>
+              <div class="menu-icon"> <i class="bi bi-diagram-2"></i> </div>
+              <div class="menu-text"> My Class </div>
             </td>
           </tr>
         </table>
@@ -176,11 +176,6 @@ if ($result01x->num_rows > 0) {
               <div style="font-size:16px; font-weight:700; line-height:15px;"><?php echo strtoupper($sectionname); ?>
               </div>
               <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Section</div>
-              <div hidden>
-                <input type="text" id="mylastpr" value="23272003" />
-                <button onclick="epos();">ESC-POS</button>
-                <div id="eposlink">***</div>
-              </div>
             </td>
             <td style="text-align:right;">
               <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt">...</div>
@@ -261,7 +256,7 @@ if ($result01x->num_rows > 0) {
                   </div>
 
                 </td>
-                <td rowspan="2" style="text-align:right; font-size:20px; font-weight:600;">
+                <td rowspan="2" style="text-align:right; font-size:20px; font-weight:600; vertical-align:top;">
                   <img src="https://eimbox.com/students/<?php echo $stid; ?>.jpg" class="st-list-photo" />
                 </td>
               </tr>
@@ -269,14 +264,38 @@ if ($result01x->num_rows > 0) {
 
                 <td></td>
                 <td>
-                  <div class="d-flex">
+
+                  <div class="row mt-3">
+                    <div class="col-3 text-center">
+                      <i class="bi bi-fingerprint toolbar-icon"></i>
+                      <div class="toolbar-text">57%</div>
+                    </div>
+                    <div class="col-3 text-center">
+                      <i class="bi bi-coin toolbar-icon"></i>
+                      <div class="toolbar-text">
+                        <?php echo number_format($totaldues, 2, ".", ","); ?>
+                      </div>
+                    </div>
+                    <div class="col-3 text-center">
+                      <i class="bi bi-file-earmark-text toolbar-icon"></i>
+                      <div class="toolbar-text">89.2%</div>
+                    </div>
+                    <div class="col-3 text-center">
+                      <i class="bi bi-person-circle toolbar-icon"></i>
+                      <div class="toolbar-text">Edit</div>
+                    </div>
+                  </div>
+
+
+
+                  <div style="display:none;">
                     <div class="mr-2">
                       <a class="btn btn-<?php echo $btn; ?>" style="font-size:10px;"
                         href="stprdetails.php?id=<?php echo $stid; ?>" disabled>Attendance</a>
                     </div>
                     <div class="d-block">
                       <div>
-                        <?php echo number_format($totaldues, 2, ".", ","); ?>
+
                       </div>
                       <div>
                         <a class="btn btn-<?php echo $btn; ?>" style="font-size:10px;"

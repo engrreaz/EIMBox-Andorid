@@ -77,7 +77,7 @@ if ($result0rttfts->num_rows > 0) {
 
 
 $ccur = date('H:i:s');
-$sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and sessionyear='$sy' and timestart<='$ccur' and timeend>='$ccur';";
+$sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and sessionyear LIKE '%$sy%' and timestart<='$ccur' and timeend>='$ccur';";
 // echo $sql0 ;
 $result0rtx = $conn->query($sql0);
 if ($result0rtx->num_rows > 0) {

@@ -146,6 +146,25 @@
             margin: 0;
             color: var(--lighter);
         }
+        .toolbar-icon {
+            color: var(--light);
+            font-size: 36px;
+            line-height:36px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .toolbar-text {
+            font-size: .70em;
+            text-align: center;
+            font-weight: 600;
+            font-style: normal;
+            line-height: 1.7em;
+            color: black;
+            padding: 0;
+            margin: 0;
+            color: var(--normal);
+        }
 
         .menu-sub-title {
             color: gray;
