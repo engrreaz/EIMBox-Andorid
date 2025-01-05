@@ -243,8 +243,8 @@ if ($period >= 2) {
                                 $st_att[] = $datam[$my];
                             }
                         }
-echo '<hr>';
-var_dump($st_att);
+                        echo '<hr>';
+                        var_dump($st_att);
 
 
                         if ($status == 0) {
@@ -274,17 +274,30 @@ var_dump($st_att);
                                 <div class="stname-ben"><?php echo $nben; ?></div>
                             </td>
 
-                            <?php for ($h = 1; $h <= 31; $h++) {
-                                $tarikh = $year . '-' . $month . '-' . $h;
+                            <?php
+                            $day = date('d');
+                            for ($h = 1; $h <= 31; $h++) {
+                                if ($h <= $day) {
+                                    if($h <10) {
+                                        $h = '0' . $h;
+                                    }
+                                    $tarikh = $year . '-' . $month . '-' . $h;
 
-                                $key = array_search($tarikh, array_column($st_att, 'adate'));
-                                if ($key != NULL || $key != '') {
-                                    $status = $datam[$key]['yn'];
-                                    $clr = $status;
+                                    $key = array_search($tarikh, array_column($st_att, 'adate'));
+                                    if ($key != NULL || $key != '') {
+                                        $status = $datam[$key]['yn'];
+                                        $clr = $status;
+                                        //0 - Absent; 1 = Present; 2 = Bunk
+                                    } else {
+                                        $status = 0;
+                                        $clr = 4; // not found
+                                    }
+
                                 } else {
                                     $status = 0;
-                                    $clr = 5;
+                                    $clr = 5; // Advance Date (future)
                                 }
+
 
 
                                 echo '<td style="vertical-align:middle;" class="text-center">' . $clr . '</td>';
