@@ -1,6 +1,6 @@
 <?php
 include 'inc.php';
-include 'datam/datam-stprofile.php';
+include 'datam/datam-subject-list.php';
 
 // PR Delete Time.....
 $mini = 10000; //24 * 3600 * 7;
@@ -126,8 +126,8 @@ $collection = $accountant = 0;
         <table width="100%" style="color:white;">
           <tr>
             <td colspan="2">
-              <div class="menu-icon"><i class="bi bi-coin"></i></div>
-              <div class="menu-text"> My Collections </div>
+              <div class="menu-icon"><i class="bi bi-book-half"></i></div>
+              <div class="menu-text"> My Subjects </div>
             </td>
           </tr>
  
@@ -177,23 +177,17 @@ $collection = $accountant = 0;
 
     $cnt = 0;
     $cntamt = 0;
-    $sql0 = "SELECT * FROM stpr where sessionyear='$sy' and sccode='$sccode' and entryby='$usr' and entrytime >= '2025-01-01' order by entrytime desc";
+    $sql0 = "SELECT * FROM subsetup where sessionyear LIKE '%$sy%' and sccode='$sccode' and tid='$userid'  order by classname, sectionname, subject desc";
     $result0 = $conn->query($sql0);
     if ($result0->num_rows > 0) {
       while ($row0 = $result0->fetch_assoc()) {
-        $stid = $row0["stid"];
-        $rollno = $row0["rollno"];
-        $prno = $row0["prno"];
-        $prdate = $row0["prdate"];
-        $amount = $row0["amount"];
-        $entrytime = $row0["entrytime"];
-        $clsp = $row0["classname"];
-        $secp = $row0["sectionname"];
-
-        $stind = array_search($stid, array_column($datam_st_profile, 'stid'));
-        $neng = $datam_st_profile[$stind]["stnameeng"];
-        $nben = $datam_st_profile[$stind]["stnameben"];
-        $vill = $datam_st_profile[$stind]["previll"];
+        $subcode = $row0["subject"];
+        $clsname = $row0["classname"];
+        $secname = $row0["sectionname"];
+        
+        $stind = array_search($subcode, array_column($datam_subject_list, 'subcode'));
+        $seng = $datam_subject_list[$stind]["subject"];
+        $sben = $datam_subject_list[$stind]["subben"];
 
         // if ($status == 0) {
         $bgc = '--light';
@@ -224,28 +218,14 @@ $collection = $accountant = 0;
             <table width="100%">
               <tr>
                 <td style="width:40px; text-align:center;">
-                  <span style="font-size:24px; font-weight:700;">
-                    <?php echo $rollno; ?>
-                  <br><img class="st-pic-small mt-2" src="<?php echo $pth; ?>" />
-                  </span>
+                  
                 </td>
                 <td style="text-align:left; padding-left:5px;">
-                  <div class="stname-eng"><?php echo $neng; ?></div>
-                  <div class="stname-ben"><?php echo $nben; ?></div>
-                  <div class="c" style="font-weight:400; font-style:normal; color:gray;">ID # <?php echo $stid; ?></div>
-                  <div class="c" style="font-weight:400; font-style:normal;"><b><?php echo $clsp . ' / ' . $secp; ?></b></div>
-                  <div class="c" style="font-weight:500; font-style:normal; color:gray;">Date : <b><?php echo date('d/m/Y', strtotime($prdate)) . '</b><br>Receipt No. : </b>' . $prno; ?></b></div>
+                  <div class="stname-eng"><?php echo $seng; ?></div>
+                  <div class="stname-ben"><?php echo $sben; ?></div>
                 </td>
                 <td style="text-align:right; font-size:20px; font-weight:600;">
-                  <?php echo number_format($amount, 2, ".", ",");
-
-                  if (strtotime($cur) - strtotime($entrytime) > $mini) {
-                    $ddd = 'disabled';
-                  } else {
-                    $ddd = '';
-                  }
-
-                  ?>
+                 <book></book>
                   <br>
                   <button class="btn btn-danger" onclick="delpr(<?php echo $prno; ?>)" <?php echo $ddd; ?>>Delete
                     Receipt</button>

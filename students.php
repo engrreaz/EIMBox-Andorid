@@ -1,5 +1,8 @@
 <?php
 include 'inc.php';
+include 'datam/datam-stprofile.php';
+
+
 $classname = $cteachercls;
 $sectionname = $cteachersec;
 if (isset($_GET['cls'])) {
@@ -43,7 +46,7 @@ if (isset($_GET['sec'])) {
               <br>
               <div class="form-check form-switch" style="float:right;">
                 <input class="form-check-input" type="checkbox" id="myswitch" name="darkmode" value="no"
-                  onclick="more();"> <small> More</small>
+                  onclick="more();"> <small style="font-size:10px; padding: 2px 0;"> More</small>
               </div>
             </td>
           </tr>
@@ -73,13 +76,14 @@ if (isset($_GET['sec'])) {
         } else {
           $grnametxt = '';
         }
+        include 'component/student-image-path.php';
 
-        $pth = '../students/' . $stid . '.jpg';
-        if (file_exists($pth)) {
-          $pth = 'https://eimbox.com/students/' . $stid . '.jpg';
-        } else {
-          $pth = 'https://eimbox.com/students/noimg.jpg';
-        }
+        $st_ind = array_search($stid, array_column($datam_st_profile , 'stid'));
+        $neng = $datam_st_profile[$st_ind]["stnameeng"];
+        $nben = $datam_st_profile[$st_ind]["stnameben"];
+        $vill = $datam_st_profile[$st_ind]["previll"];
+        $modi = $datam_st_profile[$st_ind]["modify"];
+        $diff = (strtotime($cur) - strtotime($modi)) / (3600 * 24);
 
         $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
         $result00 = $conn->query($sql00);
@@ -116,12 +120,12 @@ if (isset($_GET['sec'])) {
                  
                 </td>
                 <td style="text-align:left; padding-left:5px;">
-                  <div class="a"><?php echo $neng; ?></div>
-                  <div class="b"><?php echo $nben; ?></div>
-                  <div class="c" style="font-weight:600; font-style:normal; color:gray;">ID #
+                  <div class="stname-eng"><?php echo $neng; ?></div>
+                  <div class="stname-ben"><?php echo $nben; ?></div>
+                  <div class="st-id" style="font-weight:600; font-style:normal; color:gray;">ID #
                     <?php echo $stid . $grnametxt; ?></div>
-                  <div class="c"><?php echo $vill; ?></div>
-                  <div class="c"><b><?php echo $diff; ?></b></div>
+                  <div class="roll-no"><?php echo $vill; ?></div>
+                  <div class="roll-no" hidden><b><?php echo $diff; ?></b></div>
 
                 </td>
                 <td style="text-align:right;"><img src="<?php echo $pth; ?>" class="st-pic-normal" /></td>
