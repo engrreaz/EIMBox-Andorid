@@ -264,7 +264,7 @@ if ($period >= 2) {
                                 </td>
                                 <td style="width:36px; text-align:center;" class=" sticky-x-2"><span
                                         style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span></td>
-                                <td style="text-align:left; padding-left:5px;"  class=" sticky-x-3">
+                                <td style="text-align:left; padding-left:5px; min-width:150px;"  class=" sticky-x-3">
                                     <div class="stname-ben"><?php echo $neng; ?></div>
                                     <div class="stname-ben"><?php echo $nben; ?></div>
                                 </td>
