@@ -36,6 +36,24 @@ if ($period >= 2) {
     .stickyg {
         position: sticky !important;
         top: 0;
+        z-index:10000;
+        background:var(--lighter);
+    }
+
+    .sticky-x-1 {
+        position:sticky;
+        left:0; 
+        z-index:9999;
+    }
+    .sticky-x-2 {
+        position:sticky;
+        left:36px; 
+        z-index:9999;
+    }
+    .sticky-x-3 {
+        position:sticky;
+        left:72px; 
+        z-index:9999;
     }
 </style>
 <script>
@@ -161,11 +179,11 @@ if ($period >= 2) {
         </div>
         <div class="" style="overflow:auto; height:90vh;">
             <table class="table table-condensed">
-                <thead class="stickyg">
-                    <tr class="stickyg">
-                        <th class="stickyg"></th>
-                        <th class="stickyg"></th>
-                        <th class="stickyg"></th>
+                <thead class="stickyg sticky-x">
+                    <tr class="stickyg sticky-x">
+                        <th class="stickyg sticky-x" style=""></th>
+                        <th class="stickyg sticky-x"></th>
+                        <th class="stickyg sticky-x"></th>
                         <?php for ($h = 1; $h <= 31; $h++) {
                             echo '<th class="stickyg">' . $h . '</th>';
                         }
@@ -240,13 +258,13 @@ if ($period >= 2) {
 
                             <tr>
 
-                                <td style="width:36px; text-align:center;">
+                                <td style="width:36px; text-align:center;" class=" sticky-x-1">
                                     <img src="<?php echo $pth; ?>" class="st-pic-small" />
 
                                 </td>
-                                <td style="width:36px; text-align:center;"><span
+                                <td style="width:36px; text-align:center;" class=" sticky-x-2"><span
                                         style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span></td>
-                                <td style="text-align:left; padding-left:5px;">
+                                <td style="text-align:left; padding-left:5px;"  class=" sticky-x-3">
                                     <div class="stname-ben"><?php echo $neng; ?></div>
                                     <div class="stname-ben"><?php echo $nben; ?></div>
                                 </td>
