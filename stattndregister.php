@@ -240,7 +240,7 @@ if ($period >= 2) {
                         $st_att = array();
                         for ($my = 0; $my < count($datam); $my++) {
                             if ($datam[$my]['stid'] == $stid) {
-                                $st_attnd[] = $datam[$my];
+                                $st_att[] = $datam[$my];
                             }
                         }
 echo '<hr>';
@@ -277,7 +277,7 @@ var_dump($st_att);
                             <?php for ($h = 1; $h <= 31; $h++) {
                                 $tarikh = $year . '-' . $month . '-' . $h;
 
-                                $key = array_search($tarikh, array_column($st_attnd, 'adate'));
+                                $key = array_search($tarikh, array_column($st_att, 'adate'));
                                 if ($key != NULL || $key != '') {
                                     $status = $datam[$key]['yn'];
                                     $clr = $status;
