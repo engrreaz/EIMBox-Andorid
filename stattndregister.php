@@ -185,7 +185,7 @@ if ($period >= 2) {
 
 
         </div>
-        <div class="" style="overflow:auto; height:25vh; padding-left:0;">
+        <div class="" style="overflow:auto; height:calc(100vh - 52px); padding-left:0;">
             <table class="table table-condensed">
                 <thead class="stickyg sticky-x">
                     <tr class="stickyg sticky-x">
