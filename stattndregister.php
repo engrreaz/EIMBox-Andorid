@@ -61,7 +61,7 @@ if ($period >= 2) {
         position: sticky;
         left: 72px;
         z-index: 9999;
-        background: white;
+        background: black;
     }
 </style>
 <script>
@@ -265,9 +265,9 @@ if ($period >= 2) {
 
                             <td style="width:36px; text-align:center;" class=" sticky-x-1">
                                 <img src="<?php echo $pth; ?>" class="st-pic-small" />
-
                             </td>
-                            <td style="width:36px; text-align:center;" class=" sticky-x-2"><span
+
+                            <td style="width:36px; text-align:center;" class=" sticky-x-2  bg-red"><span
                                     style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span></td>
                             <td style="text-align:left; padding-left:5px; min-width:120px;" class=" sticky-x-3">
                                 <div class="stname-ben"><?php echo $neng; ?></div>
@@ -287,7 +287,7 @@ if ($period >= 2) {
                                 }
 
 
-                                echo '<th class="text-center">' . $clr . '</th>';
+                                echo '<td style="vertical-align:middle;" class="text-center">' . $clr . '</td>';
                             }
                             ?>
 
