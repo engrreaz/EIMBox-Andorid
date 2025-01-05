@@ -121,7 +121,9 @@ if ($period >= 2) {
                             <div style="font-size:20px; font-weight:700; line-height:15px;">
                                 <?php echo strtoupper($classname); ?> | <?php echo strtoupper($sectionname); ?>
                             </div>
-                            <div style="color: var(--light); font-size:12px; font-weight:400; font-style:italic; line-height:22px;">Name of
+                            <div
+                                style="color: var(--light); font-size:12px; font-weight:400; font-style:italic; line-height:22px;">
+                                Name of
                                 Class | Section</div>
 
                         </td>
@@ -140,10 +142,12 @@ if ($period >= 2) {
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <div class="mt-3" style="color: var(--lighter); font-size:22px; text-align:center; font-weight:600; line-height:15px;" id="dddate">
+                            <div class="mt-3"
+                                style="color: var(--lighter); font-size:22px; text-align:center; font-weight:600; line-height:15px;"
+                                id="dddate">
                                 <?php echo date(' F, Y', strtotime($td)); ?>
                             </div>
-                     
+
                         </td>
                     </tr>
 
@@ -155,10 +159,10 @@ if ($period >= 2) {
 
 
         </div>
-        <div class="table-responsive">
+        <div class="" style="overflow:auto; height:90vh;">
             <table class="table table-condensed">
-                <thead class="">
-                    <tr class="">
+                <thead class="stickyg">
+                    <tr class="stickyg">
                         <th class="stickyg"></th>
                         <th class="stickyg"></th>
                         <th class="stickyg"></th>
@@ -173,92 +177,94 @@ if ($period >= 2) {
                 $cnt = 0;
                 $found = 0;
 
-                $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by $stattnd_sort";
-                $result0 = $conn->query($sql0);
-                if ($result0->num_rows > 0) {
-                    while ($row0 = $result0->fetch_assoc()) {
-                        $stid = $row0["stid"];
-                        $rollno = $row0["rollno"];
-                        $card = $row0["icardst"];
-                        $dtid = $row0["id"];
-                        $status = $row0["status"];
-                        $rel = $row0["religion"];
-                        $four = $row0["fourth_subject"];
+                for ($x = 0; $x < 10; $x++) {
+
+                    $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by $stattnd_sort";
+                    $result0 = $conn->query($sql0);
+                    if ($result0->num_rows > 0) {
+                        while ($row0 = $result0->fetch_assoc()) {
+                            $stid = $row0["stid"];
+                            $rollno = $row0["rollno"];
+                            $card = $row0["icardst"];
+                            $dtid = $row0["id"];
+                            $status = $row0["status"];
+                            $rel = $row0["religion"];
+                            $four = $row0["fourth_subject"];
 
 
-                        $pth = '../students/' . $stid . '.jpg';
-                        if (file_exists($pth)) {
-                            $pth = 'https://eimbox.com/students/' . $stid . '.jpg';
-                        } else {
-                            $pth = 'https://eimbox.com/students/noimg.jpg';
-                        }
+                            $pth = '../students/' . $stid . '.jpg';
+                            if (file_exists($pth)) {
+                                $pth = 'https://eimbox.com/students/' . $stid . '.jpg';
+                            } else {
+                                $pth = 'https://eimbox.com/students/noimg.jpg';
+                            }
 
-                        $st_ind = array_search($stid, array_column($datam_st_profile, 'stid'));
-                        $neng = $datam_st_profile[$st_ind]["stnameeng"];
-                        $nben = $datam_st_profile[$st_ind]["stnameben"];
-                        $vill = $datam_st_profile[$st_ind]["previll"];
+                            $st_ind = array_search($stid, array_column($datam_st_profile, 'stid'));
+                            $neng = $datam_st_profile[$st_ind]["stnameeng"];
+                            $nben = $datam_st_profile[$st_ind]["stnameben"];
+                            $vill = $datam_st_profile[$st_ind]["previll"];
 
-                        // $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
-                        // $result00 = $conn->query($sql00);
-                        // if ($result00->num_rows > 0) 
-                        // {while($row00 = $result00->fetch_assoc()) {   
-                        //     $neng=$row00["stnameeng"]; $nben=$row00["stnameben"]; $vill=$row00["previll"];
-                        // }}
+                            // $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
+                            // $result00 = $conn->query($sql00);
+                            // if ($result00->num_rows > 0) 
+                            // {while($row00 = $result00->fetch_assoc()) {   
+                            //     $neng=$row00["stnameeng"]; $nben=$row00["stnameben"]; $vill=$row00["previll"];
+                            // }}
                 
 
-                        //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
+                            //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
                 
 
 
-                        $key = array_search($stid, array_column($datam, 'stid'));
-                        if ($key != NULL || $key != '') {
-                            $status = $datam[$key]['yn'];
-                        } else {
-                            $status = 0;
-                        }
+                            $key = array_search($stid, array_column($datam, 'stid'));
+                            if ($key != NULL || $key != '') {
+                                $status = $datam[$key]['yn'];
+                            } else {
+                                $status = 0;
+                            }
 
 
-                        if ($status == 0) {
-                            $bgc = '--light';
-                            $dsbl = ' disabled';
-                            $gip = '';
-                            $found += 0;
-                        } else {
-                            $bgc = '--lighter';
-                            $dsbl = '';
-                            $gip = 'checked';
-                            $found++;
-                        }
-                        ?>
-
-
-                        <tr>
-
-                            <td style="width:36px; text-align:center;">
-                                <img src="<?php echo $pth; ?>" class="st-pic-small" />
-
-                            </td>
-                            <td style="width:36px; text-align:center;"><span
-                                    style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span></td>
-                            <td style="text-align:left; padding-left:5px;">
-                                <div class="stname-ben"><?php echo $neng; ?></div>
-                                <div class="stname-ben"><?php echo $nben; ?></div>
-                            </td>
-
-                            <?php for ($h = 1; $h <= 31; $h++) {
-                                echo '<th>' . '' . '</th>';
+                            if ($status == 0) {
+                                $bgc = '--light';
+                                $dsbl = ' disabled';
+                                $gip = '';
+                                $found += 0;
+                            } else {
+                                $bgc = '--lighter';
+                                $dsbl = '';
+                                $gip = 'checked';
+                                $found++;
                             }
                             ?>
 
-                        </tr>
+
+                            <tr>
+
+                                <td style="width:36px; text-align:center;">
+                                    <img src="<?php echo $pth; ?>" class="st-pic-small" />
+
+                                </td>
+                                <td style="width:36px; text-align:center;"><span
+                                        style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span></td>
+                                <td style="text-align:left; padding-left:5px;">
+                                    <div class="stname-ben"><?php echo $neng; ?></div>
+                                    <div class="stname-ben"><?php echo $nben; ?></div>
+                                </td>
+
+                                <?php for ($h = 1; $h <= 31; $h++) {
+                                    echo '<th>' . '' . '</th>';
+                                }
+                                ?>
+
+                            </tr>
 
 
 
-                        <?php
-                        $cnt++;
+                            <?php
+                            $cnt++;
+                        }
                     }
                 }
-
                 ?>
             </table>
         </div>
