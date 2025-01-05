@@ -36,12 +36,18 @@ if ($period >= 2) {
 // 	echo var_dump($datam);
 ?>
 <style>
+.table th, .table td {
+    border-collapse: collapse;
+}
+
     .stickyg {
         position: sticky !important;
         top: 0;
         z-index: 10000;
         background: var(--lighter);
     }
+
+   
 
     .sticky-x-1 {
         position: sticky;
@@ -59,7 +65,7 @@ if ($period >= 2) {
 
     .sticky-x-3 {
         position: sticky;
-        left: 72px;
+        left: 60px;
         z-index: 9999;
         background-color: #fdfbf4 !important;
     }
@@ -189,9 +195,9 @@ if ($period >= 2) {
             <table class="table table-condensed">
                 <thead class="stickyg sticky-x">
                     <tr class="stickyg sticky-x">
-                        <th class="stickyg sticky-x" style=""></th>
-                        <th class="stickyg sticky-x"></th>
-                        <th class="stickyg sticky-x"></th>
+                        <th class="stickyg sticky-x-1" style="background: var(--lighter) !important; z-index:10001;"></th>
+                        <th class="stickyg sticky-x-2" style="background: var(--lighter) !important; z-index:10001;"></th>
+                        <th class="stickyg sticky-x-3" style="background: var(--lighter) !important; z-index:10001;"></th>
                         <?php for ($h = 1; $h <= 31; $h++) {
                             echo '<th class="stickyg">' . $h . '</th>';
                         }
@@ -287,7 +293,7 @@ if ($period >= 2) {
                                     $key = array_search($tarikh, array_column($st_att, 'adate'));
                                     if ($key != NULL || $key != '') {
                                         $status = $datam[$key]['yn'];
-                                        // $bunk = 1;
+                                        $bunk = 1;
 
                                         $clr = $status;
                                         //0 - Absent; 1 = Present; 2 = Bunk
