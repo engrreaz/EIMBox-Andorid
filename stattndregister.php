@@ -287,7 +287,7 @@ if ($period >= 2) {
                                     $key = array_search($tarikh, array_column($st_att, 'adate'));
                                     if ($key != NULL || $key != '') {
                                         $status = $datam[$key]['yn'];
-                                        $bunk = 1;
+                                        // $bunk = 1;
 
                                         $clr = $status;
                                         //0 - Absent; 1 = Present; 2 = Bunk
