@@ -319,7 +319,7 @@ if ($period >= 2) {
 
 
 
-                                echo '<td style="vertical-align:middle;" class="text-center"><div style="background:' . $clr_dot . ' !important;" class="attnd-dot">.</div></td>';
+                                echo '<td style="vertical-align:middle;" class="text-center"><div style="background:' . $clr_dot . ' !important;" class="attnd-dot"></div></td>';
                             }
                             ?>
 
