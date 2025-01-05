@@ -1,49 +1,10 @@
 <?php 
     include 'inc.php'; $stid=$_GET['id'];
-    
-    $pth = '../students/' . $stid . '.jpg';
-    if(file_exists($pth)){
-        $pth = 'https://eimbox.com/students/' . $stid . '.jpg';
-    } else {
-        $pth = 'https://eimbox.com/students/noimg.jpg';
-    }
+  include 'component/student-image-path.php';  
+   
     //echo $pth;
 ?>
-<!doctype html>
-<html lang="en">
 
-<head>
-  <title>Title</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css.css?v=a3">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
-    <style>
-        .pic{
-            width:150px; height:150px; padding:1px; border-radius:50%; border:3px solid var(--light);  position:absolute; top:75px; z-index:99; margin:auto; margin-left:-75px;
-        }
-        
-        .a{font-size:24px; font-weight:700; font-style:normal; line-height:18px; color:var(--dark);}
-        .b{font-size:20px; font-weight:500; font-style:normal; line-height:22px; margin-top:5px;}
-        .c{font-size:11px; font-weight:500; font-style:normal; line-height:12px;}
-        .d{font-size:20px; font-weight:500; font-style:normal; line-height:22px; color:var(--darker);}
-        
-        
-        .e{font-size:11px; font-weight:500; font-style:italic; line-height:11px; color:gray;}
-        .ico{font-size:24px; color:var(--dark); }
-    </style>
-</head>
-
-<body>
-  <header>
-    <!-- place navbar here -->
-  </header>
   <main>
     <div class="containerx" style="width:100%;" >
         
@@ -51,7 +12,7 @@
               <div class="card-body" style="height:150px;">
                   <div onclick="edit(<?php echo $stid;?>)" style="padding:2px 10px; float:right; border-radius:10%;  top:160px; z-index:100;position:relative; background:black; color:white; ">
                       <i class="material-icons" style="font-size:18px; padding-top:2px;">mode_edit</i> Edit</div>
-                    <center><img src="<?php echo $pth;?>" class="pic" /></center>
+                    <img src="<?php echo $pth;?>" class="st-pic-bigger text-center" />
               </div>
             </div>
             

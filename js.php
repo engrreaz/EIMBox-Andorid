@@ -14,7 +14,7 @@
                 window.location.href = 'index.php';
             } else {
                 document.getElementById("jj").innerHTML = 'Class Routine & Schedule are missing.';
-                document.getElementById("class-progress-bar").style.width =  '100%';
+                document.getElementById("class-progress-bar").style.width = '100%';
                 document.getElementById("class-bar-val").innerHTML = '100%';
             }
         } else {
@@ -78,32 +78,47 @@
 
     // NAVIGATION...........
     function report_menu_my_class() {
-        window.location.href= 'student-list.php';
+        window.location.href = 'students.php';
     }
     function report_menu_student_list() {
-        window.location.href= 'students.php';
+        window.location.href = 'student-list.php';
+    }
+    function report_menu_my_collection() {
+        window.location.href = 'mypr.php';
+    }
+    function report_menu_attnd_register() {
+        window.location.href = 'stattndregister.php';
+    }
+    function report_menu_cls_routine() {
+        window.location.href = 'clsroutine.php';
+    }
+    function report_menu_my_subjects() {
+        window.location.href = 'my-subject-list.php';
+    }
+    function report_menu_calendar() {
+        window.location.href = 'calendar.php';
     }
 
+    //********************************************************************* */
 
-    
-  function epos() {
-    let lastpr = document.getElementById("mylastpr").value;
-    infor = "prno=" + lastpr;
-    $("#eposlink").html("");
+    function epos() {
+        let lastpr = document.getElementById("mylastpr").value;
+        infor = "prno=" + lastpr;
+        $("#eposlink").html("");
 
-    $.ajax({
-      type: "POST",
-      url: "backend/getprinfo.php",
-      data: infor,
-      cache: false,
-      beforeSend: function () {
-        $("#eposlink").html('.....');
-      },
-      success: function (html) {
-        $("#eposlink").html(html);
-      }
-    });
-  }
+        $.ajax({
+            type: "POST",
+            url: "backend/getprinfo.php",
+            data: infor,
+            cache: false,
+            beforeSend: function () {
+                $("#eposlink").html('.....');
+            },
+            success: function (html) {
+                $("#eposlink").html(html);
+            }
+        });
+    }
 
 
 </script>

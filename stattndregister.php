@@ -1,13 +1,33 @@
 <?php
 include 'inc.php';
 include 'datam/datam-stprofile.php';
-$classname = $_GET['cls'];
-$sectionname = $_GET['sec'];
+$classname = $cteachercls;
+$sectionname = $cteachersec;
+if (isset($_GET['cls'])) {
+    $classname = $_GET['cls'];
+}
+if (isset($_GET['sec'])) {
+    $sectionname = $_GET['sec'];
+}
+
 $period = 1;
 $year = date('Y');
 $month = date('m');
 $date_start = $year . '-' . $month . '-01';
 $date_end = $year . '-' . $month . '-31';
+
+$sql00 = "SELECT * FROM settings where  sccode='$sccode' and setting_title='Weekends' ";
+// echo $sql00;
+$result00gt = $conn->query($sql00);
+if ($result00gt->num_rows > 0) {
+    while ($row00 = $result00gt->fetch_assoc()) {
+        $holidays = $row00['settings_value'];
+    }
+}
+
+
+
+
 
 $datam = array();
 $sql00 = "SELECT * FROM stattnd where  adate between '$date_start' and '$date_end' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname' order by rollno";
@@ -18,6 +38,7 @@ if ($result00gt->num_rows > 0) {
         $datam[] = $row00;
     }
 }
+
 
 $sql00 = "SELECT * FROM stattndsummery where  date='$td' and sccode='$sccode' and sessionyear='$sy' and classname = '$classname' and sectionname='$sectionname'";
 $result00gtt = $conn->query($sql00);
@@ -257,7 +278,7 @@ if ($period >= 2) {
                         for ($my = 0; $my < count($datam); $my++) {
                             if ($datam[$my]['stid'] == $stid) {
                                 $st_att[] = $datam[$my];
-                          
+
                             }
                         }
                         // echo '<hr>';
@@ -301,6 +322,7 @@ if ($period >= 2) {
                                         $h = '0' . $h;
                                     }
                                     $tarikh = $year . '-' . $month . '-' . $h;
+                                    $bar = date('l', strtotime($tarikh));
 
                                     $key = array_search($tarikh, array_column($st_att, 'adate'));
                                     if ($key != NULL || $key != '') {
@@ -310,7 +332,7 @@ if ($period >= 2) {
                                         $clr = $status;
                                         //0 - Absent; 1 = Present; 2 = Bunk
                                         if ($status == 0) {
-                                            $clr_dot = 'red';
+                                            $clr_dot = 'deeppink';
                                         } else {
                                             if ($bunk == 1) {
                                                 $clr_dot = 'orange';
@@ -327,6 +349,11 @@ if ($period >= 2) {
                                 } else {
                                     $status = 0;
                                     $clr_dot = 'lightgray'; // Advance Date (future)
+                                }
+
+                                if (str_contains($holidays, $bar)) {
+                                    $status = 0;
+                                    $clr_dot = 'red'; // Holiday
                                 }
 
 

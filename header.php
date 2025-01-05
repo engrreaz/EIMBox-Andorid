@@ -239,12 +239,29 @@
             border-radius: 50%;
             border: 0px solid var(--light);
         }
+
         .st-pic-big {
             width: 100px;
             height: 100px;
             padding: 1px;
             border-radius: 50%;
             border: 0px solid var(--light);
+        }
+
+        .st-pic-bigger {
+            width: 150px;
+            height: 150px;
+            padding: 1px;
+            border-radius: 50%;
+            
+
+            
+            border: 3px solid var(--normal);
+            position: absolute;
+            top: 75px;
+            z-index: 99;
+            margin: auto;
+            margin-left: -40px;
         }
 
 

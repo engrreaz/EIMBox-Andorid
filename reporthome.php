@@ -50,7 +50,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="report_menu_my_collection();">
       <div class="card-body">
         <table style="">
           <tr>
@@ -65,7 +65,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="report_menu_attnd_register();">
       <div class="card-body">
         <table style="">
           <tr>
@@ -80,7 +80,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="report_menu_cls_routine();">
       <div class="card-body">
         <table style="">
           <tr>
@@ -95,7 +95,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="report_menu_my_subjects();">
       <div class="card-body">
         <table style="">
           <tr>

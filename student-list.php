@@ -155,16 +155,18 @@ if ($result01x->num_rows > 0) {
   <div class="containerx-fluid">
     <div class="card text-left" style="background:var(--dark); color:var(--lighter);border-radius:0; " onclick="">
 
-      <div class="card-body" style="border-radius:0;">
+      <div class="card-body page-top-box" style="border-radius:0;">
         <table width="100%" style="color:white;">
           <tr>
             <td colspan="2">
-              <div style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
-                Student's Dues
-
-              </div>
+              <div class="menu-icon"> <i class="bi bi-coin"></i> </div>
+              <div class="menu-text"> Student's Dues </div>
             </td>
           </tr>
+        </table>
+      </div>
+      <div class="card-body page-info-box" style="border-radius:0;">
+        <table width="100%">
           <tr>
             <td>
               <div style="font-size:20px; font-weight:700; line-height:15px;"><?php echo strtoupper($classname); ?>

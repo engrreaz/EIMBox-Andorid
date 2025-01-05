@@ -14,17 +14,19 @@ if (isset($_GET['sec'])) {
   <div class="containerx-fluidx">
     <div class="card text-left" style="background:var(--dark); color:var(--lighter);">
 
-      <div class="card-body" style="border-radius:0;">
-        <table width="100%" style="color:white;">
+      <div class="card-body page-top-box" style="border-radius:0;">
+        <table width="100%">
           <tr>
             <td colspan="2">
-              <div class="logoo"><i class="bi bi-people-fill"></i></div>
-              <div style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
-                Student's List
-
-              </div>
+              <div class="menu-icon"><i class="bi bi-people-fill"></i></div>
+              <div class="menu-text"> Student's List </div>
             </td>
           </tr>
+        </table>
+      </div>
+
+      <div class="card-body page-info-box" style="border-radius:0;">
+        <table width="100%" style="color:white;">
           <tr>
             <td>
               <div style="font-size:20px; font-weight:700; line-height:15px;"><?php echo strtoupper($classname); ?></div>
@@ -104,16 +106,14 @@ if (isset($_GET['sec'])) {
     
 
         ?>
-        <div class="card text-center" style="background:var(<?php echo $bgc; ?>); color:var(--darker);"
+        <div class="card text-center mb-1" style="background:var(<?php echo $bgc; ?>); color:var(--darker);"
           onclick="go(<?php echo $stid; ?>)" id="block<?php echo $stid; ?>" <?php echo $dsbl; ?>>
           <img class="card-img-top" alt="">
           <div class="card-body">
             <table width="100%">
               <tr>
                 <td style="width:30px;"><span style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span>
-                  <span style="">
-                    <?php echo $qrc; ?>
-                  </span>
+                 
                 </td>
                 <td style="text-align:left; padding-left:5px;">
                   <div class="a"><?php echo $neng; ?></div>
@@ -124,7 +124,7 @@ if (isset($_GET['sec'])) {
                   <div class="c"><b><?php echo $diff; ?></b></div>
 
                 </td>
-                <td style="text-align:right;"><img src="<?php echo $pth; ?>" class="pic" /></td>
+                <td style="text-align:right;"><img src="<?php echo $pth; ?>" class="st-pic-normal" /></td>
               </tr>
             </table>
 
