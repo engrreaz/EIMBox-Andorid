@@ -78,10 +78,10 @@
 
     // NAVIGATION...........
     function report_menu_my_class() {
-        window.location.href = 'students.php';
+        window.location.href = 'student-list.php';
     }
     function report_menu_student_list() {
-        window.location.href = 'student-list.php';
+        window.location.href = 'students.php';
     }
     function report_menu_my_collection() {
         window.location.href = 'mypr.php';
