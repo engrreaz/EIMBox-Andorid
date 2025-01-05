@@ -4,8 +4,11 @@ include 'datam/datam-stprofile.php';
 $classname = $_GET['cls'];
 $sectionname = $_GET['sec'];
 $period = 1;
+$year = date('Y');
+$month = date('m');
 
-$sql00 = "SELECT * FROM stattnd where  (adate='$td' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname') or yn=100 order by rollno";
+
+$sql00 = "SELECT * FROM stattnd where  adate='$td' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname' order by rollno";
 $result00gt = $conn->query($sql00);
 if ($result00gt->num_rows > 0) {
     while ($row00 = $result00gt->fetch_assoc()) {
@@ -179,7 +182,7 @@ if ($period >= 2) {
 
 
         </div>
-        <div class="" style="overflow:auto; height:90vh;">
+        <div class="" style="overflow:auto; height:90vh; padding-left:10px;">
             <table class="table table-condensed">
                 <thead class="stickyg sticky-x">
                     <tr class="stickyg sticky-x">
@@ -231,15 +234,14 @@ if ($period >= 2) {
                 
 
                         //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
-                
-
-
-                        $key = array_search($stid, array_column($datam, 'stid'));
-                        if ($key != NULL || $key != '') {
-                            $status = $datam[$key]['yn'];
-                        } else {
-                            $status = 0;
+                        $st_att = array();
+                        for ($my = 0; $my < count($datam); $my++) {
+                            if ($datam[$my]['stid'] == $stid) {
+                                $st_attnd[] = $datam[$my];
+                            }
                         }
+
+
 
 
                         if ($status == 0) {
@@ -270,7 +272,19 @@ if ($period >= 2) {
                             </td>
 
                             <?php for ($h = 1; $h <= 31; $h++) {
-                                echo '<th>' . '' . '</th>';
+                                $tarikh = $year . '-' . $month . '-' . $h;
+
+                                $key = array_search($tarikh, array_column($st_attnd, 'adate'));
+                                if ($key != NULL || $key != '') {
+                                    $status = $datam[$key]['yn'];
+                                    $clr = $status;
+                                } else {
+                                    $status = 0;
+                                    $clr = 5;
+                                }
+
+
+                                echo '<th class="text-center">' . $clr . '</th>';
                             }
                             ?>
 
