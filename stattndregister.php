@@ -195,9 +195,9 @@ if ($period >= 2) {
             <table class="table table-condensed">
                 <thead class="stickyg sticky-x">
                     <tr class="stickyg sticky-x">
-                        <th class="stickyg sticky-x-1" style="background: var(--lighter) !important; z-index:10001;"></th>
-                        <th class="stickyg sticky-x-2" style="background: var(--lighter) !important; z-index:10001;"></th>
-                        <th class="stickyg sticky-x-3" style="background: var(--lighter) !important; z-index:10001;"></th>
+                        <th class="stickyg sticky-x-1" style="background: var(--lighter) !important; z-index:10001;"><small>Photo</small></th>
+                        <th class="stickyg sticky-x-2" style="background: var(--lighter) !important; z-index:10001;"><small>Roll</small></th>
+                        <th class="stickyg sticky-x-3" style="background: var(--lighter) !important; z-index:10001;"><small>Name</small></th>
                         <?php for ($h = 1; $h <= 31; $h++) {
                             echo '<th class="stickyg">' . $h . '</th>';
                         }
