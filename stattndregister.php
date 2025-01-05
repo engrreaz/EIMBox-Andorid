@@ -6,9 +6,12 @@ $sectionname = $_GET['sec'];
 $period = 1;
 $year = date('Y');
 $month = date('m');
+$date_start = $year . '-' . $month . '-01';
+$date_end = $year . '-' . $month . '-31';
 
-
-$sql00 = "SELECT * FROM stattnd where  adate='$td' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname' order by rollno";
+$datam = array();
+$sql00 = "SELECT * FROM stattnd where  adate between '$date_start' and '$date_end' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname' order by rollno";
+// echo $sql00;
 $result00gt = $conn->query($sql00);
 if ($result00gt->num_rows > 0) {
     while ($row00 = $result00gt->fetch_assoc()) {
@@ -36,9 +39,10 @@ if ($period >= 2) {
 // 	echo var_dump($datam);
 ?>
 <style>
-.table th, .table td {
-    border-collapse: collapse;
-}
+    .table th,
+    .table td {
+        border-collapse: collapse;
+    }
 
     .stickyg {
         position: sticky !important;
@@ -47,7 +51,7 @@ if ($period >= 2) {
         background: var(--lighter);
     }
 
-   
+
 
     .sticky-x-1 {
         position: sticky;
@@ -195,9 +199,15 @@ if ($period >= 2) {
             <table class="table table-condensed">
                 <thead class="stickyg sticky-x">
                     <tr class="stickyg sticky-x">
-                        <th class="stickyg sticky-x-1" style="background: var(--lighter) !important; z-index:10001;"><small>Photo</small></th>
-                        <th class="stickyg sticky-x-2" style="background: var(--lighter) !important; z-index:10001;"><small>Roll</small></th>
-                        <th class="stickyg sticky-x-3" style="background: var(--lighter) !important; z-index:10001;"><small>Name</small></th>
+                        <th class="stickyg sticky-x-1" style="background: var(--lighter) !important; z-index:10001;">
+                            <small>Photo</small>
+                        </th>
+                        <th class="stickyg sticky-x-2" style="background: var(--lighter) !important; z-index:10001;">
+                            <small>Roll</small>
+                        </th>
+                        <th class="stickyg sticky-x-3" style="background: var(--lighter) !important; z-index:10001;">
+                            <small>Name</small>
+                        </th>
                         <?php for ($h = 1; $h <= 31; $h++) {
                             echo '<th class="stickyg">' . $h . '</th>';
                         }
@@ -241,12 +251,13 @@ if ($period >= 2) {
                         //     $neng=$row00["stnameeng"]; $nben=$row00["stnameben"]; $vill=$row00["previll"];
                         // }}
                 
-
+                        // var_dump($datam);
                         //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
-                        $st_att = array();
+                        $st_att = array("stid" => $stid);
                         for ($my = 0; $my < count($datam); $my++) {
                             if ($datam[$my]['stid'] == $stid) {
                                 $st_att[] = $datam[$my];
+                          
                             }
                         }
                         // echo '<hr>';
@@ -275,11 +286,12 @@ if ($period >= 2) {
 
                             <td style="width:36px; text-align:center; vertical-align:middle;" class=" sticky-x-2  bg-red"><span
                                     style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span></td>
-                            <td style="text-align:left; padding-left:5px; min-width:120px; vertical-align:middle;" class=" sticky-x-3">
+                            <td style="text-align:left; padding-left:5px; min-width:120px; vertical-align:middle;"
+                                class=" sticky-x-3">
                                 <div class="stname-ben"><?php echo $neng; ?></div>
                                 <div class="stname-ben"><?php echo $nben; ?></div>
                             </td>
-                     
+
                             <?php
                             $clr_dot = 'lightgray';
                             $day = date('d');
@@ -292,8 +304,8 @@ if ($period >= 2) {
 
                                     $key = array_search($tarikh, array_column($st_att, 'adate'));
                                     if ($key != NULL || $key != '') {
-                                        $status = $datam[$key]['yn'];
-                                        $bunk = 1;
+                                        $status = $st_att[$key]['yn'];
+                                        $bunk = $st_att[$key]['bunk'];
 
                                         $clr = $status;
                                         //0 - Absent; 1 = Present; 2 = Bunk
@@ -309,7 +321,7 @@ if ($period >= 2) {
                                         }
                                     } else {
                                         $status = 0;
-                                        $clr = 'black'; // not found
+                                        $clr_dot = 'black'; // not found
                                     }
 
                                 } else {
