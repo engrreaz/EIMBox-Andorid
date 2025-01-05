@@ -29,7 +29,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 
 
     <div class="noprint"
-        style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px; z-index:999;">
+        style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px; z-index:99999;">
         <table width="100%">
             <tr>
                 <td style="width:10%"></td>
@@ -48,7 +48,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 <?php } else if ($userlevel == 'Class Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Teacher') { ?>
 
         <div class="noprint" id="footer-nav"
-            style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px; z-index:999;">
+            style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px; z-index:99999;">
             <table width="100%">
                 <tr>
                     <td style="width:<?php echo $hb; ?>%"></td>
@@ -111,7 +111,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 
 
 <div class="noprint" onclick="document.location.reload();"
-    style="width:25px; height:25px; float:right; right:15px; top:13px; position:fixed; z-index:999; border-radius:50%; background:white;">
+    style="width:25px; height:25px; float:right; right:15px; top:13px; position:fixed; z-index:99999; border-radius:50%; background:white;">
     <i class="material-icons ico">cached</i>
 </div>
 
