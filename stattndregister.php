@@ -243,8 +243,8 @@ if ($period >= 2) {
                                 $st_att[] = $datam[$my];
                             }
                         }
-                        echo '<hr>';
-                        var_dump($st_att);
+                        // echo '<hr>';
+                        // var_dump($st_att);
 
 
                         if ($status == 0) {
