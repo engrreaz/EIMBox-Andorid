@@ -33,7 +33,7 @@ if ($period >= 2) {
 // 	echo var_dump($datam);
 ?>
 <style>
-    .sticky {
+    .stickyg {
         position: sticky !important;
         top: 0;
     }
@@ -159,11 +159,11 @@ if ($period >= 2) {
             <table class="table table-condensed">
                 <thead class="">
                     <tr class="">
-                        <th class="sticky"></th>
-                        <th class="sticky"></th>
-                        <th class="sticky"></th>
+                        <th class="stickyg"></th>
+                        <th class="stickyg"></th>
+                        <th class="stickyg"></th>
                         <?php for ($h = 1; $h <= 31; $h++) {
-                            echo '<th class="sticky">' . $h . '</th>';
+                            echo '<th class="stickyg">' . $h . '</th>';
                         }
                         ?>
                     </tr>
