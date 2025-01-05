@@ -269,17 +269,17 @@ if ($period >= 2) {
 
                         <tr>
 
-                            <td style="width:36px; text-align:center;" class=" sticky-x-1">
+                            <td style="width:36px; text-align:center; vertical-align:middle;" class=" sticky-x-1">
                                 <img src="<?php echo $pth; ?>" class="st-pic-small" />
                             </td>
 
-                            <td style="width:36px; text-align:center;" class=" sticky-x-2  bg-red"><span
+                            <td style="width:36px; text-align:center; vertical-align:middle;" class=" sticky-x-2  bg-red"><span
                                     style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span></td>
-                            <td style="text-align:left; padding-left:5px; min-width:120px;" class=" sticky-x-3">
+                            <td style="text-align:left; padding-left:5px; min-width:120px; vertical-align:middle;" class=" sticky-x-3">
                                 <div class="stname-ben"><?php echo $neng; ?></div>
                                 <div class="stname-ben"><?php echo $nben; ?></div>
                             </td>
-
+                     
                             <?php
                             $clr_dot = 'lightgray';
                             $day = date('d');
