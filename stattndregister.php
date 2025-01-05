@@ -47,21 +47,21 @@ if ($period >= 2) {
         position: sticky;
         left: 0;
         z-index: 9999;
-        background: white;
+        background-color: #fdfbf4 !important;
     }
 
     .sticky-x-2 {
         position: sticky;
         left: 36px;
         z-index: 9999;
-        background: white;
+        background-color: #fdfbf4 !important;
     }
 
     .sticky-x-3 {
         position: sticky;
         left: 72px;
         z-index: 9999;
-        background: black;
+        background-color: #fdfbf4 !important;
     }
 </style>
 <script>
@@ -185,7 +185,7 @@ if ($period >= 2) {
 
 
         </div>
-        <div class="" style="overflow:auto; height:90vh; padding-left:10px;">
+        <div class="" style="overflow:auto; height:25vh; padding-left:0;">
             <table class="table table-condensed">
                 <thead class="stickyg sticky-x">
                     <tr class="stickyg sticky-x">
@@ -245,7 +245,7 @@ if ($period >= 2) {
                         }
                         // echo '<hr>';
                         // var_dump($st_att);
-
+                
 
                         if ($status == 0) {
                             $bgc = '--light';
@@ -275,10 +275,11 @@ if ($period >= 2) {
                             </td>
 
                             <?php
+                            $clr_dot = 'lightgray';
                             $day = date('d');
                             for ($h = 1; $h <= 31; $h++) {
                                 if ($h <= $day) {
-                                    if($h <10) {
+                                    if ($h < 10) {
                                         $h = '0' . $h;
                                     }
                                     $tarikh = $year . '-' . $month . '-' . $h;
@@ -286,21 +287,33 @@ if ($period >= 2) {
                                     $key = array_search($tarikh, array_column($st_att, 'adate'));
                                     if ($key != NULL || $key != '') {
                                         $status = $datam[$key]['yn'];
+                                        $bunk = 1;
+
                                         $clr = $status;
                                         //0 - Absent; 1 = Present; 2 = Bunk
+                                        if ($status == 0) {
+                                            $clr_dot = 'red';
+                                        } else {
+                                            if ($bunk == 1) {
+                                                $clr_dot = 'orange';
+                                            } else {
+                                                $clr_dot = 'green';
+                                            }
+
+                                        }
                                     } else {
                                         $status = 0;
-                                        $clr = 4; // not found
+                                        $clr = 'black'; // not found
                                     }
 
                                 } else {
                                     $status = 0;
-                                    $clr = 5; // Advance Date (future)
+                                    $clr_dot = 'lightgray'; // Advance Date (future)
                                 }
 
 
 
-                                echo '<td style="vertical-align:middle;" class="text-center">' . $clr . '</td>';
+                                echo '<td style="vertical-align:middle;" class="text-center"><div style="background:' . $clr_dot . ' !important;" class="attnd-dot">.</div></td>';
                             }
                             ?>
 
