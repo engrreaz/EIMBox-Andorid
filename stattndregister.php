@@ -47,18 +47,21 @@ if ($period >= 2) {
         position: sticky;
         left: 0;
         z-index: 9999;
+        background: white;
     }
 
     .sticky-x-2 {
         position: sticky;
         left: 36px;
         z-index: 9999;
+        background: white;
     }
 
     .sticky-x-3 {
         position: sticky;
         left: 72px;
         z-index: 9999;
+        background: white;
     }
 </style>
 <script>
