@@ -24,10 +24,10 @@ if ($diff > 120) {
 
 
     <div class="card menu-item-block" onclick="generate_otp();">
-      <div class="card-body ">
-        <table class="table">
+      <div class="card-body">
+        <table class="table m-0">
           <tr>
-            <td class="menu-item-icon"><i  class="bi bi-lock-fill "></i></td>
+            <td class="menu-item-icon"><i class="bi bi-lock-fill "></i></td>
             <td>
               <h4 class="menu-title mt-2">Web Login Token</h4>
               <div class="menu-sub-title pt-2">Generate a one time web login token</div>
@@ -35,28 +35,29 @@ if ($diff > 120) {
             <td>
             </td>
           </tr>
-          <tr>
-            <td></td>
-            <td>
-              <div id="keykey">
-                <?php if ($otp != '') { ?><small><br>Your Generated Web Login Toke is </small>
+          <?php if ($otp != '') { ?>
+            <tr>
+              <td></td>
+              <td>
+                <div id="keykey">
+                  <small><br>Your Generated Web Login Toke is </small>
                   <div style="font-size:30px; color:gray; letter-spacing:10px; font-weight:bold;"><?php echo $otp; ?>
-                  </div><?php } ?>
-              </div>
-            </td>
-          </tr>
+                  </div>
+                </div>
+              </td>
+            </tr><?php } ?>
         </table>
       </div>
     </div>
 
 
-    
+
     <div class="menu-separator"></div>
 
 
-    <div class="card menu-item-block" onclick="lnkf1();"> 
+    <div class="card menu-item-block" onclick="lnkf1();">
       <div class="card-body">
-        <table class="table">
+        <table class="table m-0">
           <tr>
             <td class="menu-item-icon"><i class="bi bi-key-fill"></i></td>
             <td>
@@ -65,7 +66,8 @@ if ($diff > 120) {
             </td>
             <td>
               <div class="form-check form-switch" style="text-align: right;">
-                <input class="form-control form-check-input" style="transform:scale(2.0); " type="checkbox" id="mySwitch" value="yes" checked>
+                <input class="form-control form-check-input" style="transform:scale(2.0); " type="checkbox"
+                  id="mySwitch" value="yes" checked>
               </div>
             </td>
           </tr>
@@ -105,7 +107,7 @@ if ($diff > 120) {
     <style>
 
     </style>
- <div class="menu-separator"></div>
+    <div class="menu-separator"></div>
     <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk11();">
       <img class="card-img-top" alt="">
       <div class="card-body">
