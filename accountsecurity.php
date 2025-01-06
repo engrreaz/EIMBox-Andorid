@@ -15,7 +15,7 @@ if ($diff > 120) {
           <tr>
             <td>
               <div class="menu-icon"><i class="bi bi-lock-fill"></i></div>
-              <div class="menu-text"> Web Login Security</div>
+              <div class="menu-text"> Login Security</div>
             </td>
           </tr>
         </table>
