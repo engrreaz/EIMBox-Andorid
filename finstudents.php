@@ -117,7 +117,7 @@ if ($result01x->num_rows > 0) {
 
 <main>
   <div class="containerx-fluid">
-    <div class="card page-top-box" >
+    <div class="card page-top-box">
       <div class="card-body" style="border-radius:0;">
         <table width="100%" style="color:white;">
           <tr>
@@ -130,7 +130,7 @@ if ($result01x->num_rows > 0) {
         </table>
       </div>
     </div>
-    <div class="card page-info-box" >
+    <div class="card page-info-box">
       <div class="card-body" style="border-radius:0;">
         <table width="100%" style="color:white;">
 
@@ -189,9 +189,9 @@ if ($result01x->num_rows > 0) {
 
         $pth = '../students/' . $stid . '.jpg';
         if (file_exists($pth)) {
-            $pth = 'https://eimbox.com/students/' . $stid . '.jpg';
+          $pth = 'https://eimbox.com/students/' . $stid . '.jpg';
         } else {
-            $pth = 'https://eimbox.com/students/noimg.jpg';
+          $pth = 'https://eimbox.com/students/noimg.jpg';
         }
 
         // $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
@@ -220,9 +220,13 @@ if ($result01x->num_rows > 0) {
         //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
     
         $dues_ind = array_search($stid, array_column($st_dues_list, 'stid'));
-        $totaldues = $st_dues_list[$dues_ind]["dues"];
-        $tpaya = $st_dues_list[$dues_ind]["paya"];
-        $tpaid = $st_dues_list[$dues_ind]["paid"];
+
+        if ($dues_ind != '' || $dues_ind != NULL) {
+          $totaldues = $st_dues_list[$dues_ind]["dues"];
+          $tpaya = $st_dues_list[$dues_ind]["paya"];
+          $tpaid = $st_dues_list[$dues_ind]["paid"];
+        }
+
 
 
         // $month = date('m');
