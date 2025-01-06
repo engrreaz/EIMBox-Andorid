@@ -14,7 +14,11 @@ $deg = ceil($tpaid * 360 / $tpaya);
 ?>
 <div class="card gg">
     <div class="card-header" style="color:var(--lighter); background:var(--dark);border-radius:0;"><b>Student's
-            Payment</b></div>
+            Payment</b>
+        <div class="float-end">
+            <i class="bi bi-bell-fill front-icon"></i>
+        </div>
+    </div>
     <div class="card-body" onclick="goclsp()">
         <table width="100%">
             <tr>

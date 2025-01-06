@@ -7,6 +7,9 @@
 <div class="card gg">
     <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;">
        <b> To-Do List</b>
+       <div class="float-end">
+        <i class="bi bi-check-square-fill front-icon"></i>
+    </div>
     </div>
     <div class="card-body" style="background:var(--lighter);">
 
@@ -65,7 +68,7 @@
                                     <span class="descrip">ddd<?php echo $descrip1; ?> <br></span>
                                 <?php } ?>
 
-                                <span class="comm">bbb<?php echo $comm; ?></span>
+                                <span class="comm"><?php echo $comm; ?></span>
                             </small>
                         </div>
 

@@ -49,7 +49,7 @@
             color:var(--normal);
             position : absolute;
             font-size:50px;
-            top:0px;
+            top:5px;
             right:10px;
         }
         .page-top-box {

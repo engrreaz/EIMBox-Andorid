@@ -50,7 +50,10 @@ if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' 
 
         <div class="card ">
             <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;"><b>Student's
-                    Payment</b></div>
+                    Payment</b><div class="float-end">
+        <i class="bi bi-currency-exchange front-icon"></i>
+    </div>
+</div>
             <div class="card-body" style="background:var(--lighter);" onclick="goclss();">
 
 

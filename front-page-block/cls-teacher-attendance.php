@@ -25,7 +25,9 @@ if ($cteachercls != '' && $cteachersec != '') {
     ?>
     <div class="card box-shadow">
         <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;"><b>Student's
-                Attendance</b></div>
+                Attendance</b><div class="float-end">
+        <i class="bi bi-fingerprint front-icon"></i>
+    </div></div>
         <div class="card-body" style="background:var(--lighter);"
             onclick="goclsatt('<?php echo $x1; ?>','<?php echo $x2; ?>');">
             <table width="100%">
@@ -36,6 +38,12 @@ if ($cteachercls != '' && $cteachersec != '') {
                                 </small> <span style="font-size:22px; font-weight:600;"><?php echo $tstu; ?></span></span>
                         </div>
 
+                        <small>
+                            <span style="font-style:normal; color:var(--darker; line-height:10px; font-weight:bold;">
+                                Bunk : - out of -
+                            </span>
+                        </small>
+                        <br>
                         <small>
                             <span style="font-style:normal; color:gray; line-height:10px;">
                                 Today's Attendance
