@@ -33,7 +33,7 @@ if ($result0rtx_notice->num_rows > 0) {
             ?>
 
 
-            <div class="d-flex mb-2" style="color:<?php echo $notice['color'];?>" onclick="blockx(<?php echo $sl;?>);">
+            <div class="d-flex mb-2" style="color:<?php echo $notice['color'];?>" onclick="notice_description_blockx(<?php echo $sl;?>);">
                 <div class="notice-icon">
                     <i class="bi bi-<?php echo $notice['icon'];?> "  style="color:<?php echo $notice['color'];?>"></i>
                 </div>
@@ -46,18 +46,20 @@ if ($result0rtx_notice->num_rows > 0) {
             </div>
 
         <?php $sl++; } ?>
+
+        <button class="btn btn-primary text-small" onclick="show_all_notice();">Show All</button>
     </div>
 </div>
 
 
 <script>
-    function blockx(sl) {
+    function notice_description_blockx(sl) {
         var elem = document.getElementById("descrip" + sl);
-        alert(sl);
-        if(elem.style.display == 'block'){
-            elem.style.display = 'none'
+        // alert(sl);
+        if(elem.style.display == "block"){
+            elem.style.display = "none";
         } else {
-            elem.style.display == 'block'
+            elem.style.display = "block";
         }
     }
 </script>
