@@ -7,6 +7,7 @@ if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' 
 
         $mon = date('m');
         $sql0 = "SELECT sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid  FROM stfinance where sessionyear='$sy' and sccode='$sccode' and classname='$cteachercls' and sectionname='$cteachersec' and month<='$mon'";
+        echo $sql0;
         $result01x = $conn->query($sql0);
         if ($result01x->num_rows > 0) {
             while ($row0 = $result01x->fetch_assoc()) {
@@ -50,10 +51,11 @@ if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' 
 
         <div class="card ">
             <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;"><b>Student's
-                    Payment</b><div class="float-end">
-        <i class="bi bi-currency-exchange front-icon"></i>
-    </div>
-</div>
+                    Payment</b>
+                <div class="float-end">
+                    <i class="bi bi-currency-exchange front-icon"></i>
+                </div>
+            </div>
             <div class="card-body" style="background:var(--lighter);" onclick="goclss();">
 
 
