@@ -113,7 +113,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 
 
 <div class="noprint" onclick="document.location.reload();"
-    style="font-size:22px; width:25px; height:25px; float:right; right:10px; top:10px; position:fixed; z-index:99999; border-radius:50%; background:white;">
+    style="font-size:22px; width:25px; height:25px; float:right; right:5px; top:5px; position:fixed; z-index:99999; border-radius:50%; background:white;">
     <i class="bi bi-arrow-repeat"></i>
 </div>
 
