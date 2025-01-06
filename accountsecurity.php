@@ -25,7 +25,7 @@ if ($diff > 120) {
 
     <div class="card menu-item-block" onclick="generate_otp();">
       <div class="card-body">
-        <table class=" m-0 " style="width:100%;" >
+        <table class=" m-0 " style="width:100%;">
           <tr>
             <td class="menu-item-icon"><i class="bi bi-lock-fill "></i></td>
             <td>
@@ -55,28 +55,46 @@ if ($diff > 120) {
     <div class="menu-separator"></div>
 
 
-    <div class="card menu-item-block" onclick="lnkf1();">
+    <div class="card menu-item-block">
       <div class="card-body">
-        <table  style="width:100%;" >
+        <table style="width:100%;">
           <tr>
             <td class="menu-item-icon"><i class="bi bi-key-fill"></i></td>
             <td>
               <h4>Password</h4>
               <div class="menu-sub-title pt-2">Generate a lifetime fixed pin</div>
             </td>
-            <td style=" text-align:right;">
-              <div class="form-check form-switch"  >
+            <td style="border:0px solid gray;">
+              <div class="form-check form-switch" style="text-align:right; width:20%;">
                 <input class="form-control form-check-input" style="transform:scale(2.0); " type="checkbox"
-                  id="mySwitch" value="yes" checked>
+                  id="passswitch" value="yes" onclick="pass();" checked>
+              </div>
+
+
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td colspan="2">
+              <div class="" id="passbox">
+                <div class="input-group" style="width:90%;">
+                  <span class="input-group-text"> <i class="bi bi-key"></i> </span>
+                  <input type="password" class="form-control" style="font-size:15px" id="password" placeholder="password" />
+                  <butoon class="btn btn-dark" type="button" onclick="update_password();" disabled>Update</butoon>
+                </div>
               </div>
             </td>
           </tr>
+
+
+
+
         </table>
       </div>
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block"  onclick="lnk1d();">
+    <div class="card menu-item-block" onclick="lnk1d();">
       <div class="card-body">
         <table style="width:100%">
           <tr>
@@ -85,9 +103,10 @@ if ($diff > 120) {
               <h4 class="menu-title mt-2">Login With Google</h4>
               <div class="menu-sub-title pt-2">Login with your gmail account</div>
             </td>
-            <td style="text-align:right;">
-              <div class="form-check form-switch">
-                <input class="form-check-input"  style="transform:scale(2.0); "  type="checkbox" id="mySwitch" value="yes" checked>
+            <td style="border:0px solid gray; width:20%;">
+              <div class="form-check form-switch" style="text-align:right;">
+                <input class="form-check-input" style="transform:scale(2.0); " type="checkbox" id="mySwitch" value="yes"
+                  checked>
               </div>
             </td>
           </tr>
@@ -107,7 +126,7 @@ if ($diff > 120) {
 
     </style>
     <div class="menu-separator"></div>
-    <div class="card menu-item-block"  onclick="lnk11();"> 
+    <div class="card menu-item-block" onclick="lnk11();">
       <div class="card-body">
         <table style="width:100%">
           <tr>
@@ -116,9 +135,10 @@ if ($diff > 120) {
               <h4 class="menu-title mt-2">Login With QR Code</h4>
               <div class="menu-sub-title pt-2">Login with a auto generated QR Code</div>
             </td>
-            <td style=" text-align:right;">
-              <div class="form-check form-switch">
-                <input class="form-check-input"  style="transform:scale(2.0); "  type="checkbox" id="mySwitch" value="yes" checked>
+            <td style=" width:20%;">
+              <div class="form-check form-switch" style=" text-align:right;">
+                <input class="form-check-input" style="transform:scale(2.0); " type="checkbox" id="mySwitch" value="yes"
+                  checked>
               </div>
             </td>
           </tr>
@@ -141,7 +161,19 @@ if ($diff > 120) {
 <div style="height:52px;"></div>
 
 <script>
-  document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
+
+  function pass() {
+
+    var passswitch = document.getElementById("passswitch").checked;
+    // alert(passswitch);
+    if (passswitch === true) {
+      document.getElementById("passbox").style.display = 'block';
+    } else {
+      document.getElementById("passbox").style.display = 'none';
+    }
+  }
+
+  pass();
 
 
 
