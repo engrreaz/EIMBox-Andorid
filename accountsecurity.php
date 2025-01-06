@@ -57,11 +57,11 @@ if ($diff > 120) {
 
     <div class="card menu-item-block" onclick="lnkf1();">
       <div class="card-body">
-        <table class=" m-0"  style="width:100%;" >
+        <table  style="width:100%;" >
           <tr>
             <td class="menu-item-icon"><i class="bi bi-key-fill"></i></td>
             <td>
-              <h4>Fixed Pin</h4>
+              <h4>Password</h4>
               <div class="menu-sub-title pt-2">Generate a lifetime fixed pin</div>
             </td>
             <td style=" text-align:right;">
