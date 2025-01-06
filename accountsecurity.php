@@ -25,7 +25,7 @@ if ($diff > 120) {
 
     <div class="card menu-item-block" onclick="generate_otp();">
       <div class="card-body">
-        <table class="table m-0">
+        <table class=" m-0 " style="width:100%;" >
           <tr>
             <td class="menu-item-icon"><i class="bi bi-lock-fill "></i></td>
             <td>
@@ -57,7 +57,7 @@ if ($diff > 120) {
 
     <div class="card menu-item-block" onclick="lnkf1();">
       <div class="card-body">
-        <table class="table m-0">
+        <table class=" m-0"  style="width:100%;" >
           <tr>
             <td class="menu-item-icon"><i class="bi bi-key-fill"></i></td>
             <td>
