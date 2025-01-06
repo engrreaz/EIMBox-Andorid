@@ -431,5 +431,10 @@
             font-size: 8px;
             color: var(--dark);
         }
+
+        .pr-item-eng {
+            font-size:18px;
+        }
+        
     </style>
 </head>

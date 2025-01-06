@@ -13,7 +13,6 @@ $total = $_GET['total'];  //$ = $_GET[''];  $ = $_GET[''];
 ?>
 
 <div class="container-fluids">
-
     <div class="card text-start page-top-box ">
         <div class="card-body">
             <table width="100%" style="color:white;">
@@ -50,7 +49,7 @@ $total = $_GET['total'];  //$ = $_GET[''];  $ = $_GET[''];
         </div>
     </div>
 
-    <div class="card text-left" style="background:var(--light); color:var(--darker);">
+    <div class="card text-left" style="background:var(--light); color:var(--darker); font-size:14px;">
         <div class="card-body">
             <div class="float-end"><b><?php echo $prno; ?></b></div>
             <div class="left">Reciept No. </div>
@@ -60,26 +59,24 @@ $total = $_GET['total'];  //$ = $_GET[''];  $ = $_GET[''];
         </div>
     </div>
 
-  
 
-    <div class="card text-left" style="background:var(--lighter); color:var(--darker);">
+    <div class="card text-left" style="background:var(--lighter); color:var(--darker); ">
         <div class="card-body">
             <?php
             for ($a = 1; $a <= $cnt; $a++) {
                 ?>
                 <div class="border-bottom">
-
-                
-                <div class="float-end"><?php echo $_GET['item' . $a . 'taka'] . '.00';
-                ; ?></div>
-                <div class="left"><?php echo $_GET['item' . $a . 'txt'];
-                ; ?></div>
-</div>
-
+                    <div class="float-end"><b><?php echo $_GET['item' . $a . 'taka'] . '.00</b>';
+                    ; ?></div>
+                    <div class="left">
+                        <div class="pr-item-eng">
+                            <?php echo $_GET['item' . $a . 'txt']; ?>
+                        </div>
+                    </div>
+                </div>
                 <?php
             }
             ?>
-
         </div>
     </div>
 

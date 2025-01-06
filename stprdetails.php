@@ -166,12 +166,12 @@ $tamt = 0;
                                         </table>
                                     </td>
                                     <td rowspan="2" style="text-align:right; font-size:20px; color:seagreen;">
-                                        <small></small><b><?php echo number_format($prtaka, "2", ".", ","); ?></b>
+                                        <b><?php echo number_format($prtaka, "2", ".", ","); ?></b>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="color:gray; font-size:13px;">
-                                        <small><?php echo $eby . '<br>@ ' . date('d/m/Y H:i:s', strtotime($etime)); ?></small>
+                                    <td style="color:#aaa; font-size:13px; text-align:left; line-height:15px; padding-left:50px;">
+                                        <small><?php echo $eby . '<br>@ <b>' . date('d/m/Y H:i:s', strtotime($etime)); ?></b></small>
                                     </td>
                                 </tr>
                             </table>
@@ -229,7 +229,7 @@ $tamt = 0;
                     </div>
 
 
-                    <div style="height:10px;"></div>
+                    <div style="height:5px;"></div>
                     <?php
 
 
