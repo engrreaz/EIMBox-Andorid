@@ -125,7 +125,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="report_menu_calendar();">
       <div class="card-body">
         <table style="">
           <tr>

@@ -99,6 +99,43 @@
         window.location.href = 'calendar.php';
     }
 
+    // Tools Navigation
+    function module_menu_student_attendace(x1, x2) { window.location.href = 'stattnd.php?cls=' + x1 + '&sec=' + x2; }
+
+    function module_menu_co_curricular_entry() {
+        Swal.fire({
+            title: "Currently Unavailable",
+            icon: "info",
+            draggable: true
+        });
+    }
+
+
+
+    // Settings Navigation
+    function settings_menu_login_method() { window.location.href = "accountsecurity.php"; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //*********************************************************************************************** */
+
+
+
+
     //********************************************************************* */
 
     function epos() {

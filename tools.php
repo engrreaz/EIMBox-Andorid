@@ -26,7 +26,7 @@ include 'inc.php';
 
 
 
-    <div class="card menu-item-block" onclick="student_attendace();">
+    <div class="card menu-item-block" onclick="module_menu_student_attendace('<?php echo $cteachercls;?>', '<?php echo $cteachersec;?>');">
       <div class="card-body">
         <table style="">
           <tr>
@@ -50,7 +50,7 @@ include 'inc.php';
 
 
 
-    <div class="card menu-item-block" onclick="co_curricular_entry();">
+    <div class="card menu-item-block" onclick="module_menu_co_curricular_entry();">
       <div class="card-body">
         <table style="">
           <tr>

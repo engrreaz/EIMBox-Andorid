@@ -4,50 +4,6 @@ include 'inc.php';
 
 
 
-<!-- Bootstrap CSS v5.2.1 -->
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-<style>
-  .pic {
-    width: 45px;
-    height: 45px;
-    padding: 1px;
-    border-radius: 50%;
-    border: 1px solid var(--dark);
-    margin: 5px;
-  }
-
-  .a {
-    font-size: 18px;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 22px;
-    color: var(--dark);
-  }
-
-  .b {
-    font-size: 16px;
-    font-weight: 600;
-    font-style: normal;
-    line-height: 22px;
-  }
-
-  .c {
-    font-size: 11px;
-    font-weight: 400;
-    font-style: italic;
-    line-height: 16px;
-  }
-
-  small {
-    font-size: 10px;
-    color: var(--dark);
-    line-height: 10px;
-  }
-</style>
-
-
 <main>
   <div class="container-fluidx">
 
@@ -156,7 +112,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="settings_menu_login_method();">
       <div class="card-body">
         <table style="">
           <tr>
@@ -326,7 +282,7 @@ include 'inc.php';
   function lnk7() { window.location.href = "transcriptselect.php"; }
   function lnk8() { window.location.href = "transcriptselect.php"; }
   function lnk30() { window.location.href = "accountservices.php"; }
-  function lnk31() { window.location.href = "accountsecurity.php"; }
+
   function lnk32() { window.location.href = "globalsetup.php"; }
 
 

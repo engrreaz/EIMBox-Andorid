@@ -52,12 +52,14 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
             <table width="100%">
                 <tr>
                     <td style="width:<?php echo $hb; ?>%"></td>
-                    <td style="text-align:center;"><a style="color:white;" href="index.php"><i class="footer-nav-icon bi bi-house-fill"></i></a></td>
+                    <td style="text-align:center;"><a style="color:white;" href="index.php"><i
+                                class="footer-nav-icon bi bi-house-fill"></i></a></td>
                     <td style="text-align:center;"><a style="color:white;" href="reporthome.php"><i
                                 class="footer-nav-icon bi bi-mortarboard-fill"></i></a></td>
                     <td style="text-align:center;"><a style="color:white;" href="tools.php"><i
                                 class="footer-nav-icon bi bi-circle-square"></i></a></td>
-                    <td style="text-align:center;"><a style="color:white;" href="build.php"><i class="footer-nav-icon bi bi-tools"></i></a></td>
+                    <td style="text-align:center;"><a style="color:white;" href="build.php"><i
+                                class="footer-nav-icon bi bi-tools"></i></a></td>
                     <td style="width:<?php echo $hb; ?>%"></td>
                 </tr>
             </table>
@@ -135,6 +137,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
     crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="assets/post-load.js"></script>
 
