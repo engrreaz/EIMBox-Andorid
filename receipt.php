@@ -66,13 +66,10 @@ $total = $_GET['total'];  //$ = $_GET[''];  $ = $_GET[''];
             for ($a = 1; $a <= $cnt; $a++) {
                 ?>
                 <div class="border-bottom">
-                    
-                    <div class="left">
-                        <div class="pr-item-eng">
-                            <?php echo $_GET['item' . $a . 'txt']; ?>
-                        </div>
-                    </div>
                     <div class="float-end"><?php echo $_GET['item' . $a . 'taka']; ?>.00</div>
+                    <div class="left pr-item-eng">
+                        <?php echo $_GET['item' . $a . 'txt']; ?>
+                    </div>
                 </div>
                 <?php
             }
