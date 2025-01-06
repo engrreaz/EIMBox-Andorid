@@ -22,7 +22,7 @@ include 'inc.php';
 
 
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="settings_menu_my_profile();">
       <div class="card-body">
         <table style="">
           <tr>

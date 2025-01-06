@@ -11,7 +11,7 @@
             <div class="card text-center" style="background:var(--dark); color:white; "  >
               <div class="card-body" style="height:150px;">
                   <div onclick="edit(<?php echo $stid;?>)" style="padding:2px 10px; float:right; border-radius:10%;  top:160px; z-index:100;position:relative; background:black; color:white; ">
-                      <i class="material-icons" style="font-size:18px; padding-top:2px;">mode_edit</i> Edit</div>
+                      <i class="bi bi-pencil" style="font-size:18px; padding-top:2px;"></i> Edit</div>
                     <img src="<?php echo $pth;?>" class="st-pic-bigger text-center" />
               </div>
             </div>
@@ -86,10 +86,10 @@
                 <div style="text-align:left; padding-top:10px;">
                 <table width="100%">
                     <tr>
-                        <td style="width:30px;" valign="top"><i class="material-icons ico">person</i></td>
-                        <td>
-                            <div class="a"><?php echo $stnameeng;?></div>
-                            <div class="b"><?php echo $stnameben;?></div>
+                        <td style="width:30px; padding-right:10px;" valign="top"><i class="bi bi-person-circle menu-item-icon "></i></td>
+                        <td class="">
+                            <div class="stname-eng"><?php echo $stnameeng;?></div>
+                            <div class="stname-ben"><?php echo $stnameben;?></div>
                         </td>
                     </tr>
                     <tr><td colspan="2" style="height:10px;"></td></tr>
@@ -103,7 +103,7 @@
                 <div style="text-align:left; padding-top:10px;">
                 <table width="100%">
                     <tr>
-                        <td style="width:30px;" valign="top"><i class="material-icons ico">wc</i></td>
+                        <td style="width:30px; padding-right:10px;" valign="top"><i class="bi bi-people-fill menu-item-icon"></i></td>
                         <td>
                             <div class="d"><?php echo $fname ;?></div>
                             <div class="e">Father's Name</div>
@@ -129,7 +129,7 @@
                 <table width="100%">
                     
                     <tr>
-                        <td style="width:30px;" valign="top"><i class="material-icons ico">phone</i></td>
+                        <td style="width:30px; padding-right:10px;" valign="top"><i class="bi bi-telephone-fill menu-item-icon"></i></td>
                         <td>
                             <div style="float:right;"><a href="tel://<?php echo $guarmobile;?>" class="btn btn-primary">Call Now</a></div>
                             <div class="d"><?php echo $tel ;?></div>
@@ -150,7 +150,7 @@
                 <div style="text-align:left; padding-top:1px;">
                 <table width="100%">
                     <tr>
-                        <td style="width:30px; padding:10px;" valign="top"><i class="material-icons ico">place</i></td>
+                        <td style="width:30px;  padding-right:10px;" valign="top"><i class="bi bi-geo-alt-fill menu-item-icon"></i></td>
                         <td>
                             <div class="b" style="font-size:16px;"><?php echo $previll .', '.$prepo.',<br>'.$preps.', '.$predist;?>.</div>
                             <div class="e">Present Address</div><div style="height:25px;"></div>
