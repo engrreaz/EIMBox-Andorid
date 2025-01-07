@@ -71,6 +71,10 @@ if ($result00xgr11tyu->num_rows > 0) {
 
                                 <div class="roll-no"><b><?php echo $clsname . ' (' . $secname . ')'; ?></b></div>
                             </div>
+                            <div class="flex-grow-1 text-end me-3 ">
+                                <?php $book_img = strtolower('../books/' . $sctype . '_' . $clsname . '_' . $subcode . '_cover.png'); ?>
+                                <img src="<?php echo $book_img;?>" class="schedule-book-pic text-right" />
+                            </div>
 
                         </div>
                     </div>

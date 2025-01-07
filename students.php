@@ -5,6 +5,7 @@ include 'datam/datam-stprofile.php';
 
 $classname = $cteachercls;
 $sectionname = $cteachersec;
+
 if (isset($_GET['cls'])) {
   $classname = $_GET['cls'];
 }
@@ -96,6 +97,7 @@ if (isset($_GET['sec'])) {
             $diff = (strtotime($cur) - strtotime($modi)) / (3600 * 24);
           }
         }
+$sector = '';
 
         if ($status == 0) {
           $bgc = '--light';
@@ -419,7 +421,7 @@ if (isset($_GET['sec'])) {
 
     $.ajax({
       type: "POST",
-      url: "updfreefin.php",
+      url: "backend/updfreefin.php",
       data: infor,
       cache: false,
       beforeSend: function () {

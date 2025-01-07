@@ -242,7 +242,7 @@ if ($result01x->num_rows > 0) {
         ?>
         <div class="card text-center" style="background:var(<?php echo $bgc; ?>); color:var(--darker);border-radius:0;"
           id="block<?php echo $stid; ?>" <?php echo $dsbl; ?>>
-          <div class="card-body" style="border-radius:0;" onclick="go(<?php echo $stid; ?>)">
+          <div class="card-body" style="border-radius:0;" >
             <table width="100%">
               <tr>
                 <td style="width:30px;">
@@ -265,24 +265,24 @@ if ($result01x->num_rows > 0) {
                 <td></td>
                 <td>
 
-                  <div class="row mt-3">
-                    <div class="col-3 text-center">
+                  <div class="row mt-3" >
+                    <div class="col-3 text-center" onclick="my_class_attendance(<?php echo $stid;?>);" >
                       <i class="bi bi-fingerprint toolbar-icon"></i>
-                      <div class="toolbar-text">57%</div>
+                      <div class="toolbar-text">--%</div>
                     </div>
-                    <div class="col-3 text-center">
+                    <div class="col-3 text-center" onclick="my_class_payment(<?php echo $stid;?>);" >
                       <i class="bi bi-coin toolbar-icon"></i>
                       <div class="toolbar-text">
                         <?php echo number_format($totaldues, 2, ".", ","); ?>
                       </div>
                     </div>
-                    <div class="col-3 text-center">
+                    <div class="col-3 text-center" onclick="my_class_result(<?php echo $stid;?>);" >
                       <i class="bi bi-file-earmark-text toolbar-icon"></i>
-                      <div class="toolbar-text">89.2%</div>
+                      <div class="toolbar-text">--.-%</div>
                     </div>
-                    <div class="col-3 text-center">
+                    <div class="col-3 text-center" onclick="my_class_profile(<?php echo $stid;?>);" >
                       <i class="bi bi-person-circle toolbar-icon"></i>
-                      <div class="toolbar-text">Edit</div>
+                      <div class="toolbar-text">Profile</div>
                     </div>
                   </div>
 

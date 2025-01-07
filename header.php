@@ -276,22 +276,24 @@
         }
 
         .st-pic-bigger {
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             padding: 1px;
             border-radius: 50%;
             
-
-            
             border: 3px solid var(--normal);
             position: absolute;
-            top: 75px;
+            top: 100px;
             z-index: 99;
             margin: auto;
             margin-left: -40px;
         }
 
 
+        .schedule-book-pic{
+            width:60px;
+            border-radius: 0 4px;
+        }
         .a {
             font-size: 1.5rem;
             font-weight: 700;
@@ -332,7 +334,19 @@
             line-height: 11px;
             color: gray;
         }
+        .roll-big {
+            font-size: 3rem;
+            font-weight: 700;
+            font-style: normal;
+            line-height: 45px;
+            color: var(--dark);
+        }
 
+        #editor-box input {
+            font-size: 16px;
+            color: darkgray;
+            padding:20px;
+        }
         .ico {
             font-size: 24px;
             color: var(--dark);
@@ -354,6 +368,7 @@
             border-radius: 50%;
             margin: 1px;
             border: 1px solid var(--darker);
+            background:var(--lighter);
         }
 
 

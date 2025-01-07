@@ -178,7 +178,7 @@ include 'inc.php';
     **************************************************************************************
     ************************************************************************************** -->
 
-    <div class="card menu-item-block" onclick="lnk30();">
+    <div class="card menu-item-block" onclick="lnk30();" hidden>
       <div class="card-body">
         <table style="">
           <tr>
@@ -192,9 +192,9 @@ include 'inc.php';
       </div>
     </div>
 
-    <div class="menu-separator"></div>
+    <!-- <div class="menu-separator"></div> -->
 
-    <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk37();">
+    <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk37();" hidden>
       <img class="card-img-top" alt="">
       <div class="card-body">
         <table style="">
@@ -209,8 +209,8 @@ include 'inc.php';
       </div>
     </div>
 
-    <div class="menu-separator"></div>
-    <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="academic_calendar();">
+    <!-- <div class="menu-separator"></div> -->
+    <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="academic_calendar();" hidden>
       <img class="card-img-top" alt="">
       <div class="card-body">
         <table style="">
@@ -226,7 +226,7 @@ include 'inc.php';
     </div>
 
 
-    <div class="menu-separator"></div>
+    <!-- <div class="menu-separator"></div> -->
 
 
 

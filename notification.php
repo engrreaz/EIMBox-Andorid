@@ -1,5 +1,6 @@
 <?php
 include 'inc.php';
+
 // $classname = $_GET['cls']; $sectionname = $_GET['sec']; 
 ?>
 
@@ -44,11 +45,18 @@ include 'inc.php';
                     $smstext = $row0["smstext"];
                     $datetime = $row0["datetime"];
                     $rws = $row0["rwstatus"];
+
+                    $icon = $row0["icon"];
+                    $color = $row0["color"];
+                    $value = $row0["value"];
+$stid = $row0["fromuserid"];
+                    include 'component/student-image-path.php';
                     ?>
-                    <div class="card mb-1" style="background:var(--lighter); color:var(--darker);" onclick="lnk30();" draggable="true">
+                    <div class="card mb-1" style="background:var(--lighter); color:var(--darker);" onclick="lnk30();"
+                        draggable="true">
                         <div class=" d-flex p-2 ">
                             <div class="box-icon me-2">
-                                <img class="st-pic-normal" src="https://eimbox.com/images/no-image.png" />
+                                <img class="st-pic-normal" src="<?php echo $pth;?>" />
                             </div>
                             <div class="box-text">
                                 <div class="stname-ben fw-bold" style="<?php if ($rws == 1) {
@@ -62,12 +70,18 @@ include 'inc.php';
                                     <?php echo $smstext; ?>
                                 </div>
                             </div>
-                            <div class="box-prog">
-                                <?php $perc = 76; ?>
-                                <div class="pie animate no-round "
-                                    style="margin:auto, 0; --p:<?php echo $perc; ?>;--c:var(--dark);--b:3px;">
+                            <div class="box-prog ">
+<?php if($icon != 'progress-bar'){ ?>
+<div class="menu-icon me-3"><i class="bi bi-<?php echo $icon;?>" style="color: <?php echo $color;?>;"></i></div>
+    <?php } else { ?>
+
+                                <?php $perc = $value; ?>
+                                <div class="pie animate no-round me-3"
+                                    style="margin:0, 0; --p:<?php echo $perc; ?>;--c:var(--dark);--b:3px;">
                                     <?php echo $perc; ?>%
                                 </div>
+<?php } ?>
+
                             </div>
                         </div>
                     </div>

@@ -112,6 +112,37 @@
     function calendar_event(year, month, day, tail) {
         alert('Year' + year + month + day + tail);
     }
+   
+   
+    function my_class_attendance(stid){
+        Swal.fire({
+            title: "Attendance",
+            icon: "info",
+            draggable: true
+        });
+    }
+    
+    function my_class_payment(stid){
+        Swal.fire({
+            title: "Payment's Info",
+            icon: "info",
+            draggable: true
+        });
+    }
+    function my_class_result(stid){
+        Swal.fire({
+            title: "Accademic Performance",
+            icon: "info",
+            draggable: true
+        });
+    }
+    function my_class_profile(stid){
+        Swal.fire({
+            title: "Profile",
+            icon: "info",
+            draggable: true
+        });
+    }
 
     // Tools Navigation
     function module_menu_student_attendace(x1, x2) { window.location.href = 'stattnd.php?cls=' + x1 + '&sec=' + x2; }

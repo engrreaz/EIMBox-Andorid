@@ -9,8 +9,12 @@
     <div class="containerx" style="width:100%;" >
         
             <div class="card text-center" style="background:var(--dark); color:white; "  >
-              <div class="card-body" style="height:150px;">
-                  <div onclick="edit(<?php echo $stid;?>)" style="padding:2px 10px; float:right; border-radius:10%;  top:160px; z-index:100;position:relative; background:black; color:white; ">
+              <div class="card-body page-top-box" style="height:175px;">
+                  <div class="menu-icon"><i class="bi bi-person-circle"></i></div>
+                  <div class="menu-text "> Student's Profile Editor </div>
+              </div>
+              <div class="card-body page-info-box" style="height:75px;">
+                  <div onclick="edit(<?php echo $stid;?>)" style="padding:2px 10px; float:right; border-radius:10%;  top:130px; z-index:100;position:relative; background:black; color:white; ">
                       <i class="bi bi-pencil" style="font-size:18px; padding-top:2px;"></i> Edit</div>
                     <img src="<?php echo $pth;?>" class="st-pic-bigger text-center" />
               </div>
@@ -53,9 +57,8 @@
             <div class="card text-center" style="background:var(--lighter);" >
 
               <div class="card-body">
-                  <div style="height:35px;"></div>
                
-                <div style="text-align:left; padding-top:32px;">
+                <div style="text-align:left; padding-top:2px;">
                 <table width="100%">
                     <tr>
                         <td style="width:30px;" valign="top"></td>

@@ -47,7 +47,7 @@ if ($result0rtx_notice->num_rows > 0) {
 
         <?php $sl++; } ?>
 
-        <button class="btn btn-primary text-small" onclick="show_all_notice();">Show All</button>
+        <button class="btn btn-primary text-small" onclick="report_menu_notices();">Show All</button>
     </div>
 </div>
 

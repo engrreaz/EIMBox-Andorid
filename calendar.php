@@ -9,10 +9,11 @@ for ($j = 0; $j <= 365; $j++) {
 
   // $query3x ="insert into calendar values(NULL, '$trk', '$bar', 0, NULL, NULL, 0,  0, NULL);";
   //  $conn->query($query3x);
+
 }
 
-
-
+include 'datam/datam-calendar.php';
+// var_dump($datam_calendar_events);
 ?>
 
 <style>
@@ -74,22 +75,25 @@ for ($j = 0; $j <= 365; $j++) {
     font-size: 11px;
     padding: 3px 6px;
     border-radius: 4px;
-    background-color: #f7c30d;
+    background-color:rgb(138, 136, 130);
     color: #fff;
-    text-align:center;
+    text-align: center;
     word-wrap: break-word;
   }
 
   .calendar .days .day_num .event.green {
     background-color: #51ce57;
   }
+  .calendar .days .day_num .event.orange {
+    background-color:;rgb(255, 187, 0);
+  }
 
   .calendar .days .day_num .event.blue {
-    background-color: #518fce;
+    background-color:rgb(40, 23, 136)
   }
 
   .calendar .days .day_num .event.red {
-    background-color: #ce5151;
+    background-color:rgb(224, 6, 6);
   }
 
   .calendar .days .day_num:nth-child(7n+1) {
@@ -116,93 +120,66 @@ for ($j = 0; $j <= 365; $j++) {
 
 <main>
   <div class="containerx-fluid">
-    <div class="card text-left" >
+    <div class="card text-left">
       <div class="card-body page-top-box">
         <table width="100%" style="color:white;">
           <tr>
             <td colspan="2">
               <div class="menu-icon"><i class="bi bi-calendar-fill"></i></div>
-              <div class="menu-text"> Our Academic Calendar </div>
+              <div class="menu-text"> Academic Calendar </div>
             </td>
           </tr>
-          <tr>
-            <td>
-              <div style="font-size:40px; font-weight:700; text-align:center; margin-top:15px;">
-                <span style="font-size:12px; font-weight:500;">BDT</span> <span id="xxl"></span>
-              </div>
-            </td>
-
-          </tr>
-
         </table>
-
-       
       </div>
     </div>
 
 
+
+    <!-- ******************************************************************* -->
+    <!-- ******************************************************************* -->
+    <!-- ******************************************************************* -->
+    <!-- ******************************************************************* -->
+    <!-- ******************************************************************* -->
+    <!-- ******************************************************************* -->
+
+
+
+
     <?php
-    $sl = 0;
-    $sobar = 0;
-    $mot = 0;
-    $dd1 = date('Y') . '-01-01';
-    $dd2 = date('Y') . '-12-31';
-    $sql0 = "SELECT * FROM calendar where (sccode = 0 or sccode='$sccode') and date between '$dd1' and '$dd2' order by date  ";
-    // echo $sql0;
-    $result0 = $conn->query($sql0);
-    if ($result0->num_rows > 0) {
-      while ($row0 = $result0->fetch_assoc()) {
-        $date = $row0["date"];
-        $day = $row0["day"];
 
+    include 'component/Calendar.php';
 
-        ?>
-        <div class="card " style="background:var(--lighter); color:seagreen; border-radius:0;"
-          onclick="gog('<?php echo $prdate; ?>')">
-          <img class="card-img-top" alt="">
-          <div class="card-body">
-            <div style="font-size:15px; font-weight:700; float:right;">
-              <span style="font-size:12px; font-weight:500;">BDT</span> <?php echo number_format($taka, 2, ".", ","); ?>
-            </div>
-            <div style="font-size:14px; font-weight:600; color:seagreen; font-style:normal;">
-              <?php echo $day . date('d-m-Y', strtotime($date)); ?></div>
-          </div>
-        </div>
-        <div id="dateclass<?php echo $prdate; ?>"></div>
-        <div style="height:2px;"></div>
-        <?php $sl++;
+    for ($month = 1; $month <= 12; $month++) {
+      $cal_date = date('Y') . '-' . $month . '-01';
+      $calendar = new Calendar($cal_date);
+      foreach($datam_calendar_events as $cal_event){
+        $tarikh = $cal_event['date'];
+        $count = $cal_event['day_count'];
+        $icon = $cal_event['icon'];
+        $color = $cal_event['color'];
+        if(date('m', strtotime($tarikh))==$month){
+                $calendar->add_event('<i class="bi bi-'.$icon.'"></i>', $tarikh, $count, $color);
+        }
       }
-    } ?>
+      echo $calendar;
+    }
 
-<!-- ******************************************************************* -->
-<!-- ******************************************************************* -->
-<!-- ******************************************************************* -->
-<!-- ******************************************************************* -->
-<!-- ******************************************************************* -->
-<!-- ******************************************************************* -->
+    // // $calendar = new Calendar();
+    // $calendar = new Calendar('2025-01-01');
+    // $calendar2 = new Calendar('2025-05-01');
 
+    // $calendar->add_event('Book', '2024-05-14');
+    // $calendar->add_event('Sha', '2025-01-4', 7); // Event will last for 7 days
+    // $calendar->add_event('Holiday', '2025-01-14', 1, 'red');
+    // $calendar->add_event('Olymp', '2025-01-14', 1, 'green');
 
+    // $calendar->add_event('<i class="bi bi-cake"></i>', '2025-01-01', 1, 'green');
+    // $calendar2->add_event('d', '2025-05-04', 1, 'red');
+    // $calendar2->add_event('s', '2025-05-05', 1);
 
-
-<?php 
-
-include 'component/Calendar.php';
-// $calendar = new Calendar();
-$calendar = new Calendar('2025-01-01');
-$calendar2 = new Calendar('2025-05-01');
-
-$calendar->add_event('Book', '2024-05-14');
-$calendar->add_event('Sha', '2025-01-4', 7); // Event will last for 7 days
-$calendar->add_event('Holiday', '2025-01-14',1 , 'red');
-$calendar->add_event('Olymp', '2025-01-14',1 , 'green');
-
-$calendar->add_event('<i class="bi bi-cake"></i>', '2025-01-01', 1, 'green');
-$calendar2->add_event('d', '2025-05-04', 1, 'red');
-$calendar2->add_event('s', '2025-05-05', 1);
-
-echo $calendar;
-echo $calendar2;
-?>
+    // echo $calendar;
+    // echo $calendar2;
+    ?>
   </div>
 
 </main>
@@ -211,7 +188,6 @@ echo $calendar2;
 
 
 <script>
-  document.getElementById("xxl").innerHTML = "<?php echo number_format($mot, 2, ".", ","); ?>";
 
 
   function go(id) {

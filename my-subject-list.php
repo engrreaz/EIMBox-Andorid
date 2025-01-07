@@ -121,7 +121,7 @@ $collection = $accountant = 0;
 <main>
   <div class="containerx-fluid">
 
-    <div class="card page-top-box" >
+    <div class="card page-top-box">
       <div class="card-body">
         <table width="100%" style="color:white;">
           <tr>
@@ -130,12 +130,12 @@ $collection = $accountant = 0;
               <div class="menu-text"> My Subjects </div>
             </td>
           </tr>
- 
+
 
         </table>
       </div>
     </div>
-    <div class="card page-info-box" >
+    <div class="card page-info-box" hidden>
       <div class="card-body">
         <table width="100%" style="color:white;">
 
@@ -149,10 +149,10 @@ $collection = $accountant = 0;
               <div style="font-size:24px; font-weight:700; line-height:20px;" id="cnt"></div>
               <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Receipt</div>
 
-              <div style="font-size:11px; color:graylight; font-style:italic; ">Total Collections : <span style="font-weight:700;  font-style:normal;"
-                  id="collection"></span></div>
-              <div style="font-size:11px; color:graylight;  font-style:italic;">To Accountants : <span style="font-weight:700; font-style:normal; "
-                  id="accountant"></span></div>
+              <div style="font-size:11px; color:graylight; font-style:italic; ">Total Collections : <span
+                  style="font-weight:700;  font-style:normal;" id="collection"></span></div>
+              <div style="font-size:11px; color:graylight;  font-style:italic;">To Accountants : <span
+                  style="font-weight:700; font-style:normal; " id="accountant"></span></div>
 
             </td>
           </tr>
@@ -163,7 +163,7 @@ $collection = $accountant = 0;
 
 
 
-    <div style="height:8px;"></div>
+    <!-- <div style="height:8px;"></div> -->
 
 
     <?php
@@ -184,7 +184,7 @@ $collection = $accountant = 0;
         $subcode = $row0["subject"];
         $clsname = $row0["classname"];
         $secname = $row0["sectionname"];
-        
+
         $stind = array_search($subcode, array_column($datam_subject_list, 'subcode'));
         $seng = $datam_subject_list[$stind]["subject"];
         $sben = $datam_subject_list[$stind]["subben"];
@@ -217,18 +217,18 @@ $collection = $accountant = 0;
           <div class="card-body" style="border-radius:0;" onclick="go(<?php echo $stid; ?>)">
             <table width="100%">
               <tr>
-                <td style="width:40px; text-align:center;">
-                  
+                <td style="width:10px; text-align:center;">
+
                 </td>
                 <td style="text-align:left; padding-left:5px;">
                   <div class="stname-eng"><?php echo $seng; ?></div>
-                  <div class="stname-ben"><?php echo $sben; ?></div>
+                  <div class="stname-ben" style="color:gray;"><?php echo $sben; ?></div>
+                  <div class="roll-no fw-bold " style="color: var(--normal);"><?php echo $clsname . ' | ' . $secname; ?></div>
                 </td>
                 <td style="text-align:right; font-size:20px; font-weight:600;">
-                 <book></book>
-                  <br>
-                  <button class="btn btn-danger" onclick="delpr(<?php echo $prno; ?>)" <?php echo $ddd; ?>>Delete
-                    Receipt</button>
+                  <?php $book_img = strtolower('../books/' . $sctype . '_' . $clsname . '_' . $subcode . '_cover.png'); ?>
+                  <img src="<?php echo $book_img; ?>" class="schedule-book-pic text-right" />
+
                 </td>
               </tr>
             </table>
@@ -241,7 +241,7 @@ $collection = $accountant = 0;
         <div style="height:3px;"></div>
         <?php
         $cnt++;
-        $cntamt = $cntamt + $amount;
+ 
       }
     }
 
