@@ -116,14 +116,13 @@ for ($j = 0; $j <= 365; $j++) {
 
 <main>
   <div class="containerx-fluid">
-    <div class="card text-left" style="background:var(--darker); color:var(--lighter); border-radius:0;">
-      <div class="card-body">
+    <div class="card text-left" >
+      <div class="card-body page-top-box">
         <table width="100%" style="color:white;">
           <tr>
             <td colspan="2">
-              <div style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
-                Collection Details
-              </div>
+              <div class="menu-icon"><i class="bi bi-calendar-fill"></i></div>
+              <div class="menu-text"> Our Academic Calendar </div>
             </td>
           </tr>
           <tr>
@@ -140,7 +139,6 @@ for ($j = 0; $j <= 365; $j++) {
        
       </div>
     </div>
-    <div style="height:8px;"></div>
 
 
     <?php
