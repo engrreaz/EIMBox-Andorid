@@ -35,14 +35,14 @@ for ($j = 0; $j <= 365; $j++) {
 
   .calendar .days .day_name {
     width: calc(100% / 7);
-    border-right: 1px solid #2c7aca;
+    /* border-right: 1px solid var(--darker); */
     padding: 20px;
     text-transform: uppercase;
     font-size: 12px;
     font-weight: bold;
     color: #818589;
     color: #fff;
-    background-color: #448cd6;
+    background-color: var(--darker);
   }
 
   .calendar .days .day_name:nth-child(7) {
@@ -59,7 +59,7 @@ for ($j = 0; $j <= 365; $j++) {
     font-weight: bold;
     color: #7c878d;
     cursor: pointer;
-    min-height: 100px;
+    min-height: 10px;
   }
 
   .calendar .days .day_num span {
@@ -71,11 +71,12 @@ for ($j = 0; $j <= 365; $j++) {
   .calendar .days .day_num .event {
     margin-top: 10px;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 11px;
     padding: 3px 6px;
     border-radius: 4px;
     background-color: #f7c30d;
     color: #fff;
+    text-align:center;
     word-wrap: break-word;
   }
 
@@ -113,19 +114,6 @@ for ($j = 0; $j <= 365; $j++) {
 
 
 
-<?php 
-
-include 'component/Calendar.php';
-// $calendar = new Calendar();
-$calendar = new Calendar('2025-10-01');
-$calendar->add_event('Holiday', '2024-05-14');
-$calendar->add_event('Holiday', '2024-05-4', 7); // Event will last for 7 days
-$calendar->add_event('Holiday', '2024-05-14', 7, 'red');
-
-$calendar->add_event('Birthday', '2025-11-01', 1, 'green');
-$calendar->add_event('Doctors', '2024-05-04', 1, 'red');
-$calendar->add_event('Holiday', '2024-05-16', 7);
-?>
 <main>
   <div class="containerx-fluid">
     <div class="card text-left" style="background:var(--darker); color:var(--lighter); border-radius:0;">
@@ -149,7 +137,7 @@ $calendar->add_event('Holiday', '2024-05-16', 7);
 
         </table>
 
-        <?=$calendar?>
+       
       </div>
     </div>
     <div style="height:8px;"></div>
@@ -188,7 +176,35 @@ $calendar->add_event('Holiday', '2024-05-16', 7);
       }
     } ?>
 
+<!-- ******************************************************************* -->
+<!-- ******************************************************************* -->
+<!-- ******************************************************************* -->
+<!-- ******************************************************************* -->
+<!-- ******************************************************************* -->
+<!-- ******************************************************************* -->
 
+
+
+
+<?php 
+
+include 'component/Calendar.php';
+// $calendar = new Calendar();
+$calendar = new Calendar('2025-01-01');
+$calendar2 = new Calendar('2025-05-01');
+
+$calendar->add_event('Book', '2024-05-14');
+$calendar->add_event('Sha', '2025-01-4', 7); // Event will last for 7 days
+$calendar->add_event('Holiday', '2025-01-14',1 , 'red');
+$calendar->add_event('Olymp', '2025-01-14',1 , 'green');
+
+$calendar->add_event('<i class="bi bi-cake"></i>', '2025-01-01', 1, 'green');
+$calendar2->add_event('d', '2025-05-04', 1, 'red');
+$calendar2->add_event('s', '2025-05-05', 1);
+
+echo $calendar;
+echo $calendar2;
+?>
   </div>
 
 </main>

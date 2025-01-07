@@ -95,11 +95,22 @@
     function report_menu_my_subjects() {
         window.location.href = 'my-subject-list.php';
     }
+    function report_menu_ebooks() {
+        window.location.href = 'e-books.php';
+    }
     function report_menu_calendar() {
         window.location.href = 'calendar.php';
     }
     function report_menu_notification() {
         window.location.href = 'notification.php';
+    }
+    function report_menu_notices() {
+        window.location.href = 'notices.php';
+    }
+
+
+    function calendar_event(year, month, day, tail) {
+        alert('Year' + year + month + day + tail);
     }
 
     // Tools Navigation

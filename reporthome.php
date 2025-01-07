@@ -110,13 +110,13 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block disable" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="report_menu_ebooks();">
       <div class="card-body">
         <table style="">
           <tr>
             <td class="menu-item-icon"><i class="bi bi-book-half"></i></td>
             <td>
-              <h4> E-Books </h4>
+              <h4> E-Library </h4>
               <div class="menu-item-sub-text"> E-books relevant me </div>
             </td>
           </tr>
@@ -140,11 +140,11 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="report_menu_notices();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-bell-fill"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-square-fill"></i></td>
             <td>
               <h4> Notices </h4>
               <div class="menu-item-sub-text"> All of notices relevant me </div>

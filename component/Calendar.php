@@ -29,7 +29,7 @@ class Calendar {
         $html .= '<div class="days">';
         foreach ($days as $day) {
             $html .= '
-                <div class="day_name">
+                <div class="day_name");>
                     ' . $day . '
                 </div>
             ';
@@ -46,7 +46,7 @@ class Calendar {
             if ($i == $this->active_day) {
                 $selected = ' selected';
             }
-            $html .= '<div class="day_num' . $selected . '">';
+            $html .= '<div class="day_num' . $selected . '"      id="day_box_'.$this->active_year.'_'.$this->active_month.'" onclick="calendar_event('.$this->active_year.','.$this->active_month.','.$i.', 1);">';
             $html .= '<span>' . $i . '</span>';
             foreach ($this->events as $event) {
                 for ($d = 0; $d <= ($event[2]-1); $d++) {
@@ -61,7 +61,7 @@ class Calendar {
         }
         for ($i = 1; $i <= (42-$num_days-max($first_day_of_week, 0)); $i++) {
             $html .= '
-                <div class="day_num ignore">
+                <div class="day_num ignore" >
                     ' . $i . '
                 </div>
             ';
