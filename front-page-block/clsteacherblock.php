@@ -4,7 +4,6 @@ if (($cteachercls != '' && $cteachersec != '') || $userlevel == 'Administrator' 
 
     if ($collectionby == 0) {
 
-
         $mon = date('m');
         $sql0 = "SELECT sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid  FROM stfinance where sessionyear LIKE '%$sy%' and sccode='$sccode' and classname='$cteachercls' and sectionname='$cteachersec' and month<='$mon'";
         // echo $sql0;

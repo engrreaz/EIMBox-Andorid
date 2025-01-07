@@ -106,8 +106,8 @@ $collection = $accountant = 0;
 <script>
 
   function go(id) {
-    //window.location.href="stfinancedetails.php?id=" + id; 
-    window.location.href = "stfinancedetails.php?id=" + id + "&edit=1";
+    window.location.href="stfinancedetails.php?id=" + id; 
+    // window.location.href = "stfinancedetails.php?id=" + id + "&edit=1";
   }
 
   function pr(id) {

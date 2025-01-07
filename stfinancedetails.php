@@ -536,13 +536,13 @@ if (isset($_GET['edit'])) {
                 }
 
                 var infor = tail;
-                //alert(tail);
+                // alert(tail);
 
                 $("#btnblock").html("");
 
                 $.ajax({
                     type: "POST",
-                    url: "savepr.php",
+                    url: "backend/save-pr.php",
                     data: infor,
                     cache: false,
                     beforeSend: function () {

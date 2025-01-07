@@ -98,6 +98,9 @@
     function report_menu_calendar() {
         window.location.href = 'calendar.php';
     }
+    function report_menu_notification() {
+        window.location.href = 'notification.php';
+    }
 
     // Tools Navigation
     function module_menu_student_attendace(x1, x2) { window.location.href = 'stattnd.php?cls=' + x1 + '&sec=' + x2; }

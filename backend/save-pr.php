@@ -1,10 +1,10 @@
 <?php
-include 'inc.php';
+include 'inc.back.php';
 	
 
 	$count = $_POST['count'];;   //$ = $_POST[''];;  
 	$stid = $_POST['stid'];  $rollno = $_POST['rollno'];  $cls = $_POST['cls'];  $sec = $_POST['sec'];  $neng = $_POST['neng'];  $nben = $_POST['nben'];  
-	$prno = $_POST['prno'];  $prdate = $_POST['prdate']; $mobile = $_POST['mobile'];  //$ = $_POST[''];  $ = $_POST[''];  $ = $_POST[''];  $ = $_POST[''];    
+	$prno = $_POST['prno'];  $prdate = $_POST['prdate']; $mobileno = $_POST['mobileno'];  //$ = $_POST[''];  $ = $_POST[''];  $ = $_POST[''];  $ = $_POST[''];    
 	
 	
 

@@ -1,129 +1,23 @@
 <?php 
 include 'inc.php';
-$classname = $_GET['cls']; $sectionname = $_GET['sec']; 
+// $classname = $_GET['cls']; $sectionname = $_GET['sec']; 
 ?>
 
-<!doctype html>
-<html lang="en">
-
-<head>
-  <title>Title</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css.css?v=a">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
-    <style>
-        .pic{
-            width:45px; height:45px; padding:1px; border-radius:50%; border:1px solid var(--dark); margin:5px;
-        }
-        
-        .a{font-size:18px; font-weight:700; font-style:normal; line-height:22px; color:var(--dark);}
-        .b{font-size:16px; font-weight:600; font-style:normal; line-height:22px;}
-        .c{font-size:11px; font-weight:400; font-style:italic; line-height:16px;}
-        h4{font-size:18px; color:var(--darker); line-height:12px; font-weight:700;}
-        small{font-size:10px; color:var(--dark); line-height:10px;}
-    </style>
-    <style>
-    .box {
-        padding: 5px 25px;
-        box-sizing: border-box;
-        display: flex;
-        border: 1px solid var(--darker);
-        border-width: 0;
-        
-    }
-    
-
-
-    .box-icon {
-        font-size: 25px;
-        display: inline;
-        width: 30px;
-        padding-top: 3px;
-        margin-right: 5px;
-    }
-    
-    .box-icon::before {
-        content: '';
-  position: absolute;
-  width: 0px;
-  background-color: var(--dark);
-  top: 0;
-  bottom: 0;
-  left: 40px;
-  margin-left: -1px;
-    }
-
-
-    .box-text {
-        display: flex;
-        flex-direction: column;
-        flex: auto;
-        margin-top:1px;
-        padding-left:5px;
-    }
-
-    .box-title {
-        font-size: 12px;
-        font-weight: 500;
-        margin: 0;
-    }
-
-
-    .box-subtitle {
-        font-size: 10px;
-        font-weight: 400;
-        font-style: italic;
-        margin: 0;
-        color: var(--normal);
-    }
-
-    .box-prog {
-        height: 50px;
-        width: 50px;
-        display: none;
-    }
-    
-    .sender {
-        width:30px; height:30px; border-radius:50%; background: white; z-index:999;
-        box-shadow: 2px 2px 8px #888888;
-    }
-</style>
-</head>
-
-<body>
-  <header>
-    <!-- place navbar here -->
-  </header>
   <main>
     <div class="container-fluidx">
-
-        <div class="card text-left" style="background:var(--dark); color:var(--lighter);"  onclick="go(<?php echo $id;?>)">
-          
-            <div class="card-body">
+        <div class="card text-left" >
+            <div class="card-body page-top-box">
                 <table width="100%" style="color:white;">
                     <tr>
                         <td>
-                            <div class="logoo"><i class="bi bi-bell-fill"></i></div>
-                            <div style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
-                                Notifications
-                            </div>
+                            <div class="menu-icon"><i class="bi bi-bell-fill"></i></div>
+                            <div class="menu-text"> Notifications </div>
                         </td>
                     </tr>
-                
-                    
                 </table>
             </div>
         </div>
 
-    
-    
             <!--<div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk3();" >-->
             <!--  <img class="card-img-top"  alt="">-->
             <!--  <div class="card-body">-->
@@ -151,18 +45,17 @@ $classname = $_GET['cls']; $sectionname = $_GET['sec'];
                 $title = $row0["title"];
                 $smstext = $row0["smstext"];
                 $datetime = $row0["datetime"];
-                $rws = $row0["rwstatus"];
-                
+                $rws = $row0["rwstatus"]; 
             ?>  
-                    <div class="box">
-                        <div class="box-icon">
-                            <img class="sender" src="https://eimbox.com/images/no-image.png" />
+                    <div class=" d-flex p-2 mb-1">
+                        <div class="box-icon me-2">
+                            <img class="st-pic-normal" src="https://eimbox.com/images/no-image.png" />
                         </div>
                         <div class="box-text">
-                            <div class="box-title" style="<?php if($rws==1){ echo 'color:gray;';}?>">
+                            <div class="stname-ben fw-bold" style="<?php if($rws==1){ echo 'color:gray;';}?>">
                                 <?php echo $title; ?>
                             </div>
-                            <div class="box-subtitle"  style="<?php if($rws==1){ echo 'color:gray;';}?>"><?php echo $smstext;?></div>
+                            <div class="stname-ben text-secondary"  style="<?php if($rws==1){ echo 'color:gray;';}?>"><?php echo $smstext;?></div>
                         </div>
                         <div class="box-prog">
                             <?php $perc = 76; ?>
@@ -172,13 +65,14 @@ $classname = $_GET['cls']; $sectionname = $_GET['sec'];
                             </div>
                         </div> 
                     </div>
+                   
             <?php 
                 }}
                 
                 
                 
                 $query33x ="UPDATE notification set rwstatus = '1' where tomail = '$usr'";
-    		    $conn->query($query33x);
+    		    // $conn->query($query33x);
               ?>
               
 
@@ -196,18 +90,6 @@ $classname = $_GET['cls']; $sectionname = $_GET['sec'];
 
   </main>
   <div style="height:52px;"></div>
-  <footer>
-    <!-- place footer here -->
-  </footer>
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   
   <script>
   document.getElementById("cnt").innerHTML = "<?php echo $cnt;?>";
@@ -287,7 +169,3 @@ $classname = $_GET['cls']; $sectionname = $_GET['sec'];
   </script>
     
     
-  
-</body>
-
-</html>
