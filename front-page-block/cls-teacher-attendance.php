@@ -53,8 +53,9 @@ if ($cteachercls != '' && $cteachersec != '') {
                                 id="duess"><?php echo $x1 . ' | ' . $x2; ?></span></div>
                     </td>
                     <td class="prog">
+                        <?php $tattdeg = 180;?>
                         <div
-                            style="border:1px solid purple; poisition:relative; margin:auto; text-align:center; border-radius:50%; height:72px; width:72px; background-image: conic-gradient(var(--dark) 0deg, var(--dark) <?php echo $tattdeg; ?>deg, var(--lighter) <?php echo $tattdeg; ?>deg, var(--lighter) 360deg);">
+                            style="border:1px solid purple; poisition:relative; margin:auto; text-align:center; border-radius:50%; height:72px; width:72px; background-image: conic-gradient(var(--darker) 0deg, var(--darker) <?php echo $tattdeg; ?>deg, var(--normal) <?php echo $tattdeg; ?>deg, var(--normal) 340deg, var(--lighter) 340deg, var(--lighter) 360deg);">
                             <div
                                 style="border:1px solid purple; border-radius:50%; left:5px; top:5px; position:relative; background:var(--light); color:purple;;width:60px; height:60px; padding-top:20px;">
                                 <?php echo $tperc; ?><small>%</small>
