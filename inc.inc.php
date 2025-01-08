@@ -102,6 +102,10 @@ if ($result0xrty->num_rows > 0) {
     while ($row0x = $result0xrty->fetch_assoc()) {
         $latlat = $row0x["geolat"];
         $lonlon = $row0x["geolon"];
+
+
+        $in_time = $row0x["intime"];
+        $out_time = $row0x["outtime"];
     }
 }
 //echo $latlat . '/' . $lonlon;
@@ -156,11 +160,15 @@ if (isset($_GET['fn'])) {
     }
 }
 
+
+
 $sql0 = "SELECT * FROM teacher where tid='$userid' ";
 $result0bb = $conn->query($sql0);
 if ($result0bb->num_rows > 0) {
     while ($row0 = $result0bb->fetch_assoc()) {
         $rank = $row0["position"];
+        $in_time_user = $row0["curin"];
+        $out_time_user = $row0["curout"];
     }
 }
 
@@ -171,7 +179,7 @@ if ($result0bbx->num_rows > 0) {
     while ($row0 = $result0bbx->fetch_assoc()) {
         $cteacher_data[] = $row0;
     }
-} 
+}
 
 // $sql0 = "SELECT * FROM areas where classteacher='$userid' and sessionyear='$sy' ";
 // $result0bbx = $conn->query($sql0);
@@ -258,16 +266,15 @@ if ($l < 5) {
 
 
 
-$one = strtotime('2023-01-01');
+$one = strtotime('2025-01-01');
 $oneday = 3600 * 24;
 for ($x = 0; $x < 365; $x++) {
     $tar = date('Y-m-d', $one + $oneday * $x);
     $bar = date('l', strtotime($tar));
 
-
     $query33pd = "insert into calendar (id, date, day, sccode, descrip, category, work, class ) values (NULL, '$tar' , '$bar', 0, NULL, NULL, 1, 1)";
     //echo $query33p;
-    //   $conn->query($query33pd) ;
+    // $conn->query($query33pd);
 }
 
 

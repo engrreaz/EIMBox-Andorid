@@ -32,7 +32,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
         style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px; z-index:99999;">
         <table width="100%">
             <tr>
-                <td style="width:10%"></td>
+                <td style="width:<?php echo $hb; ?>%"></td>
                 <td style="text-align:center;"><a style="color:white;" href="index.php">
                         <i class="bi bi-home"></i></a></td>
                 <td style="text-align:center;"><a style="color:white;" href="reporthome.php"><i
@@ -113,7 +113,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 
 
 <div class="noprint" onclick="document.location.reload();"
-    style="font-size:22px; width:25px; height:25px; float:right; right:10px; top:10px; position:fixed; z-index:99999; border-radius:50%; background:white; line-height:25px;">
+    style="font-size:25px; width:25px; height:25px; float:right; right:10px; top:10px; position:fixed; z-index:99999; border-radius:50%; background:white; line-height:25px;">
     <i class="bi bi-arrow-repeat"></i>
 </div>
 

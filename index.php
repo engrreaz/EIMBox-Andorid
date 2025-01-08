@@ -1,7 +1,6 @@
 <?php
 include 'inc.php';
 
-
 //echo $geolat . ', ' . $geolon;
 
 //$urii = 'http://maps.google.com/maps?q=' . $geolat . ', ' . $geolon;

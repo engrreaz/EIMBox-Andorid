@@ -1,3 +1,4 @@
 ALTER TABLE `notification` ADD `icon` VARCHAR(50) NULL DEFAULT NULL AFTER `rwstatus`, ADD `color` VARCHAR(10) NOT NULL DEFAULT '#000000' AFTER `icon`, ADD `value` INT NULL DEFAULT NULL AFTER `color`;
 ALTER TABLE `calendar` ADD `day_count` INT NOT NULL DEFAULT '1' AFTER `dateto`;
 ALTER TABLE `calendar` ADD `icon` VARCHAR(20) NOT NULL DEFAULT 'calendar3-event-fill' AFTER `day_count`, ADD `color` VARCHAR(20) NOT NULL DEFAULT 'lightgray' AFTER `icon`;
+ALTER TABLE `scinfo` ADD `intime` TIME NOT NULL DEFAULT '09:45:00' AFTER `geolon`, ADD `outtime` TIME NOT NULL DEFAULT '16:30:00' AFTER `intime`;

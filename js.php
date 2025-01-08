@@ -163,6 +163,7 @@
     }
 
 
+   function profile_menu_my_attendance() { window.location.href = "tattnd.php"; }
 
     // Settings Navigation
     function settings_menu_my_profile() { window.location.href = "globalsetting.php"; }

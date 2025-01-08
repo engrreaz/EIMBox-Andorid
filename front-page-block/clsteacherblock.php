@@ -52,15 +52,15 @@ if (count($cteacher_data) > 0) {
 
             ?>
 
-      
+
             <div class="card ">
-                <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;"><b>Student's
-                        Payment</b>
+                <div class="card-header"><b> Student's Payment</b>
                     <div class="float-end">
                         <i class="bi bi-currency-exchange front-icon"></i>
                     </div>
                 </div>
-                <div class="card-body" style="background:var(--lighter);" onclick="home_cteacher_st_payment('<?php echo $cteachercls; ?>','<?php echo $cteachersec; ?>');">
+                <div class="card-body" style="background:var(--lighter);"
+                    onclick="home_cteacher_st_payment('<?php echo $cteachercls; ?>','<?php echo $cteachersec; ?>');">
 
 
                     <table width="100%">
@@ -91,6 +91,9 @@ if (count($cteacher_data) > 0) {
                                         style="border:1px solid purple; border-radius:50%; left:5px; top:5px; position:relative; background:var(--light); color:purple;;width:60px; height:60px; padding-top:20px;">
                                         <?php echo $perc; ?><small>%</small>
                                     </div>
+                                </div>
+                                <div class="text-center mt-2 text-small fw-bold text-success">
+                                    <?php echo $cteachercls . ' <i class="bi bi-arrow-right"></i>' . $cteachersec; ?>
                                 </div>
                             </td>
                         </tr>

@@ -48,7 +48,8 @@ if ($result01x->num_rows == 0) {
     }
 </style>
 
-<?php include 'task-teacher.php'; ?>
+<?php include 'front-page-block/task-teacher.php'; ?>
+<?php include 'front-page-block/notice.php'; ?>
 
 <?php if ($reallevel == 'Super Administrator') { ?>
     <div class="card gg">
@@ -352,7 +353,7 @@ if ($reallevel == 'Super Administrator' || $userlevel == 'Administrator') {
 
 ?>
 
-<?php include 'notice.php'; ?>
+
 
 
 <a href="https://www.web.eimbox.com/teachersedit.php?tid=<?php echo $userid; ?>" class="btn btn-info">My Pfofile</a>
@@ -361,12 +362,6 @@ if ($reallevel == 'Super Administrator' || $userlevel == 'Administrator') {
 <div style="height:52px;"></div>
 
 
-
-
-
-
-
-<?php include 'footer.php'; ?>
 
 
 
