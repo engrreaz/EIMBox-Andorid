@@ -112,31 +112,31 @@
     function calendar_event(year, month, day, tail) {
         alert('Year' + year + month + day + tail);
     }
-   
-   
-    function my_class_attendance(stid){
+
+
+    function my_class_attendance(stid) {
         Swal.fire({
             title: "Attendance",
             icon: "info",
             draggable: true
         });
     }
-    
-    function my_class_payment(stid){
+
+    function my_class_payment(stid) {
         Swal.fire({
             title: "Payment's Info",
             icon: "info",
             draggable: true
         });
     }
-    function my_class_result(stid){
+    function my_class_result(stid) {
         Swal.fire({
             title: "Accademic Performance",
             icon: "info",
             draggable: true
         });
     }
-    function my_class_profile(stid){
+    function my_class_profile(stid) {
         Swal.fire({
             title: "Profile",
             icon: "info",
@@ -154,6 +154,13 @@
             draggable: true
         });
     }
+    function module_menu_class_test() {
+        Swal.fire({
+            title: "Currently Unavailable",
+            icon: "info",
+            draggable: true
+        });
+    }
 
 
 
@@ -163,9 +170,9 @@
 
 
 
-
-
-
+    // Home Page
+    function home_goclsatt(x1, x2) { window.location.href = 'stattnd.php?cls=' + x1 + '&sec=' + x2; }
+    function home_cteacher_st_payment(x1, x2) { window.location.href = 'finstudents.php?cls=' + x1 + '&sec=' + x2; }
 
 
 

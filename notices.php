@@ -2,15 +2,15 @@
 include 'inc.php';
 // $classname = $_GET['cls']; $sectionname = $_GET['sec']; 
 
-$notices = array();
-$sql0 = "SELECT * FROM notice where sccode = '$sccode'  order by entrytime desc;";
-// echo $sql0 ;
-$result0rtx_notice = $conn->query($sql0);
-if ($result0rtx_notice->num_rows > 0) {
-    while ($row0 = $result0rtx_notice->fetch_assoc()) {
-        $notices[] = $row0;
-    }
-}
+// $notices = array();
+// $sql0 = "SELECT * FROM notice where sccode = '$sccode'  order by entrytime desc;";
+// // echo $sql0 ;
+// $result0rtx_notice = $conn->query($sql0);
+// if ($result0rtx_notice->num_rows > 0) {
+//     while ($row0 = $result0rtx_notice->fetch_assoc()) {
+//         $notices[] = $row0;
+//     }
+// }
 
 $username_profile = array();
 $sql0 = "SELECT email, userid, profilename FROM usersapp where sccode = '$sccode';";

@@ -1,29 +1,22 @@
 <?php
 include 'inc.php';
-include 'header.php';
-if (isset($_GET['cls'])) {
-  $classname = $_GET['cls'];
-} else {
-  $classname = $cteachercls;
-}
-if (isset($_GET['sec'])) {
-  $sectionname = $_GET['sec'];
-} else {
-  $sectionname = $cteachersec;
-}
-$totaldues = 0;
-
 include 'datam/datam-stprofile.php';
 
-$month = date('m');
-$data_dues = array();
-$sql0 = "SELECT stid, sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname='$sectionname' and month<='$month' group by stid ";
-$result01x = $conn->query($sql0);
-if ($result01x->num_rows > 0) {
-  while ($row0 = $result01x->fetch_assoc()) {
-    $data_dues[] = $row0;
-  }
+
+if (isset($_GET['cls']) && isset($_GET['sec'])) {
+  $classname = $_GET['cls'];
+  $sectionname = $_GET['sec'];
+  $cteacher_data[] = ['cteachercls' => $classname, 'cteachersec' => $sectionname];
 }
+
+
+// var_dump($cteacher_data);
+$count_class = count($cteacher_data);
+$totaldues = 0;
+
+
+
+
 ?>
 
 
@@ -151,10 +144,12 @@ if ($result01x->num_rows > 0) {
   }  
 </script>
 
+
+
+
 <main>
   <div class="containerx-fluid">
-    <div class="card text-left" style="background:var(--dark); color:var(--lighter);border-radius:0; " onclick="">
-
+    <div class="card text-left">
       <div class="card-body page-top-box" style="border-radius:0;">
         <table width="100%" style="color:white;">
           <tr>
@@ -165,163 +160,225 @@ if ($result01x->num_rows > 0) {
           </tr>
         </table>
       </div>
-      <div class="card-body page-info-box" style="border-radius:0;">
-        <table width="100%">
-          <tr>
-            <td>
-              <div style="font-size:20px; font-weight:700; line-height:15px;"><?php echo strtoupper($classname); ?>
-              </div>
-              <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Class</div>
-              <br>
-              <div style="font-size:16px; font-weight:700; line-height:15px;"><?php echo strtoupper($sectionname); ?>
-              </div>
-              <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Section</div>
-            </td>
-            <td style="text-align:right;">
-              <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt">...</div>
-              <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Students</div>
-              <br>
-              <div style="font-size:30px; font-weight:700; line-height:20px;" id="cntamt">...</div>
-              <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Total Dues</div>
-            </td>
-          </tr>
-
-        </table>
-      </div>
     </div>
-    <div style="height:8px;"></div>
 
+    <?php if ($count_class > 1) { ?>
+      <div class="d-flex">
+        <?php
+        for ($h = 0; $h < $count_class; $h++) {
+          $classname = $cteacher_data[$h]['cteachercls'];
+          $sectionname = $cteacher_data[$h]['cteachersec'];
 
-    <?php
-    $cnt = 0;
-    $cntamt = 0;
-    $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by rollno";
-    $result0 = $conn->query($sql0);
-    if ($result0->num_rows > 0) {
-      while ($row0 = $result0->fetch_assoc()) {
-        $stid = $row0["stid"];
-        $rollno = $row0["rollno"];
-        $card = $row0["icardst"];
-        $dtid = $row0["id"];
-        $status = $row0["status"];
-        $rel = $row0["religion"];
-        $four = $row0["fourth_subject"];
+          if ($h == 0) {
+            $btn = 'primary';
+          } else {
+            $btn = 'dark';
+          }
 
-
-        $st_arr = array_search($stid, array_column($datam_st_profile, 'stid'));
-        $neng = $datam_st_profile[$st_arr]["stnameeng"];
-        $nben = $datam_st_profile[$st_arr]["stnameben"];
-        $vill = $datam_st_profile[$st_arr]["previll"];
-
-        if ($totaldues < 100) {
-          $bgc = '--var(dark)';
-        }
-        if ($status == 0) {
-          $bgc = '--light';
-          $dsbl = ' disabled';
-          $gip = '';
-        } else {
-          $bgc = '--lighter';
-          $dsbl = '';
-          $gip = 'checked';
-        }
-
-        //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
-    
-        $indues = array_search($stid, array_column($data_dues, 'stid'));
-        $totaldues = $data_dues[$indues]["dues"];
-        $tpaya = $data_dues[$indues]["paya"];
-        $tpaid = $data_dues[$indues]["paid"];
-
-        if ($totaldues < 100) {
-          $bgc = 'white';
-          $btn = 'success';
-        } else {
-          $btn = 'warning';
+          ?>
+          <button id="btn<?php echo $h; ?>" class="btn btn-<?php echo $btn; ?> flex-fill " style="border-radius:0;"
+            onclick="myclass('<?php echo $h; ?>', '<?php echo $count_class; ?>' );">
+            <?php echo $classname . ' <i class="bi bi-arrow-right"></i>  ' . $sectionname; ?>
+          </button>
+          <?php
         }
         ?>
-        <div class="card text-center" style="background:var(<?php echo $bgc; ?>); color:var(--darker);border-radius:0;"
-          id="block<?php echo $stid; ?>" <?php echo $dsbl; ?>>
-          <div class="card-body" style="border-radius:0;" >
+      </div>
+    <?php } ?>
+
+    <!-- *************************************************** -->
+    <?php for ($h2 = 0; $h2 < $count_class; $h2++) {
+      $classname = $cteacher_data[$h2]['cteachercls'];
+      $sectionname = $cteacher_data[$h2]['cteachersec'];
+      if ($h2 == 0) {
+        $ddss = 'block';
+
+      } else {
+        $ddss = 'none';
+
+      }
+
+      ?>
+      <div id="clssecblock<?php echo $h2; ?>" style="display:<?php echo $ddss; ?>">
+        <div class="card text-left">
+          <div class="card-body page-info-box" style="border-radius:0;">
             <table width="100%">
               <tr>
-                <td style="width:30px;">
-                  <span style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span>
-                </td>
-                <td style="text-align:left; padding-left:5px;">
-                  <div class="stname-eng"><?php echo $neng; ?></div>
-                  <div class="stname-ben"><?php echo $nben; ?></div>
-                  <div class="c" style="font-weight:500; font-style:normal; color:gray;">ID #
-                    <?php echo $stid . ' [<b>' . $vill . '</b>]'; ?>
-                  </div>
-
-                </td>
-                <td rowspan="2" style="text-align:right; font-size:20px; font-weight:600; vertical-align:top;">
-                  <img src="https://eimbox.com/students/<?php echo $stid; ?>.jpg" class="st-list-photo" />
-                </td>
-              </tr>
-              <tr>
-
-                <td></td>
                 <td>
-
-                  <div class="row mt-3" >
-                    <div class="col-3 text-center" onclick="my_class_attendance(<?php echo $stid;?>);" >
-                      <i class="bi bi-fingerprint toolbar-icon"></i>
-                      <div class="toolbar-text">--%</div>
-                    </div>
-                    <div class="col-3 text-center" onclick="my_class_payment(<?php echo $stid;?>);" >
-                      <i class="bi bi-coin toolbar-icon"></i>
-                      <div class="toolbar-text">
-                        <?php echo number_format($totaldues, 2, ".", ","); ?>
-                      </div>
-                    </div>
-                    <div class="col-3 text-center" onclick="my_class_result(<?php echo $stid;?>);" >
-                      <i class="bi bi-file-earmark-text toolbar-icon"></i>
-                      <div class="toolbar-text">--.-%</div>
-                    </div>
-                    <div class="col-3 text-center" onclick="my_class_profile(<?php echo $stid;?>);" >
-                      <i class="bi bi-person-circle toolbar-icon"></i>
-                      <div class="toolbar-text">Profile</div>
-                    </div>
+                  <div style="font-size:20px; font-weight:700; line-height:15px;"><?php echo strtoupper($classname); ?>
                   </div>
-
-
-
-                  <div style="display:none;">
-                    <div class="mr-2">
-                      <a class="btn btn-<?php echo $btn; ?>" style="font-size:10px;"
-                        href="stprdetails.php?id=<?php echo $stid; ?>" disabled>Attendance</a>
-                    </div>
-                    <div class="d-block">
-                      <div>
-
-                      </div>
-                      <div>
-                        <a class="btn btn-<?php echo $btn; ?>" style="font-size:10px;"
-                          href="stprdetails.php?id=<?php echo $stid; ?>">Payment History</a>
-                      </div>
-                    </div>
+                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Class</div>
+                  <br>
+                  <div style="font-size:16px; font-weight:700; line-height:15px;"><?php echo strtoupper($sectionname); ?>
                   </div>
+                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Section</div>
+                </td>
+                <td style="text-align:right;">
+                  <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt<?php echo $h2; ?>">...</div>
+                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Students</div>
+                  <br>
+                  <div style="font-size:30px; font-weight:700; line-height:20px;" id="cntamt<?php echo $h2; ?>">...</div>
+                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Total Dues</div>
                 </td>
               </tr>
 
             </table>
-
-
           </div>
         </div>
+        <div style="height:8px;"></div>
 
 
-        <div style="height:3px;"></div>
         <?php
-        $cnt++;
-        $cntamt = $cntamt + $totaldues;
-      }
+
+        $month = date('m');
+        $data_dues = array();
+        $sql0 = "SELECT stid, sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname='$sectionname' and month<='$month' group by stid ";
+        $result01x = $conn->query($sql0);
+        if ($result01x->num_rows > 0) {
+          while ($row0 = $result01x->fetch_assoc()) {
+            $data_dues[] = $row0;
+          }
+        }
+
+        $cnt = 0;
+        $cntamt = 0;
+        $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by rollno";
+        $result0 = $conn->query($sql0);
+        if ($result0->num_rows > 0) {
+          while ($row0 = $result0->fetch_assoc()) {
+            $stid = $row0["stid"];
+            $rollno = $row0["rollno"];
+            $card = $row0["icardst"];
+            $dtid = $row0["id"];
+            $status = $row0["status"];
+            $rel = $row0["religion"];
+            $four = $row0["fourth_subject"];
+
+
+            $st_arr = array_search($stid, array_column($datam_st_profile, 'stid'));
+            $neng = $datam_st_profile[$st_arr]["stnameeng"];
+            $nben = $datam_st_profile[$st_arr]["stnameben"];
+            $vill = $datam_st_profile[$st_arr]["previll"];
+
+            if ($totaldues < 100) {
+              $bgc = '--var(dark)';
+            }
+            if ($status == 0) {
+              $bgc = '--light';
+              $dsbl = ' disabled';
+              $gip = '';
+            } else {
+              $bgc = '--lighter';
+              $dsbl = '';
+              $gip = 'checked';
+            }
+
+            //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
+      
+            $indues = array_search($stid, array_column($data_dues, 'stid'));
+            $totaldues = $data_dues[$indues]["dues"];
+            $tpaya = $data_dues[$indues]["paya"];
+            $tpaid = $data_dues[$indues]["paid"];
+
+            if ($totaldues < 100) {
+              $bgc = 'white';
+              $btn = 'success';
+            } else {
+              $btn = 'warning';
+            }
+            ?>
+            <div class="card text-center" style="background:var(<?php echo $bgc; ?>); color:var(--darker);border-radius:0;"
+              id="block<?php echo $stid; ?>" <?php echo $dsbl; ?>>
+              <div class="card-body" style="border-radius:0;">
+                <table width="100%">
+                  <tr>
+                    <td style="width:30px;">
+                      <span style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span>
+                    </td>
+                    <td style="text-align:left; padding-left:5px;">
+                      <div class="stname-eng"><?php echo $neng; ?></div>
+                      <div class="stname-ben"><?php echo $nben; ?></div>
+                      <div class="c" style="font-weight:500; font-style:normal; color:gray;">ID #
+                        <?php echo $stid . ' [<b>' . $vill . '</b>]'; ?>
+                      </div>
+
+                    </td>
+                    <td rowspan="2" style="text-align:right; font-size:20px; font-weight:600; vertical-align:top;">
+                      <img src="https://eimbox.com/students/<?php echo $stid; ?>.jpg" class="st-list-photo" />
+                    </td>
+                  </tr>
+                  <tr>
+
+                    <td></td>
+                    <td>
+
+                      <div class="row mt-3">
+                        <div class="col-3 text-center" onclick="my_class_attendance(<?php echo $stid; ?>);">
+                          <i class="bi bi-fingerprint toolbar-icon"></i>
+                          <div class="toolbar-text">--%</div>
+                        </div>
+                        <div class="col-3 text-center" onclick="my_class_payment(<?php echo $stid; ?>);">
+                          <i class="bi bi-coin toolbar-icon"></i>
+                          <div class="toolbar-text">
+                            <?php echo number_format($totaldues, 2, ".", ","); ?>
+                          </div>
+                        </div>
+                        <div class="col-3 text-center" onclick="my_class_result(<?php echo $stid; ?>);">
+                          <i class="bi bi-file-earmark-text toolbar-icon"></i>
+                          <div class="toolbar-text">--.-%</div>
+                        </div>
+                        <div class="col-3 text-center" onclick="my_class_profile(<?php echo $stid; ?>);">
+                          <i class="bi bi-person-circle toolbar-icon"></i>
+                          <div class="toolbar-text">Profile</div>
+                        </div>
+                      </div>
+
+
+
+                      <div style="display:none;">
+                        <div class="mr-2">
+                          <a class="btn btn-<?php echo $btn; ?>" style="font-size:10px;"
+                            href="stprdetails.php?id=<?php echo $stid; ?>" disabled>Attendance</a>
+                        </div>
+                        <div class="d-block">
+                          <div>
+
+                          </div>
+                          <div>
+                            <a class="btn btn-<?php echo $btn; ?>" style="font-size:10px;"
+                              href="stprdetails.php?id=<?php echo $stid; ?>">Payment History</a>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                </table>
+
+
+              </div>
+            </div>
+
+
+            <div style="height:3px;"></div>
+            <?php
+            $cnt++;
+            $cntamt = $cntamt + $totaldues;
+          }
+        }
+
+        ?>
+        <script>
+          document.getElementById("cnt" + <?php echo $h2; ?>).innerHTML = "<?php echo $cnt; ?>";
+          document.getElementById("cntamt" + <?php echo $h2; ?>).innerHTML = "<?php echo number_format($cntamt, 2, ".", ","); ?>";
+        </script>
+
+      </div>
+      <?php
+
     }
-
     ?>
-
+    <!-- *********************************************************** -->
 
 
   </div>
@@ -332,7 +389,19 @@ if ($result01x->num_rows > 0) {
   <!-- place footer here -->
 </footer>
 <!-- Bootstrap JavaScript Libraries -->
+
+
 <script>
-  document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
-  document.getElementById("cntamt").innerHTML = "<?php echo number_format($cntamt, 2, ".", ","); ?>";
+  function myclass(cur, mot) {
+    var i = 0;
+    for (i = 0; i < mot; i++) {
+      document.getElementById('clssecblock' + i).style.display = 'none';
+      document.getElementById('btn' + i).classList.remove("btn-primary");
+      document.getElementById('btn' + i).classList.add("btn-dark");
+    }
+    document.getElementById('clssecblock' + cur).style.display = 'block';
+    document.getElementById('btn' + cur).classList.add("btn-primary");
+
+
+  }
 </script>

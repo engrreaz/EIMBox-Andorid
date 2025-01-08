@@ -80,7 +80,6 @@ include 'front-page-block/clsteacherblock.php';
 <script>
     function goclsp() { window.location.href = 'finclssec.php'; }
     function goclsa() { window.location.href = 'finacc.php'; }
-    function goclss() { window.location.href = 'finstudents.php?cls=<?php echo $cteachercls; ?>&sec=<?php echo $cteachersec; ?>'; }
 
     function gor() { alert("OK"); window.location.href = 'resultprocess.php'; }
     function gorx() { window.location.href = 'settings.php'; }
@@ -91,7 +90,6 @@ include 'front-page-block/clsteacherblock.php';
     function goclsa() { window.location.href = 'finacc.php'; }
     function mypr() { window.location.href = 'mypr.php'; }
 
-    function goclsatt(x1, x2) { window.location.href = 'stattnd.php?cls=' + x1 + '&sec=' + x2; }
     function register(x1, x2) { window.location.href = 'stattndregister.php?cls=' + x1 + '&sec=' + x2; }
 
 
@@ -102,4 +100,4 @@ include 'front-page-block/clsteacherblock.php';
 
 
 
-<?php 
+<?php

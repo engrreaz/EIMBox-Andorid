@@ -47,7 +47,7 @@ if (isset($_GET["photo"])) {
     $pth = $_GET["photo"];
 }
 // echo '~~~~~~~~~' . $usr . '**********';
-if(isset($_SESSION["user"])){
+if (isset($_SESSION["user"])) {
     $usr = $_SESSION["user"];
 } else {
     $usr = '';
@@ -164,18 +164,26 @@ if ($result0bb->num_rows > 0) {
     }
 }
 
-
-$sql0 = "SELECT * FROM areas where classteacher='$userid' and sessionyear='$sy' ";
+$cteacher_data = [];
+$sql0 = "SELECT areaname as cteachercls, subarea as cteachersec FROM areas where classteacher='$userid' and sessionyear='$sy' ";
 $result0bbx = $conn->query($sql0);
 if ($result0bbx->num_rows > 0) {
     while ($row0 = $result0bbx->fetch_assoc()) {
-        $cteachercls = $row0["areaname"];
-        $cteachersec = $row0["subarea"];
+        $cteacher_data[] = $row0;
     }
-} else {
-    $cteachercls = '';
-    $cteachersec = '';
-}
+} 
+
+// $sql0 = "SELECT * FROM areas where classteacher='$userid' and sessionyear='$sy' ";
+// $result0bbx = $conn->query($sql0);
+// if ($result0bbx->num_rows > 0) {
+//     while ($row0 = $result0bbx->fetch_assoc()) {
+//         $cteachercls = $row0["areaname"];
+//         $cteachersec = $row0["subarea"];
+//     }
+// } else {
+//     $cteachercls = '';
+//     $cteachersec = '';
+// }
 
 
 
@@ -228,7 +236,7 @@ if ($sccode > 100) {
 
         }
     }
-    
+
     if ($userlevel == 'Administrator' || $userlevel == 'Head Teacher') {
         if ($scname == '' || $scadd1 == '' || $scadd2 = '' || $ps == '' || $dist == '' || $contact == '' || $logo == '') {
             header("Location: settingsinstituteinfo.php");
@@ -279,10 +287,6 @@ $curfile = basename($_SERVER["SCRIPT_FILENAME"]);
 
 include 'header.php';
 ?>
-
-
-    
-    
     <style>
   #mbox {
   background:red;
@@ -317,9 +321,4 @@ include 'header.php';
         </script>
 
         <?php
-       
         include 'footer.php';
-
-
-
-

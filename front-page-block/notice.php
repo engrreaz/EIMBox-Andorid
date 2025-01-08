@@ -9,6 +9,17 @@ if ($result0rtx_notice->num_rows > 0) {
     }
 }
 // var_dump($notices);
+
+
+$username_profile = array();
+$sql0 = "SELECT email, userid, profilename FROM usersapp where sccode = '$sccode';";
+// echo $sql0 ;
+$result0rtx_notice_user = $conn->query($sql0);
+if ($result0rtx_notice_user->num_rows > 0) {
+    while ($row0 = $result0rtx_notice_user->fetch_assoc()) {
+        $username_profile[] = $row0;
+    }
+}
 ?>
 
 <div class="main-card gg card" style="border-radius:0; border:0;">
@@ -30,6 +41,12 @@ if ($result0rtx_notice->num_rows > 0) {
                 $notice['icon'] = 'bell';
             }
 
+            $eby = $notice['entryby'];
+            $etime = $notice['entrytime'];
+
+            $ind_tx = array_search($eby, array_column($username_profile, 'email'));
+            $user_full_name = $username_profile[$ind_tx]['profilename'];
+            
             ?>
 
 
@@ -40,14 +57,15 @@ if ($result0rtx_notice->num_rows > 0) {
                 <div class="mt-2">
                     <h6 class="stname-ben"><?php echo $notice['title'];?></h6>
                     <div class="roll-no mt-1 text-secondary"  id="descrip<?php echo $sl;?>" style="line-height:20px; display:none; "><?php echo $notice['descrip'];?></div>
-                    <div class="notice-small-gray"><small>2 Hrs ago <span class="notice-by">by Mr. Aminul
-                                Islam</span></small></div>
+                    <div class="notice-small-gray"><small><?php echo date('d/m/y H:i:s', strtotime($etime));?> by <span class="notice-by">
+                            <?php echo $user_full_name;?>
+                        </span></small></div>
                 </div>
             </div>
 
         <?php $sl++; } ?>
 
-        <button class="btn btn-primary text-small" onclick="report_menu_notices();">Show All</button>
+        <button class="btn btn-primary text-small " style="margin-left:40px;" onclick="report_menu_notices();">Show All</button>
     </div>
 </div>
 

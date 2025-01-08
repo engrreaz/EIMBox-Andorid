@@ -56,7 +56,7 @@ $stid = $row0["fromuserid"];
                         draggable="true">
                         <div class=" d-flex p-2 ">
                             <div class="box-icon me-2">
-                                <img class="st-pic-normal" src="<?php echo $pth;?>" />
+                                <img class="st-pic-small" src="<?php echo $pth;?>" />
                             </div>
                             <div class="box-text">
                                 <div class="stname-ben fw-bold" style="<?php if ($rws == 1) {
@@ -76,10 +76,7 @@ $stid = $row0["fromuserid"];
     <?php } else { ?>
 
                                 <?php $perc = $value; ?>
-                                <div class="pie animate no-round me-3"
-                                    style="margin:0, 0; --p:<?php echo $perc; ?>;--c:var(--dark);--b:3px;">
-                                    <?php echo $perc; ?>%
-                                </div>
+                                <div class="pie animate no-round me-3"  style="margin:0, 0; --p:<?php echo $perc; ?>;--c:var(--dark);--b:3px;"> <?php echo $perc; ?>% </div>
 <?php } ?>
 
                             </div>

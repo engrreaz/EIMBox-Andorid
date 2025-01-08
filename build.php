@@ -12,7 +12,7 @@ include 'inc.php';
         <table width="100%" style="color:white;">
           <tr>
             <td>
-              <div class="menu-icon"><i class="bi bi-gear-fill"></i></div>
+              <div class="menu-icon"><i class="bi bi-person-circle"></i></div>
               <div class="menu-text"> Settings </div>
             </td>
           </tr>
@@ -52,6 +52,21 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
+    <div class="card menu-item-block" onclick="lnk3();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-box-arrow-down-left"></i></td>
+            <td>
+              <h4> My Leaves & Movement </h4>
+              <div class="menu-item-sub-text"> All of my leaves & movement records </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+    
     <div class="card menu-item-block" onclick="lnk3();">
       <div class="card-body">
         <table style="">

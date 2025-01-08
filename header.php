@@ -48,8 +48,8 @@
         .front-icon{
             color:var(--normal);
             position : absolute;
-            font-size:50px;
-            top:5px;
+            font-size:32px;
+            top:0px;
             right:10px;
         }
         .page-top-box {

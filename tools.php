@@ -1,5 +1,6 @@
 <?php
 include 'inc.php';
+$count_class = count($cteacher_data);
 // $classname = $_GET['cls'];
 // $sectionname = $_GET['sec'];
 ?>
@@ -25,29 +26,33 @@ include 'inc.php';
 
 
 
-
-    <div class="card menu-item-block" onclick="module_menu_student_attendace('<?php echo $cteachercls;?>', '<?php echo $cteachersec;?>');">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-fingerprint"></i></td>
-            <td>
-              <h4>Attendance</h4>
-              <?php
-              if ($cteachercls != '' && $cteachersec != '') {
-                $tail_text = ' (' . $cteachercls . ' | ' . $cteachersec . ')';
-              } else {
-                $tail_text = ' (All Classes)';
-              }
-              ?>
-              <div class="menu-item-sub-text">Manage Attendace </div>
-            </td>
-          </tr>
-        </table>
+    <?php for ($h = 0; $h < $count_class; $h++) {
+      $cteachercls = $cteacher_data[$h]['cteachercls'];
+      $cteachersec = $cteacher_data[$h]['cteachersec'];
+      ?>
+      <div class="card menu-item-block"
+        onclick="module_menu_student_attendace('<?php echo $cteachercls; ?>', '<?php echo $cteachersec; ?>');">
+        <div class="card-body">
+          <table style="">
+            <tr>
+              <td class="menu-item-icon"><i class="bi bi-fingerprint"></i></td>
+              <td>
+                <h4>Attendance</h4>
+                <?php
+                if ($cteachercls != '' && $cteachersec != '') {
+                  $tail_text = ' (' . $cteachercls . ' | ' . $cteachersec . ')';
+                } else {
+                  $tail_text = ' (All Classes)';
+                }
+                ?>
+                <div class="menu-item-sub-text">Manage Attendace <b><?php echo $tail_text;?></b></div>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="menu-separator"></div>
-
+      <div class="menu-separator"></div>
+    <?php } ?>
 
 
     <div class="card menu-item-block" onclick="module_menu_co_curricular_entry();">
@@ -82,7 +87,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="class_test();">
+    <div class="card menu-item-block" onclick="module_menu_class_test();">
       <div class="card-body">
         <table style="">
           <tr>

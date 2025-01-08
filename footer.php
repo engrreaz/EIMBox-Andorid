@@ -59,7 +59,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
                     <td style="text-align:center;"><a style="color:white;" href="tools.php"><i
                                 class="footer-nav-icon bi bi-circle-square"></i></a></td>
                     <td style="text-align:center;"><a style="color:white;" href="build.php"><i
-                                class="footer-nav-icon bi bi-tools"></i></a></td>
+                                class="footer-nav-icon bi bi-person-circle"></i></a></td>
                     <td style="width:<?php echo $hb; ?>%"></td>
                 </tr>
             </table>

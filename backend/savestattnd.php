@@ -30,8 +30,13 @@ if ($opt == 2) {  // save attandance
             for ($i = $per; $i <= 8; $i++) {
                 $cd .= 'period' . $i . '=' . $yn . ', ';
             }
+            if($yn == 0){
+                $bunk = 1;
+            } else {
+                $bunk = 0;
+            }
             $cd .= 'period1=1 ';
-            $query33 = "UPDATE stattnd SET $cd  WHERE stid='$iii' and adate='$adate' and sessionyear='$sy' and sccode='$sccode'";
+            $query33 = "UPDATE stattnd SET $cd , bunk = '$bunk' WHERE stid='$iii' and adate='$adate' and sessionyear='$sy' and sccode='$sccode'";
         }
         $conn->query($query33);
     } else {
