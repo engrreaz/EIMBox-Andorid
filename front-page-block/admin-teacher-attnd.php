@@ -52,9 +52,9 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                                 $clr = 'red';
                             }
 
-                            $photo_path = "../teacher/" . $tid . ".jpg";
+                            $photo_path = "https://eimbox.com/teacher/" . $tid . ".jpg";
                             if (!(file_exists($photo_path))) {
-                                $photo_path = "../teacher/no-img.jpg";
+                                $photo_path = "https://eimbox.com/teacher/no-img.jpg";
                             }
                             ?>
                             <div class="teacher-attnd-pic-box" style="background: <?php echo $clr;?>;">
