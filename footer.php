@@ -26,15 +26,11 @@ if ($usr == '' || $userlevel == 'Guest') {
 
 if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $userlevel == 'Administrator' || $userlevel == 'Super Administrator') { ?>
 
-
-
-    <div class="noprint"
-        style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px; z-index:99999;">
+    <div class="noprint bottom-bar">
         <table width="100%">
             <tr>
                 <td style="width:<?php echo $hb; ?>%"></td>
-                <td style="text-align:center;"><a style="color:white;" href="index.php">
-                        <i class="bi bi-home"></i></a></td>
+                <td style="text-align:center;"><a style="color:white;" href="index.php"> <i class="bi bi-home"></i></a></td>
                 <td style="text-align:center;"><a style="color:white;" href="reporthome.php"><i
                             class="bi bi-school"></i></a></td>
                 <td style="text-align:center;"><a style="color:white;" href="tools.php"><i
@@ -121,10 +117,6 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 
 
 <div id="logstatus" hidden></div>
-
-
-
-</html>
 
 
 <!-- Bootstrap JavaScript Libraries -->

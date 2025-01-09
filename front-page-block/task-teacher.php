@@ -1,17 +1,28 @@
-<style>
+<?php
+// INSERT NECESSARY TO-DO-LIST ***************************************************************************************************************************
+$ddd = 0;
+$sql0 = "SELECT *  FROM todolist where date='$td' and sccode='$sccode' and user='$usr' and todotype='attendance'";
+$result01x = $conn->query($sql0);
+if ($result01x->num_rows == 0) {
 
-</style>
+    $query33pxy = "insert into todolist (id, sccode, date, user, todotype, descrip1, descrip2, status, creationtime, response, responsetxt, responsetime) 
+                    values (NULL, '$sccode', '$td', '$usr', 'Attendance', '', '', 0, '$cur', 'geoattnd', 'Submit', NULL);";
+    $conn->query($query33pxy);
+}
 
+
+// INSERT NECESSARY TO-DO-LIST ***************************************************************************************************************************
+?>
 
 
 <div class="card gg">
-    <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;">
-       <b> To-Do List</b>
-       <div class="float-end">
-        <i class="bi bi-check-square-fill front-icon"></i>
+    <div class="card-header front-card">
+        <b> To-Do List</b>
+        <div class="float-end">
+            <i class="bi bi-check-square-fill front-icon"></i>
+        </div>
     </div>
-    </div>
-    <div class="card-body" style="background:var(--lighter);">
+    <div class="card-body card-back" >
 
         <?php
         $sql0 = "SELECT *  FROM todolist where date='$td' and sccode='$sccode' and user='$usr'";

@@ -33,8 +33,13 @@
             
         ?>
         <div class="card gg" >
-            <div class="card-header" style="color:var(--lighter); background:var(--dark); border-radius:0;"><b>Accounts-</b></div>
-            <div class="card-body"  onclick="goclsa();">
+            <div class="card-header front-card" >
+                <b>Accounts</b>
+                <div class="float-end">
+            <i class="bi bi-cash-coin front-icon"></i>
+        </div>
+            </div>
+            <div class="card-body card-back"  onclick="goclsa();">
                 <table width="100%">
                     <tr>
                         <td>

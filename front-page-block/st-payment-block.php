@@ -1,4 +1,6 @@
 <?php
+$mon = date('m');
+
 $tgot = $tsend = 0;
 $sql0 = "SELECT sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid  FROM stfinance where sessionyear='$sy' and sccode='$sccode' and month<='$mon'";
 $result01x = $conn->query($sql0);
@@ -13,13 +15,13 @@ $perc = ceil($tpaid * 100 / $tpaya);
 $deg = ceil($tpaid * 360 / $tpaya);
 ?>
 <div class="card gg">
-    <div class="card-header" style="color:var(--lighter); background:var(--dark);border-radius:0;"><b>Student's
-            Payment</b>
+    <div class="card-header front-card">
+        <b>Student's Payment</b>
         <div class="float-end">
-            <i class="bi bi-bell-fill front-icon"></i>
+            <i class="bi bi-currency-exchange front-icon"></i>
         </div>
     </div>
-    <div class="card-body" onclick="goclsp()">
+    <div class="card-body card-back" onclick="goclsp()">
         <table width="100%">
             <tr>
                 <td>

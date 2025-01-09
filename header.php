@@ -45,13 +45,35 @@
             background: #fdfbf4;
         }
 
-        .front-icon{
-            color:var(--normal);
-            position : absolute;
-            font-size:32px;
-            top:0px;
-            right:10px;
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: var(--dark);
+            height: 50px;
+            padding-top: 10px;
+            z-index: 99999;
         }
+
+        .front-card {
+            background: var(--light);
+            border-radius: 0;
+            border: 0;
+            color: var(--darker);
+        }
+
+        .card-back {
+            background: var(--lighter);
+        }
+
+        .front-icon {
+            color: var(--normal);
+            position: absolute;
+            font-size: 32px;
+            top: 0px;
+            right: 10px;
+        }
+
         .page-top-box {
             background: var(--dark);
             color: var(--lighter);
@@ -128,7 +150,7 @@
             color: var(--normal);
             font-size: .75em;
             font-weight: 400;
-            padding-top:2px;
+            padding-top: 2px;
         }
 
         .notice-by {
@@ -154,10 +176,11 @@
             margin: 0;
             color: var(--lighter);
         }
+
         .toolbar-icon {
             color: var(--light);
             font-size: 36px;
-            line-height:36px;
+            line-height: 36px;
             text-align: center;
             font-weight: 700;
         }
@@ -280,7 +303,7 @@
             height: 130px;
             padding: 1px;
             border-radius: 50%;
-            
+
             border: 3px solid var(--normal);
             position: absolute;
             top: 100px;
@@ -290,10 +313,11 @@
         }
 
 
-        .schedule-book-pic{
-            width:60px;
+        .schedule-book-pic {
+            width: 60px;
             border-radius: 0 4px;
         }
+
         .a {
             font-size: 1.5rem;
             font-weight: 700;
@@ -334,6 +358,7 @@
             line-height: 11px;
             color: gray;
         }
+
         .roll-big {
             font-size: 3rem;
             font-weight: 700;
@@ -345,8 +370,9 @@
         #editor-box input {
             font-size: 16px;
             color: darkgray;
-            padding:20px;
+            padding: 20px;
         }
+
         .ico {
             font-size: 24px;
             color: var(--dark);
@@ -368,7 +394,7 @@
             border-radius: 50%;
             margin: 1px;
             border: 1px solid var(--darker);
-            background:var(--lighter);
+            background: var(--lighter);
         }
 
 
@@ -448,8 +474,7 @@
         }
 
         .pr-item-eng {
-            font-size:14px;
+            font-size: 14px;
         }
-        
     </style>
 </head>
