@@ -26,7 +26,7 @@ if ($result0rtx_notice_user->num_rows > 0) {
     <div class="card-header front-card">
         <b>Notice Board</b>
         <div class="float-end">
-            <i class="bi bi-bell-fill front-icon"></i>
+            <i class="bi bi-megaphone-fill front-icon"></i>
         </div>
     </div>
     <div class="card-body" style="background:var(--lighter); ">

@@ -5,7 +5,7 @@ include 'inc.php';
 <main>
   <div class="container-fluidx">
 
-    <div class="card text-left" style="background:var(--dark); color:var(--lighter);" >
+    <div class="card page-top-box" >
       <div class="card-body">
         <table width="100%" style="color:white;">
           <tr>
@@ -17,6 +17,7 @@ include 'inc.php';
         </table>
       </div>
     </div>
+
 
 
 
@@ -42,7 +43,8 @@ include 'inc.php';
             <td class="menu-item-icon"><i class="bi bi-people-fill"></i></td>
             <td>
               <h4>Students List</h4>
-              <div class="menu-item-sub-text"> Student's Report <br>(Attendance, Result, Dues, Co-Curricular Activities) </div>
+              <div class="menu-item-sub-text"> Student's Report <br>(Attendance, Result, Dues, Co-Curricular Activities)
+              </div>
             </td>
           </tr>
         </table>
@@ -64,6 +66,22 @@ include 'inc.php';
       </div>
     </div>
     <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="report_menu_daily_collection();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-currency-exchange"></i></td>
+            <td>
+              <h4>Daily Collection</h4>
+              <small>Checking/Tracking your daily collection</small>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
 
     <div class="card menu-item-block" onclick="report_menu_attnd_register();">
       <div class="card-body">
@@ -132,7 +150,8 @@ include 'inc.php';
             <td class="menu-item-icon"><i class="bi bi-calendar-check"></i></td>
             <td>
               <h4> Our Academic Calendar</h4>
-              <div class="menu-item-sub-text"> Schedule / Events of our institutions including holidays, exam schedule </div>
+              <div class="menu-item-sub-text"> Schedule / Events of our institutions including holidays, exam schedule
+              </div>
             </td>
           </tr>
         </table>
@@ -194,61 +213,11 @@ include 'inc.php';
 
     <!-- <div class="menu-separator"></div> -->
 
-    <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk37();" hidden>
-      <img class="card-img-top" alt="">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td style="width:50px;color:var(--dark);"><i class="bi bi-door-open-fill"></i></td>
-            <td>
-              <h4>Daily Collection</h4>
-              <small>Checking/Tracking your daily collection</small>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <!-- <div class="menu-separator"></div> -->
-    <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="academic_calendar();" hidden>
-      <img class="card-img-top" alt="">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td style="width:50px;font-size:20px; color:var(--dark);"><i class="bi bi-megaphone-fill"></i></td>
-            <td>
-              <h4> Academic Calendar </h4>
-              <small> Academic Calendar for this Institution (Events and Holidays) </small>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-
-    <!-- <div class="menu-separator"></div> -->
-
-
-
-
-
 
   </div>
 
 </main>
 <div style="height:52px;"></div>
-<footer>
-  <!-- place footer here -->
-</footer>
-<!-- Bootstrap JavaScript Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-  integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-  integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <script>
   document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
@@ -267,12 +236,12 @@ include 'inc.php';
     }
   }
 
+</script>
+
+
+<script>
   function lnk3() { window.location.href = "classsection.php"; }
   function lnk30() { window.location.href = "trackreport.php"; }
-  function lnk37() { window.location.href = "dailycollection.php"; }
-
-
-
 </script>
 
 

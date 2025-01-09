@@ -77,6 +77,9 @@
 
 
     // NAVIGATION...........
+    function report_menu_daily_collection() {
+        window.location.href = 'dailycollection.php';
+    }
     function report_menu_my_class() {
         window.location.href = 'student-list.php';
     }
@@ -163,11 +166,22 @@
     }
 
 
-   function profile_menu_my_attendance() { window.location.href = "tattnd.php"; }
+    function profile_menu_my_attendance() { window.location.href = "tattnd.php"; }
 
     // Settings Navigation
     function settings_menu_my_profile() { window.location.href = "globalsetting.php"; }
     function settings_menu_login_method() { window.location.href = "accountsecurity.php"; }
+
+
+
+    // SETTINGS --  ADMIN MENU
+    function settings_admin_ins_info() { window.location.href = "settingsinstituteinfo.php"; }
+    function settings_admin_st_id_generate() { window.location.href = "settingsstudent.php"; }
+
+
+
+
+
 
 
 

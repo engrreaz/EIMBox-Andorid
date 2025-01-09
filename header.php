@@ -41,6 +41,12 @@
     <script src="assets/pre-load.js"></script>
     <?php include 'js.php'; ?>
     <style>
+        @media print {
+            .noprint {
+                display: none !important;
+            }
+        }
+
         body {
             background: #fdfbf4;
         }

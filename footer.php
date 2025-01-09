@@ -8,43 +8,33 @@ if ($htp == 'com.xeneen.eimbox' || $htp == 'com.xeneen.kmghs') {
 
 if ($usr == '' || $userlevel == 'Guest') {
     ?>
-    <!--<meta http-equiv="refresh" content="0; url='index.php'" />-->
+    <meta http-equiv="refresh" content="0; url='index.php'" />
     <?php
 }
-?>
 
-
-<style>
-    @media print {
-        .noprint {
-            display: none !important;
-        }
-    }
-</style>
-
-<?php
 
 if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $userlevel == 'Administrator' || $userlevel == 'Super Administrator') { ?>
-
     <div class="noprint bottom-bar">
         <table width="100%">
             <tr>
                 <td style="width:<?php echo $hb; ?>%"></td>
-                <td style="text-align:center;"><a style="color:white;" href="index.php"> <i class="bi bi-home"></i></a></td>
+                <td style="text-align:center;"><a style="color:white;" href="index.php"> <i
+                            class="footer-nav-icon bi bi-house-fill"></i></a></td>
                 <td style="text-align:center;"><a style="color:white;" href="reporthome.php"><i
-                            class="bi bi-school"></i></a></td>
+                            class="footer-nav-icon bi bi-mortarboard-fill"></i></a></td>
                 <td style="text-align:center;"><a style="color:white;" href="tools.php"><i
-                            class="bi bi-view-module"></i></a></td>
-                <td style="text-align:center;"><a style="color:white;" href="build.php"><i class="bi bi-gear"></i></a></td>
+                            class="footer-nav-icon bi bi-app"></i></a></td>
+                <td style="text-align:center;"><a style="color:white;" href="settings_admin.php"><i
+                            class="footer-nav-icon bi bi-gear"></i></a></td>
+                            <td style="text-align:center;"><a style="color:white;" href="build.php"><i
+                                class="footer-nav-icon bi bi-person-circle"></i></a></td>
                 <td style="width:<?php echo $hb; ?>%"></td>
             </tr>
         </table>
     </div>
 
 <?php } else if ($userlevel == 'Class Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Teacher') { ?>
-
-        <div class="noprint" id="footer-nav"
-            style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px; z-index:99999;">
+        <div class="noprint bottom-bar" id="footer-nav">
             <table width="100%">
                 <tr>
                     <td style="width:<?php echo $hb; ?>%"></td>
@@ -62,8 +52,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
         </div>
 
 <?php } else if ($userlevel == "Student") { ?>
-
-            <div style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px;">
+            <div class="noprint bottom-bar">
                 <table width="100%">
                     <tr>
                         <td style="width:<?php echo $hb; ?>%"></td>
@@ -77,7 +66,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 
 <?php } else if ($userlevel == "Guardian") { ?>
 
-                <div style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px;">
+                <div class="noprint bottom-bar">
                     <table width="100%">
                         <tr>
                             <td style="width:8%"></td>
@@ -91,7 +80,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 
 <?php } else if ($userlevel == "Visitor") { ?>
 
-                    <div style="position:fixed; bottom:0; width:100%; background:var(--dark); height:50px; padding-top:10px;">
+                    <div class="noprint bottom-bar">
                         <table width="100%">
                             <tr>
                                 <td style="width:8%"></td>
@@ -105,6 +94,9 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
                     </div>
 
 <?php } else {
+
+
+    echo 'No User Type Define....';
 } ?>
 
 

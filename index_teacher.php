@@ -1,6 +1,7 @@
 <?php
-include 'front-page-block/task-teacher.php'; 
-include 'front-page-block/notice.php'; 
+include 'front-page-block/schedule.php';
+include 'front-page-block/task-teacher.php';
+include 'front-page-block/notice.php';
 
 include 'front-page-block/cashmanager.php';
 include 'front-page-block/st-payment-block.php';
@@ -33,8 +34,6 @@ echo '<a class="btn btn-dark" style="margin-top:8px;"  href="mypr.php">My Receip
 <script>
     function goclsp() { window.location.href = 'finclssec.php'; }
     function goclsa() { window.location.href = 'finacc.php'; }
-    function goclss() { window.location.href = 'finstudents.php?cls=<?php echo $cteachercls; ?>&sec=<?php echo $cteachersec; ?>'; }
-
     function gor() { alert("OK"); window.location.href = 'resultprocess.php'; }
     function gorx() { window.location.href = 'settings.php'; }
     function sublist() { window.location.href = 'tools_allsubjects.php'; }
