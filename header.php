@@ -61,8 +61,14 @@
             z-index: 99999;
         }
 
-        .front-card {
+        .gg {
             background: var(--light);
+            border-radius: 0;
+            border: 0;
+        }
+
+        .front-card {
+
             border-radius: 0;
             border: 0;
             color: var(--darker);
@@ -84,6 +90,20 @@
             background: var(--dark);
             color: var(--lighter);
             border-radius: 0;
+        }
+
+        .teacher-attnd-pic-box {
+            width:40px;
+            height : 40px;
+            border-radius:50%;
+            /* padding:2px; */
+            margin : 0 8px 8px 0;
+        }
+        .teacher-attnd-pic {
+            width:38px;
+            height : 38px;
+            border-radius:50%;
+            
         }
 
         .page-info-box {
