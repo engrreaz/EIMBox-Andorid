@@ -93,17 +93,18 @@
         }
 
         .teacher-attnd-pic-box {
-            width:40px;
-            height : 40px;
-            border-radius:50%;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
             /* padding:2px; */
-            margin : 0 8px 8px 0;
+            margin: 0 8px 8px 0;
         }
+
         .teacher-attnd-pic {
-            width:38px;
-            height : 38px;
-            border-radius:50%;
-            
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+
         }
 
         .page-info-box {

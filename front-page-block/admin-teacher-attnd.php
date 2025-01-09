@@ -20,7 +20,7 @@ if ($result01xe1_t_attnd->num_rows > 0) {
             <i class="bi bi-person-vcard-fill front-icon"></i>
         </div>
     </div>
-    <div class="card-body card-back " onclick="goclsattall();">
+    <div class="card-body card-back " onclick="goclsattallx();">
         <table width="100%">
             <tr>
                 <td>
@@ -34,7 +34,27 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                         </span>
                     </small>
 
-                    <div class="d-flex flex-wrap">
+
+
+
+                    <div style="font-size:24px; color:var(--dark); font-weight:700;">
+                        <?php echo $as; ?><span style="font-size:12px; font-weight:400;"> out of
+                            <b><?php echo $ts; ?></b></span>
+                    </div>
+                </td>
+                <td class="prog">
+                    <div
+                        style="border:1px solid var(--dark); poisition:relative; margin:auto; text-align:center; border-radius:50%; height:72px; width:72px; background-image: conic-gradient(var(--dark) 0deg, var(--dark) <?php echo $deg; ?>deg, var(--lighter) <?php echo $deg; ?>deg, var(--lighter) 360deg);">
+                        <div
+                            style="border:1px solid var(--dark); border-radius:50%; left:5px; top:5px; position:relative; background:var(--light); color:purple;;width:60px; height:60px; padding-top:20px;">
+                            <?php echo $attrate; ?><small>%</small>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="d-flex flex-wrap justify-content-between">
                         <?php
                         $ts = 0;
                         $as = 0;
@@ -53,15 +73,18 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                             }
 
                             $photo_path = "https://eimbox.com/teacher/" . $tid . ".jpg";
-                            if (!(file_exists($photo_path))) {
+                            echo file_exists($photo_path);
+                            if (file_exists("https://eimbox.com/teacher/" . $tid . ".jpg")) {
+                                $photo_path = "https://eimbox.com/teacher/" . $tid . ".jpg";
+                            } else {
                                 $photo_path = "https://eimbox.com/teacher/no-img.jpg";
                             }
                             ?>
-                            <div class="teacher-attnd-pic-box" style="background: <?php echo $clr;?>;">
+                            <div class="teacher-attnd-pic-box" style="background: <?php echo $clr; ?>;">
                                 <img src="<?php echo $photo_path; ?>" class="teacher-attnd-pic" />
                             </div>
                             <?php
-
+                            // echo '<small>' . $tid . '</small>';
                             $ts += $tstu;
                             $as += $astu;
                         }
@@ -79,21 +102,6 @@ if ($result01xe1_t_attnd->num_rows > 0) {
 
                         $deg = $attrate * 3.6;
                         ?>
-                    </div>
-
-
-                    <div style="font-size:24px; color:var(--dark); font-weight:700;">
-                        <?php echo $as; ?><span style="font-size:12px; font-weight:400;"> out of
-                            <b><?php echo $ts; ?></b></span>
-                    </div>
-                </td>
-                <td class="prog">
-                    <div
-                        style="border:1px solid var(--dark); poisition:relative; margin:auto; text-align:center; border-radius:50%; height:72px; width:72px; background-image: conic-gradient(var(--dark) 0deg, var(--dark) <?php echo $deg; ?>deg, var(--lighter) <?php echo $deg; ?>deg, var(--lighter) 360deg);">
-                        <div
-                            style="border:1px solid var(--dark); border-radius:50%; left:5px; top:5px; position:relative; background:var(--light); color:purple;;width:60px; height:60px; padding-top:20px;">
-                            <?php echo $attrate; ?><small>%</small>
-                        </div>
                     </div>
                 </td>
             </tr>
