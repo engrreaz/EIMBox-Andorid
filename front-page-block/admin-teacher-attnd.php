@@ -30,16 +30,18 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                             style="font-style:normal; color:var(--dark); font-size:14px; font-weight:600; margin-bottom:8px;">
                             <?php echo date('d F, Y', strtotime($td)); ?>
                         </div>
+                        <div class="d-flex roll-no ln-30">
+                            <div id="attnd-count" class="text-success me-2 fw-bold ln-30" style="font-size:30px; ">0
+                            </div>
+                            Out of
+                            <div id="total-count" class="ms-2 stnama-ben ln-30">0</div>
+                        </div>
                         <span style="font-style:normal; color:gray;">
                             Today's Attendance
                         </span>
                     </small>
 
-                    <div class="d-flex roll-no">
-                        <div id="att-count" class="menu-text me-2">0</div>
-                        Out of
-                        <div id="total-count" class="ms-2 stnama-ben">0</div>
-                    </div>
+
                 </td>
                 <td class="prog">
                     <div
@@ -51,10 +53,11 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                     </div>
                 </td>
             </tr>
-
+        </table>
+        <table class="" style="marging:auto;">
             <tr>
-                <td colspan="2" class="text-center">
-                    <div class="d-flex flex-wrap ">
+                <td class="text-center">
+                    <div class="d-flex flex-wrap" style="margin: 15px auto 7px; text-align:center !important; display:inline;">
                         <?php
                         $ts = 0;
                         $as = 0;
@@ -84,7 +87,7 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                                 $phst = 1;
                             }
                             // echo $phst . '/' . $photo_path;
-                
+                        
                             ?>
                             <div class="teacher-attnd-pic-box" style="background: <?php echo $clr; ?>;">
                                 <img src="<?php echo $photo_path; ?>" class="teacher-attnd-pic" />
@@ -98,7 +101,7 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                         }
 
 
-
+                        echo $att_cnt . '/' . $tot_cnt;
 
 
 
@@ -118,6 +121,6 @@ if ($result01xe1_t_attnd->num_rows > 0) {
 </div>
 
 <script>
-    // document.getElementById("att-count").innerHTML = <?php echo $att_cnt; ?>;
+    document.getElementById("attnd-count").innerHTML = <?php echo $att_cnt; ?>;
     document.getElementById("total-count").innerHTML = <?php echo $tot_cnt; ?>;
 </script>

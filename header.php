@@ -107,6 +107,9 @@
 
         }
 
+        .ln-30 {
+            line-height:30px;
+        }
         .page-info-box {
             background: var(--darker);
             color: var(--light);
