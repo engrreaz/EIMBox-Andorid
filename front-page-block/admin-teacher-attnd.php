@@ -81,9 +81,10 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                                 $phst = 0;
                             } else {
                                 $photo_path = $BASE_PATH_URL_FILE . 'teacher/' . $tid . ".jpg";
-                                $phst = 0;
+                                $phst = 1;
                             }
-                            echo $phst;
+                            echo $phst . '/' . $photo_path;
+                
                             ?>
                             <div class="teacher-attnd-pic-box" style="background: <?php echo $clr; ?>;">
                                 <img src="<?php echo $photo_path; ?>" class="teacher-attnd-pic" />
