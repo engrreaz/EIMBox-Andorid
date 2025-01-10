@@ -75,11 +75,12 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                             }
                             $phst = 1;
                             $photo_path = $BASE_PATH_URL . 'teacher/' . $tid . ".jpg";
-                            // echo ($photo_path);
+                            echo ($photo_path);
                             if (!file_exists($photo_path)) {
                                 $photo_path = "https://eimbox.com/teacher/no-img.jpg";
                                 $phst = 0;
                             }
+                            echo $phst;
                             ?>
                             <div class="teacher-attnd-pic-box" style="background: <?php echo $clr; ?>;">
                                 <img src="<?php echo $photo_path; ?>" class="teacher-attnd-pic" />
@@ -98,7 +99,7 @@ if ($result01xe1_t_attnd->num_rows > 0) {
 
 
                         if ($ts > 0) {
-                            $attrate = ceil($as * 100 / $ts);
+                            $attrate = ceil($att_cnt * 100 / $tot_cnt);
                         } else {
                             $attrate = 0;
                         }
