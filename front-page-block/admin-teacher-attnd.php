@@ -75,9 +75,12 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                             }
                             $phst = 1;
                             $photo_path = $BASE_PATH_URL . 'teacher/' . $tid . ".jpg";
-                            echo $photo_path;
+                            // echo $photo_path;
                             if (!file_exists($photo_path)) {
                                 $photo_path = "https://eimbox.com/teacher/no-img.jpg";
+                                $phst = 0;
+                            } else {
+                                $photo_path = $BASE_PATH_URL_FILE . 'teacher/' . $tid . ".jpg";
                                 $phst = 0;
                             }
                             echo $phst;
