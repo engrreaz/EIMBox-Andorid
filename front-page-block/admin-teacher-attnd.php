@@ -53,8 +53,8 @@ if ($result01xe1_t_attnd->num_rows > 0) {
             </tr>
 
             <tr>
-                <td colspan="2">
-                    <div class="d-flex flex-wrap justify-content-between">
+                <td colspan="2" class="text-center">
+                    <div class="d-flex flex-wrap ">
                         <?php
                         $ts = 0;
                         $as = 0;
