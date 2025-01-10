@@ -36,9 +36,9 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                     </small>
 
                     <div class="d-flex roll-no">
-                        <div id="att-count" class="menu-text me-2"></div>
+                        <div id="att-count" class="menu-text me-2">0</div>
                         Out of
-                        <div id="total-count" class="ms-2 stnama-ben"></div>
+                        <div id="total-count" class="ms-2 stnama-ben">0</div>
                     </div>
                 </td>
                 <td class="prog">
@@ -83,7 +83,7 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                                 $photo_path = $BASE_PATH_URL_FILE . 'teacher/' . $tid . ".jpg";
                                 $phst = 1;
                             }
-                            echo $phst . '/' . $photo_path;
+                            // echo $phst . '/' . $photo_path;
                 
                             ?>
                             <div class="teacher-attnd-pic-box" style="background: <?php echo $clr; ?>;">
@@ -118,6 +118,6 @@ if ($result01xe1_t_attnd->num_rows > 0) {
 </div>
 
 <script>
-    document.getElementById("att-count").innerHTML = <?php echo $att_cnt; ?>;
+    // document.getElementById("att-count").innerHTML = <?php echo $att_cnt; ?>;
     document.getElementById("total-count").innerHTML = <?php echo $tot_cnt; ?>;
 </script>
