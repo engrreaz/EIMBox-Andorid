@@ -11,6 +11,7 @@ if ($result01xe1_t_attnd->num_rows > 0) {
 }
 
 
+
 ?>
 
 <div class="main-card gg card" style="">
@@ -34,12 +35,10 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                         </span>
                     </small>
 
-
-
-
-                    <div style="font-size:24px; color:var(--dark); font-weight:700;">
-                        <?php echo $as; ?><span style="font-size:12px; font-weight:400;"> out of
-                            <b><?php echo $ts; ?></b></span>
+                    <div class="d-flex roll-no">
+                        <div id="att-count" class="menu-text me-2"></div>
+                        Out of
+                        <div id="total-count" class="ms-2 stnama-ben"></div>
                     </div>
                 </td>
                 <td class="prog">
@@ -52,13 +51,15 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                     </div>
                 </td>
             </tr>
+
             <tr>
                 <td colspan="2">
                     <div class="d-flex flex-wrap justify-content-between">
                         <?php
                         $ts = 0;
                         $as = 0;
-
+                        $att_cnt = 0;
+                        $tot_cnt = 0;
                         foreach ($datam_teacher_profile as $teacher) {
                             $tid = $teacher["tid"];
 
@@ -67,17 +68,17 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                                 $status_in = $teacher_attendance[$ind_attnd]['statusin'];
                                 $attnd = 1;
                                 $clr = 'seagreen';
+                                $att_cnt++;
                             } else {
                                 $attnd = 0;
                                 $clr = 'red';
                             }
-
-                            $photo_path = "https://eimbox.com/teacher/" . $tid . ".jpg";
-                            echo file_exists($photo_path);
-                            if (file_exists("https://eimbox.com/teacher/" . $tid . ".jpg")) {
-                                $photo_path = "https://eimbox.com/teacher/" . $tid . ".jpg";
-                            } else {
+                            $phst = 1;
+                            $photo_path = $BASE_PATH_URL . 'teacher/' . $tid . ".jpg";
+                            // echo ($photo_path);
+                            if (!file_exists($photo_path)) {
                                 $photo_path = "https://eimbox.com/teacher/no-img.jpg";
+                                $phst = 0;
                             }
                             ?>
                             <div class="teacher-attnd-pic-box" style="background: <?php echo $clr; ?>;">
@@ -87,6 +88,8 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                             // echo '<small>' . $tid . '</small>';
                             $ts += $tstu;
                             $as += $astu;
+
+                            $tot_cnt++;
                         }
 
 
@@ -108,3 +111,8 @@ if ($result01xe1_t_attnd->num_rows > 0) {
         </table>
     </div>
 </div>
+
+<script>
+    document.getElementById("att-count").innerHTML = <?php echo $att_cnt; ?>;
+    document.getElementById("total-count").innerHTML = <?php echo $tot_cnt; ?>;
+</script>
