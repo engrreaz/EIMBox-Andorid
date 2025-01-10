@@ -10,7 +10,7 @@ if ($result01xe1_t_attnd->num_rows > 0) {
     }
 }
 
-
+$absent_teacher = array();
 
 ?>
 
@@ -57,7 +57,8 @@ if ($result01xe1_t_attnd->num_rows > 0) {
         <table class="" style="marging:auto;">
             <tr>
                 <td class="text-center">
-                    <div class="d-flex flex-wrap" style="margin: 15px auto 7px; text-align:center !important; display:inline;">
+                    <div class="d-flex flex-wrap"
+                        style="margin: 15px auto 7px; text-align:center !important; display:inline;">
                         <?php
                         $ts = 0;
                         $as = 0;
@@ -75,6 +76,7 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                             } else {
                                 $attnd = 0;
                                 $clr = 'red';
+                                $absent_teacher[] = ['tid' => $tid];
                             }
                             $phst = 1;
                             $photo_path = $BASE_PATH_URL . 'teacher/' . $tid . ".jpg";
@@ -101,8 +103,8 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                         }
 
 
-                        echo $att_cnt . '/' . $tot_cnt;
-
+                        // echo $att_cnt . '/' . $tot_cnt;
+                        
 
 
                         if ($ts > 0) {
@@ -112,12 +114,52 @@ if ($result01xe1_t_attnd->num_rows > 0) {
                         }
 
                         $deg = $attrate * 3.6;
+
+
                         ?>
+
                     </div>
                 </td>
             </tr>
         </table>
     </div>
+    <?php if (count($absent_teacher) > 0) { ?>
+
+        <div class="card-header front-card" style="background:aa0; color:red;">
+            <b>Absent Teachers</b>
+            <div class="float-end">
+                <i class="bi bi-person-circle " style="font-size:18px; "></i>
+            </div>
+        </div>
+        <div class="card-body card-back ">
+
+            <table class="" style="marging:auto;">
+                <tr>
+                    <td class="text-center">
+                        <div class="d-flex flex-wrap" style=" text-align:center !important; ">
+                            <?php
+                            foreach ($absent_teacher as $absent) {
+                                $tid = $absent["tid"];
+                                $photo_path = $BASE_PATH_URL . 'teacher/' . $tid . ".jpg";
+                                if (!file_exists($photo_path)) {
+                                    $photo_path = "https://eimbox.com/teacher/no-img.jpg";
+                                } else {
+                                    $photo_path = $BASE_PATH_URL_FILE . 'teacher/' . $tid . ".jpg";
+                                }
+                                ?>
+                                <div class="teacher-attnd-pic-box" style="background: red;">
+                                    <img src="<?php echo $photo_path; ?>" class="teacher-attnd-pic" />
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <?php } ?>
 </div>
 
 <script>

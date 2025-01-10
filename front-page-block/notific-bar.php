@@ -15,6 +15,7 @@ $sms_clr = 'var(--dark)';
 ?>
 
 <div style="text-align:center; padding: 10px 15px;">
+
     <table style=" width:100%; ">
         <tr>
             <?php if ($userlevel == 'Administrator') {
@@ -27,22 +28,34 @@ $sms_clr = 'var(--dark)';
             }
             ?>
 
-            <td class="wd" style="font-size:36px; color:<?php echo $kbase_clr;?>"><span class="" onclick="kbase();"><i
+
+            <td class="wd" style="font-size:36px; color:<?php echo $kbase_clr; ?>"><span class="" onclick="top_bar_kbase();"><i
                         class="bi bi-node-plus-fill"></i></span></td>
-            <td class="wd"><span class="" style="<?php  echo 'color:' . $bell_clr . ';'; ?>" onclick="act22();"><i class="bi bi-bell-fill"></i></span></td>
+
+
+            <td class="wd"><span class="" style="<?php echo 'color:' . $bell_clr . ';'; ?>" onclick="top_bar_notification();"><i
+                        class="bi bi-bell-fill"></i></span></td>
+
+
             <td class="wd"><span class="" style="<?php if ($y + $n > 0 && $perc < 100) {
                 echo 'color:' . $todo_clr . ';';
             } ?>" onclick="act3();"><i class="bi bi-check2-circle"></i></span></td>
+
+
             <td class="wd" style="font-size:28px; ">
                 <div onclick="act4" style=" position:relative;">
-                    <span class="" style="color:<?php echo $sms_clr; ?>; font-size:32px;"><i class="bi bi-chat-square-fill"></i></span>
+                    <span class="" style="color:<?php echo $sms_clr; ?>; font-size:32px;"><i
+                            class="bi bi-chat-square-fill"></i></span>
                     <div class="d-flex"
                         style="text-align:center; position:absolute; color:var(--lighter); top:1.05em; left:48%; font-size:11px;">
                         <?php echo $sms_cnt; ?>
                     </div>
                 </div>
-
             </td>
+
+
+
+
         </tr>
 
     </table>

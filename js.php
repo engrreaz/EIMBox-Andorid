@@ -76,6 +76,28 @@
 
 
 
+    // INDEX 
+    function top_bar_issue(){
+         window.location.href = '.php';
+    }
+
+    function top_bar_kbase(){
+         window.location.href = 'kbase.php';
+    }
+
+    function top_bar_notification(){
+         window.location.href = 'notification.php';
+    }
+
+    function top_bar_todo(){
+         window.location.href = '.php';
+    }
+
+    function top_bar_message(){
+         window.location.href = '.php';
+    }
+
+
     // NAVIGATION...........
     function report_menu_daily_collection() {
         window.location.href = 'dailycollection.php';
