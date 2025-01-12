@@ -10,7 +10,7 @@ $id = $_POST['id'];
 $tail = $_POST['tail'];
 
 $days = ((strtotime($date2) - strtotime($date1)) / (3600 * 24))+1;
-
+  
 // tail = 0, ADD/EDIT
 // id -- 0 : add; id > 0 : edit; 
 // tail = 2 , delete

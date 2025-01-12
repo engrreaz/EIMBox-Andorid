@@ -242,4 +242,4 @@ if (isset($_GET['appid'])) {
             }
         });
     }
-</script>
+</script> 
