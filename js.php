@@ -189,6 +189,7 @@
 
 
     function profile_menu_my_attendance() { window.location.href = "tattnd.php"; }
+    function profile_menu_leave_application() { window.location.href = "leave-application.php"; }
 
     // Settings Navigation
     function settings_menu_my_profile() { window.location.href = "globalsetting.php"; }
@@ -197,7 +198,7 @@
 
 
     // SETTINGS --  ADMIN MENU
-    function settings_admin_ins_info() { window.location.href = "settingsinstituteinfo.php"; }
+    function settings_admin_ins_info() { window.location.href = "settings-institute-info.php"; }
     function settings_admin_st_id_generate() { window.location.href = "settingsstudent.php"; }
 
 

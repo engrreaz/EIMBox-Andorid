@@ -108,8 +108,9 @@
         }
 
         .ln-30 {
-            line-height:30px;
+            line-height: 30px;
         }
+
         .page-info-box {
             background: var(--darker);
             color: var(--light);
@@ -346,6 +347,80 @@
         .schedule-book-pic {
             width: 60px;
             border-radius: 0 4px;
+        }
+
+        .form-separator {
+            height: 8px;
+        }
+
+        .text-box {
+            font-family: 'Yu Gothic';
+            padding: 18px 10px;
+        }
+
+        .text-box-icon {
+            color: var(--dark);
+        }
+
+
+        .leave-app {
+            text-align: left;
+        }
+
+        .leave-app .leave-icon {
+            font-size: 30px;
+            line-height: 30pxpx;
+            text-align: left;
+        }
+
+        .leave-app .leave-type {
+            font-size: 16pxpx;
+            line-height: 20px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .leave-app .leave-reason {
+            font-size: 12px;
+            line-height: 14px;
+            text-align: left;
+        }
+
+        .leave-app .leave-day {
+            font-size: 11px;
+            line-height: 12px;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .leave-app .leave-date {
+            font-size: 11px;
+            line-height: 12px;
+            text-align: left;
+            font-weight: 700;
+            color: gray;
+        }
+
+        .leave-app .leave-status {
+            font-size: 10px;
+            line-height: 13px;
+            text-align: left;
+            font-weight: 700;
+        }
+        .leave-app .leave-edit {
+            font-size: 22px;
+            line-height: 13px;
+            text-align: left;
+            font-weight: 700;
+            margin-right:12px;
+            color: darkcyan;
+        }
+        .leave-app .leave-delete {
+            font-size: 22px;
+            line-height: 13px;
+            text-align: left;
+            font-weight: 700;
+           color: crimson;
         }
 
         .a {

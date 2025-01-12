@@ -10,6 +10,16 @@ if ($result01xe1_t_attnd->num_rows > 0) {
     }
 }
 
+$teacher_leave = array();
+$sql0 = "SELECT * FROM teacher_leave_app where sccode='$sccode' and date_from<='$td' and date_to>='$td' ";
+$result01xe1_t_leave = $conn->query($sql0);
+if ($result01xe1_t_leave->num_rows > 0) {
+    while ($row0 = $result01xe1_t_leave->fetch_assoc()) {
+        $teacher_leave[] = $row0;
+    }
+}
+
+
 $absent_teacher = array();
 
 ?>
@@ -21,7 +31,7 @@ $absent_teacher = array();
             <i class="bi bi-person-vcard-fill front-icon"></i>
         </div>
     </div>
-    <div class="card-body card-back " onclick="goclsattallx();">
+    <div class="card-body card-back ">
         <table width="100%">
             <tr>
                 <td>
@@ -40,6 +50,8 @@ $absent_teacher = array();
                             Today's Attendance
                         </span>
                     </small>
+                    <!-- <button class="btn btn-primary text-small" onclick="show_all_teacher();">All</button> -->
+                    <!-- <button class="btn btn-primary text-small" onclick="show_present_teacher();">Present</button> -->
 
 
                 </td>
@@ -73,10 +85,12 @@ $absent_teacher = array();
                                 $attnd = 1;
                                 $clr = 'seagreen';
                                 $att_cnt++;
+                                $klass = 'all present';
                             } else {
                                 $attnd = 0;
                                 $clr = 'red';
                                 $absent_teacher[] = ['tid' => $tid];
+                                $klass = 'all absent';
                             }
                             $phst = 1;
                             $photo_path = $BASE_PATH_URL . 'teacher/' . $tid . ".jpg";
@@ -87,14 +101,19 @@ $absent_teacher = array();
                             } else {
                                 $photo_path = $BASE_PATH_URL_FILE . 'teacher/' . $tid . ".jpg";
                                 $phst = 1;
+
+                                // echo $phst . '/' . $photo_path;
                             }
-                            // echo $phst . '/' . $photo_path;
-                        
-                            ?>
-                            <div class="teacher-attnd-pic-box" style="background: <?php echo $clr; ?>;">
-                                <img src="<?php echo $photo_path; ?>" class="teacher-attnd-pic" />
-                            </div>
-                            <?php
+                            if ($attnd == 1) {
+                                ?>
+                                <div class="teacher-attnd-pic-box <?php echo $klass; ?>"
+                                    style="background: <?php echo $clr; ?>;">
+                                    <img src="<?php echo $photo_path; ?>" class="teacher-attnd-pic"
+                                        title="<?php echo $tid; ?>" />
+                                </div>
+                                <?php
+                            }
+
                             // echo '<small>' . $tid . '</small>';
                             $ts += $tstu;
                             $as += $astu;
@@ -140,6 +159,11 @@ $absent_teacher = array();
                             <?php
                             foreach ($absent_teacher as $absent) {
                                 $tid = $absent["tid"];
+                                $back_color = 'red';
+                                $ind_leave = array_search($tid, array_column($teacher_leave, 'tid'));
+                                if($ind_leave != '' || $ind_leave != NULL) {
+                                    $back_color = 'orange';
+                                }
                                 $photo_path = $BASE_PATH_URL . 'teacher/' . $tid . ".jpg";
                                 if (!file_exists($photo_path)) {
                                     $photo_path = "https://eimbox.com/teacher/no-img.jpg";
@@ -147,8 +171,9 @@ $absent_teacher = array();
                                     $photo_path = $BASE_PATH_URL_FILE . 'teacher/' . $tid . ".jpg";
                                 }
                                 ?>
-                                <div class="teacher-attnd-pic-box" style="background: red;">
-                                    <img src="<?php echo $photo_path; ?>" class="teacher-attnd-pic" />
+                                <div class="teacher-attnd-pic-box" style="background: <?php echo $back_color;?>;">
+                                    <img src="<?php echo $photo_path; ?>" class="teacher-attnd-pic"
+                                        title="<?php echo $tid; ?>" />
                                 </div>
                                 <?php
                             }
@@ -165,4 +190,16 @@ $absent_teacher = array();
 <script>
     document.getElementById("attnd-count").innerHTML = <?php echo $att_cnt; ?>;
     document.getElementById("total-count").innerHTML = <?php echo $tot_cnt; ?>;
+
+    function show_all_teacher() {
+        document.getElementsByClassName('all').style.display = 'none';
+        document.getElementsByClassName('all').style.display = 'block';
+    }
+    function show_present_teacher() {
+
+        document.querySelectorAll(".all").style.display = "none";
+        // document.getElementsByClassName('present').style.display = 'block';
+        // alert(777);
+    }
+
 </script>
