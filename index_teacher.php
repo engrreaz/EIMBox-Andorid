@@ -4,8 +4,8 @@ include 'front-page-block/task-teacher.php';
 include 'front-page-block/notice.php';
 
 // include 'front-page-block/cashmanager.php';
-// include 'front-page-block/st-payment-block.php';
-// include 'front-page-block/clsteacherblock.php';
+include 'front-page-block/st-payment-block.php';
+include 'front-page-block/clsteacherblock.php';
 
 include 'front-page-block/accountantsblock.php';
 include 'front-page-block/admin-st-attnd.php';
