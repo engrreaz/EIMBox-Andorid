@@ -1,6 +1,6 @@
 <?php
 if ($reallevel == 'Super Administrator') { ?>
-    <div class="card gg" hidden>
+    <div class="card gg" >
         <div class="card-body">
             EIIN : <b><?php echo $sccode; ?></b><br>
             <input class="input form-control" type="number" id="scc" onblur="chng();" value="<?php echo $sccode; ?>" />
