@@ -37,7 +37,7 @@ include 'inc.php';
 
         <div class="card-body">
             <?php
-            $sql0 = "SELECT * FROM notification where tomail = '$usr' order by datetime desc";
+            $sql0 = "SELECT * FROM notification where tomail = '$usr' and sccode='$sccode' order by rwstatus, datetime desc";
             $result0wwrt = $conn->query($sql0);
             if ($result0wwrt->num_rows > 0) {
                 while ($row0 = $result0wwrt->fetch_assoc()) {
@@ -49,14 +49,14 @@ include 'inc.php';
                     $icon = $row0["icon"];
                     $color = $row0["color"];
                     $value = $row0["value"];
-$stid = $row0["fromuserid"];
+                    $stid = $row0["fromuserid"];
                     include 'component/student-image-path.php';
                     ?>
                     <div class="card mb-1" style="background:var(--lighter); color:var(--darker);" onclick="lnk30();"
                         draggable="true">
                         <div class=" d-flex p-2 ">
                             <div class="box-icon me-2">
-                                <img class="st-pic-small" src="<?php echo $pth;?>" />
+                                <img class="st-pic-small" src="<?php echo $pth; ?>" />
                             </div>
                             <div class="box-text">
                                 <div class="stname-ben fw-bold" style="<?php if ($rws == 1) {
@@ -71,19 +71,40 @@ $stid = $row0["fromuserid"];
                                 </div>
                             </div>
                             <div class="box-prog ">
-<?php if($icon != 'progress-bar'){ ?>
-<div class="menu-icon me-3"><i class="bi bi-<?php echo $icon;?>" style="color: <?php echo $color;?>;"></i></div>
-    <?php } else { ?>
-
-                                <?php $perc = $value; ?>
-                                <div class="pie animate no-round me-3"  style="margin:0, 0; --p:<?php echo $perc; ?>;--c:var(--dark);--b:3px;"> <?php echo $perc; ?>% </div>
-<?php } ?>
+                                <?php
+                                if ($icon != 'progress-bar') {
+                                    ?>
+                                    <div class="menu-icon me-3"><i class="bi bi-<?php echo $icon; ?>"
+                                            style="color: <?php echo $color; ?>;"></i></div>
+                                    <?php
+                                } else {
+                                    $perc = $value;
+                                    ?>
+                                    <div class="pie animate no-round me-3"
+                                        style="margin:0, 0; --p:<?php echo $perc; ?>;--c:var(--dark);--b:3px;">
+                                        <?php echo $perc; ?>%
+                                    </div>
+                                    <?php
+                                }
+                                ?>
 
                             </div>
                         </div>
                     </div>
                     <?php
                 }
+            } else {
+                ?>
+
+<div class="card">
+    <div class="card-body" style="background:var(--lighter);">
+        <h6 class="fw-bold mt-3"> </h6>
+        <i class="bi bi-bell-fill mb-2 text-info" style="font-size:36px;"></i>
+        <h6 class="fw-bold mt-1">You've no any notification to display. </h6>
+        <div class="mt-2 text-small text-info">We'll notify you when any notification arrived on you.<br>Thank You.</div>
+    </div>
+</div>
+<?php 
             }
 
 

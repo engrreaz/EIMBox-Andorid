@@ -1,4 +1,4 @@
-<div class="card gg" style="display:block;">
+<div class="card gg" style="display:none;">
     <div class="card-header front-card">
         <b>Admission Test</b>
         <div class="float-end">
@@ -45,9 +45,9 @@ if ($result00->num_rows > 0) {
 ?>
 
 
-<div class="card gg">
-    <div class="card-header front-card" >
-    <div class="float-end">
+<div class="card gg" style="background:lavendarivory;">
+    <div class="card-header front-card ">
+        <div class="float-end">
             <i class="bi bi-coin front-icon"></i>
         </div>
         <b>Total Value (Cash)</b>
@@ -92,7 +92,7 @@ if ($result00->num_rows > 0) {
 
 
 
-    <div id="entrybox" style="margin:15px; display:none;">
+    <div id="entrybox" style="margin:15px; background: var(--light); display:none;">
         <div
             style="z-index:999; border:1px solid var(--darker); border-radius:30px; padding:8px 25px; font-size:13px; font-weight:600; text-align:center; background : var(--darker); color:white; width:70%; margin:0 auto 10px; ">
             Income - Expenditure

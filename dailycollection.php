@@ -18,7 +18,7 @@ include 'inc.php';
     </div>
     <div class="card page-info-box">
       <div class="card-body">
-        <table width="100%" style="color:white;"> 
+        <table width="100%" style="color:white;">
           <tr>
             <td>
               <div style="font-size:40px; font-weight:700; text-align:center;">
@@ -39,7 +39,9 @@ include 'inc.php';
     $sl = 0;
     $sobar = 0;
     $mot = 0;
-    $sql0 = "SELECT prdate, sum(amount) as taka FROM stpr where sccode='$sccode' group by prdate order by prdate desc  ";
+    $date1 = date('Y-01-01');
+    $date2 = date('Y-12-31');
+    $sql0 = "SELECT prdate, sum(amount) as taka FROM stpr where sccode='$sccode' and prdate between '$date1' and '$date2' group by prdate order by prdate desc  ";
     //echo $sql0;
     $result0 = $conn->query($sql0);
     if ($result0->num_rows > 0) {

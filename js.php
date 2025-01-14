@@ -1,5 +1,5 @@
 <script>
-
+    var user_level = '<?php echo $userlevel; ?>';
 
 
     // Front page block
@@ -14,8 +14,9 @@
                 window.location.href = 'index.php';
             } else {
                 document.getElementById("jj").innerHTML = 'Class Routine & Schedule are missing.';
-                document.getElementById("class-progress-bar").style.width = '100%';
-                document.getElementById("class-bar-val").innerHTML = '100%';
+                document.getElementById("class-progress-bar").style.display = 'none';
+                document.getElementById("class-bar-val").innerHTML = '';
+                document.getElementById("jj").innerHTML += '<br><a href="clsroutine-setup.php" class="text-small text-danger"><b>Click Here </b></a> to setup class schedule and routine.';
             }
         } else {
             var txt = '';
@@ -77,24 +78,24 @@
 
 
     // INDEX 
-    function top_bar_issue(){
-         window.location.href = '.php';
+    function top_bar_issue() {
+        window.location.href = '.php';
     }
 
-    function top_bar_kbase(){
-         window.location.href = 'kbase.php';
+    function top_bar_kbase() {
+        window.location.href = 'kbase.php';
     }
 
-    function top_bar_notification(){
-         window.location.href = 'notification.php';
+    function top_bar_notification() {
+        window.location.href = 'notification.php';
     }
 
-    function top_bar_todo(){
-         window.location.href = '.php';
+    function top_bar_todo() {
+        window.location.href = '.php';
     }
 
-    function top_bar_message(){
-         window.location.href = '.php';
+    function top_bar_message() {
+        window.location.href = '.php';
     }
 
 
@@ -106,13 +107,25 @@
         window.location.href = 'student-list.php';
     }
     function report_menu_student_list() {
-        window.location.href = 'students.php';
+        if (user_level == 'Administrator' || user_level == 'Super Administrator' || user_level == 'Head Teacher' || user_level == 'Principal') {
+            window.location.href = 'classsection.php';
+        } else {
+            window.location.href = 'students.php';
+        }
+        // window.location.href = 'students.php';
+    }
+    function class_section_list_for_student_list_edit(id) {
+        window.location.href = "students.php?" + id;
     }
     function report_menu_my_collection() {
         window.location.href = 'mypr.php';
     }
     function report_menu_attnd_register() {
-        window.location.href = 'stattndregister.php';
+        if (user_level == 'Administrator' || user_level == 'Super Administrator' || user_level == 'Head Teacher' || user_level == 'Principal') {
+            window.location.href = 'attndclssec.php';
+        } else {
+            window.location.href = 'stattndregister.php';
+        }
     }
     function report_menu_cls_routine() {
         window.location.href = 'clsroutine.php';

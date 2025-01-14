@@ -248,15 +248,14 @@
         }
 
         .menu-item-block h4 {
-            font-weight: 500;
+            font-weight: 700;
             color: var(--dark);
-            letter-spacing: 0.75px;
-            ;
+            letter-spacing: 1px;
             margin-top: 5px;
         }
 
         .menu-item-sub-text {
-            margin-top: 8px;
+            margin-top: 12px;
             color: #333;
             line-height: 15px;
             font-size: 12px;

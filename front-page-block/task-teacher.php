@@ -67,7 +67,7 @@ if ($result01x->num_rows == 0) {
                 }
                 ?>
 
-                <div class="d-flex mb-2" style="color:<?php echo $txtclr; ?>">
+                <div class="d-flex mb-2" style="color:<?php echo $txtclr; ?>" hidden>
                     <div class="notice-icon">
                         <?php echo $ico; ?>
                     </div>
