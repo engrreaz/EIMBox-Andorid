@@ -7,7 +7,7 @@ if ($reallevel == 'Super Administrator') { ?>
         </div>
     </div>
 
-    <div class="card gg" hidden>
+    <div class="card gg" >
         <div class="card-body">
 
             <a class="btn btn-warning" href="admin-sclist.php">Institute List</a>
