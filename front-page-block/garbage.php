@@ -59,7 +59,7 @@ if ($tmcnt <= 7 * 24 * 3600) {
     </div>
 </div>
 
-<?php 
+<?php
 if ($cntt >= 0) {
     $sql0 = "SELECT count(*) as cntt FROM areas where sessionyear='$sy' and user='$rootuser' and halfdone=0";
     $result01g = $conn->query($sql0);
@@ -68,8 +68,8 @@ if ($cntt >= 0) {
             $cntt = $row0["cntt"];
         }
     }
-    
-    
+
+
 
     $sql0 = "SELECT sum(half) as req FROM areas where sessionyear='$sy' and user='$rootuser'";
     $result01 = $conn->query($sql0);
