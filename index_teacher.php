@@ -11,6 +11,7 @@ include 'front-page-block/accountantsblock.php';
 // include 'front-page-block/clsteacherblock.php';
 include 'front-page-block/admin-st-attnd.php';
 include 'front-page-block/admin-teacher-attnd.php';
+include 'front-page-block/garbage.php';
 
 
 //**********************************************************************************************************************************************************************   
