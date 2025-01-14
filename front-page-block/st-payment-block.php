@@ -11,8 +11,14 @@ if ($result01x->num_rows > 0) {
         $tpaid = $row0["paid"];
     }
 }
-$perc = ceil($tpaid * 100 / $tpaya);
-$deg = ceil($tpaid * 360 / $tpaya);
+if ($tpaya > 0) {
+    $perc = ceil($tpaid * 100 / $tpaya);
+    $deg = ceil($tpaid * 360 / $tpaya);
+} else {
+    $perc = 0;
+    $deg = 0;
+}
+
 ?>
 <div class="card gg">
     <div class="card-header front-card">
