@@ -31,6 +31,9 @@ include 'header.php';
 // }
 echo '<div class="mt-5 text-center">';
 
+
+echo 'CRED : ' . $user . '/' . $otp;
+
 if ($otp == $otp2) {
     $_SESSION["user"] = $user;
 
