@@ -29,7 +29,7 @@ include 'header.php';
 // if (substr($user, 6) > 100000 && strlen($user) >= 10 ) {
 //     echo '<script>alert("XXXPP");</script>';
 // }
-
+echo '<div class="mt-5 text-center">';
 
 if ($otp == $otp2) {
     $_SESSION["user"] = $user;
@@ -77,3 +77,6 @@ if ($otp == $otp2) {
         echo "Sorry Invalid Attempt.";
     }
 }
+
+
+echo '</div>';
