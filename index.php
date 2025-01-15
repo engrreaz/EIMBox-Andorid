@@ -99,7 +99,6 @@ if ($result0wwrtd->num_rows > 0) {
                             <div class="d"><?php echo $scname; ?></div>
                         </td>
                     </tr>
-
                 </table>
             </center>
         </div>
@@ -110,8 +109,8 @@ if ($result0wwrtd->num_rows > 0) {
 
     </div>
 
-    <?php 
-    include 'front-page-block/notific-bar.php'; 
+    <?php
+    include 'front-page-block/notific-bar.php';
     ?>
 
     <div class="clearfix"></div>
@@ -163,11 +162,11 @@ if ($result0wwrtd->num_rows > 0) {
 
 <script>
     $(document).ready(function () {
-        setInterval(oneSecondFunction, 1000);
+        // setInterval(oneSecondFunction, 1000);
 
     });
 
-    
+
 </script>
 
 

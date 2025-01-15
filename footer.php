@@ -8,7 +8,7 @@ if ($htp == 'com.xeneen.eimbox' || $htp == 'com.xeneen.kmghs') {
 
 if ($usr == '' || $userlevel == 'Guest') {
     ?>
-    <meta http-equiv="refresh" content="0; url='index.php'" />
+    <meta http-equiv="refresh" content="0; url='login.php'" />
     <?php
 }
 

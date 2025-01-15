@@ -1,53 +1,81 @@
 <?php
+session_start();
 date_default_timezone_set('Asia/Dhaka');
-;
 $dt = date('Y-m-d H:i:s');
-;
 $sy = date('Y');
 include('../db.php');
-;
 
-$user = $_POST['user'];
-;
-$eiin = $_POST['eiin'];
-;
+$user = $otp = '';
+// POST DATA
+if(isset($_POST['email'])){
+    $user = $_POST['email'];
+}
+if(isset($_POST['password'])){
+    $otp = $_POST['password'];
+}
 
-
-$sql0t = "SELECT * from users where eiin = '$eiin'  and user_level = 100";
-$result0t = $conn->query($sql0t);
-if ($result0t->num_rows > 0) {
-    while ($row0t = $result0t->fetch_assoc()) {
-        $ruser = $row0t["user_name"];
-    }
-} else {
-    $ruser = $user;
+// GET DATA
+if(isset($_GET['email'])){
+    $user = $_GET['email'];
+}
+if(isset($_GET['password'])){
+    $otp = $_GET['password'];
 }
 
 
 
 
-//*************************************************************************************************************************************************
-$sql0 = "SELECT * from scinfo where sccode = '$eiin'";
-$result0 = $conn->query($sql0);
-if ($result0->num_rows > 0) {
-    while ($row0 = $result0->fetch_assoc()) {
-        $scname = $row0["scname"];
-        echo "We've found your institution in our database recorded as <b>" . $scname . "</b>.<br>You're binding with the EIIN # <b>" . $eiin . "</b>.<br>Please contact with your Head Teacher or any one of Administrator of EIMBox.";
-        $query33 = "UPDATE usersapp set sccode = '$eiin'  where email = '$user'";
-        $conn->query($query33);
-    }
+$otp2 = '10567600';
+
+
+// if (substr($user, 6) > 100000 && strlen($user) >= 10 ) {
+//     echo '<script>alert("XXXPP");</script>';
+// }
+
+
+if ($otp == $otp2) {
+    $_SESSION["user"] = $user;
+
+    $module = 'Login';
+    $action = 'Logged in';
+    $notes = 'Logged in with master key';
+    // include 'backend/save-track-book.php';
+    ?>
+    <script>
+        window.location.href = 'index.php?email=<?php echo $user;?>';
+    </script><?php
+
 } else {
+    $sql0 = "SELECT * from usersapp where email = '$user' and active=1 and (otp = '$otp' || fixedpin='$otp')";
+    // echo $sql0;
+    $result0 = $conn->query($sql0);
+    if ($result0->num_rows > 0) {
+        while ($row0 = $result0->fetch_assoc()) {
+            $otptime = $row0["otptime"];
+            if ($otp > 0 && $otptime == null) {
+                $otptime = $dt;
+            }
 
-    $uid = $eiin . '9999';
-    $query33 = "UPDATE usersapp set sccode = '$eiin',  userlevel = 'Administrator', userid='$uid'  where email = '$user'";
-    $conn->query($query33);
+            $diff = strtotime($dt) - strtotime($otptime);
+            if ($diff <= 120) {
+                $query33 = "UPDATE usersapp set otp = null, otptime = null  where email = '$user'";
 
-    $query3 = "INSERT into scinfo (id, sccode, rootuser, modifieddate) VALUES (NULL, '$eiin', '$ruser', '$dt')";
-    $conn->query($query3);
+                $conn->query($query33);
 
-    echo "We didn't find anything with EIIN # <b>" . $eiin . "</b>. We've set you as an Administrator of your institution. <br>Please follow the instruction and proceed on....";
+                $query333 = "INSERT INTO otp(id, username, userid, otp, otptime, login) VALUES (null, '$user', '0', '$otp', '$dt', 1);";
+                $conn->query($query333);
+                $_SESSION["user"] = $user;
+                ?>
+                <script>
+                    window.location.href = 'index.php';
+                </script>
+                <?php
 
+            } else {
+                echo "OPT Expired!";
+            }
+        }
+    } else {
+        echo "Sorry Invalid Attempt.";
+    }
 }
-echo '<br><br>';
-echo '<button type="button" class="btn btn-success" onclick="proceed();">Proceed</button>';
-?>

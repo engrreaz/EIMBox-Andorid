@@ -207,6 +207,7 @@
     // Settings Navigation
     function settings_menu_my_profile() { window.location.href = "globalsetting.php"; }
     function settings_menu_login_method() { window.location.href = "accountsecurity.php"; }
+    function settings_menu_logout() { window.location.href = "sout.php"; }
 
 
 

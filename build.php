@@ -142,6 +142,21 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
+    <div class="card menu-item-block" onclick="settings_menu_logout();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-box-arrow-left"></i></td>
+            <td>
+              <h4> Logout </h4>
+              <div class="menu-item-sub-text"> Dismiss your logging information </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
 
 
 

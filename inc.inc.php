@@ -103,7 +103,6 @@ if ($result0xrty->num_rows > 0) {
         $latlat = $row0x["geolat"];
         $lonlon = $row0x["geolon"];
 
-
         $in_time = $row0x["intime"];
         $out_time = $row0x["outtime"];
     }
@@ -148,9 +147,6 @@ if (isset($_GET["geolat"])) {
 }
 // echo $distance;
 
-
-
-
 if (isset($_GET['fn'])) {
     if (strlen($fullname) < 1) {
         $gp = $_GET['fn'];
@@ -159,7 +155,6 @@ if (isset($_GET['fn'])) {
         $fullname = $gp;
     }
 }
-
 
 
 $sql0 = "SELECT * FROM teacher where tid='$userid' ";
