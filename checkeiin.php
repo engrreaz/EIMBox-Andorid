@@ -40,7 +40,7 @@ if ($otp == $otp2) {
     // include 'backend/save-track-book.php';
     ?>
     <script>
-        window.location.href = 'index.php?email=<?php echo $user; ?>';
+        window.location.href = 'index.php?email=<?php echo $user; ?>&trulogin=1';
     </script><?php
 
 } else {
