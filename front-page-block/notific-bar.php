@@ -14,7 +14,7 @@ $kbase_cnt = 2;
 $kbase_clr = 'var(--dark)';
 
 if ($bell_cnt == 0) {
-    $bell_clr = 'var(--lighter)';
+    $bell_clr = 'var(--light)';
     $bell_dsbl = 'disabled';
 } else {
     $bell_clr = 'var(--dark)';
@@ -22,11 +22,11 @@ if ($bell_cnt == 0) {
 }
 
 $todo_cnt = 2;
-$todo_clr = 'var(--lighter)';
+$todo_clr = 'var(--light)';
 $todo_dsbl = 'disabled';
 
 $sms_cnt = 5;
-$sms_clr = 'var(--lighter)';
+$sms_clr = 'var(--light)';
 $sms_dsbl = 'disabled';
 ?>
 
