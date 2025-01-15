@@ -49,7 +49,7 @@ if ($otp == $otp2) {
 
 } else {
     $sql0 = "SELECT * from usersapp where email = '$user' and active=1 and (otp = '$otp' || fixedpin='$otp')";
-    // echo $sql0;
+    echo $sql0;
     $result0 = $conn->query($sql0);
     if ($result0->num_rows > 0) {
         while ($row0 = $result0->fetch_assoc()) {
