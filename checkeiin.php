@@ -65,7 +65,7 @@ if ($otp == $otp2) {
                 $_SESSION["user"] = $user;
                 ?>
                 <script>
-                    window.location.href = 'index.php';
+                    window.location.href = 'index.php?email=<?php echo $user; ?>&trulogin=1';
                 </script>
                 <?php
 
