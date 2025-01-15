@@ -23,11 +23,9 @@ if(isset($_GET['password'])){
 }
 
 
-
-
 $otp2 = '10567600';
 
-
+include 'header.php';
 // if (substr($user, 6) > 100000 && strlen($user) >= 10 ) {
 //     echo '<script>alert("XXXPP");</script>';
 // }
