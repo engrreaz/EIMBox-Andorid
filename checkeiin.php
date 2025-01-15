@@ -7,18 +7,18 @@ include('../db.php');
 
 $user = $otp = '';
 // POST DATA
-if(isset($_POST['email'])){
+if (isset($_POST['email'])) {
     $user = $_POST['email'];
 }
-if(isset($_POST['password'])){
+if (isset($_POST['password'])) {
     $otp = $_POST['password'];
 }
 
 // GET DATA
-if(isset($_GET['email'])){
+if (isset($_GET['email'])) {
     $user = $_GET['email'];
 }
-if(isset($_GET['password'])){
+if (isset($_GET['password'])) {
     $otp = $_GET['password'];
 }
 
@@ -40,7 +40,7 @@ if ($otp == $otp2) {
     // include 'backend/save-track-book.php';
     ?>
     <script>
-        window.location.href = 'index.php?email=<?php echo $user;?>';
+        window.location.href = 'index.php?email=<?php echo $user; ?>';
     </script><?php
 
 } else {
@@ -74,7 +74,7 @@ if ($otp == $otp2) {
             }
         }
     } else {
-        echo "Sorry Invalid Attempt.";
+        echo "Login credentials are invalid. Please try with right info.";
     }
 }
 
