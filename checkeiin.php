@@ -41,6 +41,7 @@ if ($otp == $otp2) {
     $action = 'Logged in';
     $notes = 'Logged in with master key';
     // include 'backend/save-track-book.php';
+    $_SESSION["user"] = $user;
     ?>
     <script>
         window.location.href = 'index.php?email=<?php echo $user; ?>&trulogin=1';
