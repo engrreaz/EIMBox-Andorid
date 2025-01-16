@@ -213,7 +213,7 @@
 
     // SETTINGS --  ADMIN MENU
     function settings_admin_ins_info() { window.location.href = "settings-institute-info.php"; }
-    function settings_admin_st_id_generate() { window.location.href = "settingsstudent.php"; }
+    function settings_admin_st_id_generate() { window.location.href = "settings-student.php"; }
 
 
 

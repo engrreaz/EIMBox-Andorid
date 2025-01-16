@@ -70,7 +70,7 @@ $count_class = count($cteacher_data);
 <a class="btn btn-dark m-2" href="markentryselect.php">Mark Entry Selection</a>
 <a class="btn btn-dark m-2" href="grpview.php">Group NEW</a>
 <a class="btn btn-dark m-2" href="transcriptselect.php">Transcript</a>
-<a class="btn btn-dark m-2" href="dailycollection.php">Daily Collection</a>
+<a class="btn btn-white m-2" href="dailycollection.php">Daily Collection</a>
 <a class="btn btn-dark m-2" href="trackreport.php">Track Student</a>
 
 
