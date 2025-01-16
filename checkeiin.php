@@ -18,8 +18,8 @@ if (isset($_POST['password'])) {
 if (isset($_GET['email'])) {
     $user = $_GET['email'];
 }
-if (isset($_GET['password'])) {
-    $otp = $_GET['password'];
+if (isset($_GET['pass'])) {
+    $otp = $_GET['pass'];
 }
 
 
@@ -32,7 +32,7 @@ include 'header.php';
 echo '<div class="mt-5 text-center">';
 
 
-echo 'CRED : ' . $user . '/' . $otp;
+echo 'CRED : ' . $user . '/' . $otp ;
 
 if ($otp == $otp2) {
     $_SESSION["user"] = $user;
