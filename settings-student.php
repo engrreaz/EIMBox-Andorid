@@ -98,21 +98,24 @@ include 'inc.php';
                                     <tr>
                                         <td style="vertical-align:top; padding-right:25px;" class="menu-item-icon" ><i class="bi bi-diagram-3-fill"></i></td>
                                         <td class=" menu-item-block" style="border:0;">
-                                            <h4 id="cls<?php echo $id; ?>"><?php echo $cls2; ?></h4>
+                                            <h4 class="text-dark" id="cls<?php echo $id; ?>"><?php echo $cls2; ?></h4>
                                             <div class="menu-item-sub-text" >Class Name</div>
                                             
-                                            <h6 class=" mt-3" id="sec<?php echo $id; ?>"><?php echo $sec2; ?></h6>
-                                            <div class="menu-item-sub-text">Section / group Name</div>
+                                            
+                                        </td>
+                                        <td>
+                                        <h6 class="text-dark mt-3" id="sec<?php echo $id; ?>"><?php echo $sec2; ?></h6>
+                                        <div class="menu-item-sub-text">Section / group Name</div>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td></td>
-                                        <td class="stname-ben pt-2">Enter Student Roll/ID Range :</td>
+                                        <td colspan="2" class="stname-ben pt-2">Enter Student Roll/ID Range :</td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td style="padding-top:5px;">
+                                        <td  colspan="2" style="padding-top:5px;">
                                             <table>
                                                 <tr>
                                                     <td>

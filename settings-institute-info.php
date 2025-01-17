@@ -96,7 +96,7 @@ include 'inc.php';
 
 
                         <div class="input-group">
-                            <span class="input-group-text text-box-icon"><i class="bi bi-geo-fill"></i></span>
+                            <span class="input-group-text text-box-icon"   style="color:#dfecef;" ><i class="bi bi-geo-fill"></i></span>
                             <input type="text" id="dist" name="dist" class="form-control text-box" placeholder="District"
                                 value="<?php echo $dist; ?>">
                         </div>

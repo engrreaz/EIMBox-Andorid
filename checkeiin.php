@@ -51,9 +51,10 @@ if ($otp == $otp2) {
     $notes = 'Logged in with master key';
     // include 'backend/save-track-book.php';
     $_SESSION["user"] = $user;
+    setcookie("user", time() + (3600 * 24 * 365));
     ?>
     <script>
-        window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1<?php echo $gps;?>';
+        window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1<?php echo $gps; ?>';
     </script><?php
 
 } else {
@@ -76,9 +77,10 @@ if ($otp == $otp2) {
                 $query333 = "INSERT INTO otp(id, username, userid, otp, otptime, login) VALUES (null, '$user', '0', '$otp', '$dt', 1);";
                 $conn->query($query333);
                 $_SESSION["user"] = $user;
+                setcookie("user", time() + (3600 * 24 * 365));
                 ?>
                 <script>
-                    window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1<?php echo $gps;?>';
+                    window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1<?php echo $gps; ?>';
                 </script>
                 <?php
 
