@@ -15,7 +15,7 @@ $reqin = $in_time;
 $reqout = $out_time;
 
 
-$distance = 10;
+// $distance = 10;
 
 
 $sql0 = "SELECT * FROM teacherattnd where user='$usr' and adate='$td' and sccode='$sccode'";
