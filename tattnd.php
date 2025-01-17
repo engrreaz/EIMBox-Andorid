@@ -131,7 +131,9 @@ if ($distance == 0) {
 
 <main>
     <div class="page-top-box text-center" style="height:100vh; background: <?php echo $bgclr; ?>;">
-
+        <?php if ($gps == 1) { ?>
+            <div class="float-end" style="position:fixed; right:50px; top:15px; color:white;"><i
+                    class="bi bi-geo-alt-fill"></i></div><?php } ?>
         <div class="center-screen">
             <i class="bi bi-fingerprint " style="font-size:36px;"></i>
             <div class="menu-text text-small" style="margin-bottom:100px;">
