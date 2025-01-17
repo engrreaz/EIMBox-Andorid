@@ -115,10 +115,10 @@ $gps = 0;
 if (isset($_GET["geolat"])) {
     $geolat = $_GET["geolat"];
     $geolon = $_GET["geolon"];
-    $gps = 1;
 
-    if ($geolat != '' && $geolon != ''){
 
+    if ($geolat != '' && $geolon != '') {
+        $gps = 1;
         $radius = 6378137;
         $lat1 = $latlat; //23.7273973;
         $lon1 = $lonlon; //90.8447721;
@@ -132,7 +132,7 @@ if (isset($_GET["geolat"])) {
         $query33pxy = "insert into georecord (id, email, posx, posy, recordtime, distance) values (NULL, '$usr', '$geolat', '$geolon', '$cur', '$dista');";
         $conn->query($query33pxy);
     }
-       
+
 
 
 } else {
