@@ -262,7 +262,7 @@ if ($sccode > 100) {
     }
 }
 
-$dista_differ = $tattndradius;
+// $dista_differ = $tattndradius;
 
 $l = strlen($pth);
 if ($l < 5) {
