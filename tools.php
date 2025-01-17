@@ -103,6 +103,22 @@ $count_class = count($cteacher_data);
     </div>
     <div class="menu-separator"></div>
 
+    <div class="card menu-item-block" onclick="module_menu_leave_app_response();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-file-earmark"></i></td>
+            <td>
+              <h4>Teachers Application</h4>
+              <div class="menu-item-sub-text">Manage your students class test (create new test and assessment test)
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
     <!-- 
       ***************************************************************
       ***************************************************************

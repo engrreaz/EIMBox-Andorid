@@ -184,6 +184,7 @@
 
     // Tools Navigation
     function module_menu_student_attendace(x1, x2) { window.location.href = 'stattnd.php?cls=' + x1 + '&sec=' + x2; }
+    function module_menu_leave_app_response() { window.location.href = 'leave-application-response.php' }
 
     function module_menu_co_curricular_entry() {
         Swal.fire({
