@@ -89,18 +89,20 @@ if ($result0wwrtd->num_rows > 0) {
     <div class="containerx" style="width:100%;">
 
         <div class="card text-center" style="background:var(--dark);  padding:40px 0 10px 0; border-radius:0;">
- <div class="float-end" style="position:fixed; right:50px; top:15px; color:white;"><i class="bi bi-geo-alt-fill"></i></div>
-                <table width="100%" style="color:white;">
-                    <tr>
-                        <td style="text-align:center;">
-                            <img src="<?php echo $pth; ?>" class="st-pic-big" /><br>
-                            <div class="b"><?php echo $fullname; ?></div>
-                            <div class="c"><?php echo $userlevel; ?></div>
-                            <div class="d"><?php echo $scname; ?></div>
-                        </td>
-                    </tr>
-                </table>
-  
+            <?php if ($gps == 1) { ?>
+                <div class="float-end" style="position:fixed; right:50px; top:15px; color:white;"><i
+                        class="bi bi-geo-alt-fill"></i></div><?php } ?>
+            <table width="100%" style="color:white;">
+                <tr>
+                    <td style="text-align:center;">
+                        <img src="<?php echo $pth; ?>" class="st-pic-big" /><br>
+                        <div class="b"><?php echo $fullname; ?></div>
+                        <div class="c"><?php echo $userlevel; ?></div>
+                        <div class="d"><?php echo $scname; ?></div>
+                    </td>
+                </tr>
+            </table>
+
         </div>
 
 
