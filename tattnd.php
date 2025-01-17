@@ -141,7 +141,7 @@ if ($distance == 0) {
             </div>
 
             <div class="">
-                <?php echo $in_time . '/' . $out_time . '/' . $distance . '<br><br>'; ?>
+                <?php echo $in_time . '/' . $out_time . '/' . $distance . '//' . $dista_differ . '<br><br>'; ?>
                 <?php echo $inout . '/' . $diff . '/' . $stst . '/ ' . $distance; ?>
                 <?php echo '.....' . $diff . '....'; ?>
             </div>
