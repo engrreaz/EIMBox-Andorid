@@ -108,12 +108,16 @@ if ($distance == 0) {
     } else {
         if ($stst = 'Fast') {
             $bgclr = 'DarkOrange';
+            $msg = 'You are too late';
         } else {
             $bgclr = 'seagreen';
+            $msg = '<b>Congratulation!</b><br>You arrived at right time ';
         }
+
+
     }
 
-    $msg = 'You are now out of area';
+    
     $icon = 'shield-fill-check';
 } else {
     $bgclr = 'crimson';
