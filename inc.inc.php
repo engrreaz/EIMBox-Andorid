@@ -117,23 +117,23 @@ if (isset($_GET["geolat"])) {
     $geolon = $_GET["geolon"];
     $gps = 1;
 
-    if ($geolat == '')
-        $geolat = 0;
-    if ($geolon == '')
-        $geolon = 0;
+    if ($geolat != '' && $geolon != ''){
 
-    $radius = 6378137;
-    $lat1 = $latlat; //23.7273973;
-    $lon1 = $lonlon; //90.8447721;
-    $lat2 = $geolat;
-    $lon2 = $geolon;
-    $rad = M_PI / 180;
-    $theta = $lon1 - $lon2;
-    $dist = sin($lat1 * $rad) * sin($lat2 * $rad) + cos($lat1 * $rad) * cos($lat2 * $rad) * cos($theta * $rad);
-    $dista = round(acos($dist) / $rad * 60 * 1853);
-    $distance = $dista;
-    $query33pxy = "insert into georecord (id, email, posx, posy, recordtime, distance) values (NULL, '$usr', '$geolat', '$geolon', '$cur', '$dista');";
-    $conn->query($query33pxy);
+        $radius = 6378137;
+        $lat1 = $latlat; //23.7273973;
+        $lon1 = $lonlon; //90.8447721;
+        $lat2 = $geolat;
+        $lon2 = $geolon;
+        $rad = M_PI / 180;
+        $theta = $lon1 - $lon2;
+        $dist = sin($lat1 * $rad) * sin($lat2 * $rad) + cos($lat1 * $rad) * cos($lat2 * $rad) * cos($theta * $rad);
+        $dista = round(acos($dist) / $rad * 60 * 1853);
+        $distance = $dista;
+        $query33pxy = "insert into georecord (id, email, posx, posy, recordtime, distance) values (NULL, '$usr', '$geolat', '$geolon', '$cur', '$dista');";
+        $conn->query($query33pxy);
+    }
+       
+
 
 } else {
     $ttt = date('Y-m-d H:i:s', strtotime($cur) - $time_differ);
