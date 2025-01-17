@@ -5,16 +5,16 @@ include 'inc.php';
 $id = $userid;
 
 
-if( $in_time_user!= '00:00:00'  ){
+if ($in_time_user != '00:00:00') {
     $in_time = $in_time_user;
 }
-if( $out_time_user!= '00:00:00'  ){
+if ($out_time_user != '00:00:00') {
     $out_time = $out_time_user;
 }
 $reqin = $in_time;
 $reqout = $out_time;
 
-echo $reqin . '/' . $reqout . '/' . $distance;
+
 $sql0 = "SELECT * FROM teacherattnd where user='$usr' and adate='$td' and sccode='$sccode'";
 $result0ghq = $conn->query($sql0);
 if ($result0ghq->num_rows > 0) {
@@ -37,6 +37,8 @@ if ($result0ghq->num_rows > 0) {
         $conn->query($query33pxy);
         $query33pxz = "UPDATE todolist set status=1, responsetime='$cur' where id = '$id'";
         $conn->query($query33pxz);
+
+        $inout = 'out';
     }
 } else {
     $reqin = $td . ' ' . $reqin;
@@ -65,7 +67,7 @@ if ($result0ghq->num_rows > 0) {
                     values (NULL, '$sccode', '$td', '$usr', 'Attendance', 'Attendance Out', '', 0, '$cur', 'geoattnd', 'Submit', NULL);";
         $conn->query($query33pxy0);
     }
-
+    $inout = 'in';
 }
 
 // header('location:index.php');
@@ -75,8 +77,61 @@ $result0ghq_show = $conn->query($sql0);
 if ($result0ghq_show->num_rows > 0) {
     while ($row0 = $result0ghq_show->fetch_assoc()) {
         $datam[] = $row0;
-    }}
+    }
+}
 
-echo '<pre>';
-print_r($datam);
-echo '</pre>';
+$stst = '';
+if($inout =='out'){
+    $stst = $stout;
+} else {
+     $stst = $stin;
+}
+
+$holiday = 0;
+if($holiday == 1){
+
+}
+if($distance == 0){
+    $bgclr = 'crimson';
+    $msg = 'Location did not detect';
+    $icon = 'shield-slash-fill';
+} else if($distance>0 && $distance <= $dista_differ){
+    //------------------------------------
+} else {
+    $bgclr = 'crimson';
+    $msg = 'You are now out of area';
+    $icon = 'shield-fill-x';
+}
+
+// echo '<pre>';
+// print_r($datam);
+// echo '</pre>';
+
+
+?>
+
+
+<main>
+    <div class="page-top-box text-center"  style="height:100vh; background: <?php echo $bgclr;?>;">
+
+        <div class="center-screen" >
+            <i class="bi bi-fingerprint " style="font-size:36px;"></i>
+            <div class="menu-text text-small" style="margin-bottom:100px;">
+                GPS Based Attendance
+            </div>
+
+            <div class="">
+                <?php echo $in_time . '/' . $out_time . '/' . $distance . '<br><br>';?>
+                <?php echo $inout . '/' . $diff . '/' . $stst . '/ ' . $distance;?>
+
+            </div>
+            <div class="attnd-message"><?php echo $msg;?></div>
+            <div style="margin: 15px 0 30px">
+                            <i class="bi bi-<?php echo $icon;?>" style="font-size:72px;"></i>
+            </div>
+            <button class="btn btn-dark" style="border-radius:20px; width: 50%;">Back</button>
+        </div>
+
+
+    </div>
+</main>

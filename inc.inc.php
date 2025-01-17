@@ -103,6 +103,9 @@ if ($result0xrty->num_rows > 0) {
         $latlat = $row0x["geolat"];
         $lonlon = $row0x["geolon"];
 
+        $dista_differ = $row0x["dista_differ"];
+        $time_differ = $row0x["time_differ"];
+
         $in_time = $row0x["intime"];
         $out_time = $row0x["outtime"];
     }
@@ -128,7 +131,7 @@ if (isset($_GET["geolat"])) {
     $conn->query($query33pxy);
 
 } else {
-    $ttt = date('Y-m-d H:i:s', strtotime($cur) - 600);
+    $ttt = date('Y-m-d H:i:s', strtotime($cur) - $time_differ);
 
     $sql0 = "SELECT * FROM georecord where email='$usr' and recordtime>='$ttt' order by recordtime desc limit 1";
     //echo $sql0;
@@ -253,6 +256,7 @@ if ($sccode > 100) {
     }
 }
 
+$dista_differ = $tattndradius;
 
 $l = strlen($pth);
 if ($l < 5) {

@@ -406,20 +406,34 @@
             text-align: left;
             font-weight: 700;
         }
+
         .leave-app .leave-edit {
             font-size: 22px;
             line-height: 13px;
             text-align: left;
             font-weight: 700;
-            margin-right:12px;
+            margin-right: 12px;
             color: darkcyan;
         }
+
         .leave-app .leave-delete {
             font-size: 22px;
             line-height: 13px;
             text-align: left;
             font-weight: 700;
-           color: crimson;
+            color: crimson;
+        }
+
+        .center-screen {
+            position: fixed;
+            width:100%;
+            top: 50vh;
+            left: 50%;
+            text-align:center;
+            -webkit-transform: translate(-50%, -0%);
+            transform: translate(-50%, -50%);
+            color: var(--lighter);
+        
         }
 
         .a {

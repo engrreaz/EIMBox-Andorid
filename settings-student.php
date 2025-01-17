@@ -78,7 +78,7 @@ include 'inc.php';
             </div>
 
 
-            <div id="block">
+            <div id="block" style="backgroudn:var(--light);">
                 <?php
                 $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear='$sy' order by idno, id";
                 $result00xgr = $conn->query($sql00xgr);
@@ -91,24 +91,24 @@ include 'inc.php';
                         $to2 = $row00xgr["rollto"];
                         ?>
 
-                        <div class="card" style="background:var(--lighter); color:var(--darker);">
-                            <img class="card-img-top" alt="">
+                        <div class="card mb-2" style="background:var(--lighter); color:var(--darker);">
+
                             <div class="card-body">
                                 <table style="">
                                     <tr>
-                                        <td style="width:50px; vertical-align:top; color:var(--dark);"><i
-                                                class="material-icons">group</i></td>
-                                        <td>
-                                            <h4 id="cls<?php echo $id; ?>"><?php echo $cls2; ?></h4><small>Class
-                                                Name</small><br><br>
-                                            <h5 id="sec<?php echo $id; ?>"><?php echo $sec2; ?></h5><small>Section / group
-                                                Name</small>
+                                        <td style="vertical-align:top; padding-right:25px;" class="menu-item-icon" ><i class="bi bi-diagram-3-fill"></i></td>
+                                        <td class=" menu-item-block" style="border:0;">
+                                            <h4 id="cls<?php echo $id; ?>"><?php echo $cls2; ?></h4>
+                                            <div class="menu-item-sub-text" >Class Name</div>
+                                            
+                                            <h6 class=" mt-3" id="sec<?php echo $id; ?>"><?php echo $sec2; ?></h6>
+                                            <div class="menu-item-sub-text">Section / group Name</div>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td></td>
-                                        <td style="">Enter Student Roll/ID Range :</td>
+                                        <td class="stname-ben pt-2">Enter Student Roll/ID Range :</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -119,9 +119,9 @@ include 'inc.php';
                                                         <div style="text-align:left; padding-top:0px;">
                                                             <div class="input-group">
                                                                 <span class="input-group-text"><i
-                                                                        class="material-icons ico">label_outline</i></span>
+                                                                        class="bi bi-file-earmark-person-fill"></i></span>
                                                                 <input type="number" id="from<?php echo $id; ?>" name="id2"
-                                                                    class="form-control" placeholder="From"
+                                                                    class="form-control text-box" placeholder="From"
                                                                     value="<?php echo $from2; ?>">
                                                             </div>
                                                         </div>
@@ -131,18 +131,18 @@ include 'inc.php';
                                                         <div style="text-align:left; padding-top:0px;">
                                                             <div class="input-group">
                                                                 <span class="input-group-text"><i
-                                                                        class="material-icons ico">label</i></span>
+                                                                        class="bi bi-file-earmark-person-fill"></i></span>
                                                                 <input type="number" id="to<?php echo $id; ?>" name="id1"
-                                                                    class="form-control" placeholder="To"
+                                                                    class="form-control text-box" placeholder="To"
                                                                     value="<?php echo $to2; ?>">
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><small class="pad60">Start From :</small></td>
+                                                    <td><small class="pad60">Start From</small></td>
                                                     <td></td>
-                                                    <td><small class="pad60">End To :</small></td>
+                                                    <td><small class="pad60">End To</small></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -150,7 +150,7 @@ include 'inc.php';
                                     <tr>
                                         <td></td>
                                         <td style="padding-top:15px;">
-                                            <button class="btn btn-primary" onclick="genid(<?php echo $id; ?>);">Generate Student's
+                                            <button class="btn btn-primary btn-block" onclick="genid(<?php echo $id; ?>);">Generate Student's
                                                 ID</button>
                                             <div id="gen<?php echo $id; ?>"></div>
                                         </td>
