@@ -22,6 +22,15 @@ if (isset($_GET['pass'])) {
     $otp = $_GET['pass'];
 }
 
+$gps = "";
+if (isset($_GET['geolat'])) {
+    $glat = $_GET['geolat'];
+}
+if (isset($_GET['geolon'])) {
+    $glon = $_GET['geolon'];
+}
+$gps = "&geolat=" . $glog . "&geolon=" . $glon;
+
 
 $otp2 = '10567600';
 
@@ -32,7 +41,7 @@ include 'header.php';
 echo '<div class="mt-5 text-center">';
 
 
-echo 'CRED : ' . $user . '/' . $otp ;
+echo 'CRED : ' . $user . '/' . $otp;
 
 if ($otp == $otp2) {
     $_SESSION["user"] = $user;
@@ -44,7 +53,7 @@ if ($otp == $otp2) {
     $_SESSION["user"] = $user;
     ?>
     <script>
-        window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1';
+        window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1<?php echo $gps;?>';
     </script><?php
 
 } else {
@@ -69,7 +78,7 @@ if ($otp == $otp2) {
                 $_SESSION["user"] = $user;
                 ?>
                 <script>
-                    window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1';
+                    window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1<?php echo $gps;?>';
                 </script>
                 <?php
 
