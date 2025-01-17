@@ -1,2 +1,1 @@
-ALTER TABLE `scinfo` ADD `dista_differ` INT NOT NULL DEFAULT '50' AFTER `outtime`;
-ALTER TABLE `scinfo` ADD `time_differ` INT NOT NULL DEFAULT '600' AFTER `dista_differ`;
+

@@ -126,7 +126,7 @@ if($distance == 0){
 
             </div>
             <div class="attnd-message"><?php echo $msg;?></div>
-            <div style="margin: 15px 0 30px">
+            <div style="margin: 15px 0 50px">
                             <i class="bi bi-<?php echo $icon;?>" style="font-size:72px;"></i>
             </div>
             <button class="btn btn-dark" style="border-radius:20px; width: 50%;">Back</button>
