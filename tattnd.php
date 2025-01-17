@@ -123,7 +123,7 @@ if($distance == 0){
             <div class="">
                 <?php echo $in_time . '/' . $out_time . '/' . $distance . '<br><br>';?>
                 <?php echo $inout . '/' . $diff . '/' . $stst . '/ ' . $distance;?>
-
+<?php echo '.....' . $diff . '....';?>
             </div>
             <div class="attnd-message"><?php echo $msg;?></div>
             <div style="margin: 15px 0 50px">
