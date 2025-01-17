@@ -89,7 +89,7 @@ if ($result0wwrtd->num_rows > 0) {
     <div class="containerx" style="width:100%;">
 
         <div class="card text-center" style="background:var(--dark);  padding:40px 0 10px 0; border-radius:0;">
-            <center>
+ <div class="float-end" style="position:fixed; right:50px; top:15px; color:white;"><i class="bi bi-geo-alt-fill"></i></div>
                 <table width="100%" style="color:white;">
                     <tr>
                         <td style="text-align:center;">
@@ -100,7 +100,7 @@ if ($result0wwrtd->num_rows > 0) {
                         </td>
                     </tr>
                 </table>
-            </center>
+  
         </div>
 
 

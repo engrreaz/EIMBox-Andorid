@@ -15,6 +15,9 @@ $reqin = $in_time;
 $reqout = $out_time;
 
 
+$distance = 10;
+
+
 $sql0 = "SELECT * FROM teacherattnd where user='$usr' and adate='$td' and sccode='$sccode'";
 $result0ghq = $conn->query($sql0);
 if ($result0ghq->num_rows > 0) {
@@ -81,22 +84,37 @@ if ($result0ghq_show->num_rows > 0) {
 }
 
 $stst = '';
-if($inout =='out'){
+if ($inout == 'out') {
     $stst = $stout;
 } else {
-     $stst = $stin;
+    $stst = $stin;
 }
 
 $holiday = 0;
-if($holiday == 1){
+if ($holiday == 1) {
 
 }
-if($distance == 0){
+if ($distance == 0) {
     $bgclr = 'crimson';
     $msg = 'Location did not detect';
     $icon = 'shield-slash-fill';
-} else if($distance>0 && $distance <= $dista_differ){
-    //------------------------------------
+} else if ($distance > 0 && $distance <= $dista_differ) {
+    if ($inout == 'in') {
+        if ($stst = 'Fast') {
+            $bgclr = 'seagreen';
+        } else {
+            $bgclr = 'orange';
+        }
+    } else {
+        if ($stst = 'Fast') {
+            $bgclr = 'DarkOrange';
+        } else {
+            $bgclr = 'seagreen';
+        }
+    }
+
+    $msg = 'You are now out of area';
+    $icon = 'shield-fill-check';
 } else {
     $bgclr = 'crimson';
     $msg = 'You are now out of area';
@@ -112,22 +130,22 @@ if($distance == 0){
 
 
 <main>
-    <div class="page-top-box text-center"  style="height:100vh; background: <?php echo $bgclr;?>;">
+    <div class="page-top-box text-center" style="height:100vh; background: <?php echo $bgclr; ?>;">
 
-        <div class="center-screen" >
+        <div class="center-screen">
             <i class="bi bi-fingerprint " style="font-size:36px;"></i>
             <div class="menu-text text-small" style="margin-bottom:100px;">
                 GPS Based Attendance
             </div>
 
             <div class="">
-                <?php echo $in_time . '/' . $out_time . '/' . $distance . '<br><br>';?>
-                <?php echo $inout . '/' . $diff . '/' . $stst . '/ ' . $distance;?>
-<?php echo '.....' . $diff . '....';?>
+                <?php echo $in_time . '/' . $out_time . '/' . $distance . '<br><br>'; ?>
+                <?php echo $inout . '/' . $diff . '/' . $stst . '/ ' . $distance; ?>
+                <?php echo '.....' . $diff . '....'; ?>
             </div>
-            <div class="attnd-message"><?php echo $msg;?></div>
+            <div class="attnd-message"><?php echo $msg; ?></div>
             <div style="margin: 15px 0 50px">
-                            <i class="bi bi-<?php echo $icon;?>" style="font-size:72px;"></i>
+                <i class="bi bi-<?php echo $icon; ?>" style="font-size:72px;"></i>
             </div>
             <button class="btn btn-dark" style="border-radius:20px; width: 50%;">Back</button>
         </div>

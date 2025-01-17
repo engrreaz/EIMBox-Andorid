@@ -111,10 +111,11 @@ if ($result0xrty->num_rows > 0) {
     }
 }
 //echo $latlat . '/' . $lonlon;
-
+$gps = 0;
 if (isset($_GET["geolat"])) {
     $geolat = $_GET["geolat"];
     $geolon = $_GET["geolon"];
+    $gps = 1;
 
     if ($geolat == '')
         $geolat = 0;
