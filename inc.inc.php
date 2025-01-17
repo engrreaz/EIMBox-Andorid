@@ -116,6 +116,10 @@ if (isset($_GET["geolat"])) {
     $geolat = $_GET["geolat"];
     $geolon = $_GET["geolon"];
 
+    if ($geolat == '')
+        $geolat = 0;
+    if ($geolon == '')
+        $geolon = 0;
 
     $radius = 6378137;
     $lat1 = $latlat; //23.7273973;
