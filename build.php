@@ -66,15 +66,15 @@ include 'inc.php';
       </div>
     </div>
     <div class="menu-separator"></div>
-    
-    <div class="card menu-item-block" onclick="lnk3();">
-      <div class="card-body">
+
+    <div class="card menu-item-block " onclick="lnk3();" hidden>
+      <div class="card-body ">
         <table style="">
           <tr>
             <td class="menu-item-icon"><i class="bi bi-currency-exchange"></i></td>
             <td>
               <h4> My Transactions </h4>
-              <div class="menu-item-sub-text"> All of my transaction with accoutants that I collected </div>
+              <div class="menu-item-sub-text "> All of my transaction with accoutants that I collected </div>
             </td>
           </tr>
         </table>
@@ -82,7 +82,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="lnk3();" hidden>
       <div class="card-body">
         <table style="">
           <tr>
@@ -97,7 +97,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="lnk3();" hidden>
       <div class="card-body">
         <table style="">
           <tr>
@@ -112,7 +112,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="lnk3();" hidden>
       <div class="card-body">
         <table style="">
           <tr>
@@ -165,7 +165,7 @@ include 'inc.php';
     *******************************************************
     *******************************************************
     ******************************************************* -->
-    
+
 
 
   </div>

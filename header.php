@@ -243,8 +243,8 @@
         }
 
         .disable {
-            color: var(--dark) !important;
-            background: var(--dark) !important;
+            color: var(--lighter) !important;
+            background: var(--light) !important;
         }
 
         .menu-item-block h4 {
