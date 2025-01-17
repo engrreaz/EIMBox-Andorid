@@ -16,7 +16,7 @@ $reqout = $out_time;
 
 
 // $distance = 10;
-echo $dista_differ;
+// echo $dista_differ;
 
 $sql0 = "SELECT * FROM teacherattnd where user='$usr' and adate='$td' and sccode='$sccode'";
 $result0ghq = $conn->query($sql0);
