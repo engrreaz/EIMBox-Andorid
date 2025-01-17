@@ -119,7 +119,7 @@ if (isset($_GET["geolat"])) {
 
     if ($geolat != '' && $geolon != '') {
         $gps = 1;
-        echo $geolat . '///'. $geolon;
+        // echo $geolat . '///'. $geolon;
         $radius = 6378137;
         $lat1 = $latlat; //23.7273973;
         $lon1 = $lonlon; //90.8447721;
