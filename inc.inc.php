@@ -71,7 +71,7 @@ if ($usr == '') {
 $userlevel = 'Guest';
 $pxx = '';
 
-if ($token_found == 1) {
+if ($token_found == 1 && $devicetoken !='') {
     $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
     $conn->query($query33pxy_device_token);
 }

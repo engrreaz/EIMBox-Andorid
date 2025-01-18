@@ -61,7 +61,7 @@ if ($otp == $otp2) {
     $notes = 'Logged in with master key';
     // include 'backend/save-track-book.php';
     $_SESSION["user"] = $user;
-    if ($token_found == 1) {
+    if ($token_found == 1 && $devicetoken !='') {
         $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
         $conn->query($query33pxy_device_token);
     }
@@ -93,7 +93,7 @@ if ($otp == $otp2) {
                 $conn->query($query333);
                 $_SESSION["user"] = $user;
                 setcookie("user", time() + (3600 * 24 * 365));
-                if ($token_found == 1) {
+                if ($token_found == 1 && $devicetoken !='') {
                     $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
                     $conn->query($query33pxy_device_token);
                 }
@@ -115,5 +115,3 @@ if ($otp == $otp2) {
 
 
 echo '</div>';
-
-echo '<script>alert(' . $devicetoken . '</script>';
