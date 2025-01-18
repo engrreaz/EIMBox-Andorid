@@ -83,6 +83,7 @@ if ($result0wwrtd->num_rows > 0) {
     }
 }
 
+echo $devicetoken;
 ?>
 
 <main>

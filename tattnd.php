@@ -113,8 +113,6 @@ if ($distance == 0) {
             $bgclr = 'seagreen';
             $msg = '<b>Congratulation!</b><br>You arrived at right time ';
         }
-
-
     }
 
     

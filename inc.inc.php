@@ -42,6 +42,7 @@ if (isset($_GET["email"])) {
 
 if (isset($_GET["token"])) {
     $token = $_GET["token"];
+    $_SESSION["devicetoken"] = $token;
 }
 if (isset($_GET["photo"])) {
     $pth = $_GET["photo"];
