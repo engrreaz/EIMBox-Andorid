@@ -3,6 +3,7 @@
 // Server key from Firebase Console
 define( 'API_ACCESS_KEY', 'AAAAiSanis8:APA91bGHIRxAjn8YBaf562fukaYy9N9_8LiNIm5XcTZnHEPqIK7Nr38PQhMJrWTpt9g0VI6U9DMvRT58K-D8AwHwwBvG3YqK8hKbxTMNu9qjaAm6KGj09FGyYT3RVUwExfs4IWXSfucp' ); // Replace YOUR FIREBASE CLOUD MESSAGING API KEY with your Firebase Cloud Messaging server Key
 
+
 // if($_SERVER["REQUEST_METHOD"] == "POST")
 {
 
@@ -11,7 +12,7 @@ define( 'API_ACCESS_KEY', 'AAAAiSanis8:APA91bGHIRxAjn8YBaf562fukaYy9N9_8LiNIm5Xc
 // $title= $_POST["title"];
 // $message= $_POST["message"];
 // $postlink= $_POST["postlink"];
-$token= 'drj6GzRaSISFqHbqXdCnc0:APA91bEFFVeDaH86Qikvso6eDkLhOB9XU2mfar9ACvUAOtyfvGJca5GmjKXeWRsFinEET18s99L63mgeBGaSYU4qRwEN6_ziVml2WB4CGA2-WM9tayycOg8';
+$token= 'dyNNzaM0TpWsUtgK6j9MEH:APA91bEkjhXZ_iaUwJ0hdbrSFMcj1xF_cW0ZYB3ty8zajZ_gtUTNuIWaxM3lXwR1J2f-TD8uYmmoW7bdNuVgQVwPgbGNPbuKw4tISpxWaX5SAGeASXRjFcc';
 $title= 'Hello Test';
 $message= "Hello message";
 $postlink= "index.php";
@@ -57,5 +58,4 @@ $result = curl_exec($ch);
 curl_close ($ch);
 
 }
-
-?>
+var_dump($result);
