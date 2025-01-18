@@ -1,6 +1,7 @@
 <?php
 include 'inc.php';
 
+echo $token_found;
 //echo $geolat . ', ' . $geolon;
 
 //$urii = 'http://maps.google.com/maps?q=' . $geolat . ', ' . $geolon;
@@ -57,6 +58,7 @@ if ($result0rt->num_rows > 0) {
         $n += $row0["koy"];
     }
 }
+
 //if($n >0){$perc = 25; }
 
 
