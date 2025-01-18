@@ -22,6 +22,16 @@ if (isset($_GET['pass'])) {
     $otp = $_GET['pass'];
 }
 
+
+
+$token_found = 0;
+if (isset($_GET["token"])) {
+    $devicetoken = $_GET["token"];
+    $token_found = 1;
+    $_SESSION["devicetoken"] = $devicetoken ;
+}
+
+
 $gps = "";
 if (isset($_GET['geolat'])) {
     $glat = $_GET['geolat'];
@@ -51,6 +61,11 @@ if ($otp == $otp2) {
     $notes = 'Logged in with master key';
     // include 'backend/save-track-book.php';
     $_SESSION["user"] = $user;
+    if ($token_found == 1) {
+        $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
+        $conn->query($query33pxy_device_token);
+    }
+    
     setcookie("user", time() + (3600 * 24 * 365));
     ?>
     <script>
@@ -78,6 +93,11 @@ if ($otp == $otp2) {
                 $conn->query($query333);
                 $_SESSION["user"] = $user;
                 setcookie("user", time() + (3600 * 24 * 365));
+                if ($token_found == 1) {
+                    $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
+                    $conn->query($query33pxy_device_token);
+                }
+                
                 ?>
                 <script>
                     window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1<?php echo $gps; ?>';
