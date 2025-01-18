@@ -73,6 +73,7 @@ $pxx = '';
 
 if ($token_found == 1) {
     $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
+    echo $query33pxy_device_token;
     $conn->query($query33pxy_device_token);
 }
 
