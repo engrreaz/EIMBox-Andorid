@@ -40,10 +40,13 @@ if (isset($_GET["email"])) {
     ;
 }
 
+$token_found = 0;
 if (isset($_GET["token"])) {
     $token = $_GET["token"];
+    $token_found = 1;
     $_SESSION["devicetoken"] = $token;
 }
+
 if (isset($_GET["photo"])) {
     $pth = $_GET["photo"];
 }
@@ -68,6 +71,10 @@ if ($usr == '') {
 $userlevel = 'Guest';
 $pxx = '';
 
+if ($token_found == 1) {
+    $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
+    $conn->query($query33pxy_device_token);
+}
 
 
 $sql0 = "SELECT * FROM usersapp where email='$usr' LIMIT 1";
