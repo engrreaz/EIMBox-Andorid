@@ -28,7 +28,7 @@ $token_found = 0;
 if (isset($_GET["token"])) {
     $devicetoken = $_GET["token"];
     $token_found = 1;
-    $_SESSION["devicetoken"] = $devicetoken ;
+    $_SESSION["devicetoken"] = $devicetoken;
 }
 
 
@@ -65,7 +65,7 @@ if ($otp == $otp2) {
         $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
         $conn->query($query33pxy_device_token);
     }
-    
+
     setcookie("user", time() + (3600 * 24 * 365));
     ?>
     <script>
@@ -97,7 +97,7 @@ if ($otp == $otp2) {
                     $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
                     $conn->query($query33pxy_device_token);
                 }
-                
+
                 ?>
                 <script>
                     window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1<?php echo $gps; ?>';
@@ -115,3 +115,5 @@ if ($otp == $otp2) {
 
 
 echo '</div>';
+
+echo '<script>alert(' . $devicetoken . '</script>';
