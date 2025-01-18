@@ -1,8 +1,8 @@
 <?php
 include 'inc.php';
 
-echo $token_found;
-echo '<br><br>' . $_SERVER['REQUEST_URI'];
+// echo $token_found;
+// echo '<br><br>' . $_SERVER['REQUEST_URI'];
 //echo $geolat . ', ' . $geolon;
 
 //$urii = 'http://maps.google.com/maps?q=' . $geolat . ', ' . $geolon;

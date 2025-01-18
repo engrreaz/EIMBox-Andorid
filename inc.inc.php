@@ -42,9 +42,9 @@ if (isset($_GET["email"])) {
 
 $token_found = 0;
 if (isset($_GET["token"])) {
-    $token = $_GET["token"];
+    $devicetoken = $_GET["token"];
     $token_found = 1;
-    $_SESSION["devicetoken"] = $token . 'reaz';
+    $_SESSION["devicetoken"] = $devicetoken ;
 }
 
 if (isset($_GET["photo"])) {
