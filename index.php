@@ -84,6 +84,8 @@ if ($result0wwrtd->num_rows > 0) {
 }
 
 echo $devicetoken;
+
+echo $_SESSION["devicetoken"];
 ?>
 
 <main>
