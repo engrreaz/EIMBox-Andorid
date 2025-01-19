@@ -119,6 +119,7 @@ if ($result0wwrtd->num_rows > 0) {
     include 'front-page-block/notific-bar.php';
     ?>
 
+<a href="firebase.php" class="btn">Firebase</a>
     <div class="clearfix"></div>
 
 
