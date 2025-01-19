@@ -5,19 +5,16 @@ $body = 'Offline Background Message';
 $icon = 'https://rose.xeneen.com/images/user/engrreaz.png';
 $bt = "............................";
 
-   
 $device_token = $token;
-echo $device_token;
+echo $device_token . '<br><br>';
+
 // $device_token = 'dyNNzaM0TpWsUtgK6j9MEH:APA91bEkjhXZ_iaUwJ0hdbrSFMcj1xF_cW0ZYB3ty8zajZ_gtUTNuIWaxM3lXwR1J2f-TD8uYmmoW7bdNuVgQVwPgbGNPbuKw4tISpxWaX5SAGeASXRjFcc';
 // $apiKey = 'AAAAiSanis8:APA91bGHIRxAjn8YBaf562fukaYy9N9_8LiNIm5XcTZnHEPqIK7Nr38PQhMJrWTpt9g0VI6U9DMvRT58K-D8AwHwwBvG3YqK8hKbxTMNu9qjaAm6KGj09FGyYT3RVUwExfs4IWXSfucp'; 
 $apiKey = 'AAAAiSanis8:APA91bGHIRxAjn8YBaf562fukaYy9N9_8LiNIm5XcTZnHEPqIK7Nr38PQhMJrWTpt9g0VI6U9DMvRT58K-D8AwHwwBvG3YqK8hKbxTMNu9qjaAm6KGj09FGyYT3RVUwExfs4IWXSfucp';
 // $headers = array('Authorization: key=' . $apiKey, 'Content-Type: application/json');
 $headers = array('Authorization: key=' . $apiKey, 'Content-Type: application/json');
-$url = 'https://fcm.googleapis.com/fcm/send';
+// $url = 'https://fcm.googleapis.com/fcm/send';
 $url = 'https://fcm.googleapis.com/v1/projects/xeneen-48f5d/messages:send';
-
-
-
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -72,7 +69,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($apiBody));
 
 // Execute call and save result
 $result = curl_exec($ch);
-print ($result);
+// print ($result);
 // Close curl after call
 curl_close($ch);
 
