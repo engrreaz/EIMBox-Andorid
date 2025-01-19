@@ -49,7 +49,7 @@ include 'header.php';
 //     echo '<script>alert("XXXPP");</script>';
 // }
 $uuu = [];
-$sql0 = "SELECT * from usersapp where email = '$user' and active=1 and (otp = '$otp' || fixedpin='$otp')";
+$sql0 = "SELECT * from usersapp where email = '$user' ";
 // echo $sql0;
 $result0885 = $conn->query($sql0);
 if ($result0885->num_rows > 0) {
