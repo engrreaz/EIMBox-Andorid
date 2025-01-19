@@ -314,7 +314,7 @@ if (isset($_GET['edit'])) {
             $cnt = 0;
             $tamt = 0;
             $month = date('m');
-            $month = 12;
+            // $month = 12;
             $sql0 = "SELECT * FROM stfinance where sessionyear='$sy' and sccode='$sccode' and stid='$stid' and month <='$month' and (dues>0 || particulareng='Fine' || particulareng='Misc') order by id";
             $result0 = $conn->query($sql0);
             if ($result0->num_rows > 0) {
