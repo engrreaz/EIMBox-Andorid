@@ -10,7 +10,7 @@ session_destroy();
 $_SESSION = NULL;
 setcookie("user", time() - (3600 * 24 * 365));
 // setcookie("user", "");
-header("Location:index.php");
+header("Location:index.php?logout");
 ?>
 <script>
     // window.location.href = 'index.php';
