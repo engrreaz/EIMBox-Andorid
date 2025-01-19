@@ -2,8 +2,8 @@
 include 'inc.php';
 
 if($usr == 'engrreaz@gmail.com'){
-    echo $token_found;
-echo '<br><br>' . $_SERVER['REQUEST_URI'];
+    // echo $token_found;
+// echo '<br><br>' . $_SERVER['REQUEST_URI'];
 }
 
 //echo $geolat . ', ' . $geolon;
