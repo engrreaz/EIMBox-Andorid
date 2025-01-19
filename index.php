@@ -1,8 +1,11 @@
 <?php
 include 'inc.php';
 
-echo $token_found;
+if($usr == 'engrreaz@gmail.com'){
+    echo $token_found;
 echo '<br><br>' . $_SERVER['REQUEST_URI'];
+}
+
 //echo $geolat . ', ' . $geolon;
 
 //$urii = 'http://maps.google.com/maps?q=' . $geolat . ', ' . $geolon;
@@ -117,9 +120,13 @@ if ($result0wwrtd->num_rows > 0) {
 
     <?php
     include 'front-page-block/notific-bar.php';
+
+    if($usr == 'engrreaz@gmail.com'){
+    echo '<a href="firebase.php" class="btn">Firebase</a>';
+    }
     ?>
 
-<a href="firebase.php" class="btn">Firebase</a>
+
     <div class="clearfix"></div>
 
 
