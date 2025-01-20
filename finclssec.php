@@ -5,36 +5,10 @@ include 'inc.php';
 <main>
     <div class="containerx-fluid">
         <div class="card text-left" style="background:var(--darker); color:var(--lighter); border-radius:0;">
-            <div class="card-body">
-                <table width="100%" style="color:white;">
-                    <tr>
-                        <td colspan="2">
-                            <div
-                                style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
-                                Class & Section wise Dues List
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div style="font-size:20px; font-weight:700; line-height:15px;">12</div>
-                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">No. of
-                                Class & Section</div>
-                            <br>
-                            <div style="font-size:16px; font-weight:700; line-height:15px;">
-                                <?php echo strtoupper($sectionname); ?>
-                            </div>
-                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of
-                                Section</div>
-                        </td>
-                        <td style="text-align:right; display:none;">
-                            <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt">697</div>
-                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of
-                                Students</div>
-                        </td>
-                    </tr>
-
-                </table>
+            <div class="card-body page-top-box">
+                <div class="page-icon"><i class="bi bi-coin"></i></div>
+                <div class="page-title">Class/Section for Dues List</div>
+                
             </div>
         </div>
         <div style="height:8px;"></div>
