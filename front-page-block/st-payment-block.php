@@ -3,7 +3,7 @@
 $ind = array_search('Collection', array_column($ins_all_settings, 'settings_value'));
 // if ($ind != '' || $ind != null) 
 {
-    $sett_val = $ins_all_settings[$ind]['settings_value'];
+    $sett_val = $idn . '///' .$ins_all_settings[$ind]['settings_value'];
     echo $sett_val . $userlevel;
     // if (str_contains($sett_val, $userlevel)) 
     {
