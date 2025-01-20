@@ -6,7 +6,7 @@ echo $ind. '<br>................<br>';
 {
     $sett_val = $ins_all_settings[$ind]['settings_value'];
     // echo $ind . '///' .$sett_val . $userlevel;
-    if (str_contains($sett_val, $userlevel)) 
+    if (str_contains($sett_val, $userlevel)===true) 
     {
 
 
