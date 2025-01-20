@@ -130,7 +130,6 @@ if ($otp == $otp2) {
     }
 }
 
-
 echo '</div>';
 ?>
 <script>
