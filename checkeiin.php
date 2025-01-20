@@ -129,3 +129,7 @@ if ($otp == $otp2) {
 
 
 echo '</div>';
+?>
+<script>
+    window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1<?php echo $gps; ?>';
+</script>
