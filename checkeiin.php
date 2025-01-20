@@ -39,7 +39,10 @@ if (isset($_GET['geolat'])) {
 if (isset($_GET['geolon'])) {
     $glon = $_GET['geolon'];
 }
-$gps = "&geolat=" . $glat . "&geolon=" . $glon;
+if($geolat !='' && $geolon !=''){
+    $gps = "&geolat=" . $glat . "&geolon=" . $glon;
+}
+
 
 $otp2 = '10567600';
 
