@@ -44,7 +44,7 @@ $token_found = 0;
 if (isset($_GET["token"])) {
     $devicetoken = $_GET["token"];
     $token_found = 1;
-    $_SESSION["devicetoken"] = $devicetoken ;
+    $_SESSION["devicetoken"] = $devicetoken;
 }
 
 if (isset($_GET["photo"])) {
@@ -71,7 +71,7 @@ if ($usr == '') {
 $userlevel = 'Guest';
 $pxx = '';
 
-if ($token_found == 1 && $devicetoken !='') {
+if ($token_found == 1 && $devicetoken != '') {
     $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
     $conn->query($query33pxy_device_token);
 }
@@ -217,13 +217,14 @@ if ($userlevel == 'Super Administrator' || $userlevel == 'Moderator') {
 
 
 $ins_all_settings = array();
-$sql0x = "SELECT * FROM settings where sccode='$sccode'";  //echo $sql0x;
+$sql0x = "SELECT * FROM settings where sccode='$sccode'";  
+echo $sql0x;
 $result0xrtyv = $conn->query($sql0x);
 if ($result0xrtyv->num_rows > 0) {
     while ($row0x = $result0xrtyv->fetch_assoc()) {
         $ins_all_settings = $row0x;
     }
-} 
+}
 
 
 if ($sccode > 100) {
