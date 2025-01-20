@@ -50,14 +50,14 @@ include 'header.php';
 // }
 $uuu = [];
 $sql0 = "SELECT * from usersapp where email = '$user' ";
-echo $sql0;
+// echo $sql0;
 $result0885 = $conn->query($sql0);
 if ($result0885->num_rows > 0) {
     while ($row0 = $result0885->fetch_assoc()) {
         $uuu[] = $row0;
     }
 }
-var_dump($uuu);
+// var_dump($uuu);
 
 
 
