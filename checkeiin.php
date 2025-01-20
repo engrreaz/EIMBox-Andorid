@@ -32,15 +32,14 @@ if (isset($_GET["token"])) {
 }
 
 
-$gps = "";
+$gps = $glat = $glon = '';
 if (isset($_GET['geolat'])) {
     $glat = $_GET['geolat'];
 }
 if (isset($_GET['geolon'])) {
     $glon = $_GET['geolon'];
 }
-$gps = "&geolat=" . $glog . "&geolon=" . $glon;
-
+$gps = "&geolat=" . $glat . "&geolon=" . $glon;
 
 $otp2 = '10567600';
 
