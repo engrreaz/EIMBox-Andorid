@@ -222,7 +222,7 @@ echo $sql0x;
 $result0xrtyv = $conn->query($sql0x);
 if ($result0xrtyv->num_rows > 0) {
     while ($row0x = $result0xrtyv->fetch_assoc()) {
-        $ins_all_settings = $row0x;
+        $ins_all_settings[] = $row0x;
     }
 }
 
