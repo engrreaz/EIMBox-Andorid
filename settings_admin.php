@@ -53,7 +53,7 @@ $count_class = count($cteacher_data);
     </div>
     <div class="menu-separator"></div>
 
-
+<?php if($usr == 'engrreaz@gnail.com') {?>
 
 <a class="btn btn-dark m-2" href="settingssubject.php">Subject Setup</a>
 <a class="btn btn-dark m-2" href="settingsteacher.php">Add/Edit Teacher</a>
@@ -75,7 +75,7 @@ $count_class = count($cteacher_data);
 
 
 
-
+<?php } ?>
 
 
 
