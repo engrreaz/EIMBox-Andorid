@@ -2,7 +2,8 @@
 var_dump($ins_all_settings);
 $ind = array_search('Collection', array_column($ins_all_settings, 'setting_title'));
 echo $ind. '<br>................<br>';
-// if ($ind != '' || $ind != null) {
+// if ($ind != '' || $ind != null) 
+{
     $sett_val = $ins_all_settings[$ind]['settings_value'];
     // echo $ind . '///' .$sett_val . $userlevel;
     // if (str_contains($sett_val, $userlevel)) 
