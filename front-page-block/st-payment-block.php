@@ -1,5 +1,5 @@
 <?php
-
+var_dump($ins_all_settings);
 $ind = array_search('Collection', array_column($ins_all_settings, 'settings_value'));
 // if ($ind != '' || $ind != null) 
 {
