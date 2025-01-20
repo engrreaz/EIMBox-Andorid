@@ -8,12 +8,12 @@ include 'inc.php';
             <div class="card-body page-top-box">
                 <div class="page-icon"><i class="bi bi-coin"></i></div>
                 <div class="page-title">Class/Section for Dues List</div>
-                
+
             </div>
         </div>
         <div style="height:8px;"></div>
 
-  
+
         <?php
         $sql0 = "SELECT * FROM areas where sessionyear = '$sy' and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten'), idno, subarea";
 
