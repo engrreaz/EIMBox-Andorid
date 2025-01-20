@@ -13,7 +13,7 @@ include 'inc.php';
         </div>
         <div style="height:8px;"></div>
 
-
+  
         <?php
         $sql0 = "SELECT * FROM areas where sessionyear = '$sy' and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten'), idno, subarea";
 
