@@ -1,25 +1,25 @@
 <?php
 
 
-$ins_all_settings = array();
-$sql0x = "SELECT * FROM settings where sccode='$sccode'";  
-// echo $sql0x;
-$result0xrtyv = $conn->query($sql0x);
-if ($result0xrtyv->num_rows > 0) {
-    while ($row0x = $result0xrtyv->fetch_assoc()) {
-        $ins_all_settings[] = $row0x;
-    }
-}
+// $ins_all_settings = array();
+// $sql0x = "SELECT * FROM settings where sccode='$sccode'";  
+// // echo $sql0x;
+// $result0xrtyv = $conn->query($sql0x);
+// if ($result0xrtyv->num_rows > 0) {
+//     while ($row0x = $result0xrtyv->fetch_assoc()) {
+//         $ins_all_settings[] = $row0x;
+//     }
+// }
 
 // var_dump($ins_all_settings);
-$ind = array_search('Collection', array_column($ins_all_settings, 'setting_title'));
+// $ind = array_search('Collection', array_column($ins_all_settings, 'setting_title'));
 // echo $ind. '<br>................<br>';
 // if ($ind != '' || $ind != null) 
-{
-    $sett_val = $ins_all_settings[$ind]['settings_value'];
+// {
+    // $sett_val = $ins_all_settings[$ind]['settings_value'];
     // echo $ind . '///' .$sett_val . $userlevel;
     // if (strpos($sett_val, $userlevel) != '') 
-    {
+    // {
 
 
 
@@ -100,5 +100,5 @@ $ind = array_search('Collection', array_column($ins_all_settings, 'setting_title
         </script>
 
         <?php
-    }
-}
+    // }
+// }
