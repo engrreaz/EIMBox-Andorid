@@ -9,7 +9,7 @@ $sccode = $geolat = $geolon = 0;
 $fullname = '';
 $scname = '';
 //********************************************************************
-echo  $_SESSION["user"];
+// echo  $_SESSION["user"];
 // echo $htp;
 $sql0x = "SELECT * FROM browser where browsername='$htp' LIMIT 1";  //echo $sql0x;
 $result0xrtyv = $conn->query($sql0x);
