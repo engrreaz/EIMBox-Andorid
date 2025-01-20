@@ -11,6 +11,7 @@ $scname = '';
 //********************************************************************
 // echo  $_SESSION["user"];
 // echo $htp;
+$css = 'default';
 $sql0x = "SELECT * FROM browser where browsername='$htp' LIMIT 1";  //echo $sql0x;
 $result0xrtyv = $conn->query($sql0x);
 if ($result0xrtyv->num_rows > 0) {
@@ -29,8 +30,6 @@ $sccode = $eiin;
 
 
 //************************************************************************************************************************************************************
-
-
 
 if (isset($_GET["email"])) {
     $usr = $_GET["email"];
