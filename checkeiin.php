@@ -3,7 +3,7 @@ session_start();
 date_default_timezone_set('Asia/Dhaka');
 $dt = date('Y-m-d H:i:s');
 $sy = date('Y');
-include('../db.php');
+include('db.php');
 
 $user = $otp = '';
 // POST DATA
