@@ -27,7 +27,7 @@ if ($result0xvalstt->num_rows > 0) {
         $finsetupind[] = $row0x;
     }
 }
-// var_dump($finsetupind);
+var_dump($finsetupind);
 
 
 
