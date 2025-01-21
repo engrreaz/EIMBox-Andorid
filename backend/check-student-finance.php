@@ -12,7 +12,7 @@ $secg = $_POST['sec'];
 
 
 $stime = date("Y-m-d H:i:s");
-echo $stime . '<br> ';
+// echo $stime . '<br> ';
 $check_count = 0;
 $sl = 0;
 
@@ -161,7 +161,7 @@ for ($lp = 0; $lp < 1; $lp++) {
         $parte = $financesetup[$i]['particulareng'];
         $partb = $financesetup[$i]['particularben'];
 
-        echo $partid . '/' . $itemcode . '/' . $parte . '<br>';
+        // echo $partid . '/' . $itemcode . '/' . $parte . '<br>';
 
         $valcnt = count($financesetupval);
         $amt = 0;
@@ -173,7 +173,7 @@ for ($lp = 0; $lp < 1; $lp++) {
             $ss = $financesetupval[$k]['sectionname'];
             $aa = $financesetupval[$k]['amount'];
 
-            echo '<br>KKK : ' . $uu . ' : ' . $itemcode . ' - ' . $ii . '/' . $cls . ' - ' . $cc . '/' . $sec . ' - ' . $ss . ' [' . $aa . ']<br>------------<br>';
+            // echo '<br>KKK : ' . $uu . ' : ' . $itemcode . ' - ' . $ii . '/' . $cls . ' - ' . $cc . '/' . $sec . ' - ' . $ss . ' [' . $aa . ']<br>------------<br>';
 
             if ($typeg == 'stid' && $ii == $itemcode ) {
                 $dx = $aa;

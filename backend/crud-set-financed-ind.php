@@ -34,7 +34,7 @@ if ($indid == 0) {
     $conn->query($query331);
 }
 
-echo $query331;
+// echo $query331;
 
 if ($sec != '') {
     $btn = 'info';

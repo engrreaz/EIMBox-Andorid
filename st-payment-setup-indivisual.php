@@ -475,16 +475,15 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
     function upddata(slot, sy, item, cls, sec, indid) {
 
 
-        ind = item + cls + sec;
+       var ind = item + cls + sec;
         // alert(ind);
         var amt = document.getElementById('amt' + ind).value;
         var id = document.getElementById('id' + ind).value;
         var stid = <?php echo $stid; ?>;
         // alert(indid);
         var infor = "id=" + id + "&slot=" + slot + "&sy=" + sy + "&item=" + item + "&cls=" + cls + "&sec=" + sec + "&amt=" + amt + "&stid=" + stid + "&indid=" + indid;
-        alert(infor);
+        // alert(infor);
         $("#status" + ind).html("");
-
         $.ajax({
             url: "backend/crud-set-financed-ind.php", type: "POST", data: infor, cache: false,
             beforeSend: function () {
@@ -500,6 +499,7 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
 
             }
         });
+        
     }
 </script>
 
@@ -761,7 +761,7 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
     function checknow(type, part, icode, stid, cls, sec) {
 
         var infor = "type=" + type + "&part=" + part + "&icode=" + icode + "&stid=" + stid + "&cls=" + cls + "&sec=" + sec;
-        alert(infor);
+        // alert(infor);
         $("#run-text").html(""); //$("#full-text").html("");
         $.ajax({
             type: "POST",
