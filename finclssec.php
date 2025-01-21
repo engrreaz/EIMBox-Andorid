@@ -90,7 +90,6 @@ include 'inc.php';
 
 
 <script>
-    // document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
 
     function go(id) {
         window.location.href = "finstudents.php?" + id;

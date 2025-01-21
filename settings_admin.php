@@ -52,6 +52,21 @@ $count_class = count($cteacher_data);
       </div>
     </div>
     <div class="menu-separator"></div>
+    
+    <div class="card menu-item-block" onclick="settings_admin_st_id_payment_indivisula();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-coin"></i></td>
+            <td>
+              <h4> Payment Setup (Indivisual) </h4>
+              <div class="menu-item-sub-text"> Change Payment Setup for indivisual Student </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
 
 <?php if($usr == 'engrreaz@gnail.com') {?>
 

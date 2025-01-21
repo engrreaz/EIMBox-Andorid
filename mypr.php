@@ -135,6 +135,7 @@ $collection = $accountant = 0;
         </table>
       </div>
     </div>
+    
     <div class="card page-info-box" >
       <div class="card-body">
         <table width="100%" style="color:white;">

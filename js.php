@@ -215,6 +215,7 @@
     // SETTINGS --  ADMIN MENU
     function settings_admin_ins_info() { window.location.href = "settings-institute-info.php"; }
     function settings_admin_st_id_generate() { window.location.href = "settings-student.php"; }
+    function settings_admin_st_id_payment_indivisula() { window.location.href = "st-payment-setup-indivisual.php"; }
 
 
 
