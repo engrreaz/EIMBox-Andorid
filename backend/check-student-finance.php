@@ -163,10 +163,9 @@ for ($lp = 0; $lp < 1; $lp++) {
 
         echo $partid . '/' . $itemcode . '/' . $parte . '<br>';
 
-
         $valcnt = count($financesetupval);
         $amt = 0;
-        $ax = $bx = $cx = 0;
+        $ax = $bx = $cx = $dx = 0;
         for ($k = 0; $k < $valcnt; $k++) {
             $uu = $financesetupval[$k]['id'];
             $ii = $financesetupval[$k]['itemcode'];
@@ -176,7 +175,10 @@ for ($lp = 0; $lp < 1; $lp++) {
 
             echo '<br>KKK : ' . $uu . ' : ' . $itemcode . ' - ' . $ii . '/' . $cls . ' - ' . $cc . '/' . $sec . ' - ' . $ss . ' [' . $aa . ']<br>------------<br>';
 
-            if ($ii == $itemcode && ucwords($ss) == ucwords($sec) && ucwords($cc) == ucwords($cls)) {
+            if ($typeg == 'stid' && $ii == $itemcode ) {
+                $dx = $aa;
+                break;
+            } else  if ($ii == $itemcode && ucwords($ss) == ucwords($sec) && ucwords($cc) == ucwords($cls)) {
                 $ax = $aa;
                 break;
             } else if ($ii == $itemcode && ucwords($ss) == '' && ucwords($cc) == ucwords($cls)) {
@@ -195,6 +197,8 @@ for ($lp = 0; $lp < 1; $lp++) {
             $amt = $bx;
         } else if ($cx > 0) {
             $amt = $cx;
+        } else if ($dx > 0) {
+            $amt = $dx;
         }
 
         // echo '<br>::: ' . $amt . ' TAKA<br>--------------<br>';
