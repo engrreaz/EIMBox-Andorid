@@ -27,7 +27,7 @@ if ($result0xvalstt->num_rows > 0) {
         $finsetupind[] = $row0x;
     }
 }
-var_dump($finsetupind);
+
 
 
 
@@ -128,6 +128,7 @@ for ($lp = 0; $lp < 1; $lp++) {
     $rate = strtolower($sessiondata[0]['rate']);
     $syear = strtolower($sessiondata[0]['sessionyear']);
 
+    echo $stid;
 
     if ($partg == 'icode') {
         $query3pd = "UPDATE stfinance set validate = '0' where stid='$stid' and sccode='$sccode' and sessionyear LIKE '%$syear%' and itemcode='$icodeg' ;";
@@ -151,6 +152,7 @@ for ($lp = 0; $lp < 1; $lp++) {
 
 
     $setupcnt = count($financesetup);
+    echo '///' . $setupcnt;
     for ($i = 0; $i < $setupcnt; $i++) {
 
         $partid = $financesetup[$i]['id'];
