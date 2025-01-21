@@ -220,7 +220,7 @@ $collection = $accountant = 0;
         ?>
         <div class="card text-center mb-1" style="background:var(<?php echo $bgc; ?>); color:var(--darker);border-radius:0;"
           id="block<?php echo $prno; ?>" <?php echo $dsbl; ?>>
-          <div class="card-body" style="border-radius:0;" onclick="go(<?php echo $stid; ?>)">
+          <div class="card-body" style="border-radius:0;" onclick="gox(<?php echo $stid; ?>)">
             <table width="100%">
               <tr>
                 <td style="width:40px; text-align:center;">
