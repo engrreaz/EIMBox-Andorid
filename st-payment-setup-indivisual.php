@@ -1,6 +1,6 @@
 <?php
 include 'inc.php';
-
+include 'datam/datam-stprofile.php';
 // $month = $_GET['m'] ?? 0;
 // $year = $_GET['y'] ?? 0;
 
@@ -43,8 +43,9 @@ if ($result0xxdr->num_rows > 0) {
     $stid = '';
 }
 
-
-
+$stname_ind = array_search($stid, array_column($datam_st_profile, 'stid'));
+$stname_eng = $datam_st_profile[$stname_ind]['stnameeng'];
+$stname_ben = $datam_st_profile[$stname_ind]['stnameben'];
 
 $status = 0;
 
@@ -163,144 +164,136 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
 
                     <tr>
                         <td>
-                            <div style="font-size:36px; font-weight:700; line-height:15px;" id="cntamt"></div>
-                            <div
-                                style="color:var(--light); font-size:12px; font-weight:400; font-style:italic; line-height:40px;">
-                                Cash-in-hand</div>
+                            <div class="stname-eng" id="cntamt"> <?php echo $stname_eng; ?> </div>
+                            <div class="stname-ben" id="cntamt"> <?php echo $stname_ben; ?> </div>
+                            <div class="st-id" id="cntamt">ID #  <?php echo $stid; ?> </div>
+                            <div style="color:var(--light); font-size:12px; font-weight:400; line-height:30px;"> Student's Information </div>
                         </td>
+                        
                         <td style="text-align:right;">
-                            <div style="font-size:24px; font-weight:700; line-height:20px;" id="cnt"></div>
-                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of
-                                Receipt</div>
 
-                            <div style="font-size:11px; color:graylight; font-style:italic; ">Total Collections : <span
-                                    style="font-weight:700;  font-style:normal;" id="collection"></span></div>
-                            <div style="font-size:11px; color:graylight;  font-style:italic;">To Accountants : <span
-                                    style="font-weight:700; font-style:normal; " id="accountant"></span></div>
-
+                            <button class="btn btn-info"
+                                onclick="checknow('stid','', '', '<?php echo $stid; ?>','', '');">Update</button>
+                            <div id="run-text">....</div>
                         </td>
                     </tr>
 
                 </table>
 
-                <button class="btn btn-info"
-                    onclick="checknow('stid','', '', '<?php echo $stid; ?>','', '');">Update</button>
-                <div id="run-text">....</div>
-            </div>
-        </div>
-
-
-        <div class="card">
-            <div class="card-body">
-                <h6>Select Student to setup Fees and Payments</h6>
-
-                <div class="col-md-12">
-                    <div class="form-group row">
-                        <label class="col-form-label text-small">Session</label>
-
-                        <select class="form-control " id="year">
-                            <option value="0"></option>
-                            <?php
-                            for ($y = date('Y'); $y >= 2024; $y--) {
-                                $flt2 = '';
-                                if ($year == $y) {
-                                    $flt2 = 'selected';
-                                }
-                                echo '<option value="' . $y . '"' . $flt2 . '>' . $y . '</option>';
-                            }
-                            ?>
-                        </select>
-
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group row">
-                        <label class="col-form-label text-small">Class :</label>
-
-                        <select class="form-control" id="cls" onchange="go();">
-                            <option value="">---</option>
-                            <?php
-                            $sql0x = "SELECT areaname FROM areas where user='$rootuser' and sessionyear='$year' group by areaname order by idno;";
-                            $result0x = $conn->query($sql0x);
-                            if ($result0x->num_rows > 0) {
-                                while ($row0x = $result0x->fetch_assoc()) {
-                                    $cls = $row0x["areaname"];
-                                    if ($cls == $cls2) {
-                                        $selcls = 'selected';
-                                    } else {
-                                        $selcls = '';
-                                    }
-                                    echo '<option value="' . $cls . '" ' . $selcls . ' >' . $cls . '</option>';
-                                }
-                            }
-                            ?>
-
-                        </select>
-
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group row">
-                        <label class="col-form-label text-small">Section</label>
-
-                        <select class="form-control " id="sec" onchange="go();">
-                            <option value="">---</option>
-                            <?php
-                            $sql0x = "SELECT subarea FROM areas where user='$rootuser' and sessionyear='$year' and areaname='$cls2' group by subarea order by idno;";
-                            // echo $sql0x;
-                            $result0r = $conn->query($sql0x);
-                            if ($result0r->num_rows > 0) {
-                                while ($row0x = $result0r->fetch_assoc()) {
-                                    $sec = $row0x["subarea"];
-                                    if ($sec == $sec2) {
-                                        $selsec = 'selected';
-                                    } else {
-                                        $selsec = '';
-                                    }
-                                    echo '<option value="' . $sec . '" ' . $selsec . ' >' . $sec . '</option>';
-                                }
-                            }
-                            ?>
-                        </select>
-
-                    </div>
-                </div>
-
-
-
-                <div class="col-md-12">
-                    <div class="form-group row">
-
-                        <label class="col-form-label text-small">Roll No.</label>
-                        <input type="text" id="roll" class="form-control " value="<?php echo $roll2; ?>">
-
-                    </div>
-                </div>
-
-
-                <div class="col-md-12">
-                    <div class="form-group row">
-
-
-                        <button type="button" style="padding:4px 10px 6px; border-radius:5px;"
-                            class="btn  btn-info pt-2 pb-2" style=""
-                            onclick="go();"> Show Payment Items </button>
-
-                    </div>
-                </div>
-
-                <div class="col-md-12" hidden>
-                    <?php echo $stid; ?>
-                </div>
-
-
-
 
             </div>
         </div>
 
+        <?php if ($stid == '') { ?>
+            <div class="card">
+                <div class="card-body">
+                    <h6>Select Student to setup Fees and Payments</h6>
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            <label class="col-form-label text-small">Session</label>
+
+                            <select class="form-control " id="year">
+                                <option value="0"></option>
+                                <?php
+                                for ($y = date('Y'); $y >= 2024; $y--) {
+                                    $flt2 = '';
+                                    if ($year == $y) {
+                                        $flt2 = 'selected';
+                                    }
+                                    echo '<option value="' . $y . '"' . $flt2 . '>' . $y . '</option>';
+                                }
+                                ?>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            <label class="col-form-label text-small">Class :</label>
+
+                            <select class="form-control" id="cls" onchange="go();">
+                                <option value="">---</option>
+                                <?php
+                                $sql0x = "SELECT areaname FROM areas where user='$rootuser' and sessionyear='$year' group by areaname order by idno;";
+                                $result0x = $conn->query($sql0x);
+                                if ($result0x->num_rows > 0) {
+                                    while ($row0x = $result0x->fetch_assoc()) {
+                                        $cls = $row0x["areaname"];
+                                        if ($cls == $cls2) {
+                                            $selcls = 'selected';
+                                        } else {
+                                            $selcls = '';
+                                        }
+                                        echo '<option value="' . $cls . '" ' . $selcls . ' >' . $cls . '</option>';
+                                    }
+                                }
+                                ?>
+
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            <label class="col-form-label text-small">Section</label>
+
+                            <select class="form-control " id="sec" onchange="go();">
+                                <option value="">---</option>
+                                <?php
+                                $sql0x = "SELECT subarea FROM areas where user='$rootuser' and sessionyear='$year' and areaname='$cls2' group by subarea order by idno;";
+                                // echo $sql0x;
+                                $result0r = $conn->query($sql0x);
+                                if ($result0r->num_rows > 0) {
+                                    while ($row0x = $result0r->fetch_assoc()) {
+                                        $sec = $row0x["subarea"];
+                                        if ($sec == $sec2) {
+                                            $selsec = 'selected';
+                                        } else {
+                                            $selsec = '';
+                                        }
+                                        echo '<option value="' . $sec . '" ' . $selsec . ' >' . $sec . '</option>';
+                                    }
+                                }
+                                ?>
+                            </select>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-12">
+                        <div class="form-group row">
+
+                            <label class="col-form-label text-small">Roll No.</label>
+                            <input type="text" id="roll" class="form-control " value="<?php echo $roll2; ?>">
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="form-group row">
+
+
+                            <button type="button" style="padding:4px 10px 6px; border-radius:5px;"
+                                class="btn  btn-info pt-2 pb-2" style="" onclick="go();"> Show Payment Items </button>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" hidden>
+                        <?php echo $stid; ?>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        <?php } ?>
 
 
 
@@ -353,15 +346,14 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
                 }
                 ?>
 
-                <div class="card">
-                    <div class="card-header" id="item<?php echo $itemcode; ?>">
+                    <div class="card-body" id="item<?php echo $itemcode; ?>">
                         <div class="row">
                             <div class="col p-0 m-0 d-flex">
                                 <div class="pointer">
                                     <i id="chev<?php echo $itemcode; ?>" class="mdi mdi-chevron-right text-success mdi-24px"
                                         onclick="itemsx('<?php echo $itemcode; ?>');"></i>
                                 </div>
-                                <div class="ml-3 pointer " onclick="itemsx('<?php echo $itemcode; ?>');">
+                                <div class="ms-3 pointer " onclick="itemsx('<?php echo $itemcode; ?>');">
                                     <h6 class="p-0 m-0"><?php echo $finitem['particulareng']; ?></h6>
                                     <div class="text-small text-muted m-0 p-0">
                                         <?php echo $finitem['particularben']; ?> <span
@@ -375,7 +367,7 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
                             <div class="col p-0">
                                 <div class="form-group m-0 p-0 d-flex">
                                     <div id="status<?php echo $itemcode; ?>">
-                                        <button class="btn  pt-2  mr-3"><i class="bi bi-check"></i></button>
+                                        <button class="btn  pt-2  mr-3" style="color:gray;"><i class="bi bi-floppy-fill"></i></button>
 
                                     </div>
                                     <input type="text" id="id<?php echo $itemcode; ?>" value="<?php echo $id1; ?>" hidden />
@@ -403,10 +395,7 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
                             </div>
                         </div>
                     </div>
-
-                </div>
-
-
+                    <div style="height:1px; border-top:1px solid lightgray;"></div>
 
                 <?php
 
@@ -475,7 +464,7 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
     function upddata(slot, sy, item, cls, sec, indid) {
 
 
-       var ind = item + cls + sec;
+        var ind = item + cls + sec;
         // alert(ind);
         var amt = document.getElementById('amt' + ind).value;
         var id = document.getElementById('id' + ind).value;
@@ -499,7 +488,7 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
 
             }
         });
-        
+
     }
 </script>
 
@@ -773,7 +762,7 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
             },
             success: function (html) {
                 $("#run-text").html(html);
-                // history.back();
+                history.back();
             }
         });
     }
