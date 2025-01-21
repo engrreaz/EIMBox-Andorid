@@ -761,7 +761,7 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
     function checknow(type, part, icode, stid, cls, sec) {
 
         var infor = "type=" + type + "&part=" + part + "&icode=" + icode + "&stid=" + stid + "&cls=" + cls + "&sec=" + sec;
-        // alert(infor);
+        alert(infor);
         $("#run-text").html(""); //$("#full-text").html("");
         $.ajax({
             type: "POST",
