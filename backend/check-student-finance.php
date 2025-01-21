@@ -100,7 +100,7 @@ $sessiondata = array();
 
 
 if ($stidg != '') {
-    $sql0x = "SELECT id, stid, sessionyear, classname, sectionname, rollno, rate FROM sessioninfo where  sccode='$sccode' and sessionyear LIKE '%$sy%' and stid='$stidg' and validate=0 ;";
+    $sql0x = "SELECT id, stid, sessionyear, classname, sectionname, rollno, rate FROM sessioninfo where  sccode='$sccode' and sessionyear LIKE '%$sy%' and stid='$stidg' and validate>=0 ;";
 } else if ($secg != '') {
     $sql0x = "SELECT id, stid, sessionyear, classname, sectionname, rollno, rate FROM sessioninfo where  sccode='$sccode' and sessionyear LIKE '%$sy%' and classname='$clsg' and sectionname='$secg' and validate=0 ;";
 } else if ($clsg != '') {
