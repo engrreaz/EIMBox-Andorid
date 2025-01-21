@@ -104,6 +104,7 @@ if (isset($_GET['edit'])) {
                                     <img class="st-pic-normal" src="<?php echo $pth; ?>" />
 
                                     <div class="ms-3 flex-grow-1">
+                                        <i class="bi bi-pencil-square text-white menu-icon float-end" onclick="goedit();"></i>
                                         <div class="stname-eng"><?php echo $neng; ?></div>
                                         <div class="stname-ben"><?php echo $nben; ?></div>
                                         <div class="st-id">Id # <?php echo $stid; ?></div>
@@ -604,6 +605,10 @@ if (isset($_GET['edit'])) {
         }
 
 
+        function goedit() {
+            window.location.href = "st-payment-setup-indivisual.php?sec=<?php echo $sss;?>&cls=<?php echo $ccc;?>&year=<?php echo $sy;?>&roll=<?php echo $rollno;?>";
+            
+        }
 
         function hazar() {
 

@@ -285,7 +285,7 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
 
 
                         <button type="button" style="padding:4px 10px 6px; border-radius:5px;"
-                            class="btn btn-lg btn-inverse-primary btn-icon-text btn-block pt-2 pb-2" style=""
+                            class="btn  btn-info pt-2 pb-2" style=""
                             onclick="go();"> Show Payment Items </button>
 
                     </div>
