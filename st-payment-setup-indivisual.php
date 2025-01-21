@@ -182,6 +182,9 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
                     </tr>
 
                 </table>
+
+                <button class="btn btn-info" onclick="updatesync();">Update</button>
+
             </div>
         </div>
 
@@ -426,7 +429,7 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
 </div>
 
 <script>
-   
+
 
     function go() {
         var year = document.getElementById('year').value;
@@ -746,5 +749,10 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
         // doucment.getElementById("newblock").style.display = "block";
         // alert(1);
         crud(0, 5);
+    }
+
+
+    function updatesync() {
+       window.location.href = "https://dashboard.eimbox.com/sync-payment.php?type=stid&part=&icode=&stid=<?php echo $stid;?>&cls=&sec=&tail=10"
     }
 </script>
