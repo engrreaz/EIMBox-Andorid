@@ -247,7 +247,7 @@ $collection = $accountant = 0;
 
                   ?>
                   <br>
-                  <button class="btn btn-danger" onclick="delpr(<?php echo $prno; ?>)" <?php echo $ddd; ?>>Delete
+                  <button class="btn btn-danger" onclick="delpr(<?php echo $prno; ?>)" >Delete
                     Receipt</button>
                 </td>
               </tr>
