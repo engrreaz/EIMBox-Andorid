@@ -183,8 +183,9 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
 
                 </table>
 
-                <button class="btn btn-info" onclick="updatesync();">Update</button>
-
+                <button class="btn btn-info"
+                    onclick="checknow('stid','', '', '<?php echo $stid; ?>','', '');">Update</button>
+                <div id="run-text">....</div>
             </div>
         </div>
 
@@ -753,6 +754,27 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
 
 
     function updatesync() {
-       window.location.href = "https://dashboard.eimbox.com/sync-payment.php?type=stid&part=&icode=&stid=<?php echo $stid;?>&cls=&sec=&tail=10"
+        window.location.href = "https://dashboard.eimbox.com/sync-payment.php?type=stid&part=&icode=&stid=<?php echo $stid; ?>&cls=&sec=&tail=1"
+    }
+
+
+    function checknow(type, part, icode, stid, cls, sec) {
+
+        var infor = "type=" + type + "&part=" + part + "&icode=" + icode + "&stid=" + stid + "&cls=" + cls + "&sec=" + sec;
+        // alert(infor);
+        $("#run-text").html(""); //$("#full-text").html("");
+        $.ajax({
+            type: "POST",
+            url: "backend/check-student-finance.php",
+            data: infor,
+            cache: false,
+            beforeSend: function () {
+                $('#run-text').html('<small>Processing...</small>');
+            },
+            success: function (html) {
+                $("#run-text").html(html);
+                // history.back();
+            }
+        });
     }
 </script>
