@@ -128,7 +128,7 @@ for ($lp = 0; $lp < 1; $lp++) {
     $rate = strtolower($sessiondata[0]['rate']);
     $syear = strtolower($sessiondata[0]['sessionyear']);
 
-    echo $stid;
+   
 
     if ($partg == 'icode') {
         $query3pd = "UPDATE stfinance set validate = '0' where stid='$stid' and sccode='$sccode' and sessionyear LIKE '%$syear%' and itemcode='$icodeg' ;";
@@ -152,7 +152,7 @@ for ($lp = 0; $lp < 1; $lp++) {
 
 
     $setupcnt = count($financesetup);
-    echo '///' . $setupcnt;
+
     for ($i = 0; $i < $setupcnt; $i++) {
 
         $partid = $financesetup[$i]['id'];
@@ -161,7 +161,8 @@ for ($lp = 0; $lp < 1; $lp++) {
         $parte = $financesetup[$i]['particulareng'];
         $partb = $financesetup[$i]['particularben'];
 
-        // echo $partid . '/' . $itemcode . '/' . $parte . '<br>';
+        echo $partid . '/' . $itemcode . '/' . $parte . '<br>';
+
 
         $valcnt = count($financesetupval);
         $amt = 0;
@@ -173,7 +174,7 @@ for ($lp = 0; $lp < 1; $lp++) {
             $ss = $financesetupval[$k]['sectionname'];
             $aa = $financesetupval[$k]['amount'];
 
-            // echo '<br>KKK : ' . $uu . ' : ' . $itemcode . ' - ' . $ii . '/' . $cls . ' - ' . $cc . '/' . $sec . ' - ' . $ss . ' [' . $aa . ']<br>------------<br>';
+            echo '<br>KKK : ' . $uu . ' : ' . $itemcode . ' - ' . $ii . '/' . $cls . ' - ' . $cc . '/' . $sec . ' - ' . $ss . ' [' . $aa . ']<br>------------<br>';
 
             if ($ii == $itemcode && ucwords($ss) == ucwords($sec) && ucwords($cc) == ucwords($cls)) {
                 $ax = $aa;
