@@ -48,7 +48,7 @@ if (isset($_GET['appid'])) {
                 <div class="menu-text"> Leave Application </div>
             </div>
         </div>
-        <div class="card-body " style="background:var(--light);">
+        <div class="card-body " style="background:var(--darker);">
             <div class="d-flex pt-2 pb-2">
                 <div class="d-block flex-fill text-center" style="color:seagreen;">
                     <div class="menu-icon " id="c1"></div>
