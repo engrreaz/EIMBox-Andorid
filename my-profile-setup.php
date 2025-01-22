@@ -44,7 +44,7 @@ if ($result0_user_datas->num_rows > 0) {
                 ?>
 
 
-                <center><img src="<?php echo $photo_path; ?>" class="st-pic-big" /></center>
+               <img src="<?php echo $photo_path; ?>" class="st-pic-big " />
             </div>
         </div>
 
@@ -68,7 +68,7 @@ if ($result0_user_datas->num_rows > 0) {
                     <div class="input-group">
                         <span class="input-group-text"><i class="bi bi-telephone-fill "></i></span>
                         <input type="text" id="mobile" name="mobile" class="form-control text-box"
-                            placeholder="Your Name" value="<?php echo $user_data[0]['mobile']; ?>">
+                            placeholder="Mobile Number" value="<?php echo $user_data[0]['mobile']; ?>">
                     </div>
                 </div>
                 <div style="margin:0px 0; height:1px;"></div>

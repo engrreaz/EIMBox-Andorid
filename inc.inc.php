@@ -192,18 +192,6 @@ if ($result0bbx->num_rows > 0) {
     }
 }
 
-// $sql0 = "SELECT * FROM areas where classteacher='$userid' and sessionyear='$sy' ";
-// $result0bbx = $conn->query($sql0);
-// if ($result0bbx->num_rows > 0) {
-//     while ($row0 = $result0bbx->fetch_assoc()) {
-//         $cteachercls = $row0["areaname"];
-//         $cteachersec = $row0["subarea"];
-//     }
-// } else {
-//     $cteachercls = '';
-//     $cteachersec = '';
-// }
-
 
 
 
@@ -213,7 +201,6 @@ if ($userlevel == 'Super Administrator' || $userlevel == 'Moderator') {
 } else {
     $reallevel = $userlevel;
 }
-
 
 
 
@@ -252,11 +239,10 @@ if ($sccode > 100) {
                     $tattndout = $row0x["tattndout"];
                 }
             }
-
-
         }
     }
 
+    
     if ($userlevel == 'Administrator' || $userlevel == 'Head Teacher') {
         if ($scname == '' || $scadd1 == '' || $scadd2 = '' || $ps == '' || $dist == '' || $contact == '' || $logo == '') {
             header("Location: settingsinstituteinfo.php");

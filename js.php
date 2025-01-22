@@ -1,6 +1,6 @@
 <script>
-    var user_level = '<?php echo $userlevel; ?>';
 
+    var user_level = '<?php echo $userlevel; ?>';
 
     // Front page block
     //Schedule

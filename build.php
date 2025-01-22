@@ -13,7 +13,7 @@ include 'inc.php';
           <tr>
             <td>
               <div class="menu-icon"><i class="bi bi-person-circle"></i></div>
-              <div class="menu-text"> Settings </div>
+              <div class="menu-text"> My Account </div>
             </td>
           </tr>
         </table>

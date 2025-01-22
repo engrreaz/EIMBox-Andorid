@@ -2,23 +2,15 @@
 include 'inc.php';
 include 'datam/datam-stprofile.php';
 
+
 if (isset($_GET['cls']) && isset($_GET['sec'])) {
   $classname = $_GET['cls'];
   $sectionname = $_GET['sec'];
-  $cteacher_data[] = ['cteachercls' => $classname, 'cteachersec' => $sectionname];
+  // $cteacher_data[] = ['cteachercls' => $classname , 'cteachersec' => $sectionname];
 }
 // var_dump($cteacher_data);
 $count_class = count($cteacher_data);
 
-// $classname = $cteachercls;
-// $sectionname = $cteachersec;
-
-// if (isset($_GET['cls'])) {
-//   $classname = $_GET['cls'];
-// }
-// if (isset($_GET['sec'])) {
-//   $sectionname = $_GET['sec'];
-// }
 ?>
 
 <main>
@@ -40,7 +32,7 @@ $count_class = count($cteacher_data);
 
 
     <?php if ($count_class > 1) { ?>
-      <div class="d-flex">
+      <div class="d-flex table-responsive">
         <?php
         for ($h = 0; $h < $count_class; $h++) {
           $classname = $cteacher_data[$h]['cteachercls'];
