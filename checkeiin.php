@@ -109,16 +109,18 @@ if (count($uuu) == 1) {
                 $query333 = "INSERT INTO otp(id, username, userid, otp, otptime, login) VALUES (null, '$user', '0', '$otp', '$dt', 1);";
                 $conn->query($query333);
                 $_SESSION["user"] = $user;
-                setcookie("user", time() + (3600 * 24 * 365));
+                setcookie("user", $user, time() + (3600 * 24 * 365), '/');
                 if ($token_found == 1 && $devicetoken != '') {
                     $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
                     $conn->query($query33pxy_device_token);
                 }
 
                 ?>
+
                 <script>
                     window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1<?php echo $gps; ?>';
                 </script>
+                
                 <?php
 
             } else if ($fixedpin == $otp) {

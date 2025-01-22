@@ -6,3 +6,4 @@ Profile
     leaves & Movement
         page-info-box 
     
+ALTER TABLE `whatsnew` ADD `guest` INT NOT NULL DEFAULT '0' AFTER `librarian`;

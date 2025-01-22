@@ -242,7 +242,7 @@ if ($sccode > 100) {
         }
     }
 
-    
+
     if ($userlevel == 'Administrator' || $userlevel == 'Head Teacher') {
         if ($scname == '' || $scadd1 == '' || $scadd2 = '' || $ps == '' || $dist == '' || $contact == '' || $logo == '') {
             header("Location: settingsinstituteinfo.php");
@@ -290,6 +290,20 @@ $curfile = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
 $curfile = basename($_SERVER["SCRIPT_FILENAME"]);
 
 // echo $curfile;
+
+
+$ins_all_settings = array();
+$sql0x = "SELECT * FROM settings where sccode='$sccode'";  
+// echo $sql0x;
+$result0xrtyv = $conn->query($sql0x);
+if ($result0xrtyv->num_rows > 0) {
+    while ($row0x = $result0xrtyv->fetch_assoc()) {
+        $ins_all_settings[] = $row0x;
+    }
+}
+
+
+
 
 include 'header.php';
 ?>

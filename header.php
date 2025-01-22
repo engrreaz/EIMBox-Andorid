@@ -248,9 +248,9 @@
         }
 
         .menu-item-block h4 {
-            font-weight: 700;
+            font-weight:500;
+            font-size:18px;
             color: var(--dark);
-            letter-spacing: 1px;
             margin-top: 5px;
         }
 
