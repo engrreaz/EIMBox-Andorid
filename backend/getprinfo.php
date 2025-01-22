@@ -49,7 +49,7 @@ include 'inc.back.php';
         $de = str_replace("Tution Fee : ","", $de);
         $de = str_replace("Exam Fee : ","", $de);
         $de = str_replace("/","-", $de);
-        $tk=$row0r["amount"]; 
+        $tk=$row0r["paid"]; 
         $loop = $loop . '&item' . $item . 'id=' . $partid .  '&item' . $item . 'txt=' . $de .  '&item' . $item . 'taka=' . $tk ;
         $item++;
     }}
