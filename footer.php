@@ -26,8 +26,8 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
                             class="footer-nav-icon bi bi-app"></i></a></td>
                 <td style="text-align:center;"><a style="color:white;" href="settings_admin.php"><i
                             class="footer-nav-icon bi bi-gear"></i></a></td>
-                            <td style="text-align:center;"><a style="color:white;" href="build.php"><i
-                                class="footer-nav-icon bi bi-person-circle"></i></a></td>
+                <td style="text-align:center;"><a style="color:white;" href="build.php"><i
+                            class="footer-nav-icon bi bi-person-circle"></i></a></td>
                 <td style="width:<?php echo $hb; ?>%"></td>
             </tr>
         </table>
@@ -151,7 +151,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 
 
     const element = document.getElementById("logstatus");
-
+    setInterval(oneSecondFunction, 1000);
     setInterval(function () {
         var infor = "page=<?php echo $curfile; ?>& size=<?php echo filesize($curfile); ?>";
 
@@ -169,7 +169,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
                 $('#logstatus').html(html);
             }
         });
-    }, 1000);
+    }, 5000);
 
 
 

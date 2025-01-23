@@ -9,6 +9,7 @@
         x = parseInt(x) - 1;
         var cd = document.getElementById("class-dur").innerHTML;
         cd = parseInt(cd) * 1;
+     
         if (x < 1) {
             if (cd > 0) {
                 window.location.href = 'index.php';
@@ -66,7 +67,8 @@
     }
 
 
-
+</script>
+<script>
 
 
 

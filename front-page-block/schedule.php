@@ -10,10 +10,12 @@ $today_t_attnd = 0;
 $total_user = 0;
 $user_active = 0;
 $expense_month = 0;
+$total_students = 0;
 
 
 
 // Count Students
+/*
 $sql0 = "SELECT count(*) as stcnt FROM sessioninfo where sccode = '$sccode' and sessionyear='$sy' ;";
 $result0rt = $conn->query($sql0);
 if ($result0rt->num_rows > 0) {
@@ -28,7 +30,7 @@ if ($result0rtt->num_rows > 0) {
         $today_st_attnd = $row0["attndcnt"];
     }
 }
-
+*/
 
 
 $tlist = array();
@@ -96,6 +98,7 @@ if ($result0rtx->num_rows > 0) {
 
 
 $dur_sec = strtotime($te) - strtotime($cur);
+
 ?>
 
 <div hidden>
