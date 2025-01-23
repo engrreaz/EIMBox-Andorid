@@ -69,7 +69,6 @@ include 'inc.php';
 <div style="height:52px;"></div>
 
 <script>
-  // document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
 
 
   

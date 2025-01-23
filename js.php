@@ -156,7 +156,7 @@
 
     function my_class_attendance(stid) {
         Swal.fire({
-            title: "Attendance",
+            title: "<small>Attendance</small>",
             icon: "info",
             draggable: true
         });
@@ -164,21 +164,21 @@
 
     function my_class_payment(stid) {
         Swal.fire({
-            title: "Payment's Info",
+            title: "<small>Payment's Info</small>",
             icon: "info",
             draggable: true
         });
     }
     function my_class_result(stid) {
         Swal.fire({
-            title: "Accademic Performance",
+            title: "<small>Accademic Performance</small>",
             icon: "info",
             draggable: true
         });
     }
     function my_class_profile(stid) {
         Swal.fire({
-            title: "Profile",
+            title: "<small>Profile</small>",
             icon: "info",
             draggable: true
         });
@@ -190,14 +190,17 @@
 
     function module_menu_co_curricular_entry() {
         Swal.fire({
-            title: "Currently Unavailable",
+            title: "<small>Currently Unavailable</small>",
             icon: "info",
             draggable: true
         });
     }
+
+    function module_menu_marks_entry() { window.location.href = "markentryselect.php"; }
+
     function module_menu_class_test() {
         Swal.fire({
-            title: "Currently Unavailable",
+            title: "<small>Currently Unavailable</small>",
             icon: "info",
             draggable: true
         });
@@ -205,6 +208,7 @@
 
 
     function profile_menu_my_attendance() { window.location.href = "tattnd.php"; }
+    function profile_menu_my_attendance_summery() { window.location.href = "my-attnd-teacher-summery.php"; }
     function profile_menu_leave_application() { window.location.href = "leave-application.php"; }
 
     // Settings Navigation

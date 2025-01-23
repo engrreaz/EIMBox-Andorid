@@ -62,10 +62,10 @@ if ($diff > 120) {
             <td class="menu-item-icon"><i class="bi bi-key-fill"></i></td>
             <td>
               <h4>Password</h4>
-              <div class="menu-sub-title pt-2">Generate a lifetime fixed pin</div>
+              <div class="menu-sub-title pt-2">Generate a fixed pin</div>
             </td>
-            <td style="border:0px solid gray;">
-              <div class="form-check form-switch" style="text-align:right; width:20%;">
+            <td style="border:0px solid gray;width:20%;">
+              <div class="form-check form-switch" style="text-align:right; ">
                 <input class="form-control form-check-input" style="transform:scale(2.0); " type="checkbox"
                   id="passswitch" value="yes" onclick="pass();" checked>
               </div>
@@ -79,7 +79,7 @@ if ($diff > 120) {
               <div class="" id="passbox">
                 <div class="input-group" style="width:90%;">
                   <span class="input-group-text"> <i class="bi bi-key"></i> </span>
-                  <input type="password" class="form-control" style="font-size:15px" id="password" placeholder="password" />
+                  <input type="password" class="form-control text-box" style="font-size:15px" id="password" placeholder="password" />
                   <butoon class="btn btn-dark" type="button" onclick="update_password();" disabled>Update</butoon>
                 </div>
               </div>
@@ -195,29 +195,6 @@ if ($diff > 120) {
       },
       success: function (html) {
         $("#keykey").html(html);
-      }
-    });
-  }
-</script>
-
-<script>
-  function fetchsubject() {
-    var cls = document.getElementById("classname").value;
-    var sec = document.getElementById("sectionname").value;
-
-    var infor = "sccode=<?php echo $sccode; ?>&cls=" + cls + "&sec=" + sec;
-    $("#subblock").html("");
-
-    $.ajax({
-      type: "POST",
-      url: "fetchsubject.php",
-      data: infor,
-      cache: false,
-      beforeSend: function () {
-        $('#subblock').html('<span class="">Retriving Subjects...</span>');
-      },
-      success: function (html) {
-        $("#subblock").html(html);
       }
     });
   }

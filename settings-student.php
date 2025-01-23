@@ -103,7 +103,7 @@ include 'inc.php';
                                             
                                             
                                         </td>
-                                        <td>
+                                        <td class="text-end">
                                         <h6 class="text-dark mt-3" id="sec<?php echo $id; ?>"><?php echo $sec2; ?></h6>
                                         <div class="menu-item-sub-text">Section / group Name</div>
                                         </td>
@@ -143,18 +143,18 @@ include 'inc.php';
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><small class="pad60">Start From</small></td>
+                                                    <td class="text-end"><small>Start From</small></td>
                                                     <td></td>
-                                                    <td><small class="pad60">End To</small></td>
+                                                    <td class="text-end"><small>End To</small></td>
                                                 </tr>
                                             </table>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td style="padding-top:15px;">
-                                            <button class="btn btn-primary btn-block" onclick="genid(<?php echo $id; ?>);">Generate Student's
-                                                ID</button>
+                                        <td style="padding-top:15px;" colspan="2">
+                                            <button class="btn btn-info btn-block" onclick="genid(<?php echo $id; ?>);">
+                                                <small>Generate Student's ID</small></button>
                                             <div id="gen<?php echo $id; ?>"></div>
                                         </td>
                                     </tr>

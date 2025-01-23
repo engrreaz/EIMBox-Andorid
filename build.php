@@ -37,7 +37,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="profile_menu_my_attendance();">
+    <div class="card menu-item-block" onclick="profile_menu_my_attendance_summery();">
       <div class="card-body">
         <table style="">
           <tr>

@@ -19,7 +19,8 @@ include 'inc.php';
     </div>
 
 
-
+<?php $count_class = count($cteacher_data);
+if($count_class>0){ ?>
 
     <div class="card menu-item-block" onclick="report_menu_my_class();">
       <div class="card-body">
@@ -36,7 +37,7 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
-
+<?php } ?>
 
 
     
@@ -78,7 +79,7 @@ include 'inc.php';
             <td class="menu-item-icon"><i class="bi bi-currency-exchange"></i></td>
             <td>
               <h4>Daily Collection</h4>
-              <small>Checking/Tracking your daily collection</small>
+              <div class="menu-item-sub-text">Checking/Tracking your daily collection</div>
             </td>
           </tr>
         </table>
@@ -224,7 +225,6 @@ include 'inc.php';
 <div style="height:52px;"></div>
 
 <script>
-  document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
 
   function go() {
     var cls = document.getElementById("classname").value;

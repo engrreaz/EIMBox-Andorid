@@ -14,7 +14,27 @@ if (isset($_GET['cls']) && isset($_GET['sec'])) {
 $count_class = count($cteacher_data);
 $totaldues = 0;
 
+$collection_by = '';
+$collection_ind = array_search('Collection', array_column($ins_all_settings, 'setting_title'));
+if($collection_ind != '' || $collection_ind != null){
+  $collection_by = $ins_all_settings[$collection_ind]['settings_value'];
+}
+if(strpos($collection_by, $userlevel) != null){
+  $collection_permission = 1;
+} else {
+  $collection_permission = 0;
+}
 
+$profile_entry = '';
+$profile_ind = array_search('Profile Entry', array_column($ins_all_settings, 'setting_title'));
+if($profile_ind != '' || $profile_ind != null){
+  $profile_entry = $ins_all_settings[$profile_ind]['settings_value'];
+}
+if(strpos($profile_entry, $userlevel) != null){
+  $profile_entry_permission = 1;
+} else {
+  $profile_entry_permission = 0;
+}
 
 
 ?>
@@ -216,9 +236,11 @@ $totaldues = 0;
                 <td style="text-align:right;">
                   <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt<?php echo $h2; ?>">...</div>
                   <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Students</div>
+                  <?php if($collection_permission == 1){ ?>
                   <br>
                   <div style="font-size:30px; font-weight:700; line-height:20px;" id="cntamt<?php echo $h2; ?>">...</div>
                   <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Total Dues</div>
+                <?php } ?>
                 </td>
               </tr>
 
@@ -313,21 +335,23 @@ $totaldues = 0;
                     <td>
 
                       <div class="row mt-3">
-                        <div class="col-3 text-center" onclick="my_class_attendance(<?php echo $stid; ?>);">
+                        <div class="col text-center" onclick="my_class_attendance(<?php echo $stid; ?>);">
                           <i class="bi bi-fingerprint toolbar-icon"></i>
                           <div class="toolbar-text">--%</div>
                         </div>
-                        <div class="col-3 text-center" onclick="my_class_payment(<?php echo $stid; ?>);">
+                        <?php if($collection_permission==1){?>
+                        <div class="col text-center" onclick="my_class_payment(<?php echo $stid; ?>);">
                           <i class="bi bi-coin toolbar-icon"></i>
                           <div class="toolbar-text">
                             <?php echo number_format($totaldues, 2, ".", ","); ?>
                           </div>
                         </div>
-                        <div class="col-3 text-center" onclick="my_class_result(<?php echo $stid; ?>);">
+                        <?php } ?>
+                        <div class="col text-center" onclick="my_class_result(<?php echo $stid; ?>);">
                           <i class="bi bi-file-earmark-text toolbar-icon"></i>
                           <div class="toolbar-text">--.-%</div>
                         </div>
-                        <div class="col-3 text-center" onclick="my_class_profile(<?php echo $stid; ?>);">
+                        <div class="col text-center" onclick="my_class_profile(<?php echo $stid; ?>);">
                           <i class="bi bi-person-circle toolbar-icon"></i>
                           <div class="toolbar-text">Profile</div>
                         </div>

@@ -529,7 +529,6 @@ if ($result00gt->num_rows > 0) {
 
 <script>
     document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
-    document.getElementById("att").innerHTML = "<?php echo $found; ?>";
 
     function go(id) {
         window.location.href = "student.php?id=" + id;

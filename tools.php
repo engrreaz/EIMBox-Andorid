@@ -15,7 +15,7 @@ $count_class = count($cteacher_data);
         <table width="100%" style="color:white;">
           <tr>
             <td>
-              <div class="menu-icon"><i class="bi bi-tools"></i></div>
+              <div class="menu-icon"><i class="bi bi-app-indicator"></i></div>
               <div class="menu-text"> Modules </div>
             </td>
           </tr>
@@ -72,7 +72,7 @@ $count_class = count($cteacher_data);
 
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="lnk3();">
+    <div class="card menu-item-block" onclick="module_menu_marks_entry();">
       <div class="card-body">
         <table style="">
           <tr>
@@ -213,7 +213,6 @@ $count_class = count($cteacher_data);
 <script>
   function lnk1() { window.location.href = "grpview.php"; }
   function lnk2() { window.location.href = "pibisheet.php"; }
-  function lnk3() { window.location.href = "markentryselect.php"; }
   function lnk4() { window.location.href = "transcriptselect.php"; }
   function lnk5() { window.location.href = "userlist.php"; }
   function lnk6() { window.location.href = "classes.php"; }
