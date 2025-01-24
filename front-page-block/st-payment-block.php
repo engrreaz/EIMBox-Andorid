@@ -9,7 +9,7 @@ $ind = array_search('Collection', array_column($ins_all_settings, 'setting_title
 // echo $ind. '<br>................<br>';
 if ($ind != '' || $ind != null) {
     $sett_val = $ins_all_settings[$ind]['settings_value'];
-    echo strpos($sett_val, $userlevel);
+    $pospos =  strpos($sett_val, $userlevel);
 }
 
 if ($pospos >= 0 ) {
@@ -33,7 +33,7 @@ if ($pospos >= 0 ) {
         $deg = 0;
     }
 
-    ?>ffff
+    ?>
     <div class="card gg">
         <div class="card-header front-card">
             <b>Student's Payment</b>
