@@ -9,10 +9,10 @@ $ind = array_search('Collection', array_column($ins_all_settings, 'setting_title
 // echo $ind. '<br>................<br>';
 if ($ind != '' || $ind != null) {
     $sett_val = $ins_all_settings[$ind]['settings_value'];
-    echo strpos($sett_val, $userlevel . 'a');
+    echo strpos($sett_val, $userlevel);
 }
 
-if ($pospos >= 0) {
+if ($pospos >= 0 ) {
 
     $mon = date('m');
     $tgot = $tsend = 0;
