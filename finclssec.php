@@ -6,8 +6,8 @@ include 'inc.php';
     <div class="containerx-fluid">
         <div class="card text-left" style="background:var(--darker); color:var(--lighter); border-radius:0;">
             <div class="card-body page-top-box">
-                <div class="page-icon"><i class="bi bi-coin"></i></div>
-                <div class="page-title">Class/Section for Dues List</div>
+                <div class="menu-icon"><i class="bi bi-coin"></i></div>
+                <div class="menu-text">Class/Section for Dues List</div>
 
             </div>
         </div>

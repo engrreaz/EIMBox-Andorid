@@ -192,7 +192,6 @@ $count_class = count($cteacher_data);
 <!-- Bootstrap JavaScript Libraries -->
 
 <script>
-  document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
 
   function go() {
     var cls = document.getElementById("classname").value;

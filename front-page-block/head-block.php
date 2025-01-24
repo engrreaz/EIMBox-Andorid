@@ -19,21 +19,25 @@ $teacher_application_count = count($my_app_datam);
 
         <?php if ($teacher_application_count > 0) { ?>
             <div class="d-flex mb-2" style="">
-                <div class="page-icon" style="color:orange; font-size:36px; padding-right:8px;"> <i class="bi bi-question-diamond-fill"></i>
+                <div class="page-icon" style="color:orange; font-size:36px; padding-right:8px;"> <i
+                        class="bi bi-question-diamond-fill"></i>
                 </div>
                 <div class="">
                     <div class="notice-text pb-1"><?php echo $teacher_application_count; ?> Applications has been submitted
                         by teachers to waiting for your response.</div>
-                        <a class="btn btn-dark" href="leave-application-response.php">Response Now</a>
+                    <a class="btn btn-dark text-small" href="leave-application-response.php">Response Now</a>
                 </div>
 
             </div>
+
+
+            <div class="p-0 m-0" style="background:var(--light); height:1px;"></div>
         <?php } ?>
 
 
     </div>
 </div>
-<div style="background:var(--light); height:1px;"></div>
+
 
 
 

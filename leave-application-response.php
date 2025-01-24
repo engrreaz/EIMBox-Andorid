@@ -1,5 +1,6 @@
 <?php
 include 'inc.php';
+include 'datam/datam-teacher.php';
 $tidd = $userid;
 $appid = 0;
 $tid = $tidd = '';
@@ -56,6 +57,8 @@ if ($result0->num_rows > 0) {
         foreach ($my_app_datam as $appl) {
             $appl_id = $appl['id'];
             $status = $appl['status'];
+            $tind = array_search($appl['tid'], array_column($datam_teacher_profile, 'tid'));
+            $tname = $datam_teacher_profile[$tind]['tname'];
 
             if ($status == 0) {
                 $txt_clr = 'cobalt';
@@ -91,6 +94,7 @@ if ($result0->num_rows > 0) {
                 </div>
                 <div class="flex-grow-1">
                     <div class="leave-type"> <?php echo $appl['leave_type']; ?> </div>
+                    <div class="roll-no text-success"> <b><?php echo $tname; ?> </b></div>
                     <div class="leave-reason"> <?php echo $appl['leave_reason']; ?> </div>
                     <div class="leave-day"> <?php echo $appl['days']; ?> Days.
                         <span class="leave-date">(from <?php echo $appl['date_from']; ?> to
