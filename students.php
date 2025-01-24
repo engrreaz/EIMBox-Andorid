@@ -2,11 +2,22 @@
 include 'inc.php';
 include 'datam/datam-stprofile.php';
 
-
+$extra = 0;
 if (isset($_GET['cls']) && isset($_GET['sec'])) {
+  $extra = 1;
   $classname = $_GET['cls'];
   $sectionname = $_GET['sec'];
-  // $cteacher_data[] = ['cteachercls' => $classname , 'cteachersec' => $sectionname];
+  foreach ($cteacher_data as $ctas) {
+    $cx = $ctas['cteachercls'];
+    $sx = $ctas['cteachersec'];
+    if ($classname == $cx && $sectionname == $sx) {
+      $extra = 0;
+      break;
+    }
+  }
+  if ($extra == 1) {
+    $cteacher_data[] = ['cteachercls' => $classname, 'cteachersec' => $sectionname];
+  }
 }
 // var_dump($cteacher_data);
 $count_class = count($cteacher_data);
@@ -32,7 +43,7 @@ $count_class = count($cteacher_data);
 
 
     <?php if ($count_class > 1) { ?>
-      <div class="d-flex table-responsive">
+      <div class="d-flex table-responsive m-0 p-0">
         <?php
         for ($h = 0; $h < $count_class; $h++) {
           $classname = $cteacher_data[$h]['cteachercls'];
@@ -244,23 +255,24 @@ $count_class = count($cteacher_data);
                     <td style="width:10px;"></td>
                     <td style="">
                       <div class="form-group">
+
                         <label for="rel<?php echo $stid; ?>"><small>Religion</small></label>
                         <select class="form-control" id="rel<?php echo $stid; ?>" onchange="grps(<?php echo $stid; ?>);">
-                          <option="" <?php if ($rel == '') {
+                          <option value="" <?php if ($rel == '') {
                             echo 'selected';
-                          } ?>></option>
-                            <option="Islam" <?php if ($rel == 'Islam') {
-                              echo 'selected';
-                            } ?>>Islam</option>
-                              <option="Hindu" <?php if ($rel == 'Hindu') {
-                                echo 'selected';
-                              } ?>>Hindu</option>
-                                <option="Christian" <?php if ($rel == 'Christian') {
-                                  echo 'selected';
-                                } ?>>Christian</option>
-                                  <option="Buddist" <?php if ($rel == 'Buddist') {
-                                    echo 'selected';
-                                  } ?>>Buddist</option>
+                          } ?>> </option>
+                          <option value="Islam" <?php if ($rel == 'Islam') {
+                            echo 'selected';
+                          } ?>>Islam</option>
+                          <option value="Hindu" <?php if ($rel == 'Hindu') {
+                            echo 'selected';
+                          } ?>>Hindu</option>
+                          <option value="Christian" <?php if ($rel == 'Christian') {
+                            echo 'selected';
+                          } ?>>Christian</option>
+                          <option value="Buddist" <?php if ($rel == 'Buddist') {
+                            echo 'selected';
+                          } ?>>Buddist</option>
                         </select>
                       </div>
                     </td>
@@ -435,7 +447,6 @@ $count_class = count($cteacher_data);
 </script>
 
 <script>
-  document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
   function go(id) {
     window.location.href = "student.php?id=" + id;
   }
