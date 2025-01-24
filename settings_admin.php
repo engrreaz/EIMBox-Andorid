@@ -68,21 +68,53 @@ $count_class = count($cteacher_data);
     </div>
     <div class="menu-separator"></div>
 
+    <div class="card menu-item-block" onclick="settings_admin_bind_teacher_subject();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-book-half"></i></td>
+            <td>
+              <h4> Subjects / Teachers Binding </h4>
+              <div class="menu-item-sub-text"> Bind Teachers with their related subject according to class/section </div>
+            </td> 
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="settings_admin_user_manager();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-person-lock"></i></td>
+            <td>
+              <h4> User Manager </h4>
+              <div class="menu-item-sub-text"> Manage users </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+
+
 <?php if($usr == 'engrreaz@gnail.com') {?>
 
 <a class="btn btn-dark m-2" href="settingssubject.php">Subject Setup</a>
 <a class="btn btn-dark m-2" href="settingsteacher.php">Add/Edit Teacher</a>
 <a class="btn btn-dark m-2" href="settingsclass.php">Add/Edit CLS-SEC</a>
-<a class="btn btn-dark m-2" href="classes.php">Teacher Binding</a>
+
 <a class="btn btn-dark m-2" href="clsroutine-setup.php">Class Routine Setup</a>
 <a class="btn btn-dark m-2" href="tools_allsubjects.php">Subject list Class wise</a>
-<a class="btn btn-dark m-2" href="globalsetup.php">Global Setup XXX</a>
+<!-- <a class="btn btn-dark m-2" href="globalsetup.php">Global Setup XXX</a> -->
 
 
 <a class="btn btn-dark m-2" href="cashbookview.php">Cash Book View IN-EX</a>
 <a class="btn btn-dark m-2" href="promotion.php">Promotion</a>
 <a class="btn btn-dark m-2" href="studentadmission.php">Admission</a>
-<a class="btn btn-dark m-2" href="markentryselect.php">Mark Entry Selection</a>
+<!-- <a class="btn btn-dark m-2" href="markentryselect.php">Mark Entry Selection</a> -->
 <a class="btn btn-dark m-2" href="grpview.php">Group NEW</a>
 <a class="btn btn-dark m-2" href="transcriptselect.php">Transcript</a>
 <a class="btn btn-white m-2" href="dailycollection.php">Daily Collection</a>
@@ -91,9 +123,9 @@ $count_class = count($cteacher_data);
 
 
 <?php } ?>
-
-<a class="btn btn-dark m-2" href="userlist.php">User List</a>
-
+<div class="d-block">
+...............
+</div>
 
 
 

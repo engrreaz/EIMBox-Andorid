@@ -11,6 +11,3 @@ $cur = date('Y-m-d H:i:s');; $sy = date('Y');
 	    $query33 ="UPDATE areas set classteacher = '$tea' where id = '$id'";
 	}
     $conn->query($query33);
-    
-    
-                            ?>

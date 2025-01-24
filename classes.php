@@ -2,60 +2,29 @@
 include 'inc.php';
 ?>
 
-<!doctype html>
-<html lang="en">
-
-<head>
-  <title>Title</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css.css?v=a">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
-    <style>
-        .pic{
-            width:45px; height:45px; padding:1px; border-radius:50%; border:1px solid var(--dark); margin:5px;
-        }
-        
-        .a{font-size:18px; font-weight:700; font-style:normal; line-height:22px; color:var(--dark);}
-        .b{font-size:16px; font-weight:600; font-style:normal; line-height:22px;}
-        .c{font-size:11px; font-weight:400; font-style:italic; line-height:16px;}
-    </style>
-</head>
-
-<body>
-  <header>
-    <!-- place navbar here -->
-  </header>
   <main>
     <div class="container-fluidx">
         <div class="card text-left" style="background:var(--dark); color:var(--lighter);" >
-            <div class="card-body">
-                <table width="100%" style="color:white;">
-                    <tr>
-                        <td colspan="2">
-                            <div class="logoo"><i class="bi bi-square-half"></i></div>
-                            <div style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">Class & Section
-                          <h6 style="margin:10px;">Binding Subject with teacher<br>according to Classes & Sections </h6>
-                            </div>
-                        </td>
-                    </tr>
+            
+        <div class="card-body page-top-box">
+          <div class="page-icon"><i class="bi bi-diagram-3-fill"></i></div>
+          <div class="page-title">Classes & Sections </div>
+          <div class="roll-no"> Binding Subject with teacher according to Classes & Sections </div>
+        </div>
+        
+        
+        <div class="card-body page-info-box">
+                <table width="100%" style="color:white;"> 
                     <tr>
                         <td>
                             <div style="font-size:20px; font-weight:700; line-height:15px;" id="ct"></div>
-                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">No. of Class & Section</div>
+                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:28px;">No. of Class & Section</div>
                         </td>
                         <td style="text-align:right;">
                             <div style="font-size:20px; font-weight:700; line-height:20px;" id="cnt"></div>
-                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Subjects</div>
+                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:28px;">No. of Subjects</div>
                         </td>
-                    </tr>
-                    
+                    </tr> 
                 </table>
             </div>
         </div>
@@ -72,7 +41,7 @@ include 'inc.php';
                     $cpt = $row0["cpt"];
                 }}
                 
-            $sql0 = "SELECT * FROM areas where sessionyear = '$sy' and user='$rootuser' order by idno";
+            $sql0 = "SELECT * FROM areas where sessionyear = '$sy' and user='$rootuser' order by idno, id";
             //echo $sql0;
                 $result0 = $conn->query($sql0);
                 if ($result0->num_rows > 0) 
@@ -82,17 +51,16 @@ include 'inc.php';
                     $lnk = "cls=" . $cls . '&sec=' . $sec; 
                     $totcls = $totcls + 1;
                 ?>
-            <div class="card text-cente gg" style="background:var(--lighter); color:var(--darker);"  onclick="go('<?php echo $lnk;?>')">
+            <div class="card  mb-2" style="background:var(--lighter); color:var(--darker);"  onclick="go('<?php echo $lnk;?>')">
               <img class="card-img-top"  alt="">
               <div class="card-body">
                 <table width="100%">
                     <tr>
-                        <td style="width:10px;"><span style="font-size:24px; font-weight:700;"><?php echo $rollno;?></span></td>
                         <td style="text-align:left; padding-left:5px;">
-                            <div class="a"><?php echo strtoupper($cls);?></div>
-                            <div class="b"><?php echo $sec;?></div>
+                            <div class="stname-eng"><?php echo strtoupper($cls);?></div>
+                            <div class="stname-ben"><?php echo $sec;?></div>
                         </td>
-                        <td style="text-align:right;"><img src="<?php echo $ico;?>" class="pic" /></td>
+                        <td style="text-align:right;"><img src="<?php echo $ico;?>" class="st-pic-small" /></td>
                     </tr>
                 </table>
               </div>
@@ -107,19 +75,6 @@ include 'inc.php';
   <div style="height:52px;"></div>
   
   
-  <footer>
-    <!-- place footer here -->
-  </footer>
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  
   <script>
   document.getElementById("cnt").innerHTML = "<?php echo $cpt;?>";
   document.getElementById("ct").innerHTML = "<?php echo $totcls;?>";
@@ -129,9 +84,3 @@ include 'inc.php';
         window.location.href="clssettings.php?" + id; 
     }  
   </script>
-    
-    
-  
-</body>
-
-</html>
