@@ -1,5 +1,7 @@
-<script>
+<?php
 
+?>
+<script>
     var user_level = '<?php echo $userlevel; ?>';
 
     // Front page block
@@ -9,7 +11,7 @@
         x = parseInt(x) - 1;
         var cd = document.getElementById("class-dur").innerHTML;
         cd = parseInt(cd) * 1;
-     
+
         if (x < 1) {
             if (cd > 0) {
                 window.location.href = 'index.php';
@@ -186,7 +188,18 @@
 
     // Tools Navigation
     function module_menu_student_attendace(x1, x2) { window.location.href = 'stattnd.php?cls=' + x1 + '&sec=' + x2; }
-    function module_menu_leave_app_response() { window.location.href = 'leave-application-response.php' }
+    function module_menu_leave_app_response() {
+        if (user_level == 'Head Teacher' || user_level == 'Asstt. Head Teacher' || user_level == 'Principal' || user_level == 'Vice Principal') {
+            window.location.href = 'leave-application-response.php'
+        } else {
+            Swal.fire({
+                title: "<small>You're not eligible to access</small>",
+                icon: "info",
+                draggable: true
+            });
+        }
+
+    }
 
     function module_menu_co_curricular_entry() {
         Swal.fire({

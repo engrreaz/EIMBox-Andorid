@@ -1,7 +1,7 @@
 <?php
 include 'inc.php';
 include 'datam/datam-stprofile.php';
-
+$classname = $sectionname = '';
 if (isset($_GET['cls']) && isset($_GET['sec'])) {
     $classname = $_GET['cls'];
     $sectionname = $_GET['sec'];

@@ -48,7 +48,7 @@ if (isset($_GET['appid'])) {
                 <div class="menu-text"> Leave Application </div>
             </div>
         </div>
-        
+
         <div class="card-body" style="background:black;">
             <div class="d-flex pt-2 pb-2">
                 <div class="d-block flex-fill text-center" style="color:seagreen;">
@@ -78,7 +78,8 @@ if (isset($_GET['appid'])) {
 
                 <div class="d-block flex-fill text-center" style="color:white;">
 
-                    <button class="btn btn-primary m-2" onclick="leave_app_edit(0, 0);">
+                    <button class="btn btn-primary m-2" onclick="leave_app_edit(0, 0);"
+                        style="border-radius: 50%;height: 40px;width: 40px;font-size: 27px;padding: 0;left: 0;">
                         <i class="bi bi-plus-circle-fill leave-delete"></i>
                     </button>
                 </div>
@@ -93,31 +94,36 @@ if (isset($_GET['appid'])) {
 
     <div class="card text-center" <?php echo $showhide; ?>>
         <div class="card-body">
+            <?php if ($userlevel == 'Administrator') { ?>
+                <div class="input-group">
+                    <span class="input-group-text text-box-icon"><i class="bi bi-person-circle"></i></span>
 
-            <div class="input-group" <?php if ($userlevel != 'Administrator')
-                echo 'hidden'; ?>>
-                <span class="input-group-text text-box-icon"><i class="bi bi-person-circle"></i></span>
-
-                <select class="form-control" id="tid">
-                    <option value="">Select Teacher / Staff</option>
-                    <?php
-                    $sql00xgr = "SELECT * FROM teacher where sccode='$sccode' order by ranks, tid";
-                    $result00xgr4 = $conn->query($sql00xgr);
-                    if ($result00xgr4->num_rows > 0) {
-                        while ($row00xgr = $result00xgr4->fetch_assoc()) {
-                            $tid = $row00xgr["tid"];
-                            $tname = $row00xgr["tname"];
-                            if ($tidd == $tid) {
-                                $bb = 'selected';
-                            } else {
-                                $bb = '';
+                    <select class="form-control" id="tid">
+                        <option value="">Select Teacher / Staff</option>
+                        <?php
+                        $sql00xgr = "SELECT * FROM teacher where sccode='$sccode' order by ranks, tid";
+                        $result00xgr4 = $conn->query($sql00xgr);
+                        if ($result00xgr4->num_rows > 0) {
+                            while ($row00xgr = $result00xgr4->fetch_assoc()) {
+                                $tid = $row00xgr["tid"];
+                                $tname = $row00xgr["tname"];
+                                if ($tidd == $tid) {
+                                    $bb = 'selected';
+                                } else {
+                                    $bb = '';
+                                }
+                                echo '<option value="' . $tid . '" ' . $bb . ' >' . $tname . '</option>';
                             }
-                            echo '<option value="' . $tid . '" ' . $bb . ' >' . $tname . '</option>';
                         }
-                    }
-                    ?>
-                </select>
-            </div>
+                        ?>
+                    </select>
+                </div>
+            <?php } else {
+                ?>
+                <input type="text" id="tid" value="<?php echo $userid; ?>" hidden />
+                <?php
+            } ?>
+
             <div class="form-separator"></div>
 
             <div class=" input-group">
@@ -243,10 +249,10 @@ if (isset($_GET['appid'])) {
 
 <script>
 
-document.getElementById("c1").innerHTML = '<?php echo $c1;?>';
-document.getElementById("c2").innerHTML = '<?php echo $c2;?>';
-document.getElementById("c3").innerHTML = '<?php echo $c3;?>';
-document.getElementById("c4").innerHTML = '<?php echo $c4;?>';
+    document.getElementById("c1").innerHTML = '<?php echo $c1; ?>';
+    document.getElementById("c2").innerHTML = '<?php echo $c2; ?>';
+    document.getElementById("c3").innerHTML = '<?php echo $c3; ?>';
+    document.getElementById("c4").innerHTML = '<?php echo $c4; ?>';
 
     function rel(id) {
         window.location.href = "studentedit.php?id=" + id;

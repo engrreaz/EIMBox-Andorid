@@ -9,21 +9,23 @@ if (isset($_GET['cls']) && isset($_GET['sec'])) {
   $cteacher_data[] = ['cteachercls' => $classname, 'cteachersec' => $sectionname];
 }
 
-
 // var_dump($cteacher_data);
 $count_class = count($cteacher_data);
 $totaldues = 0;
 
-$collection_by = '';
+$collection_by = -1;
 $collection_ind = array_search('Collection', array_column($ins_all_settings, 'setting_title'));
 if($collection_ind != '' || $collection_ind != null){
   $collection_by = $ins_all_settings[$collection_ind]['settings_value'];
 }
+
+
 if(strpos($collection_by, $userlevel) != null){
   $collection_permission = 1;
 } else {
   $collection_permission = 0;
 }
+
 
 $profile_entry = '';
 $profile_ind = array_search('Profile Entry', array_column($ins_all_settings, 'setting_title'));
@@ -351,10 +353,12 @@ if(strpos($profile_entry, $userlevel) != null){
                           <i class="bi bi-file-earmark-text toolbar-icon"></i>
                           <div class="toolbar-text">--.-%</div>
                         </div>
+                        <?php if($profile_entry_permission==1) {?>
                         <div class="col text-center" onclick="my_class_profile(<?php echo $stid; ?>);">
                           <i class="bi bi-person-circle toolbar-icon"></i>
                           <div class="toolbar-text">Profile</div>
                         </div>
+                        <?php } ?>
                       </div>
 
 

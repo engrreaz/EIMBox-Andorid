@@ -46,10 +46,11 @@ if (count($cteacher_data) > 0) {
             }
         }
 
-        $tperc = $bperc = 0;
+        $tperc = $bperc = $dispperc =  0;
         if ($tstu > 0) {
-            $tperc = ceil($astu * 100 / $tstu);
+            $tperc = $dispperc = ceil($astu * 100 / $tstu);
             $bperc = ceil($found_bunk * 100 / $tstu);
+
             $tperc -= $bperc;
         }
 
@@ -95,7 +96,7 @@ if (count($cteacher_data) > 0) {
                                 style="border:1px solid var(--lighter); poisition:relative; margin:auto; text-align:center; border-radius:50%; height:72px; width:72px; background-image: conic-gradient(seagreen 0deg, seagreen <?php echo $tattdeg; ?>deg, orange <?php echo $tattdeg; ?>deg, orange <?php echo $tbunkdeg; ?>deg, red <?php echo $tbunkdeg; ?>deg, red 360deg);">
                                 <div
                                     style="border:1px solid  var(--light); border-radius:50%; left:5px; top:5px; position:relative; background:var(--light); color:purple;;width:60px; height:60px; padding-top:20px;">
-                                    <?php echo $tperc; ?><small>%</small>
+                                    <?php echo $dispperc; ?><small>%</small>
                                 </div>
                             </div>
                         </td>

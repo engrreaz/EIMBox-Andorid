@@ -1,4 +1,5 @@
 <?php
+if($userlevel == 'Head Teacher' ||  $userlevel == 'Asstt. Head Teacher' || $userlevel == 'Principal' || $userlevel == ' Super Administrator') {
 
 $my_app_datam = array();
 $sql0 = "SELECT * FROM teacher_leave_app where sccode='$sccode' and ( status=0 or status>=3) order by apply_date desc, id desc";
@@ -10,6 +11,7 @@ if ($result0_head_block->num_rows > 0) {
 }
 $teacher_application_count = count($my_app_datam);
 
+    
 ?>
 
 
@@ -43,9 +45,6 @@ $teacher_application_count = count($my_app_datam);
 
 
 
-
-
-
 <script>
     function geoattnd(id) {
         // alert(id);
@@ -54,3 +53,7 @@ $teacher_application_count = count($my_app_datam);
 
 
 </script>
+
+<?php }
+
+

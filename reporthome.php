@@ -5,7 +5,7 @@ include 'inc.php';
 <main>
   <div class="container-fluidx">
 
-    <div class="card page-top-box" >
+    <div class="card page-top-box">
       <div class="card-body">
         <table width="100%" style="color:white;">
           <tr>
@@ -19,28 +19,28 @@ include 'inc.php';
     </div>
 
 
-<?php $count_class = count($cteacher_data);
-if($count_class>0){ ?>
+    <?php $count_class = count($cteacher_data);
+    if ($count_class > 0) { ?>
 
-    <div class="card menu-item-block" onclick="report_menu_my_class();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-diagram-2-fill"></i></td>
-            <td>
-              <h4>My Class</h4>
-              <div class="menu-item-sub-text"> All of students list accourding to class/section </div>
-            </td>
-          </tr>
-        </table>
+      <div class="card menu-item-block" onclick="report_menu_my_class();">
+        <div class="card-body">
+          <table style="">
+            <tr>
+              <td class="menu-item-icon"><i class="bi bi-diagram-2-fill"></i></td>
+              <td>
+                <h4>My Class</h4>
+                <div class="menu-item-sub-text"> All of students list accourding to class/section </div>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="menu-separator"></div>
+      <div class="menu-separator"></div>
 
-<?php } ?>
+    <?php } ?>
 
 
-    
+
     <div class="card menu-item-block" onclick="report_menu_student_list();">
       <div class="card-body">
         <table style="">
@@ -72,21 +72,22 @@ if($count_class>0){ ?>
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="report_menu_daily_collection();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-currency-exchange"></i></td>
-            <td>
-              <h4>Daily Collection</h4>
-              <div class="menu-item-sub-text">Checking/Tracking your daily collection</div>
-            </td>
-          </tr>
-        </table>
+    <?php if ($userlevel == 'Administrator' || $userlevel == 'Super Administrator' || $userlevel == 'Accountants') { ?>
+      <div class="card menu-item-block" onclick="report_menu_daily_collection();">
+        <div class="card-body">
+          <table style="">
+            <tr>
+              <td class="menu-item-icon"><i class="bi bi-currency-exchange"></i></td>
+              <td>
+                <h4>Daily Collection</h4>
+                <div class="menu-item-sub-text">Checking/Tracking your daily collection</div>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="menu-separator"></div>
-
+      <div class="menu-separator"></div>
+    <?php } ?>
 
     <div class="card menu-item-block" onclick="report_menu_attnd_register();">
       <div class="card-body">
@@ -133,7 +134,7 @@ if($count_class>0){ ?>
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="report_menu_ebooks();">
+    <div class="card menu-item-block" onclick="report_menu_ebooks_x();" >
       <div class="card-body">
         <table style="">
           <tr>

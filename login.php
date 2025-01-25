@@ -1,6 +1,6 @@
 <?php include 'header.php'; ?>
 
-<div class="card">
+<div class="card" style="height:100vh; background:var(--lighter);">
     <div class="card-body " style="">
 
         <div class="text-center ">

@@ -20,6 +20,7 @@ if ($opt == 2) {  // save attandance
     }
 
 
+
     $sql0 = "SELECT * FROM stattnd where stid='$iii' and adate='$adate' and sessionyear='$sy'";
     $result0 = $conn->query($sql0);
     if ($result0->num_rows > 0) {
@@ -30,7 +31,7 @@ if ($opt == 2) {  // save attandance
             for ($i = $per; $i <= 8; $i++) {
                 $cd .= 'period' . $i . '=' . $yn . ', ';
             }
-            if($yn == 0){
+            if ($yn == 0) {
                 $bunk = 1;
             } else {
                 $bunk = 0;
@@ -53,12 +54,27 @@ if ($opt == 2) {  // save attandance
     }
 
 } else if ($opt == 5) { // save final submition
+
+
+
     $cnt = $_POST['cnt'];
     $fnd = $_POST['fnd'];
+
+    $sql0 = "SELECT count(*) as cnt FROM stattnd where sccode = '$sccode' and sessionyear='$sy' and adate='$adate' and classname='$cn' and sectionname='$sn';";
+    // echo $sql0 ;
+    $result0rtx__stattnd = $conn->query($sql0);
+    if ($result0rtx__stattnd->num_rows > 0) {
+        while ($row0 = $result0rtx__stattnd->fetch_assoc()) {
+            $fnd = $row0["cnt"];
+        }
+    }
+
+
+    
     $rate = $fnd * 100 / $cnt;
     $query33 = "insert into stattndsummery (id, sccode, sessionyear, date, classname, sectionname, totalstudent, attndstudent, attndrate, submitby, submittime) 
                                             values 	(NULL, '$sccode', '$sy', '$adate','$cn','$sn','$cnt','$fnd','$rate', '$usr', '$cur')";
     $conn->query($query33);
-    
-    echo '<i class="bi bi-check-circle-fill"></i> Submit Successfully.';
+
+    echo '<i class="bi bi-check-circle-fill text-success"></i> Submit Successfully.';
 }

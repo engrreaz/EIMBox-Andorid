@@ -79,7 +79,7 @@ if ($diff > 120) {
               <div class="" id="passbox">
                 <div class="input-group" style="width:90%;">
                   <span class="input-group-text"> <i class="bi bi-key"></i> </span>
-                  <input type="password" class="form-control text-box" style="font-size:15px" id="password" placeholder="password" />
+                  <input type="password" class="form-control text-box" style="font-size:15px" id="password" placeholder="password" disabled/>
                   <butoon class="btn btn-dark" type="button" onclick="update_password();" disabled>Update</butoon>
                 </div>
               </div>
@@ -183,6 +183,7 @@ if ($diff > 120) {
 <script>
   function generate_otp() {
     infor = "user=<?php echo $usr; ?>";
+    // alert(infor);
     $("#keykey").html("");
 
     $.ajax({
