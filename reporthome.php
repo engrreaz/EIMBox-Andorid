@@ -134,6 +134,21 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
+    <div class="card menu-item-block" onclick="report_menu_honorable_teachers();" >
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-file-person"></i></td>
+            <td>
+              <h4> Teachers & Staffs </h4>
+              <div class="menu-item-sub-text"> Honourable Teachers & Staffs </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
     <div class="card menu-item-block" onclick="report_menu_ebooks_x();" >
       <div class="card-body">
         <table style="">

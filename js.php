@@ -137,6 +137,9 @@
     function report_menu_my_subjects() {
         window.location.href = 'my-subject-list.php';
     }
+    function report_menu_honorable_teachers() {
+        window.location.href = 'teachers-list.php';
+    }
     function report_menu_ebooks() {
         window.location.href = 'e-books.php';
     }
