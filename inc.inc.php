@@ -271,7 +271,9 @@ for ($x = 0; $x < 365; $x++) {
     $tar = date('Y-m-d', $one + $oneday * $x);
     $bar = date('l', strtotime($tar));
 
-    $query33pd = "insert into calendar (id, date, day, sccode, descrip, category, work, class ) values (NULL, '$tar' , '$bar', 0, NULL, NULL, 1, 1)";
+    $query33pd = "insert into calendar 
+    (id, date, day, sccode, descrip, category, work, class ) values 
+    (NULL, '$tar' , '$bar', 0, NULL, NULL, 1, 1)";
     //echo $query33p;
     // $conn->query($query33pd);
 }
