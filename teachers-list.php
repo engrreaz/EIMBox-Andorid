@@ -51,6 +51,19 @@ include 'datam/datam-teacher.php';
       foreach ($datam_teacher_profile as $teacher) {
         $tid = $teacher["tid"];
 
+        $phst = 1;
+        $photo_path = $BASE_PATH_URL . 'teacher/' . $tid . ".jpg";
+        // echo $photo_path;
+        if (!file_exists($photo_path)) {
+          $photo_path = "https://eimbox.com/teacher/no-img.jpg";
+          $phst = 0;
+        } else {
+          $photo_path = $BASE_PATH_URL_FILE . 'teacher/' . $tid . ".jpg";
+          $phst = 1;
+
+          // echo $phst . '/' . $photo_path;
+        }
+
         if ($status == 0) {
           $bgc = '--light';
           $dsbl = ' disabled';
@@ -65,11 +78,11 @@ include 'datam/datam-teacher.php';
 
         ?>
         <div class="card  mb-1" style="background:var(<?php echo $bgc; ?>); color:var(--darker);"
-          onclick="go(<?php echo $stid; ?>)" id="block<?php echo $stid; ?>" <?php echo $dsbl; ?>>
+          onclick="go(<?php echo $tid; ?>)" id="block<?php echo $tid; ?>" <?php echo $dsbl; ?>>
           <div class="card-body">
             <div class="row">
               <div class="col-3">
-                <img src="<?php echo $pth; ?>" class="st-pic-normal" />
+                <img src="<?php echo $photo_path; ?>" class="st-pic-normal" />
               </div>
               <div class="col-9">
                 <div class="st-id">ID : <b><?php echo $tid; ?></b></div>
