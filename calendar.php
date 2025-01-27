@@ -16,6 +16,7 @@ include 'datam/datam-calendar.php';
 // var_dump($datam_calendar_events);
 $wday_ind = array_search('Weekends', array_column($ins_all_settings, 'setting_title'));
 $wday_text = $ins_all_settings[$wday_ind]['settings_value'];
+$count_row = count($datam_calendar_events);
 
 ?>
 
@@ -148,7 +149,7 @@ $wday_text = $ins_all_settings[$wday_ind]['settings_value'];
             <td colspan="2">
               <div class="menu-icon"><i class="bi bi-calendar-fill"></i></div>
               <div class="menu-text"> Academic Calendar</div>
-              
+
             </td>
           </tr>
         </table>
@@ -156,8 +157,19 @@ $wday_text = $ins_all_settings[$wday_ind]['settings_value'];
 
       </div>
       <div class="bg-info">
-      <button class="btn btn-dark btn-block text-white p-3 " style="border-radius:0;" onclick="changeview();"> Calendar View  &nbsp;&nbsp;&nbsp; <i class="bi bi-arrow-left-right"></i> &nbsp;&nbsp;&nbsp; Text View </button>
 
+        <?php if ($count_row < 30) {
+          ?>
+          <button class="btn btn-info btn-block text-white p-3 " style="border-radius:0;" onclick="changeview();"> Import
+            Events </button>
+        <?php
+        } else {
+          ?>
+          <button class="btn btn-dark btn-block text-white p-3 " style="border-radius:0;" onclick="changeview();">
+            Calendar View &nbsp;&nbsp;&nbsp; <i class="bi bi-arrow-left-right"></i> &nbsp;&nbsp;&nbsp; Text View </button>
+        <?php
+        }
+        ?>
       </div>
     </div>
 
@@ -171,77 +183,77 @@ $wday_text = $ins_all_settings[$wday_ind]['settings_value'];
     <!-- ******************************************************************* -->
 
 
-<div class="card-body" id="table-box" style="display:block;">
+    <div class="card-body" id="table-box" style="display:block;">
 
 
 
-    <?php
+      <?php
 
-    include 'component/Calendar.php';
+      include 'component/Calendar.php';
 
-    for ($month = 1; $month <= 12; $month++) {
-      $cal_date = date('Y') . '-' . $month . '-01';
-      $calendar = new Calendar($cal_date);
-      foreach ($datam_calendar_events as $cal_event) {
-        $tarikh = $cal_event['date'];
-        $count = $cal_event['day_count'];
-        $icon = $cal_event['icon'];
-        $color = $cal_event['color'];
-        if (date('m', strtotime($tarikh)) == $month) {
-          $calendar->add_event('<i class="bi bi-' . $icon . '"></i>', $tarikh, $count, $color);
+      for ($month = 1; $month <= 12; $month++) {
+        $cal_date = date('Y') . '-' . $month . '-01';
+        $calendar = new Calendar($cal_date);
+        foreach ($datam_calendar_events as $cal_event) {
+          $tarikh = $cal_event['date'];
+          $count = $cal_event['day_count'];
+          $icon = $cal_event['icon'];
+          $color = $cal_event['color'];
+          if (date('m', strtotime($tarikh)) == $month) {
+            $calendar->add_event('<i class="bi bi-' . $icon . '"></i>', $tarikh, $count, $color);
+          }
         }
+        echo $calendar;
       }
-      echo $calendar;
-    }
 
-    // // $calendar = new Calendar();
-    // $calendar = new Calendar('2025-01-01');
-    // $calendar2 = new Calendar('2025-05-01');
-    
-    // $calendar->add_event('Book', '2024-05-14');
-    // $calendar->add_event('Sha', '2025-01-4', 7); // Event will last for 7 days
-    // $calendar->add_event('Holiday', '2025-01-14', 1, 'red');
-    // $calendar->add_event('Olymp', '2025-01-14', 1, 'green');
-    
-    // $calendar->add_event('<i class="bi bi-cake"></i>', '2025-01-01', 1, 'green');
-    // $calendar2->add_event('d', '2025-05-04', 1, 'red');
-    // $calendar2->add_event('s', '2025-05-05', 1);
-    
-    // echo $calendar;
-    // echo $calendar2;
-    ?>
-</div>
+      // // $calendar = new Calendar();
+      // $calendar = new Calendar('2025-01-01');
+      // $calendar2 = new Calendar('2025-05-01');
+      
+      // $calendar->add_event('Book', '2024-05-14');
+      // $calendar->add_event('Sha', '2025-01-4', 7); // Event will last for 7 days
+      // $calendar->add_event('Holiday', '2025-01-14', 1, 'red');
+      // $calendar->add_event('Olymp', '2025-01-14', 1, 'green');
+      
+      // $calendar->add_event('<i class="bi bi-cake"></i>', '2025-01-01', 1, 'green');
+      // $calendar2->add_event('d', '2025-05-04', 1, 'red');
+      // $calendar2->add_event('s', '2025-05-05', 1);
+      
+      // echo $calendar;
+      // echo $calendar2;
+      ?>
+    </div>
 
 
-<div class="card-body p-2" id="table-text" style="display:none;">
-  <table class="table table-condensed text-small">
-  <?php 
-  foreach($datam_calendar_events as $eventus){
-    $e_date = $eventus['date']; 
-    $e_day = $eventus['day']; 
-    $e_descrip = $eventus['descrip']; 
-    $e_category = $eventus['category']; 
-    $e_work = $eventus['work']; 
-    $e_class = $eventus['class']; 
-    $e_icon = $eventus['icon']; 
-    $e_color = $eventus['color']; 
-   
-            $bar = date('l', strtotime($e_date));
-            if(str_contains($wday_text, $bar) === true){
-                $e_icon = 'x-square-fill';
-                $e_color = 'red';
-            } 
-    ?>
-    <tr>
-      <td><i class="bi bi-<?php echo $e_icon;?>" style="color:<?php echo $e_color;?>"></i></td>
-      <td><?php echo date('d/m/Y', strtotime($e_date));?></td>
-      <td><?php echo $e_descrip;?></td>
-    </tr>
-    <?php 
-  }
-  ?>
-  </table>
-</div>
+    <div class="card-body p-2" id="table-text" style="display:none;">
+      <table class="table table-condensed text-small">
+        <?php
+        foreach ($datam_calendar_events as $eventus) {
+          $e_date = $eventus['date'];
+          $e_day = $eventus['day'];
+          $e_descrip = $eventus['descrip'];
+          $e_category = $eventus['category'];
+          $e_work = $eventus['work'];
+          $e_class = $eventus['class'];
+          $e_icon = $eventus['icon'];
+          $e_color = $eventus['color'];
+
+          $bar = date('l', strtotime($e_date));
+          if (str_contains($wday_text, $bar) === true) {
+            $e_icon = 'x-square-fill';
+            $e_color = 'red';
+          }
+          ?>
+          <tr>
+            <td><i class="bi bi-<?php echo $e_icon; ?>" style="color:<?php echo $e_color; ?>"></i></td>
+            <td><?php echo date('d/m/Y', strtotime($e_date)); ?></td>
+            <td><?php echo $e_descrip; ?></td>
+          </tr>
+        <?php
+        }
+        ?>
+      </table>
+    </div>
   </div>
 
 </main>
@@ -305,7 +317,7 @@ $wday_text = $ins_all_settings[$wday_ind]['settings_value'];
   function changeview() {
     var elema = document.getElementById("table-box");
     var elemb = document.getElementById("table-text");
-    if(elema.style.display === 'block'){
+    if (elema.style.display === 'block') {
       elema.style.display = 'none';
       elemb.style.display = 'block';
     } else {
