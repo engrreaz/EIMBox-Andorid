@@ -11,6 +11,7 @@ if ($result0->num_rows > 0) {
 
 
 $workday_flag = 1;
+$event_block_hide = 'hidden';
 $wday_ind = array_search('Weekends', array_column($ins_all_settings, 'setting_title'));
 $wday_text = $ins_all_settings[$wday_ind]['settings_value'];
 
@@ -22,14 +23,12 @@ if (str_contains($wday_text, $bar) === true) {
     $count_event = count($datam_calendar_events_today);
     $event_block_hide = 'hidden';
     if ($count_event > 0) {
+        $event_block_hide = '';
         foreach ($datam_calendar_events_today as $eve) {
             $workday_flag *= $eve['class'];
-            $event_block_hide = '';
+
         }
     }
-
-
-
 }
 $sch_block = '';
 if ($workday_flag == 0) {
@@ -65,10 +64,9 @@ if ($result0rtt->num_rows > 0) {
         $ee_icon = $cal_event['icon'];
         $ee_color = $cal_event['color'];
         ?>
-        <div class="d-flex" style="display:<?php echo $event_block_hide;?>">
-
-
-            <div class="event-icon mb-3 " style="color:<?php echo $ee_color; ?>"><i class="bi bi-<?php echo $ee_icon; ?>"></i>
+        <div class="d-flex" style="display:<?php echo $event_block_hide; ?>">
+            <div class="event-icon mb-3 " style="color:<?php echo $ee_color; ?>"><i
+                    class="bi bi-<?php echo $ee_icon; ?>"></i>
             </div>
             <div class="flex-grow-1 ms-3" style="color:<?php echo $ee_color; ?>">
                 <div class="st-id text-muted"><?php echo $ee_category; ?></div>
