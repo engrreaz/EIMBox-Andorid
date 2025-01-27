@@ -20,10 +20,11 @@ if (str_contains($wday_text, $bar) === true) {
 } else {
 
     $count_event = count($datam_calendar_events_today);
-
+    $event_block_hide = 'hidden';
     if ($count_event > 0) {
         foreach ($datam_calendar_events_today as $eve) {
             $workday_flag *= $eve['class'];
+            $event_block_hide = '';
         }
     }
 
@@ -64,7 +65,7 @@ if ($result0rtt->num_rows > 0) {
         $ee_icon = $cal_event['icon'];
         $ee_color = $cal_event['color'];
         ?>
-        <div class="d-flex">
+        <div class="d-flex" style="display:<?php echo $event_block_hide;?>">
 
 
             <div class="event-icon mb-3 " style="color:<?php echo $ee_color; ?>"><i class="bi bi-<?php echo $ee_icon; ?>"></i>
