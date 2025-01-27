@@ -155,7 +155,29 @@
 
 
     function calendar_event(year, month, day, tail) {
-        alert('Year' + year + month + day + tail);
+        // alert('Year' + year + month + day + tail);
+
+        var infor = "y=" + year + "&m=" + month + "&d=" + day + "&t=" + tail;
+        // 		alert(infor);
+        $("#fetch_data").html("");
+
+        $.ajax({
+            type: "POST",
+            url: "backend/fetch_calendar_data.php",
+            data: infor,
+            cache: false,
+            beforeSend: function () {
+                $('#fetch_data').html('Please Wait...');
+            },
+            success: function (html) {
+                $("#fetch_data").html();
+                Swal.fire({
+                    title: "<small>" + html + "</small>",
+                    icon: "info",
+                    draggable: true
+                });
+            }
+        });
     }
 
 

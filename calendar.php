@@ -6,7 +6,6 @@ for ($j = 0; $j <= 365; $j++) {
   $trk = date('Y-m-d', $trk);
   $bar = date('l', strtotime($trk));
 
-
   // $query3x ="insert into calendar values(NULL, '$trk', '$bar', 0, NULL, NULL, 0,  0, NULL);";
   //  $conn->query($query3x);
 
@@ -144,30 +143,22 @@ $count_row = count($datam_calendar_events);
   <div class="containerx-fluid">
     <div class="card text-left">
       <div class="card-body page-top-box">
-        <table width="100%" style="color:white;">
-          <tr>
-            <td colspan="2">
-              <div class="menu-icon"><i class="bi bi-calendar-fill"></i></div>
-              <div class="menu-text"> Academic Calendar</div>
-
-            </td>
-          </tr>
-        </table>
-
-
+        <div class="menu-icon"><i class="bi bi-calendar-fill"></i></div>
+        <div class="menu-text"> Academic Calendar</div>
+        <div id="fetch_data"></div>
       </div>
       <div class="bg-info">
 
-        <?php if ($count_row < 30) {
+        <?php if ($count_row < 300) {
           ?>
           <button class="btn btn-info btn-block text-white p-3 " style="border-radius:0;" onclick="changeview();"> Import
             Events </button>
-        <?php
+          <?php
         } else {
           ?>
           <button class="btn btn-dark btn-block text-white p-3 " style="border-radius:0;" onclick="changeview();">
             Calendar View &nbsp;&nbsp;&nbsp; <i class="bi bi-arrow-left-right"></i> &nbsp;&nbsp;&nbsp; Text View </button>
-        <?php
+          <?php
         }
         ?>
       </div>
@@ -249,7 +240,7 @@ $count_row = count($datam_calendar_events);
             <td><?php echo date('d/m/Y', strtotime($e_date)); ?></td>
             <td><?php echo $e_descrip; ?></td>
           </tr>
-        <?php
+          <?php
         }
         ?>
       </table>
