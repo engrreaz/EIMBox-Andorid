@@ -21,6 +21,7 @@ if (str_contains($wday_text, $bar) === true) {
 } else {
 
     $count_event = count($datam_calendar_events_today);
+    echo $count_event;
     $event_block_hide = 'hidden';
     if ($count_event > 0) {
         $event_block_hide = '';
