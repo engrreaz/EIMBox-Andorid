@@ -54,7 +54,7 @@ if ($result0rtt->num_rows > 0) {
 }
     */
 ?>
-<div class="card-body p-3 mt-1" style="background:var(--lighter);">
+<div class="card-body p-3 mt-1" style="background:var(--lighter); display:<?php echo $event_block_hide;?>">
 
     <?php
     foreach ($datam_calendar_events_today as $cal_event) {
@@ -64,7 +64,7 @@ if ($result0rtt->num_rows > 0) {
         $ee_icon = $cal_event['icon'];
         $ee_color = $cal_event['color'];
         ?>
-        <div class="d-flex" style="display:<?php echo $event_block_hide; ?>">
+        <div class="d-flex" >
             <div class="event-icon mb-3 " style="color:<?php echo $ee_color; ?>"><i
                     class="bi bi-<?php echo $ee_icon; ?>"></i>
             </div>
