@@ -21,8 +21,7 @@ if (str_contains($wday_text, $bar) === true) {
 } else {
 
     $count_event = count($datam_calendar_events_today);
-    echo $count_event;
-    $event_block_hide = 'hidden';
+ 
     if ($count_event > 0) {
         $event_block_hide = '';
         foreach ($datam_calendar_events_today as $eve) {
@@ -55,7 +54,7 @@ if ($result0rtt->num_rows > 0) {
 }
     */
 ?>
-<div class="card-body p-3 mt-1" style="background:var(--lighter); display:<?php echo $event_block_hide;?>">
+<div class="card-body p-3 mt-1" style="background:var(--lighter); "  <?php echo $event_block_hide;?>>
 
     <?php
     foreach ($datam_calendar_events_today as $cal_event) {
