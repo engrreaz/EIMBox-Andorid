@@ -594,5 +594,10 @@
         .pr-item-eng {
             font-size: 14px;
         }
+
+        .event-icon {
+            font-size:24px;
+            padding-top:3px;
+        }
     </style>
 </head>

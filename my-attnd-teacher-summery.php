@@ -2,6 +2,17 @@
 include 'inc.php';
 // profile_menu_my_attendance
 $c1 = $c2 = $c3 = $c4 = 0;
+$datam_tattnd = array();
+$ds = $sy . '-01-01';
+$de = $sy . '-12-31';
+$sql0 = "SELECT * FROM teacherattnd where sccode = '$sccode' and adate between '$ds' and '$de' and tid='$userid' ;";
+$result0rt_tattnd = $conn->query($sql0);
+if ($result0rt_tattnd->num_rows > 0) {
+  while ($row0 = $result0rt_tattnd->fetch_assoc()) {
+    $datam_tattnd[] = $row0;
+  }
+}
+// var_dump($datam_tattnd);
 ?>
 
 <main>
@@ -67,19 +78,72 @@ $c1 = $c2 = $c3 = $c4 = 0;
     $val_from = strtotime($date1);
     $step = 3600 * 24;
     for ($x = $val_to; $x >= $val_from; $x = $x - $step) {
+      $status_in = $detect_in = '';
       $run_date = date('d-m-Y', $x);
+      $block_icon = 'clock';
+      $datam_ind = array_search(date('Y-m-d', $x), array_column($datam_tattnd, 'adate'));
+      if ($datam_ind != '' || $datam_ind != null) {
+        $my_attnd = 1;
+        $status_in = $datam_tattnd[$datam_ind]['statusin'];
+        if ($status_in == 'Late') {
+          $block_text = 'orange';
+          $block_color = 'lightyellow';
+        } else {
+          $block_text = 'seagreen';
+          $block_color = 'azure';
+        }
+        $detect_in = $datam_tattnd[$datam_ind]['detectin'];
+        if (strtolower($detect_in) == 'gps') {
+          $block_icon = 'geo-fill';
+        } else if (strtolower($detect_in) == 'fingerprint') {
+          $block_icon = 'fingerprint';
+        } else if (strtolower($detect_in) == 'rfid') {
+          $block_icon = 'person-vcard-fill';
+        } else if (strtolower($detect_in) == 'pin') {
+          $block_icon = 'shield-lock-fill';
+        } else if (strtolower($detect_in) == 'face') {
+          $block_icon = 'person-square';
+        }
+        $real_in = $datam_tattnd[$datam_ind]['realin'];
+        $real_out = $datam_tattnd[$datam_ind]['realout'];
+
+
+      } else {
+        $block_icon = 'x-circle-fill';
+        $block_text = 'red';
+        $block_color = 'ivory';
+        $real_in = '';
+        $real_out = '';
+      }
 
       ?>
-      <div class="card " style="background:var(--lighter); color:seagreen; border-radius:0;"
+      <div class="card "
+        style="background:<?php echo $block_color; ?>; color:<?php echo $block_text; ?>; border-radius:0;"
         onclick="gog('<?php echo $run_date; ?>')">
         <img class="card-img-top" alt="">
         <div class="card-body d-flex">
-
-          <div style="font-size:14px; font-weight:600; color:seagreen; font-style:normal;">
-            <?php echo date('d-m-Y', strtotime($run_date)); ?>
+          <div class="me-3"><i class="bi bi-<?php echo $block_icon; ?>"></i></div>
+          <div>
+            <?php if ($status_in != '') { ?>
+              <div class="st-id"> <?php echo $status_in . ' IN through ' . $detect_in; ?> </div>
+            <?php } ?>
+            <div style="font-size:12px; font-weight:600;  font-style:normal;">
+              <?php echo date('l, d F, Y', strtotime($run_date)); ?>
+            </div>
           </div>
-          <div class=" flex-grow-1 text-end" style="font-size:15px; font-weight:700;">
-            <span style="font-size:12px; font-weight:500;">ddddd</span>.</div>
+
+          <div class=" flex-grow-1 text-end" style="">
+            <div style="font-size:11px; font-weight:400; line-height:15px;">
+
+            <?php if($real_in != ''){
+              echo 'In : ' . $real_in;
+            }
+            if($real_out != ''){
+              echo '<br>Out : ' . $real_out;
+            }
+            ?>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -99,11 +163,11 @@ $c1 = $c2 = $c3 = $c4 = 0;
 
 <script>
 
-  
-document.getElementById("c1").innerHTML = '<?php echo $c1;?>';
-document.getElementById("c2").innerHTML = '<?php echo $c2;?>';
-document.getElementById("c3").innerHTML = '<?php echo $c3;?>';
-document.getElementById("c4").innerHTML = '<?php echo $c4;?>';
+
+  document.getElementById("c1").innerHTML = '<?php echo $c1; ?>';
+  document.getElementById("c2").innerHTML = '<?php echo $c2; ?>';
+  document.getElementById("c3").innerHTML = '<?php echo $c3; ?>';
+  document.getElementById("c4").innerHTML = '<?php echo $c4; ?>';
 
 
 

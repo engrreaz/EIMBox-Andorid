@@ -4,6 +4,8 @@ class Calendar {
     private $active_year, $active_month, $active_day;
     private $events = [];
 
+
+    
     public function __construct($date = null) {
         $this->active_year = $date != null ? date('Y', strtotime($date)) : date('Y');
         $this->active_month = $date != null ? date('m', strtotime($date)) : date('m');
@@ -16,11 +18,16 @@ class Calendar {
     }
 
     public function __toString() {
+        global $ins_all_settings;
+        $wday_ind = array_search('Weekends', array_column($ins_all_settings, 'setting_title'));
+        $wday_text = $ins_all_settings[$wday_ind]['settings_value'];
+
+        $html = '';
         $num_days = date('t', strtotime($this->active_day . '-' . $this->active_month . '-' . $this->active_year));
         $num_days_last_month = date('j', strtotime('last day of previous month', strtotime($this->active_day . '-' . $this->active_month . '-' . $this->active_year)));
         $days = [0 => 'Sun', 1 => 'Mon', 2 => 'Tue', 3 => 'Wed', 4 => 'Thu', 5 => 'Fri', 6 => 'Sat'];
         $first_day_of_week = array_search(date('D', strtotime($this->active_year . '-' . $this->active_month . '-1')), $days);
-        $html = '<div class="calendar">';
+        $html .= '<div class="calendar">';
         $html .= '<div class="header">';
         $html .= '<div class="month-year page-info-box" style="color:white; text-align: center; padding;0; margin:0;">';
         $html .= date('F Y', strtotime($this->active_year . '-' . $this->active_month . '-' . $this->active_day));
@@ -46,7 +53,14 @@ class Calendar {
             if ($i == $this->active_day) {
                 $selected = ' selected';
             }
-            $html .= '<div class="day_num' . $selected . '"      id="day_box_'.$this->active_year.'_'.$this->active_month.'" onclick="calendar_event('.$this->active_year.','.$this->active_month.','.$i.', 1);">';
+            $new_date = $this->active_year . '-' . $this->active_month . '-' . $i;
+            $bar = date('l', strtotime($new_date));
+            if(str_contains($wday_text, $bar) === true){
+                $kls='bg-danger text-white';
+            } else {
+                $kls = '';
+            }
+            $html .= '<div class="day_num ' . $kls . $selected . '"      id="day_box_'.$this->active_year.'_'.$this->active_month.'" onclick="calendar_event('.$this->active_year.','.$this->active_month.','.$i.', 1);">';
             $html .= '<span>' . $i . '</span>';
             foreach ($this->events as $event) {
                 for ($d = 0; $d <= ($event[2]-1); $d++) {

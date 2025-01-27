@@ -14,6 +14,9 @@ for ($j = 0; $j <= 365; $j++) {
 
 include 'datam/datam-calendar.php';
 // var_dump($datam_calendar_events);
+$wday_ind = array_search('Weekends', array_column($ins_all_settings, 'setting_title'));
+$wday_text = $ins_all_settings[$wday_ind]['settings_value'];
+
 ?>
 
 <style>
@@ -75,7 +78,7 @@ include 'datam/datam-calendar.php';
     font-size: 11px;
     padding: 3px 6px;
     border-radius: 4px;
-    background-color:rgb(138, 136, 130);
+    background-color: rgb(138, 136, 130);
     color: #fff;
     text-align: center;
     word-wrap: break-word;
@@ -84,16 +87,34 @@ include 'datam/datam-calendar.php';
   .calendar .days .day_num .event.green {
     background-color: #51ce57;
   }
+
   .calendar .days .day_num .event.orange {
-    background-color:;rgb(255, 187, 0);
+    background-color: ;
+    rgb(255, 187, 0);
   }
 
   .calendar .days .day_num .event.blue {
-    background-color:rgb(40, 23, 136)
+    background-color: rgb(40, 23, 136)
   }
 
   .calendar .days .day_num .event.red {
-    background-color:rgb(224, 6, 6);
+    background-color: rgb(224, 6, 6);
+  }
+
+  .calendar .days .day_num .event.teal {
+    background-color: rgb(18, 134, 105);
+  }
+
+  .calendar .days .day_num .event.indigo {
+    background-color: rgb(138, 17, 156);
+  }
+
+  .calendar .days .day_num .event.lime {
+    background-color: rgb(130, 143, 13);
+  }
+
+  .calendar .days .day_num .event.gold {
+    background-color: rgb(124, 123, 27);
   }
 
   .calendar .days .day_num:nth-child(7n+1) {
@@ -126,10 +147,17 @@ include 'datam/datam-calendar.php';
           <tr>
             <td colspan="2">
               <div class="menu-icon"><i class="bi bi-calendar-fill"></i></div>
-              <div class="menu-text"> Academic Calendar </div>
+              <div class="menu-text"> Academic Calendar</div>
+              
             </td>
           </tr>
         </table>
+
+
+      </div>
+      <div class="bg-info">
+      <button class="btn btn-dark btn-block text-white p-3 " style="border-radius:0;" onclick="changeview();"> Calendar View  &nbsp;&nbsp;&nbsp; <i class="bi bi-arrow-left-right"></i> &nbsp;&nbsp;&nbsp; Text View </button>
+
       </div>
     </div>
 
@@ -143,6 +171,8 @@ include 'datam/datam-calendar.php';
     <!-- ******************************************************************* -->
 
 
+<div class="card-body" id="table-box" style="display:block;">
+
 
 
     <?php
@@ -152,13 +182,13 @@ include 'datam/datam-calendar.php';
     for ($month = 1; $month <= 12; $month++) {
       $cal_date = date('Y') . '-' . $month . '-01';
       $calendar = new Calendar($cal_date);
-      foreach($datam_calendar_events as $cal_event){
+      foreach ($datam_calendar_events as $cal_event) {
         $tarikh = $cal_event['date'];
         $count = $cal_event['day_count'];
         $icon = $cal_event['icon'];
         $color = $cal_event['color'];
-        if(date('m', strtotime($tarikh))==$month){
-                $calendar->add_event('<i class="bi bi-'.$icon.'"></i>', $tarikh, $count, $color);
+        if (date('m', strtotime($tarikh)) == $month) {
+          $calendar->add_event('<i class="bi bi-' . $icon . '"></i>', $tarikh, $count, $color);
         }
       }
       echo $calendar;
@@ -167,19 +197,51 @@ include 'datam/datam-calendar.php';
     // // $calendar = new Calendar();
     // $calendar = new Calendar('2025-01-01');
     // $calendar2 = new Calendar('2025-05-01');
-
+    
     // $calendar->add_event('Book', '2024-05-14');
     // $calendar->add_event('Sha', '2025-01-4', 7); // Event will last for 7 days
     // $calendar->add_event('Holiday', '2025-01-14', 1, 'red');
     // $calendar->add_event('Olymp', '2025-01-14', 1, 'green');
-
+    
     // $calendar->add_event('<i class="bi bi-cake"></i>', '2025-01-01', 1, 'green');
     // $calendar2->add_event('d', '2025-05-04', 1, 'red');
     // $calendar2->add_event('s', '2025-05-05', 1);
-
+    
     // echo $calendar;
     // echo $calendar2;
     ?>
+</div>
+
+
+<div class="card-body p-2" id="table-text" style="display:none;">
+  <table class="table table-condensed text-small">
+  <?php 
+  foreach($datam_calendar_events as $eventus){
+    $e_date = $eventus['date']; 
+    $e_day = $eventus['day']; 
+    $e_descrip = $eventus['descrip']; 
+    $e_category = $eventus['category']; 
+    $e_work = $eventus['work']; 
+    $e_class = $eventus['class']; 
+    $e_icon = $eventus['icon']; 
+    $e_color = $eventus['color']; 
+   
+            $bar = date('l', strtotime($e_date));
+            if(str_contains($wday_text, $bar) === true){
+                $e_icon = 'x-square-fill';
+                $e_color = 'red';
+            } 
+    ?>
+    <tr>
+      <td><i class="bi bi-<?php echo $e_icon;?>" style="color:<?php echo $e_color;?>"></i></td>
+      <td><?php echo date('d/m/Y', strtotime($e_date));?></td>
+      <td><?php echo $e_descrip;?></td>
+    </tr>
+    <?php 
+  }
+  ?>
+  </table>
+</div>
   </div>
 
 </main>
@@ -236,5 +298,19 @@ include 'datam/datam-calendar.php';
         $("#p" + cn + sec2 + dat).html(html);
       }
     });
+  }
+</script>
+
+<script>
+  function changeview() {
+    var elema = document.getElementById("table-box");
+    var elemb = document.getElementById("table-text");
+    if(elema.style.display === 'block'){
+      elema.style.display = 'none';
+      elemb.style.display = 'block';
+    } else {
+      elemb.style.display = 'none';
+      elema.style.display = 'block';
+    }
   }
 </script>
