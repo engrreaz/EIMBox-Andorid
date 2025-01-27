@@ -167,7 +167,7 @@
             data: infor,
             cache: false,
             beforeSend: function () {
-                $('#fetch_data').html('Please Wait...');
+                $('#fetch_data').html('');
             },
             success: function (html) {
                 $("#fetch_data").html();
