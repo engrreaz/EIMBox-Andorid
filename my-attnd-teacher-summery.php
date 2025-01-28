@@ -1,7 +1,9 @@
 <?php
 include 'inc.php';
+include 'datam/datam-calendar.php';
+
 // profile_menu_my_attendance
-$c1 = $c2 = $c3 = $c4 = 0;
+$c1 = $c2 = $c3 = $c4 = $c5 = $c6 = 0;
 $datam_tattnd = array();
 $ds = $sy . '-01-01';
 $de = $sy . '-12-31';
@@ -13,6 +15,32 @@ if ($result0rt_tattnd->num_rows > 0) {
   }
 }
 // var_dump($datam_tattnd);
+
+
+$my_app_datam = array();
+$sql0 = "SELECT * FROM teacher_leave_app where sccode='$sccode' and ( status=0 or status>=3) order by apply_date desc, id desc";
+$result0_head_block = $conn->query($sql0);
+if ($result0_head_block->num_rows > 0) {
+  while ($row0x = $result0_head_block->fetch_assoc()) {
+    $my_app_datam[] = $row0x;
+  }
+}
+
+$my_app_datam = array();
+$sql0 = "SELECT date_from, date_to, status FROM teacher_leave_app where sccode='$sccode' and  status=1 and tid='$userid' ";
+$result0_head_block = $conn->query($sql0);
+if ($result0_head_block->num_rows > 0) {
+  while ($row0x = $result0_head_block->fetch_assoc()) {
+    $my_app_datam[] = $row0x;
+  }
+}
+$teacher_application_count = count($my_app_datam);
+
+
+
+
+
+
 ?>
 
 <main>
@@ -29,43 +57,44 @@ if ($result0rt_tattnd->num_rows > 0) {
         </table>
       </div>
     </div>
-    <div class="card-body" style="background:black;">
-      <div class="d-flex pt-2 pb-2">
-        <div class="d-block flex-fill text-center" style="color:seagreen;">
+    <div class="card-body p-2" style="background:black; overflow:hidden;">
+      <div class="d-flex  row">
+        <div class="col-2 d-block flex-fill text-center" style="color:seagreen;">
           <div class="menu-icon " id="c1"></div>
-          <div class="st-id"> Approved </div>
+          <div class="st-id"> Presence </div>
         </div>
-        <div class="d-block flex-fill text-center" style="color:crimson;">
-          <div class="menu-icon" id="c2"></div>
-          <div class="st-id"> Rejected </div>
+        <div class="col-2 d-block flex-fill text-center" style="color:cyan;">
+          <div class="menu-icon " id="c2"></div>
+          <div class="st-id"> Leave </div>
         </div>
-
-
-
-
-        <div class="d-block flex-fill text-center" style="color:orange;">
-          <div class="menu-icon" id="c3"></div>
-          <div class="st-id"> Under Review </div>
-
+        <div class="col-2 d-block flex-fill text-center" style="color:red;">
+          <div class="menu-icon " id="c3"></div>
+          <div class="st-id"> Absent </div>
         </div>
-
-
-        <div class="d-block flex-fill text-center" style="color:white;">
-          <div class="menu-icon" id="c4"></div>
+        <div class="col-2 d-block flex-fill text-center" style="color:gray;">
+          <div class="menu-icon " id="c4"></div>
+          <div class="st-id"> Weekends </div>
+        </div>
+        <div class="col-2 d-block flex-fill text-center" style="color:crimson;">
+          <div class="menu-icon " id="c5"></div>
+          <div class="st-id"> Holiday </div>
+        </div>
+        <div class="col-2 d-block flex-fill text-center" style="color:white;">
+          <div class="menu-icon " id="c6"></div>
           <div class="st-id"> Total </div>
         </div>
 
 
-        <div class="d-block flex-fill text-center" style="color:white;">
 
-          <button class="btn btn-primary m-2" onclick="leave_app_edit(0, 0);">
-            <i class="bi bi-plus-circle-fill leave-delete"></i>
-          </button>
-        </div>
+      </div>
+      <div class="row" hidden>
+        <div class="col-6 st-id text-small text-white text-center">Workdays</div>
+        <div class="col-4 st-id text-small text-white text-center">Offdays</div>
       </div>
 
     </div>
-    <div style="height:8px;"></div>
+
+    <div style="height:2px;"></div>
 
 
     <?php
@@ -81,40 +110,131 @@ if ($result0rt_tattnd->num_rows > 0) {
       $status_in = $detect_in = '';
       $run_date = date('d-m-Y', $x);
       $block_icon = 'clock';
-      $datam_ind = array_search(date('Y-m-d', $x), array_column($datam_tattnd, 'adate'));
-      if ($datam_ind != '' || $datam_ind != null) {
-        $my_attnd = 1;
-        $status_in = $datam_tattnd[$datam_ind]['statusin'];
-        if ($status_in == 'Late') {
-          $block_text = 'orange';
-          $block_color = 'lightyellow';
-        } else {
-          $block_text = 'seagreen';
-          $block_color = 'azure';
-        }
-        $detect_in = $datam_tattnd[$datam_ind]['detectin'];
-        if (strtolower($detect_in) == 'gps') {
-          $block_icon = 'geo-fill';
-        } else if (strtolower($detect_in) == 'fingerprint') {
-          $block_icon = 'fingerprint';
-        } else if (strtolower($detect_in) == 'rfid') {
-          $block_icon = 'person-vcard-fill';
-        } else if (strtolower($detect_in) == 'pin') {
-          $block_icon = 'shield-lock-fill';
-        } else if (strtolower($detect_in) == 'face') {
-          $block_icon = 'person-square';
-        }
-        $real_in = $datam_tattnd[$datam_ind]['realin'];
-        $real_out = $datam_tattnd[$datam_ind]['realout'];
 
 
-      } else {
-        $block_icon = 'x-circle-fill';
-        $block_text = 'red';
-        $block_color = 'ivory';
+      $workday_flag = 1;
+      $wday_ind = array_search('Weekends', array_column($ins_all_settings, 'setting_title'));
+      $wday_text = $ins_all_settings[$wday_ind]['settings_value'];
+
+      $bar = date('l', $x);
+      if (str_contains($wday_text, $bar) === true) {
+        $workday_flag = 0;
+        $block_icon = 'h-circle-fill';
+        $block_text = 'white';
+        $block_color = 'black';
         $real_in = '';
         $real_out = '';
+        $c4++;
+      } else {
+
+        $count_event = count($datam_calendar_events);
+        if ($count_event > 0) {
+          foreach ($datam_calendar_events as $eve) {
+            $x_date = $eve['date'];
+            $x_class = $eve['class'];
+            if ($x_date == date('Y-m-d', $x)) {
+              $workday_flag *= $x_class;
+              // echo $x_class . '/';
+            }
+          }
+        }
+
+        if ($workday_flag == 0) {
+          $block_icon = 'h-circle-fill';
+          $block_text = 'white';
+          $block_color = 'crimson';
+          $real_in = '';
+          $real_out = '';
+          $c5++;
+        } else {
+
+          $datam_ind = array_search(date('Y-m-d', $x), array_column($datam_tattnd, 'adate'));
+          if ($datam_ind != '' || $datam_ind != null) {
+            $my_attnd = 1;
+            $status_in = $datam_tattnd[$datam_ind]['statusin'];
+            if ($status_in == 'Late') {
+              $block_text = 'orange';
+              $block_color = 'lightyellow';
+              $c1++;
+            } else {
+              $block_text = 'seagreen';
+              $block_color = 'azure';
+              $c1++;
+            }
+            $detect_in = $datam_tattnd[$datam_ind]['detectin'];
+            if (strtolower($detect_in) == 'gps') {
+              $block_icon = 'geo-fill';
+            } else if (strtolower($detect_in) == 'fingerprint') {
+              $block_icon = 'fingerprint';
+            } else if (strtolower($detect_in) == 'rfid') {
+              $block_icon = 'person-vcard-fill';
+            } else if (strtolower($detect_in) == 'pin') {
+              $block_icon = 'shield-lock-fill';
+            } else if (strtolower($detect_in) == 'face') {
+              $block_icon = 'person-square';
+            }
+            $real_in = $datam_tattnd[$datam_ind]['realin'];
+            $real_out = $datam_tattnd[$datam_ind]['realout'];
+
+
+          } else {
+            $block_icon = 'x-circle-fill';
+            $block_text = 'red';
+            $block_color = 'ivory';
+            $real_in = '';
+            $real_out = '';
+
+            //need check any leave application or not
+            $leave_flag = 0;
+            foreach ($my_app_datam as $appl) {
+              $date_from = $appl['date_from'];
+              $date_to = $appl['date_to'];
+              $app_status = $appl['status'];
+              // echo $run_date . '//' . $date_from.'/'.$date_to . '/'.$app_status;
+              $run_datex = date('Y-m-d',$x);
+              if ($run_datex >= $date_from && $run_datex <= $date_to && $app_status==1) {
+                $leave_flag = 1;
+                break;
+              }
+            }
+
+            if($leave_flag==1){
+              $block_icon = 'x-circle-fill';
+                $block_text = 'navy';
+                $block_color = 'honeydew';
+                $real_in = '';
+                $real_out = '';
+                $c2++;
+            } else {
+              $block_icon = 'x-circle-fill';
+                $block_text = 'red';
+                $block_color = 'ivory';
+                $real_in = '';
+                $real_out = '';
+                $c3++;
+            }
+
+
+
+
+
+
+
+          }
+
+
+        }
       }
+
+
+
+
+
+
+
+
+
+
 
       ?>
       <div class="card "
@@ -125,7 +245,7 @@ if ($result0rt_tattnd->num_rows > 0) {
           <div class="me-3"><i class="bi bi-<?php echo $block_icon; ?>"></i></div>
           <div>
             <?php if ($status_in != '') { ?>
-              <div class="st-id"> <?php echo $status_in . ' IN through ' . $detect_in; ?> </div>
+              <div class="st-id"> <?php echo $status_in . ' IN <b>' . strtoupper($detect_in) . '</b> detect'; ?> </div>
             <?php } ?>
             <div style="font-size:12px; font-weight:600;  font-style:normal;">
               <?php echo date('l, d F, Y', strtotime($run_date)); ?>
@@ -135,13 +255,13 @@ if ($result0rt_tattnd->num_rows > 0) {
           <div class=" flex-grow-1 text-end" style="">
             <div style="font-size:11px; font-weight:400; line-height:15px;">
 
-            <?php if($real_in != ''){
-              echo 'In : ' . $real_in;
-            }
-            if($real_out != ''){
-              echo '<br>Out : ' . $real_out;
-            }
-            ?>
+              <?php if ($real_in != '') {
+                echo 'In : ' . $real_in;
+              }
+              if ($real_out != '') {
+                echo '<br>Out : ' . $real_out;
+              }
+              ?>
             </div>
           </div>
 
@@ -151,7 +271,12 @@ if ($result0rt_tattnd->num_rows > 0) {
       <div style="height:2px;"></div>
       <?php $sl++;
 
-    } ?>
+    }
+
+    $c6 = $c1 + $c2 + $c3 + $c4 + $c5;
+
+
+    ?>
 
 
   </div>
@@ -168,6 +293,8 @@ if ($result0rt_tattnd->num_rows > 0) {
   document.getElementById("c2").innerHTML = '<?php echo $c2; ?>';
   document.getElementById("c3").innerHTML = '<?php echo $c3; ?>';
   document.getElementById("c4").innerHTML = '<?php echo $c4; ?>';
+  document.getElementById("c5").innerHTML = '<?php echo $c5; ?>';
+  document.getElementById("c6").innerHTML = '<?php echo $c6; ?>';
 
 
 

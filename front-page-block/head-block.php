@@ -1,4 +1,5 @@
 <?php
+echo 'x';
 if($userlevel == 'Head Teacher' ||  $userlevel == 'Asstt. Head Teacher' || $userlevel == 'Principal' || $userlevel == ' Super Administrator') {
 
 $my_app_datam = array();
