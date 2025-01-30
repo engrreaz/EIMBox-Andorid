@@ -50,7 +50,7 @@ include 'header.php';
 // if (substr($user, 6) > 100000 && strlen($user) >= 10 ) {
 //     echo '<script>alert("XXXPP");</script>';
 // }
-$uuu = [];
+$uuu = array();
 $sql0 = "SELECT * from usersapp where email = '$user' ";
 // echo $sql0;
 $result0885 = $conn->query($sql0);
