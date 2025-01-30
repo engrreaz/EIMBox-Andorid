@@ -1,5 +1,13 @@
 <?php
 include 'inc.php';
+$cls2 = $sec2 = $clssel = $secsel = '';
+if (isset($_GET['cls'])) {
+    $cls2 = $_GET['cls'];
+}
+
+if (isset($_GET['sec'])) {
+    $sec2 = $_GET['sec'];
+}
 ?>
 
 <main>
@@ -7,33 +15,19 @@ include 'inc.php';
         <div class="card text-left" style="background:var(--dark); color:var(--lighter);">
 
             <div class="card-body page-top-box">
-                <table width="100%" style="color:white;">
-                    <tr>
-                        <td>
-                            <div class="menu-icon"><i class="bi bi-square-half"></i></div>
-                            <div class="menu-text"> My Class Schedule </div>
-                        </td>
-                    </tr>
-
-
-                </table>
+                <div class="menu-icon"><i class="bi bi-square-half"></i></div>
+                <div class="menu-text"> Setup Class Routine </div>
             </div>
         </div>
 
 
         <?php if ($userlevel == 'Administrator' || $userlevel == 'Head Teacher') { ?>
-
-
-
             <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk1();">
                 <img class="card-img-top" alt="">
                 <div class="card-body">
                     <table style="width:100%;">
-
-
                         <tr>
                             <td>
-
                                 <div style="text-align:left; padding-top:0px; display:none;">
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="material-icons ico">group</i></span>
@@ -42,17 +36,22 @@ include 'inc.php';
                                     </div>
                                 </div>
                                 <div class="form-group input-group">
-                                    <span class="input-group-text"><i class="material-icons ico">group</i></span>
-                                    <select class="form-control" id="cls">
+                                    <span class="input-group-text"><i class="bi bi-diagram-3 text-box-icon"></i></span>
+                                    <select class="form-control " id="cls" onchange="goo();">
 
                                         <option value="">Choose a Class</option>
                                         <?php
-                                        $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear='$sy'-1 group by areaname order by idno, id ";
+                                        $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear='$sy' group by areaname order by idno, id ";
                                         $result00xgr11 = $conn->query($sql00xgr);
                                         if ($result00xgr11->num_rows > 0) {
                                             while ($row00xgr = $result00xgr11->fetch_assoc()) {
                                                 $ccc = $row00xgr["areaname"];
-                                                echo '<option value="' . $ccc . '">' . $ccc . '</option>';
+                                                if ($ccc == $cls2) {
+                                                    $clssel = 'selected';
+                                                } else {
+                                                    $clssel = '';
+                                                }
+                                                echo '<option value="' . $ccc . '" ' . $clssel . '>' . $ccc . '</option>';
                                             }
                                         }
                                         ?>
@@ -60,17 +59,22 @@ include 'inc.php';
                                 </div>
 
                                 <div class="form-group input-group">
-                                    <span class="input-group-text"><i class="material-icons ico">group</i></span>
-                                    <select class="form-control" id="sec">
+                                    <span class="input-group-text"><i class="bi bi-diagram-3-fill text-box-icon"></i></span>
+                                    <select class="form-control " id="sec" onchange="goo();">
 
                                         <option value="">Choose a Section</option>
                                         <?php
-                                        $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear='$sy'-1  group by subarea order by idno, id";
+                                        $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear='$sy' and areaname='$cls2'  group by subarea order by idno, id";
                                         $result00xgr = $conn->query($sql00xgr);
                                         if ($result00xgr->num_rows > 0) {
                                             while ($row00xgr = $result00xgr->fetch_assoc()) {
                                                 $sec = $row00xgr["subarea"];
-                                                echo '<option value="' . $sec . '">' . $sec . '</option>';
+                                                if ($sec == $sec2) {
+                                                    $secsel = 'selected';
+                                                } else {
+                                                    $secsel = '';
+                                                }
+                                                echo '<option value="' . $sec . '"' . $secsel . '>' . $sec . '</option>';
                                             }
                                         }
                                         ?>
@@ -82,14 +86,10 @@ include 'inc.php';
                         </tr>
 
 
-
-
-
                         <tr>
-
                             <td>
-                                <div style="margin:0px 0; height:5px; background:var(--lighter);"></div>
-                                <button class="btn btn-success pad60" onclick="submit();">Search/View List</button>
+                                <button class="btn btn-primary btn-block text-small" onclick="submit();">Search/View
+                                    List</button>
                             </td>
                         </tr>
                     </table>
@@ -100,9 +100,8 @@ include 'inc.php';
 
 
             <div class="card" style="background:var(--darker); color:var(--lighter);">
-                <img class="card-img-top" alt="">
-                <div class="card-body">
-                    <center><b>- Routine -</b></center>
+                <div class="card-body text-center">
+                    <b> Class Routine </b>
                 </div>
             </div>
 
@@ -130,8 +129,15 @@ include 'inc.php';
 
 
 <script>
-    document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
 
+
+    function goo() {
+        var cls = document.getElementById("cls").value;
+        var sec = document.getElementById("sec").value;
+        window.location.href = 'clsroutine-setup.php?cls=' + cls + '&sec=' + sec;
+    }
+</script>
+<script>
     function go() {
         var cls = document.getElementById("classname").value;
         var sec = document.getElementById("sectionname").value;
@@ -163,7 +169,7 @@ include 'inc.php';
 
         $.ajax({
             type: "POST",
-            url: "showroutine.php",
+            url: "backend/show-routine.php",
             data: infor,
             cache: false,
             beforeSend: function () {
@@ -193,7 +199,7 @@ include 'inc.php';
 
         $.ajax({
             type: "POST",
-            url: "save-routine.php",
+            url: "backend/save-routine.php",
             data: infor,
             cache: false,
             beforeSend: function () {
@@ -203,5 +209,9 @@ include 'inc.php';
                 $("#exe" + id).html(html);
             }
         });
+    }
+
+    if ('<?php echo $cls2; ?>' != '' && '<?php echo $sec2; ?>' != '') {
+        submit();
     }
 </script>

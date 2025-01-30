@@ -1,5 +1,5 @@
 <?php
-	include ('incb.php');;
+	include ('inc.back.php');;
 	
     
 	$id = $_POST['id'];; 
@@ -15,5 +15,5 @@
     }
     
     $conn->query($query33);
-    echo '<span style="font-size:30px;"><i class="bi bi-check2-circle"></i></span>';
+    echo '<span style="font-size:20px;"><i class="bi bi-check2-circle"></i></span>';
    //************************************************************************************************************************************************

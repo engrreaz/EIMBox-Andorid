@@ -356,6 +356,9 @@
             font-family: 'Yu Gothic';
             padding: 18px 10px;
         }
+        select option{
+            color:black;
+        }
 
         .text-box-icon {
             color: var(--dark);

@@ -1,6 +1,5 @@
 <?php
-echo 'x';
-if($userlevel == 'Head Teacher' ||  $userlevel == 'Asstt. Head Teacher' || $userlevel == 'Principal' || $userlevel == ' Super Administrator') {
+if($userlevel == 'Head Teacher' ||  $userlevel == 'Asstt. Head Teacher' || $userlevel == 'Principal' || $reallevel == 'Super Administrator') {
 
 $my_app_datam = array();
 $sql0 = "SELECT * FROM teacher_leave_app where sccode='$sccode' and ( status=0 or status>=3) order by apply_date desc, id desc";

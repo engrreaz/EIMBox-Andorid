@@ -261,6 +261,7 @@
     function settings_admin_st_id_generate() { window.location.href = "settings-student.php"; }
     function settings_admin_st_id_payment_indivisula() { window.location.href = "st-payment-setup-indivisual.php"; }
     function settings_admin_bind_teacher_subject() { window.location.href = "classes.php"; }
+    function settings_admin_class_routine_setup() { window.location.href = "clsroutine-setup.php"; }
     function settings_admin_user_manager() { window.location.href = "userlist.php"; }
 
 

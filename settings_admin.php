@@ -52,7 +52,7 @@ $count_class = count($cteacher_data);
       </div>
     </div>
     <div class="menu-separator"></div>
-    
+
     <div class="card menu-item-block" onclick="settings_admin_st_id_payment_indivisula();">
       <div class="card-body">
         <table style="">
@@ -75,8 +75,25 @@ $count_class = count($cteacher_data);
             <td class="menu-item-icon"><i class="bi bi-book-half"></i></td>
             <td>
               <h4> Subjects / Teachers Binding </h4>
-              <div class="menu-item-sub-text"> Bind Teachers with their related subject according to class/section </div>
-            </td> 
+              <div class="menu-item-sub-text"> Bind Teachers with their related subject according to class/section
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+    
+    <div class="card menu-item-block" onclick="settings_admin_class_routine_setup();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-square-half"></i></td>
+            <td>
+              <h4> Setup Class Routine </h4>
+              <div class="menu-item-sub-text"> Setup you class routine according to period, day with teachers binding
+              </div>
+            </td>
           </tr>
         </table>
       </div>
@@ -100,32 +117,32 @@ $count_class = count($cteacher_data);
 
 
 
-<?php if($usr == 'engrreaz@gnail.com') {?>
+    <?php if ($usr == 'engrreaz@gmail.com') { ?>
 
-<a class="btn btn-dark m-2" href="settingssubject.php">Subject Setup</a>
-<a class="btn btn-dark m-2" href="settingsteacher.php">Add/Edit Teacher</a>
-<a class="btn btn-dark m-2" href="settingsclass.php">Add/Edit CLS-SEC</a>
+      <a class="btn btn-dark m-2" href="settingssubject.php">Subject Setup</a>
+      <a class="btn btn-dark m-2" href="settingsteacher.php">Add/Edit Teacher</a>
+      <a class="btn btn-dark m-2" href="settingsclass.php">Add/Edit CLS-SEC</a>
 
-<a class="btn btn-dark m-2" href="clsroutine-setup.php">Class Routine Setup</a>
-<a class="btn btn-dark m-2" href="tools_allsubjects.php">Subject list Class wise</a>
-<!-- <a class="btn btn-dark m-2" href="globalsetup.php">Global Setup XXX</a> -->
-
-
-<a class="btn btn-dark m-2" href="cashbookview.php">Cash Book View IN-EX</a>
-<a class="btn btn-dark m-2" href="promotion.php">Promotion</a>
-<a class="btn btn-dark m-2" href="studentadmission.php">Admission</a>
-<!-- <a class="btn btn-dark m-2" href="markentryselect.php">Mark Entry Selection</a> -->
-<a class="btn btn-dark m-2" href="grpview.php">Group NEW</a>
-<a class="btn btn-dark m-2" href="transcriptselect.php">Transcript</a>
-<a class="btn btn-white m-2" href="dailycollection.php">Daily Collection</a>
-<a class="btn btn-dark m-2" href="trackreport.php">Track Student</a>
+      <!-- <a class="btn btn-dark m-2" href="clsroutine-setup.php">Class Routine Setup</a> -->
+      <a class="btn btn-dark m-2" href="tools_allsubjects.php">Subject list Class wise</a>
+      <!-- <a class="btn btn-dark m-2" href="globalsetup.php">Global Setup XXX</a> -->
 
 
+      <a class="btn btn-dark m-2" href="cashbookview.php">Cash Book View IN-EX</a>
+      <a class="btn btn-dark m-2" href="promotion.php">Promotion</a>
+      <a class="btn btn-dark m-2" href="studentadmission.php">Admission</a>
+      <!-- <a class="btn btn-dark m-2" href="markentryselect.php">Mark Entry Selection</a> -->
+      <a class="btn btn-dark m-2" href="grpview.php">Group NEW</a>
+      <a class="btn btn-dark m-2" href="transcriptselect.php">Transcript</a>
+      <a class="btn btn-white m-2" href="dailycollection.php">Daily Collection</a>
+      <a class="btn btn-dark m-2" href="trackreport.php">Track Student</a>
 
-<?php } ?>
-<div class="d-block">
-...............
-</div>
+
+
+    <?php } ?>
+    <div class="d-block">
+      ...............
+    </div>
 
 
 
