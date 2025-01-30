@@ -327,7 +327,7 @@ include 'header.php';
     
     <script>
 
-        alert(window.location.href);
+
             // $(document).ready(function () {
             //     if(document.readyState === 'ready' || document.readyState === 'complete'){
                     
