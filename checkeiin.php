@@ -83,7 +83,7 @@ if (count($uuu) == 1) {
         setcookie("user", time() + (3600 * 24 * 365));
         ?>
         <script>
-            window.location.href = 'index.php?email=<?php echo $user; ?>&fullname=<?php echo $uuu['fullname'];?>&truelogin=1<?php echo $gps; ?>';
+            window.location.href = 'index.php?email=<?php echo $user; ?>&fullname=<?php echo $uuu['profilename'];?>&truelogin=1<?php echo $gps; ?>';
         </script>
         <?php
 
@@ -118,7 +118,7 @@ if (count($uuu) == 1) {
                 ?>
 
                 <script>
-                    window.location.href = 'index.php?email=<?php echo $user; ?>&fullname=<?php echo $uuu['fullname'];?>&truelogin=1<?php echo $gps; ?>';
+                    window.location.href = 'index.php?email=<?php echo $user; ?>&fullname=<?php echo $uuu['profilename'];?>&truelogin=1<?php echo $gps; ?>';
                 </script>
                 
                 <?php
