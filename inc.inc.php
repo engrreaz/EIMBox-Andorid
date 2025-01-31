@@ -8,7 +8,7 @@ $usr = $pass = $token = $pth = '';
 $sccode = $geolat = $geolon = 0;
 $fullname = '';
 $scname = '';
-$userlevel = 'Guest';
+// $userlevel = 'Guest';
 //********************************************************************
 // echo  $_SESSION["user"];
 // echo $htp;
