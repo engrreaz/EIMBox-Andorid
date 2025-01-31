@@ -75,8 +75,17 @@ $lbl = '';
         $fullname = $row0A["profilename"];
         $userid = $row0A["userid"];
         $uul = $row0A["userlevel"];
+        $hidn = $row0A["hiddenuser"];
+
+        $hideblock = '';
+        if ($hidn == 1) {
+          $hideblock = 'hidden';
+        }
+        if ($usr == $email || $reallevel=='Super Administrator') {
+          $hideblock = '';
+        }
         ?>
-        <div class="card mb-2" style="background:var(--lighter); color:var(--darker);" id="usr<?php echo $id; ?>">
+        <div class="card mb-2" style="background:var(--lighter); color:var(--darker);" id="usr<?php echo $id; ?>" <?php echo $hideblock;?>>
           <div class="card-body ">
 
             <div style="float:right;"><?php if ($uul == 'Administrator' || $uul == 'Super Administrator') { ?><i

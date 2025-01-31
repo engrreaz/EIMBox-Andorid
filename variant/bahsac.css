@@ -1,7 +1,7 @@
 :root {
-    --darker:rgb(129, 18, 88);
-  --dark: rgb(209, 24, 123);
-  --normal: Bisque;
-  --light: mistyrose;
-  --lighter: ivory;
+    --darker:rgb(38, 87, 24);
+  --dark: rgb(9, 134, 71);
+  --normal: rgb(63, 189, 101);
+  --light: rgb(112, 223, 127);
+  --lighter: rgb(163, 223, 174);
 }
