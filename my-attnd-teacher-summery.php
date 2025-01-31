@@ -298,14 +298,6 @@ $teacher_application_count = count($my_app_datam);
 
 
 
-  document.getElementById("xxl").innerHTML = "<?php echo number_format($mot, 2, ".", ","); ?>";
-
-
-  function go(id) {
-    window.location.href = "finstudents.php?" + id;
-  }
-
-
 
   function gog(dat) {
     var infor = "prdate=" + dat;

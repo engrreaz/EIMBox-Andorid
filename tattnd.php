@@ -96,7 +96,7 @@ if ($holiday == 1) {
 }
 if ($distance == 0) {
     $bgclr = 'crimson';
-    $msg = 'Location did not detect';
+    $msg = 'Location not detected';
     $icon = 'shield-slash-fill';
 } else if ($distance > 0 && $distance <= $dista_differ) {
     if ($inout == 'in') {
@@ -142,7 +142,7 @@ if ($distance == 0) {
                 GPS Based Attendance
             </div>
 
-            <div class="">
+            <div class="" hidden>
                 <?php echo $in_time . '/' . $out_time . '/' . $distance . '//' . $dista_differ . '<br><br>'; ?>
                 <?php echo $inout . '/' . $diff . '/' . $stst . '/ ' . $distance; ?>
                 <?php echo '.....' . $diff . '....'; ?>
@@ -151,7 +151,7 @@ if ($distance == 0) {
             <div style="margin: 15px 0 50px">
                 <i class="bi bi-<?php echo $icon; ?>" style="font-size:72px;"></i>
             </div>
-            <button class="btn btn-dark" onclick="backs();" style="border-radius:20px; width: 50%;">Back</button>
+            <button class="btn btn-dark" onclick="backs();" style="border-radius:20px; width: 50%;">My Attendance</button>
         </div>
 
 
@@ -160,6 +160,6 @@ if ($distance == 0) {
 
 <script>
     function backs() {
-        window.location.href = 'index.php';
+        window.location.href = 'my-attnd-teacher-summery.php';
     }
 </script>

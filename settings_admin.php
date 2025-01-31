@@ -140,9 +140,7 @@ $count_class = count($cteacher_data);
 
 
     <?php } ?>
-    <div class="d-block">
-      ...............
-    </div>
+
 
 
 
