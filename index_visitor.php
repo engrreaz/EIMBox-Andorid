@@ -219,8 +219,11 @@
             <div class="lnk-text" style="">About Us</div>
         </div>
     </a>
+
+
 </div>
 
+<a href="sout.php">OUT</a>
 
 <div class="main-card mb-1 card">
     </i><a href="contact.php?sccode=<?php echo $sccode; ?>">
