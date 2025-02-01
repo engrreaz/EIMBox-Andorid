@@ -101,7 +101,7 @@ if ($cntt >= 0) {
     }
 
     ?>
-    <div class="card " onclick="gov();">
+    <div class="card " onclick="gov();" hidden>
         <div class="card-header" style="color:var(--lighter); background:var(--dark);border-radius:0;"><b>Student
                 Assessments</b></div>
         <div class="card-body">
@@ -122,7 +122,7 @@ if ($cntt >= 0) {
 
     ?>
 
-    <div class="card gg" onclick="gor();">
+    <div class="card gg" onclick="gor();" hidden>
         <div class="card-body">
             <h4>My Subjects (Marks Entry)</h4>
             <small><span style="font-style:italic;">View Status of Marks Entry (Annual Examination 2024)</span></small>
