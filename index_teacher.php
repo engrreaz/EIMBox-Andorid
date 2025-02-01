@@ -17,7 +17,7 @@ include 'front-page-block/garbage.php';
 
 //**********************************************************************************************************************************************************************   
 
-echo '<a class="btn btn-dark" style="margin-top:8px;"  href="mypr.php">My Receipts</a>';
+// echo '<a class="btn btn-dark" style="margin-top:8px;"  href="mypr.php">My Receipts</a>';
 
 // $sql0 = "SELECT sum(amount) as paisi FROM stpr where sessionyear='$sy' and sccode='$sccode' and entryby='$usr'";
 // $result01xe = $conn->query($sql0);
@@ -29,7 +29,7 @@ echo '<a class="btn btn-dark" style="margin-top:8px;"  href="mypr.php">My Receip
 
 ?>
 
-<a href="https://www.web.eimbox.com/teachersedit.php?tid=<?php echo $userid; ?>" class="btn btn-info">My Pfofile</a>
+<!-- <a href="https://www.web.eimbox.com/teachersedit.php?tid=<?php echo $userid; ?>" class="btn btn-info">My Pfofile</a> -->
 
 <div style="height:52px;"></div>
 
