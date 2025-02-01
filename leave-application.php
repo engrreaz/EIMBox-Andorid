@@ -127,7 +127,7 @@ if (isset($_GET['appid'])) {
             <div class="form-separator"></div>
 
             <div class=" input-group">
-                <span class="input-group-text text-box-icon"><i class="bi bi-person-circle"></i></span>
+                <span class="input-group-text text-box-icon"><i class="bi bi-file-fill"></i></span>
 
                 <select class="form-control" id="types">
                     <option value="">Select Leave Type</option>
@@ -141,23 +141,24 @@ if (isset($_GET['appid'])) {
 
 
             <div class="input-group">
-                <span class="input-group-text text-box-icon"><i class="bi bi-bank"></i></span>
+                <span class="input-group-text text-box-icon"><i class="bi bi-question-circle-fill"></i></span>
                 <input type="text" id="reason" name="reason" class="form-control text-box"
                     placeholder="Reason for Leave" value="<?php echo $reason; ?>">
             </div>
             <div class="form-separator"></div>
 
+            <label class="text-small mt-2 d-block text-left" for="date1">Date From</label>
             <div class="input-group">
-                <span class="input-group-text text-box-icon"><i class="bi bi-geo-fill"></i></span>
+                <span class="input-group-text text-box-icon"><i class="bi bi-calendar3-event"></i></span>
                 <input type="date" id="date1" name="date1" class="form-control text-box" placeholder=""
                     value="<?php echo $date1; ?>">
             </div>
             <div class="form-separator"></div>
 
 
-
+            <label class="text-small mt-2 d-block text-left" for="date1">Date To</label>
             <div class="input-group">
-                <span class="input-group-text text-box-icon"><i class="bi bi-geo-fill"></i></span>
+                <span class="input-group-text text-box-icon"><i class="bi bi-calendar3-week"></i></span>
                 <input type="date" id="date2" name="date2" class="form-control text-box" value="<?php echo $date2; ?>">
             </div>
             <div class="form-separator"></div>
