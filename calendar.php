@@ -151,8 +151,9 @@ $count_row = count($datam_calendar_events);
 
         <?php if ($count_row < 300) {
           ?>
-          <button class="btn btn-info btn-block text-white p-3 " style="border-radius:0;" onclick="changeview();"> Import
-            Events </button>
+          <div id="import-status">
+          <button class="btn btn-info btn-block text-white p-3 " style="border-radius:0;" onclick="import_events();"> Import
+            Events </button></div>
           <?php
         } else {
           ?>
@@ -255,27 +256,28 @@ $count_row = count($datam_calendar_events);
 <script>
 
 
-  function go(id) {
-    window.location.href = "finstudents.php?" + id;
+  function go() {
+    window.location.href = "calendar.php";
   }
 
 
 
-  function gog(dat) {
-    var infor = "prdate=" + dat;
-    //alert(infor);
-    $("#dateclass" + dat).html("");
+  function import_events() {
+    var infor = "import=0" ;
+    // alert(infor);
+    $("#import-status").html("");
 
     $.ajax({
       type: "POST",
-      url: "daily_class_collection.php",
+      url: "backend/import-calendar-events.php",
       data: infor,
       cache: false,
       beforeSend: function () {
-        $('#dateclass' + dat).html('Please Wait...');
+        $('#import-status').html('Please Wait...');
       },
       success: function (html) {
-        $("#dateclass" + dat).html(html);
+        $("#import-status").html(html);
+        // go();
       }
     });
   }

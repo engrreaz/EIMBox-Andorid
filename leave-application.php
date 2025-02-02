@@ -156,7 +156,7 @@ if (isset($_GET['appid'])) {
             <div class="form-separator"></div>
 
 
-            <label class="text-small mt-2 d-block text-left" for="date1">Date To</label>
+            <label class="text-small mt-2 d-block text-left" for="date2">Date To</label>
             <div class="input-group">
                 <span class="input-group-text text-box-icon"><i class="bi bi-calendar3-week"></i></span>
                 <input type="date" id="date2" name="date2" class="form-control text-box" value="<?php echo $date2; ?>">

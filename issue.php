@@ -216,7 +216,7 @@ $classname = $_GET['cls']; $sectionname = $_GET['sec'];
             <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk30();" >
               <img class="card-img-top"  alt="">
               <?php
-                $sql0 = "SELECT * FROM issue  order by stt, deadline, progress";
+                $sql0 = "SELECT * FROM issue where issueby='$usr' order by stt, deadline, progress";
                 $result0wwrt = $conn->query($sql0);
                 if ($result0wwrt->num_rows > 0) 
                 {while($row0 = $result0wwrt->fetch_assoc()) { 
