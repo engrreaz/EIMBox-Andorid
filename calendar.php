@@ -16,7 +16,7 @@ include 'datam/datam-calendar.php';
 $wday_ind = array_search('Weekends', array_column($ins_all_settings, 'setting_title'));
 $wday_text = $ins_all_settings[$wday_ind]['settings_value'];
 $count_row = count($datam_calendar_events);
-
+// echo $count_row;
 ?>
 
 <style>
@@ -149,7 +149,7 @@ $count_row = count($datam_calendar_events);
       </div>
       <div class="bg-info">
 
-        <?php if ($count_row < 300) {
+        <?php if ($count_row < 50) {
           ?>
           <div id="import-status">
           <button class="btn btn-info btn-block text-white p-3 " style="border-radius:0;" onclick="import_events();"> Import
@@ -277,7 +277,7 @@ $count_row = count($datam_calendar_events);
       },
       success: function (html) {
         $("#import-status").html(html);
-        // go();
+        go();
       }
     });
   }
