@@ -247,13 +247,16 @@ if ($result00gt->num_rows > 0) {
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
-                                    <div class="mt-3"
-                                        style="color: var(--lighter); font-size:22px; text-align:center; font-weight:600; line-height:15px;"
+                                <td class="text-left">
+                                    <div class="mt-3 "
+                                        style="color: var(--lighter); font-size:22px; font-weight:600; line-height:15px;"
                                         id="dddate">
                                         <?php echo date(' F, Y', strtotime($td)); ?>
                                     </div>
 
+                                </td>
+                                <td class="text-right">
+                                    <button class="btn btn-secondary text-small" onclick="go_entry();">Attendance</button>
                                 </td>
                             </tr>
 
@@ -530,8 +533,8 @@ if ($result00gt->num_rows > 0) {
 <script>
     document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
 
-    function go(id) {
-        window.location.href = "student.php?id=" + id;
+    function go_entry() {
+        window.location.href = "stattnd.php?cls=<?php echo $classname;?>&sec=<?php echo $sectionname;?>";
     }  
 </script>
 

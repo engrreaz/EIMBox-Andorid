@@ -19,7 +19,12 @@ if ($opt == 2) {  // save attandance
         $yn = 0;
     }
 
-
+    $submit_found = 0;
+    $sql00 = "SELECT * FROM stattndsummery where  date='$td' and sccode='$sccode' and sessionyear='$sy'  and classname = '$cn' and sectionname='$sn' ";
+    $result00gt_check_submit = $conn->query($sql00);
+    if ($result00gt_check_submit->num_rows > 0) {
+        $submit_found = 1;
+    }
 
     $sql0 = "SELECT * FROM stattnd where stid='$iii' and adate='$adate' and sessionyear='$sy'";
     $result0 = $conn->query($sql0);
@@ -41,17 +46,24 @@ if ($opt == 2) {  // save attandance
         }
         $conn->query($query33);
     } else {
+        if ($submit_found == 0) {
+            $query33 = "insert into stattnd (id, sccode, sessionyear, stid, adate, yn, entryby, classname, sectionname, rollno, period1) values 	(NULL, '$sccode', '$sy', '$iii','$adate','$yn','$usr','$cn','$sn', '$roll', '$yn')";
+            $conn->query($query33);
+        } else {
+            echo '<span class="chk red"><i class="bi bi-x-circle-fill"></i></span>';
+        }
 
-        $query33 = "insert into stattnd (id, sccode, sessionyear, stid, adate, yn, entryby, classname, sectionname, rollno, period1) values 	(NULL, '$sccode', '$sy', '$iii','$adate','$yn','$usr','$cn','$sn', '$roll', '$yn')";
-        $conn->query($query33);
     }
     // echo $query33;
-
-    if ($yn == 1) {
-        echo '<span class="chk green"><i class="bi bi-check2-circle"></i></span>';
-    } else {
-        echo '<span class="chk red"><i class="bi bi-x-circle"></i></span>';
+    if ($submit_found == 0) {
+        if ($yn == 1) {
+            echo '<span class="chk green"><i class="bi bi-check2-circle"></i></span>';
+        } else {
+            echo '<span class="chk red"><i class="bi bi-x-circle"></i></span>';
+        }
     }
+
+    // echo $per;
 
 } else if ($opt == 5) { // save final submition
 
@@ -70,7 +82,7 @@ if ($opt == 2) {  // save attandance
     }
 
 
-    
+
     $rate = $fnd * 100 / $cnt;
     $query33 = "insert into stattndsummery (id, sccode, sessionyear, date, classname, sectionname, totalstudent, attndstudent, attndrate, submitby, submittime) 
                                             values 	(NULL, '$sccode', '$sy', '$adate','$cn','$sn','$cnt','$fnd','$rate', '$usr', '$cur')";

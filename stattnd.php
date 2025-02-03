@@ -121,7 +121,7 @@ if ($period >= 2) {
 
                             <div style="font-size:15px; font-weight:600; line-height:15px;" id="dddate">
                                 <input onchange="dtcng();" max="<?php echo $td; ?>" id="xp"
-                                    class="form-control text-center pt-0" type="date" value="<?php echo $td; ?>" />
+                                    class="form-control text-center  pt-2" type="date" value="<?php echo $td; ?>" />
 
                             </div>
                             <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Date
@@ -243,11 +243,11 @@ if ($period >= 2) {
                                     <?php if ($period < 2) { ?>
                                         <input style="scale:1.5; border:1px solid var(--dark); " class="form-check-input"
                                             type="checkbox" name="darkmode" id="sta<?php echo $stid; ?>"
-                                            onchange="grpssx(<?php echo $stid; ?>, <?php echo $rollno; ?>);" <?php echo $gip; ?>>
+                                            onchange="grpssx(<?php echo $stid; ?>, <?php echo $rollno; ?>);" <?php echo $gip; ?> disabled>
                                     <?php } else { ?>
                                         <input style="scale:1.5; border:1px solid black; " class="form-check-input" type="checkbox"
                                             name="darkmodes" id="sta2<?php echo $stid; ?>"
-                                            onchange="grpssx2(<?php echo $stid; ?>, <?php echo $rollno; ?>);" <?php echo $gip; ?>>
+                                            onchange="grpssx2(<?php echo $stid; ?>, <?php echo $rollno; ?>);" <?php echo $gip; ?> disabled > 
                                     <?php } ?>
                                     <!--<label for="sta<?php echo $stid; ?>">&nbsp;&nbsp;&nbsp;Present</label>-->
                                 </td>
@@ -471,6 +471,7 @@ if ($period >= 2) {
 
 
     function grpssx(id, roll) {
+        // alert(0);
         var bl = document.getElementById("sta" + id).checked;
         var per = 1;
         var cnt = parseInt(document.getElementById("att").innerHTML) * 1;
@@ -486,7 +487,7 @@ if ($period >= 2) {
     }
 
     function grpssx2(id, roll) {
-
+        // alert(2);
         var per = <?php echo $period; ?>;
 
         var bl = document.getElementById("sta2" + id).checked;

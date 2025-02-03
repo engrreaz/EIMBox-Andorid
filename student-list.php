@@ -321,14 +321,22 @@ if(strpos($profile_entry, $userlevel) != null){
                     </td>
                     <td style="text-align:left; padding-left:5px;">
                       <div class="stname-eng"><?php echo $neng; ?></div>
-                      <div class="stname-ben"><?php echo $nben; ?></div>
+                      <div class="stname-ben text-dark"><?php echo $nben; ?></div>
                       <div class="c" style="font-weight:500; font-style:normal; color:gray;">ID #
                         <?php echo $stid . ' [<b>' . $vill . '</b>]'; ?>
                       </div>
 
                     </td>
                     <td rowspan="2" style="text-align:right; font-size:20px; font-weight:600; vertical-align:top;">
-                      <img src="https://eimbox.com/students/<?php echo $stid; ?>.jpg" class="st-list-photo" />
+                      <?php 
+                      $photo_path = $BASE_PATH_URL . 'students/' . $stid . ".jpg";
+                      if (!file_exists($photo_path)) {
+                          $photo_path = "https://eimbox.com/teacher/no-img.jpg";
+                      } else {
+                          $photo_path = $BASE_PATH_URL_FILE . 'students/' . $stid . ".jpg";
+                      }
+                      ?>
+                      <img src="<?php echo $photo_path; ?>" class="st-pic-normal" />
                     </td>
                   </tr>
                   <tr>

@@ -171,7 +171,7 @@ if (isset($_GET['token'])) {
 
     Security Key proved by <b>Google</b>
 
-    <div style="overflow:scroll; font-size:12px; font-weight:400; margin-left:30px;">
+    <div style="overflow:scroll; font-size:10px; font-weight:400; margin-left:30px; color:Gainsboro;" disabled>
       <?php echo $devicetoken; ?>
     </div>
   </div>

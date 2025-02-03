@@ -27,8 +27,8 @@ if ($result0_user_datas->num_rows > 0) {
         <div class="card text-center">
 
             <div class="card-body page-top-box">
-                <div class="page-icon"><i class="bi bi-person-circle"></i></div>
-                <div class="page-title">My Profile</div>
+                <div class="menu-icon"><i class="bi bi-person-circle"></i></div>
+                <div class="menu-text">My Profile</div>
             </div>
         </div>
 

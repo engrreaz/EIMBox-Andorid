@@ -148,7 +148,7 @@ include 'inc.php';
 
 <script>
     function update_institute_info() {
-        var scname = document.getElementById("scname").value;
+        var scname = encodeURIComponent(document.getElementById("scname").value);
         var add1 = document.getElementById("add1").value;
         var add2 = document.getElementById("add2").value;
         var ps = document.getElementById("ps").value;
