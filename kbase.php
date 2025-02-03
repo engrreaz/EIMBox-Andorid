@@ -27,16 +27,14 @@ include 'inc.php';
         <div class="card page-box  no-rad text-left" style="background:var(--dark); color:var(--lighter);"  onclick="gox()">
           
             <div class="card-body">
-                <table width="100%" style="color:white;">
-                    <tr>
-                        <td>
-                            <div class="page-icon "><i class="bi bi-patch-question-fill"></i></div>
-                            <div style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:25px;">
-                                Knowledge Base<br>জ্ঞান কোষ
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                <div class="page-top-box">
+                    <div class="menu-icon "><i class="bi bi-patch-question-fill"></i></div>
+               
+                    <div class="menu-text">
+                         Knowledge Base<br>জ্ঞান কোষ
+                    </div>
+                   
+                </div>
             </div>
         </div>
     
@@ -87,30 +85,6 @@ include 'inc.php';
                 <?php  }}?>
     
     
-                   
-
-
-
-            
-            
-            
-            
-            
-            
-            
-            <div style="height:8px;"></div>
-            <center>
-                <button class="btn btn-primary"  style="margin:0 0 10px 0; color:white;" onclick="go();">Proceed</button>
-            
-        <button class="btn btn-danger"  style="margin:0 0 10px 0; color:white;" onclick="print();">Print</button>
-            </center>
-            
-            
-            
-        
-        
-        
-        
     </div>
 
   </main>
@@ -122,7 +96,7 @@ include 'inc.php';
 
   
   <script>
-  document.getElementById("cnt").innerHTML = "<?php echo $cnt;?>";
+
   
     function go(){
         var cls=document.getElementById("classname").value; 
