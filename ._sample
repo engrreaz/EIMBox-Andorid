@@ -20,3 +20,6 @@ $firebase_datam = array(
     'data3' => 'Shes Line.'
 );
 include 'firebase.php';
+
+
+// 

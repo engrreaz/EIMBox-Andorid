@@ -259,13 +259,8 @@ if ($result00gt->num_rows > 0) {
                                     <button class="btn btn-secondary text-small" onclick="go_entry();">Attendance</button>
                                 </td>
                             </tr>
-
-
-
                         </table>
                     </div>
-
-
 
                 </div>
                 <div class="" style="overflow:auto; height:calc(100vh - 52px); padding-left:0;">
