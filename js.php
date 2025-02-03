@@ -173,7 +173,6 @@
                 $("#fetch_data").html();
                 Swal.fire({
                     title: "<small>" + html + "</small>",
-                    icon: "info",
                     draggable: true
                 });
             }
