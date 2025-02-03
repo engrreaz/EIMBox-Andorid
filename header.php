@@ -79,7 +79,7 @@
         }
 
         .front-icon {
-            color: var(--normal);
+            color: var(--darker);
             position: absolute;
             font-size: 32px;
             top: 0px;
