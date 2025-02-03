@@ -271,13 +271,6 @@ if ($result00->num_rows > 0) {
 
 
 <script>
-    function gocashbook() {
-        window.location.href = 'bankbook.php';
-    }
-</script>
-
-
-<script>
     function addnew() {
         if (document.getElementById("entrybox").style.display == 'none') {
             document.getElementById("entrybox").style.display = 'block';

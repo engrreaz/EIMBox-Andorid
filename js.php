@@ -274,7 +274,7 @@
     // Home Page
     function home_goclsatt(x1, x2) { window.location.href = 'stattnd.php?cls=' + x1 + '&sec=' + x2; }
     function home_cteacher_st_payment(x1, x2) { window.location.href = 'finstudents.php?cls=' + x1 + '&sec=' + x2; }
-
+    function gocashbook() { window.location.href = 'bank-book.php'; }
 
 
 
