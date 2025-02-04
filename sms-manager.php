@@ -13,8 +13,8 @@ $count_class = count($cteacher_data);
         <table width="100%" style="color:white;">
           <tr>
             <td>
-              <div class="menu-icon"><i class="bi bi-gear"></i></div>
-              <div class="menu-text"> Settings </div>
+              <div class="menu-icon"><i class="bi bi-chat-right-text-fill"></i></div>
+              <div class="menu-text"> SMS Manager </div>
             </td>
           </tr>
         </table>
@@ -23,29 +23,14 @@ $count_class = count($cteacher_data);
 
 
 
-    <div class="card menu-item-block" onclick="settings_admin_ins_info();">
+    <div class="card menu-item-block" onclick="sms_manager_send();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-bank2"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-send-fill"></i></td>
             <td>
-              <h4> Institution Information </h4>
-              <div class="menu-item-sub-text"> Update Institution's Information </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <div class="menu-separator"></div>
-
-    <div class="card menu-item-block" onclick="settings_admin_st_id_generate();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-bank2"></i></td>
-            <td>
-              <h4> Generate Student's ID </h4>
-              <div class="menu-item-sub-text"> Generate student's ID for emergency profile creating </div>
+              <h4> Send Message </h4>
+              <div class="menu-item-sub-text"> Send SMS now to audiance you like </div>
             </td>
           </tr>
         </table>
@@ -53,14 +38,14 @@ $count_class = count($cteacher_data);
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="settings_admin_st_id_payment_indivisula();">
+    <div class="card menu-item-block" onclick="sms_manager_campaign();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-coin"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-vr"></i></td>
             <td>
-              <h4> Payment Setup (Indivisual) </h4>
-              <div class="menu-item-sub-text"> Change Payment Setup for indivisual Student </div>
+              <h4> Campaign </h4>
+              <div class="menu-item-sub-text"> SMS campaign on sending messages </div>
             </td>
           </tr>
         </table>
@@ -68,14 +53,29 @@ $count_class = count($cteacher_data);
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="settings_admin_bind_teacher_subject();">
+    <div class="card menu-item-block" onclick="sms_manager_history();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-book-half"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-clock-history"></i></td>
             <td>
-              <h4> Subjects / Teachers Binding </h4>
-              <div class="menu-item-sub-text"> Bind Teachers with their related subject according to class/section
+              <h4> SMS History </h4>
+              <div class="menu-item-sub-text"> SMS history </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="sms_manager_templetes();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-file-post-fill"></i></td>
+            <td>
+              <h4> Templetes </h4>
+              <div class="menu-item-sub-text"> SMS templete for rapid compose a message
               </div>
             </td>
           </tr>
@@ -83,80 +83,7 @@ $count_class = count($cteacher_data);
       </div>
     </div>
     <div class="menu-separator"></div>
-    
-    <div class="card menu-item-block" onclick="settings_admin_class_routine_setup();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-square-half"></i></td>
-            <td>
-              <h4> Setup Class Routine </h4>
-              <div class="menu-item-sub-text"> Setup you class routine according to period, day with teachers binding
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <div class="menu-separator"></div>
-
-    <div class="card menu-item-block" onclick="settings_sms_menux();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-chat-right-text-fill"></i></td>
-            <td>
-              <h4> SMS Manager </h4>
-              <div class="menu-item-sub-text"> Manage SMS templete, Audiencee, Sending SMS </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <div class="menu-separator"></div>
-
-    <div class="card menu-item-block" onclick="settings_admin_user_manager();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-person-lock"></i></td>
-            <td>
-              <h4> User Manager </h4>
-              <div class="menu-item-sub-text"> Manage users </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <div class="menu-separator"></div>
-
-
-
-    <?php if ($usr == 'engrreaz@gmail.com') { ?>
-
-      <a class="btn btn-dark m-2" href="settingssubject.php">Subject Setup</a>
-      <a class="btn btn-dark m-2" href="settingsteacher.php">Add/Edit Teacher</a>
-      <a class="btn btn-dark m-2" href="settingsclass.php">Add/Edit CLS-SEC</a>
-
-      <!-- <a class="btn btn-dark m-2" href="clsroutine-setup.php">Class Routine Setup</a> -->
-      <a class="btn btn-dark m-2" href="tools_allsubjects.php">Subject list Class wise</a>
-      <!-- <a class="btn btn-dark m-2" href="globalsetup.php">Global Setup XXX</a> -->
-
-
-      <a class="btn btn-dark m-2" href="cashbookview.php">Cash Book View IN-EX</a>
-      <a class="btn btn-dark m-2" href="promotion.php">Promotion</a>
-      <a class="btn btn-dark m-2" href="studentadmission.php">Admission</a>
-      <!-- <a class="btn btn-dark m-2" href="markentryselect.php">Mark Entry Selection</a> -->
-      <a class="btn btn-dark m-2" href="grpview.php">Group NEW</a>
-      <a class="btn btn-dark m-2" href="transcriptselect.php">Transcript</a>
-      <a class="btn btn-white m-2" href="dailycollection.php">Daily Collection</a>
-      <a class="btn btn-dark m-2" href="trackreport.php">Track Student</a>
-
-
-
-    <?php } ?>
-
-
+   
 
 
 

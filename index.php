@@ -1,7 +1,7 @@
 <?php
 include 'inc.php';
 
-if($usr == 'engrreaz@gmail.com'){
+if ($usr == 'engrreaz@gmail.com') {
     // echo $token_found;
 // echo '<br><br>' . $_SERVER['REQUEST_URI'];
 }
@@ -121,8 +121,18 @@ if ($result0wwrtd->num_rows > 0) {
     <?php
     include 'front-page-block/notific-bar.php';
 
-    if($usr == 'engrreaz@gmail.com'){
-    echo '<a href="firebase.php" class="btn">Firebase</a>';
+    if ($usr == 'engrreaz@gmail.com') {
+        echo '<a href="firebase.php" class="btn">Firebase</a>';
+
+
+        $mobile_number = '019196296722';
+        $sms_text = "Final Ceck llsfsfs\\nBangladehবOK";
+        ?>
+        <button class="btn btn-dark"
+            onclick="send_sms('<?php echo $mobile_number; ?>', '<?php echo $sms_text; ?>')">SMS</button>
+
+
+        <?Php
     }
     ?>
 

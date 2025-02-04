@@ -4,6 +4,8 @@ $sy = date('Y');
 $td = date('Y-m-d');
 $cur = date('Y-m-d H:i:s');
 
+$sms_price = 0.4;
+
 $usr = $pass = $token = $pth = '';
 $sccode = $geolat = $geolon = 0;
 $fullname = '';
@@ -306,7 +308,7 @@ if ($result0xrtyv->num_rows > 0) {
 }
 
 
-
+include 'component/sms-func.php';
 
 include 'header.php';
 ?>
@@ -322,6 +324,7 @@ include 'header.php';
 }
     </style>
   
+  <div id="sms-send-response-block"></div>
 
     <div id="mbox2"></div>
     

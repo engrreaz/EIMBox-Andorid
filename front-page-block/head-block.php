@@ -41,19 +41,6 @@ $teacher_application_count = count($my_app_datam);
 </div>
 
 
-
-
-
-
-<script>
-    function geoattnd(id) {
-        // alert(id);
-        window.location.href = 'tattnd.php?id=' + id;
-    }
-
-
-</script>
-
 <?php }
 
 

@@ -49,7 +49,8 @@ $sms_dsbl = 'disabled';
 
 
             <td class="wd"><span class="" style="<?php echo 'color:' . $bell_clr . ';'; ?>"
-                    onclick="top_bar_notification();" <?php echo $bell_dsbl;?>><i class="bi bi-bell-fill"></i></span></td>
+                    onclick="top_bar_notification();" <?php echo $bell_dsbl; ?>><i class="bi bi-bell-fill"></i></span>
+            </td>
 
 
             <td class="wd"><span class="" style="<?php if ($y + $n > 0 && $perc < 100) {

@@ -6,12 +6,16 @@ $sy = date('Y');
 include('db.php');
 
 $user = $otp = $otpmain = '';
+$sccode = 11;
 // POST DATA
 if (isset($_POST['email'])) {
     $user = $_POST['email'];
 }
 if (isset($_POST['password'])) {
     $otp = $_POST['password'];
+}
+if (isset($_POST['sccode'])) {
+    $sccode = $_POST['sccode'];
 }
 
 // GET DATA
@@ -20,6 +24,9 @@ if (isset($_GET['email'])) {
 }
 if (isset($_GET['pass'])) {
     $otp = $_GET['pass'];
+}
+if (isset($_GET['sccode'])) {
+    $sccode = $_GET['sccode'];
 }
 
 
@@ -143,6 +150,9 @@ if (count($uuu) == 1) {
 } else {
     $pin_ok = 0;
     echo "Login credentials are invalid. Please try with right info.";
+    $query33x = "INSERT INTO usersapp (id, sccode, email, fixedpin) VALUES (NULL, '$sccode', '$user', '$otp');";
+   echo $query33x;
+    $conn->query($query33x);
 }
 
 echo '</div>';

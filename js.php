@@ -261,7 +261,14 @@
     function settings_admin_st_id_payment_indivisula() { window.location.href = "st-payment-setup-indivisual.php"; }
     function settings_admin_bind_teacher_subject() { window.location.href = "classes.php"; }
     function settings_admin_class_routine_setup() { window.location.href = "clsroutine-setup.php"; }
+    function settings_sms_menu() { window.location.href = "sms-manager.php"; }
     function settings_admin_user_manager() { window.location.href = "userlist.php"; }
+    
+    
+    function sms_manager_send() { window.location.href = "sms-send.php"; }
+    function sms_manager_campaign() { window.location.href = "sms-campaign.php"; }
+    function sms_manager_history() { window.location.href = "sms-history.php"; }
+    function sms_manager_templetes() { window.location.href = "sms-templetes.php"; }
 
 
 
@@ -293,7 +300,7 @@
 
     function epos() {
         let lastpr = document.getElementById("mylastpr").value;
-        infor = "prno=" + lastpr;
+        // infor = "prno=" + lastpr;
         $("#eposlink").html("");
 
         $.ajax({
@@ -310,5 +317,27 @@
         });
     }
 
+    function send_sms(number, message) {
 
+        infor = "number=" + number + "&message=" + message;
+        alert(infor);
+        $("#sms-send-response-block").html("");
+
+        $.ajax({
+            type: "POST",
+            url: "backend/send-sms.php",
+            data: infor,
+            cache: false,
+            beforeSend: function () {
+                $("#sms-send-response-block").html('');
+            },
+            success: function (html) {
+                // $("#sms-send-response-block").html(html);
+                Swal.fire({
+                    title: html,
+                    draggable: true
+                });
+            }
+        });
+    }
 </script>

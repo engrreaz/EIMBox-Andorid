@@ -220,6 +220,7 @@ $count_row = count($datam_calendar_events);
     <div class="card-body p-2" id="table-text" style="display:none;">
       <table class="table table-condensed text-small">
         <?php
+        $td = date('Y-m-d');
         foreach ($datam_calendar_events as $eventus) {
           $e_date = $eventus['date'];
           $e_day = $eventus['day'];
@@ -230,13 +231,21 @@ $count_row = count($datam_calendar_events);
           $e_icon = $eventus['icon'];
           $e_color = $eventus['color'];
 
+
+
           $bar = date('l', strtotime($e_date));
           if (str_contains($wday_text, $bar) === true) {
             $e_icon = 'x-square-fill';
             $e_color = 'red';
           }
+          $t_color = 'black';
+          // echo $e_date . '/' . $td;
+          if(strtotime($e_date) < strtotime($td)){
+            $e_color = 'gray';
+            $t_color = 'gray';
+          }
           ?>
-          <tr>
+          <tr style="color:<?php echo $t_color;?>">
             <td><i class="bi bi-<?php echo $e_icon; ?>" style="color:<?php echo $e_color; ?>"></i></td>
             <td><?php echo date('d/m/Y', strtotime($e_date)); ?></td>
             <td><?php echo $e_descrip; ?></td>

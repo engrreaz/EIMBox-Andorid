@@ -29,8 +29,8 @@ include 'inc.php';
               <td class="menu-item-icon"><i class="bi bi-diagram-2-fill"></i></td>
               <td>
                 <h4>My Class</h4>
-                <div class="menu-item-sub-text"> All of students list accourding to class/section </div>
-              </td>
+                <div class="menu-item-sub-text"> Student's Report <br>(Attendance, Result, Dues, Co-Curricular Activities)
+                </td>
             </tr>
           </table>
         </div>
@@ -48,7 +48,7 @@ include 'inc.php';
             <td class="menu-item-icon"><i class="bi bi-people-fill"></i></td>
             <td>
               <h4>Students List</h4>
-              <div class="menu-item-sub-text"> Student's Report <br>(Attendance, Result, Dues, Co-Curricular Activities)
+              <div class="menu-item-sub-text"> All of students list accourding to class/section </div>
               </div>
             </td>
           </tr>

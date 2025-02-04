@@ -19,7 +19,7 @@ $lbl = '';
     $result0 = $conn->query($sql0);
     if ($result0->num_rows > 0) {
       ?>
-      <div class="card text-center" style="background:var(--darker); ">
+      <div class="card text-center" style="background:var(--lighter); ">
         <img class="card-img-top" alt="">
         <div class="card-body">
           <div class="stname-ben fw-bold">New Users</div>
@@ -30,8 +30,8 @@ $lbl = '';
         $email = $row0["email"];
         $id = $row0["id"];
         ?>
-        <div class="card text-center" id="usr<?php echo $id; ?>">
-          <div class="card-body  page-info-box">
+        <div class="card text-center mb-1" id="usr<?php echo $id; ?>">
+          <div class="card-body  page-info-box" style="background:var(--light);">
             <table width="100%">
               <tr>
                 <td style="width:10px;">
@@ -81,11 +81,11 @@ $lbl = '';
         if ($hidn == 1) {
           $hideblock = 'hidden';
         }
-        if ($usr == $email || $reallevel=='Super Administrator') {
+        if ($usr == $email || $reallevel == 'Super Administrator') {
           $hideblock = '';
         }
         ?>
-        <div class="card mb-2" style="background:var(--lighter); color:var(--darker);" id="usr<?php echo $id; ?>" <?php echo $hideblock;?>>
+        <div class="card mb-2" style="background:var(--lighter); color:var(--darker);" id="usr<?php echo $id; ?>" <?php echo $hideblock; ?>>
           <div class="card-body ">
 
             <div style="float:right;"><?php if ($uul == 'Administrator' || $uul == 'Super Administrator') { ?><i
@@ -161,12 +161,12 @@ $lbl = '';
 
 <script>
   function upd(id, rank) {
-    var infor = "id=" + id + "&rank=" + rank;
+    var infor = "id=" + id + "&ch=" + rank;
     $("#usr" + id).html("");
 
     $.ajax({
       type: "POST",
-      url: "userupd.php",
+      url: "backend/user-update.php",
       data: infor,
       cache: false,
       beforeSend: function () {
@@ -174,6 +174,7 @@ $lbl = '';
       },
       success: function (html) {
         $("#usr" + id).html(html);
+        window.location.reload();
       }
     });
   }
@@ -187,7 +188,7 @@ $lbl = '';
 
     $.ajax({
       type: "POST",
-      url: "userupd.php",
+      url: "backend/user-update.php",
       data: infor,
       cache: false,
       beforeSend: function () {
@@ -195,6 +196,7 @@ $lbl = '';
       },
       success: function (html) {
         $("#pro" + id).html(html);
+        window.location.reload();
       }
     });
   }
@@ -207,7 +209,7 @@ $lbl = '';
 
     $.ajax({
       type: "POST",
-      url: "userupd.php",
+      url: "backend/user-update.php",
       data: infor,
       cache: false,
       beforeSend: function () {
@@ -215,96 +217,10 @@ $lbl = '';
       },
       success: function (html) {
         $("#pro" + id).html(html);
-        window.location.href = 'userlist.php';
+        window.location.reload();
       }
     });
   }
 
 
 </script>
-<script>
-
-
-
-  function add() {
-    let cls = document.getElementById("cls").value;
-    let sub = document.getElementById("sub").value;
-    let topic = document.getElementById("topic").value;
-    var infor = "cls=" + cls + "&sub=" + sub + "&topic=" + topic;
-    $("#html").html("");
-
-    $.ajax({
-      type: "POST",
-      url: "addtopic.php",
-      data: infor,
-      cache: false,
-      beforeSend: function () {
-        $('#html').html('<span class="">Saving, Please Wait....</span>');
-      },
-      success: function (html) {
-        $("#html").html(html);
-      }
-    });
-  }
-
-
-</script>
-<script>
-  function src() {
-    let cls = document.getElementById("cls").value;
-    let sub = document.getElementById("sub").value;
-    let topic = document.getElementById("topic").value;
-    var infor = "cls=" + cls + "&sub=" + sub + "&topic=" + topic + "&s=1";
-    $("#html2").html("");
-
-    $.ajax({
-      type: "POST",
-      url: "addtopic.php",
-      data: infor,
-      cache: false,
-      beforeSend: function () {
-        $('#html2').html('<span class="">Saving, Please Wait....</span>');
-      },
-      success: function (html) {
-        $("#html2").html(html);
-
-      }
-    });
-  }
-
-</script>
-<script>
-
-  function upd2() {
-    let id = document.getElementById("id").value;
-    let title = document.getElementById("title").value;
-    let l1 = document.getElementById("l1").value;
-    let l2 = document.getElementById("l2").value;
-    let l3 = document.getElementById("l3").value;
-
-    var infor = "id=" + id + "&title=" + title + "&l1=" + l1 + "&l2=" + l2 + "&l3=" + l3;
-    $("#html").html("");
-
-    $.ajax({
-      type: "POST",
-      url: "addtopic.php",
-      data: infor,
-      cache: false,
-      beforeSend: function () {
-        $('#html').html('<span class="">Saving, Please Wait....</span>');
-      },
-      success: function (html) {
-        $("#html").html(html);
-      }
-    });
-  }
-
-
-
-</script>
-
-
-
-</body>
-
-</html>
