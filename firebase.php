@@ -9,14 +9,14 @@ $FcmApi = new \FcmApi(
     ]
 );
 
-$firebase_datam = array(
-    'title' => 'Hello Sir',
-    'body' => 'Your next class at Nine (Rajanigandha) on ICT after 10 minutes.',
-    'image' => 'https://eimbox.com/logo/105673.png',
-    'data1' => '',
-    'data2' => '',
-    'data3' => '',
-);
+// $firebase_datam = array(
+//     'title' => 'Hello Sir',
+//     'body' => 'Your next class at Nine (Rajanigandha) on ICT after 10 minutes.',
+//     'image' => 'https://eimbox.com/logo/105673.png',
+//     'data1' => '',
+//     'data2' => '',
+//     'data3' => '',
+// );
 $token = 'cNKSR8i8QLacoJcB3szsEl:APA91bEfsujRG7BR0sO9nqiBymu5b9LR9W1pU8pIyOQWxqjAbGGWFCnVu6sCc7h-aVlc5N0RkvM7US4RlZzxj4z5FfdPRu4KI7GmsZsk6dXB4ye-dOATdSU';
 echo $token . '<br><br>';
 
