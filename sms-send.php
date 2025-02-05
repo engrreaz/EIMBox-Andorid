@@ -1,7 +1,8 @@
 <?php
 include 'inc.php';
 
-$disp0 = $disp1 = $disp2 = $disp3 = $disp4 = $disp5 = 'none';
+$disp0 = $disp1 = $disp2 = $disp3 = $disp4 = $disp5 = 'block';
+$icol0 = $icol1 = $icol2 = $icol3 = $icol4 = $icol5 = 'var(--dark)';
 $pos = 0;
 if (isset($_GET['pos'])) {
     $pos = $_GET['pos'];
@@ -16,24 +17,31 @@ if ($pos < 0) {
 switch ($pos) {
     case 0;
         $disp0 = 'block';
+        $icol0 = 'white';
         break;
     case 1;
         $disp1 = 'block';
+        $icol1 = 'white';
         break;
     case 2;
         $disp2 = 'block';
+        $icol2 = 'white';
         break;
     case 3;
         $disp3 = 'block';
+        $icol3 = 'white';
         break;
     case 4;
         $disp4 = 'block';
+        $icol4 = 'white';
         break;
     case 5;
         $disp5 = 'block';
+        $icol5 = 'white';
         break;
     default:
         $disp0 = 'block';
+        $icol0 = 'white';
         break;
 }
 ?>
@@ -52,13 +60,20 @@ switch ($pos) {
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-10">
-                        <div class="row">
-                            <div class="col-2 text-center text-white"><i class="bi bi-circle-fill"></i></div>
-                            <div class="col-2 text-center text-white"><i class="bi bi-circle-fill"></i></div>
-                            <div class="col-2 text-center text-white"><i class="bi bi-circle-fill"></i></div>
-                            <div class="col-2 text-center text-white"><i class="bi bi-circle-fill"></i></div>
-                            <div class="col-2 text-center text-white"><i class="bi bi-send-fill"></i></div>
-                            <div class="col-2 text-center text-white"><i class="bi bi-check-circle-fill"></i></div>
+                        
+                        <div class="row" style="font-size:20px;">
+                            <div class="col-2 text-center " style="color:<?php echo $icol0; ?>"><i
+                                    class="bi bi-chat-fill"></i></div>
+                            <div class="col-2 text-center " style="color:<?php echo $icol1; ?>"><i
+                                    class="bi bi-megaphone-fill"></i></div>
+                            <div class="col-2 text-center " style="color:<?php echo $icol2; ?>"><i
+                                    class="bi bi-chat-right-text-fill"></i></div>
+                            <div class="col-2 text-center " style="color:<?php echo $icol3; ?>"><i
+                                    class="bi bi-file-post"></i></div>
+                            <div class="col-2 text-center " style="color:<?php echo $icol4; ?>"><i
+                                    class="bi bi-send-fill"></i></div>
+                            <div class="col-2 text-center " style="color:<?php echo $icol5; ?>"><i
+                                    class="bi bi-check-circle-fill"></i></div>
                         </div>
                     </div>
                     <div class="col-1"></div>
@@ -92,9 +107,10 @@ switch ($pos) {
 
 
             <div class="card-body mt-1">
-                <button class="" onclick="prev(<?php echo $pos; ?>);">
-                    < </button>
-                        <button class="" onclick="next(<?php echo $pos; ?>);"> > </button>
+                <button class="btn btn-dark text-small ps-3 pe-3" onclick="prev(<?php echo $pos; ?>);">
+                    <i class="bi bi-caret-left-fill"></i> </button>
+                <button class="btn btn-dark text-small ps-3 pe-3" onclick="next(<?php echo $pos; ?>);"> <i
+                        class="bi bi-caret-right-fill"></i> </button>
             </div>
 
         </div>

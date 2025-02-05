@@ -181,7 +181,7 @@ if ($result00gt->num_rows > 0) {
                 $datam[] = $row00;
             }
         }
-
+var_dump($datam);
         // *************************************************************
         $sql00 = "SELECT * FROM stattndsummery where  date='$td' and sccode='$sccode' and sessionyear='$sy' and classname = '$classname' and sectionname='$sectionname'";
         $result00gtt = $conn->query($sql00);
@@ -360,7 +360,7 @@ if ($result00gt->num_rows > 0) {
                                     <td style="text-align:left; padding-left:5px; min-width:120px; vertical-align:middle;"
                                         class=" sticky-x-3">
                                         <div class="stname-ben"><?php echo $neng; ?></div>
-                                        <div class="stname-ben"><?php echo $nben; ?></div>
+                                        <div class="stname-ben"><?php echo $nben. $stid; ?></div>
                                     </td>
 
                                     <?php
