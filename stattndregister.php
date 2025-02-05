@@ -16,7 +16,7 @@ $period = 1;
 $year = date('Y');
 $month = date('m');
 $date_start = $year . '-' . $month . '-01';
-$date_end = $year . '-' . $month . '-31';
+$date_end = date('Y-m-t');
 
 $sql00 = "SELECT * FROM settings where  sccode='$sccode' and setting_title='Weekends' ";
 // echo $sql00;
@@ -174,14 +174,14 @@ if ($result00gt->num_rows > 0) {
 
         $datam = array();
         $sql00 = "SELECT * FROM stattnd where  adate between '$date_start' and '$date_end' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname' order by rollno";
-        echo $sql00 . '<br><br>';
+        // echo $sql00 . '<br><br>';
         $result00gt = $conn->query($sql00);
         if ($result00gt->num_rows > 0) {
             while ($row00 = $result00gt->fetch_assoc()) {
                 $datam[] = $row00;
             }
         }
-        var_dump($datam);
+        // var_dump($datam);
         // *************************************************************
         $sql00 = "SELECT * FROM stattndsummery where  date='$td' and sccode='$sccode' and sessionyear='$sy' and classname = '$classname' and sectionname='$sectionname'";
         $result00gtt = $conn->query($sql00);
@@ -361,7 +361,7 @@ if ($result00gt->num_rows > 0) {
                                     <td style="text-align:left; padding-left:5px; min-width:120px; vertical-align:middle;"
                                         class=" sticky-x-3">
                                         <div class="stname-ben"><?php echo $neng; ?></div>
-                                        <div class="stname-ben"><?php echo $nben . $stid; ?></div>
+                                        <div class="stname-ben"><?php echo $nben; ?></div>
                                     </td>
 
                                     <?php
