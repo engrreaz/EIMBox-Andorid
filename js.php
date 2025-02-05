@@ -263,8 +263,8 @@
     function settings_admin_class_routine_setup() { window.location.href = "clsroutine-setup.php"; }
     function settings_sms_menu() { window.location.href = "sms-manager.php"; }
     function settings_admin_user_manager() { window.location.href = "userlist.php"; }
-    
-    
+
+
     function sms_manager_send() { window.location.href = "sms-send.php"; }
     function sms_manager_campaign() { window.location.href = "sms-campaign.php"; }
     function sms_manager_history() { window.location.href = "sms-history.php"; }
@@ -297,6 +297,7 @@
 
 
     //********************************************************************* */
+    
 
     function epos() {
         let lastpr = document.getElementById("mylastpr").value;

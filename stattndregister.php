@@ -15,10 +15,16 @@ $count_class = count($cteacher_data);
 $period = 1;
 $year = date('Y');
 $month = date('m');
-$last_date = date('t');
+if (isset($_GET['month'])) {
+    $month = $_GET['month'];
+}
+
 $date_start = $year . '-' . $month . '-01';
-$date_end = date('Y-m-t');
+$date_end = date('Y-' . $month . '-t', strtotime($date_start));
 // echo $last_date;
+$last_date = date('t', strtotime($date_start));
+echo $date_start . $date_end;
+
 $sql00 = "SELECT * FROM settings where  sccode='$sccode' and setting_title='Weekends' ";
 // echo $sql00;
 $result00gt = $conn->query($sql00);
@@ -129,6 +135,44 @@ if ($result00gt->num_rows > 0) {
         att(id, roll, bl, per);
     }
 </script>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" z-index="99999" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <select class="form-control" onchange="gomonth(this.value);">
+                    <?php
+                    for ($mm = 1; $mm <= 12; $mm++) {
+                        ?>
+                        <option value="<?php echo $mm;?>"><?php echo $mm;?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+
+                <button class="" onclick="gomonth(1);">Month</button>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <main>
     <div class="container-fluidx">
@@ -251,8 +295,8 @@ if ($result00gt->num_rows > 0) {
                                 <td class="text-left">
                                     <div class="mt-3 "
                                         style="color: var(--lighter); font-size:22px; font-weight:600; line-height:15px;"
-                                        id="dddate">
-                                        <?php echo date(' F, Y', strtotime($td)); ?>
+                                        id="dddate" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <?php echo date(' F, Y', strtotime($date_start)); ?>
                                     </div>
 
                                 </td>
@@ -371,11 +415,12 @@ if ($result00gt->num_rows > 0) {
                                     $clr_dot = 'lightgray';
                                     $day = date('d');
                                     for ($h = 1; $h <= $last_date; $h++) {
-                                        if ($h <= $day) {
+                                        $tarikh = $year . '-' . $month . '-' . $h;
+                                        if (strtotime($tarikh) <= strtotime($td)) {
                                             if ($h < 10) {
                                                 $h = '0' . $h;
                                             }
-                                            $tarikh = $year . '-' . $month . '-' . $h;
+
                                             $bar = date('l', strtotime($tarikh));
 
                                             $open_day++;
@@ -561,5 +606,10 @@ if ($result00gt->num_rows > 0) {
         }
         document.getElementById('clssecblock' + cur).style.display = 'block';
         document.getElementById('btn' + cur).classList.add("btn-primary");
+    }
+
+    function modal() {
+        var x = document.getElementById("modaldata").value;
+        window.location.href = 'bank-account.php?accno=' + x;
     }
 </script>
