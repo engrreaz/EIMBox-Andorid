@@ -174,14 +174,14 @@ if ($result00gt->num_rows > 0) {
 
         $datam = array();
         $sql00 = "SELECT * FROM stattnd where  adate between '$date_start' and '$date_end' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname' order by rollno";
-        // echo $sql00;
+        echo $sql00;
         $result00gt = $conn->query($sql00);
         if ($result00gt->num_rows > 0) {
             while ($row00 = $result00gt->fetch_assoc()) {
                 $datam[] = $row00;
             }
         }
-var_dump($datam);
+        var_dump($datam);
         // *************************************************************
         $sql00 = "SELECT * FROM stattndsummery where  date='$td' and sccode='$sccode' and sessionyear='$sy' and classname = '$classname' and sectionname='$sectionname'";
         $result00gtt = $conn->query($sql00);
@@ -356,11 +356,12 @@ var_dump($datam);
                                     </td>
 
                                     <td style="width:36px; text-align:center; vertical-align:middle;" class=" sticky-x-2  bg-red">
-                                        <span style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span></td>
+                                        <span style="font-size:24px; font-weight:700;"><?php echo $rollno; ?></span>
+                                    </td>
                                     <td style="text-align:left; padding-left:5px; min-width:120px; vertical-align:middle;"
                                         class=" sticky-x-3">
                                         <div class="stname-ben"><?php echo $neng; ?></div>
-                                        <div class="stname-ben"><?php echo $nben. $stid; ?></div>
+                                        <div class="stname-ben"><?php echo $nben . $stid; ?></div>
                                     </td>
 
                                     <?php
@@ -529,21 +530,21 @@ var_dump($datam);
     document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
 
     function go_entry() {
-        window.location.href = "stattnd.php?cls=<?php echo $classname;?>&sec=<?php echo $sectionname;?>";
+        window.location.href = "stattnd.php?cls=<?php echo $classname; ?>&sec=<?php echo $sectionname; ?>";
     }  
 </script>
 
 
 
 <script>
-  function myclass(cur, mot) {
-    var i = 0;
-    for (i = 0; i < mot; i++) {
-      document.getElementById('clssecblock' + i).style.display = 'none';
-      document.getElementById('btn' + i).classList.remove("btn-primary");
-      document.getElementById('btn' + i).classList.add("btn-dark");
+    function myclass(cur, mot) {
+        var i = 0;
+        for (i = 0; i < mot; i++) {
+            document.getElementById('clssecblock' + i).style.display = 'none';
+            document.getElementById('btn' + i).classList.remove("btn-primary");
+            document.getElementById('btn' + i).classList.add("btn-dark");
+        }
+        document.getElementById('clssecblock' + cur).style.display = 'block';
+        document.getElementById('btn' + cur).classList.add("btn-primary");
     }
-    document.getElementById('clssecblock' + cur).style.display = 'block';
-    document.getElementById('btn' + cur).classList.add("btn-primary");
-  }
 </script>
