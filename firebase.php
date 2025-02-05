@@ -2,7 +2,6 @@
 require('inc.php');
 require('firebase/FcmApi.php');
 
-
 $FcmApi = new \FcmApi(
     [
         'path' => 'firebase.json',
@@ -10,7 +9,16 @@ $FcmApi = new \FcmApi(
     ]
 );
 
-
+$firebase_datam = array(
+    'title' => 'Hello Sir',
+    'body' => 'Your next class at Nine (Rajanigandha) on ICT after 10 minutes.',
+    'image' => 'https://eimbox.com/logo/105673.png',
+    'data1' => '',
+    'data2' => '',
+    'data3' => '',
+);
+// $token = 'c9HHrCdfT12-QfT8-BYG1m:APA91bF_SE4Pp1hHAE8Dztmb1kilTlvROvar55TeXzcJ_fUhBbaqk2Kglnur7AD4qTc-AAVtTOQwjnp0X7OYeoS-OJ4Hiplpy4rKxP9h3PAss6s_CVS_rds';
+echo $token;
 
 if (
     $result = $FcmApi->setMessage(

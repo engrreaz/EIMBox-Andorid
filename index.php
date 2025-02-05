@@ -122,7 +122,7 @@ if ($result0wwrtd->num_rows > 0) {
     include 'front-page-block/notific-bar.php';
 
     if ($usr == 'engrreaz@gmail.com') {
-        echo '<a href="firebase.php" class="btn">Firebase</a>';
+        echo '<a href="firebase.php" class="btn btn-danger">Firebase</a>';
 
 
         $mobile_number = '019196296722';
