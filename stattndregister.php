@@ -15,9 +15,10 @@ $count_class = count($cteacher_data);
 $period = 1;
 $year = date('Y');
 $month = date('m');
+$last_date = date('t');
 $date_start = $year . '-' . $month . '-01';
 $date_end = date('Y-m-t');
-
+// echo $last_date;
 $sql00 = "SELECT * FROM settings where  sccode='$sccode' and setting_title='Weekends' ";
 // echo $sql00;
 $result00gt = $conn->query($sql00);
@@ -279,10 +280,11 @@ if ($result00gt->num_rows > 0) {
                                     style="background: var(--lighter) !important; z-index:10001;">
                                     <small>Name</small>
                                 </th>
-                                <?php for ($h = 1; $h <= 31; $h++) {
+                                <?php for ($h = 1; $h <= $last_date; $h++) {
                                     echo '<th class="stickyg">' . $h . '</th>';
                                 }
                                 ?>
+                                <th>Rate</th>
                             </tr>
                         </thead>
 
@@ -315,6 +317,7 @@ if ($result00gt->num_rows > 0) {
                                 $nben = $datam_st_profile[$st_ind]["stnameben"];
                                 $vill = $datam_st_profile[$st_ind]["previll"];
 
+                                $open_day = $pre_day = 0;
                                 // $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
                                 // $result00 = $conn->query($sql00);
                                 // if ($result00->num_rows > 0) 
@@ -367,7 +370,7 @@ if ($result00gt->num_rows > 0) {
                                     <?php
                                     $clr_dot = 'lightgray';
                                     $day = date('d');
-                                    for ($h = 1; $h <= 31; $h++) {
+                                    for ($h = 1; $h <= $last_date; $h++) {
                                         if ($h <= $day) {
                                             if ($h < 10) {
                                                 $h = '0' . $h;
@@ -375,6 +378,7 @@ if ($result00gt->num_rows > 0) {
                                             $tarikh = $year . '-' . $month . '-' . $h;
                                             $bar = date('l', strtotime($tarikh));
 
+                                            $open_day++;
                                             $key = array_search($tarikh, array_column($st_att, 'adate'));
                                             if ($key != NULL || $key != '') {
                                                 $status = $st_att[$key]['yn'];
@@ -385,6 +389,7 @@ if ($result00gt->num_rows > 0) {
                                                 if ($status == 0) {
                                                     $clr_dot = 'deeppink';
                                                 } else {
+                                                    $pre_day++;
                                                     if ($bunk == 1) {
                                                         $clr_dot = 'orange';
                                                     } else {
@@ -405,6 +410,7 @@ if ($result00gt->num_rows > 0) {
                                         if (str_contains($holidays, $bar)) {
                                             $status = 0;
                                             $clr_dot = 'red'; // Holiday
+                                            $open_day--;
                                         }
 
 
@@ -412,7 +418,16 @@ if ($result00gt->num_rows > 0) {
                                         echo '<td style="vertical-align:middle;" class="text-center"><div style="background:' . $clr_dot . ' !important;" class="attnd-dot"></div></td>';
                                     }
                                     ?>
-
+                                    <td class="text-small" style="vertical-align:middle;">
+                                        <?php
+                                        if ($pre_day > 0) {
+                                            echo number_format($pre_day * 100 / $open_day, 2) . '%';
+                                        } else {
+                                            echo '0.00%';
+                                        }
+                                        // echo $open_day . '/' . $pre_day;
+                                        ?>
+                                    </td>
                                 </tr>
 
 
