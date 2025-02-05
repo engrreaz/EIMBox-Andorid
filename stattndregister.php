@@ -174,7 +174,7 @@ if ($result00gt->num_rows > 0) {
 
         $datam = array();
         $sql00 = "SELECT * FROM stattnd where  adate between '$date_start' and '$date_end' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname' order by rollno";
-        echo $sql00;
+        echo $sql00 . '<br><br>';
         $result00gt = $conn->query($sql00);
         if ($result00gt->num_rows > 0) {
             while ($row00 = $result00gt->fetch_assoc()) {
