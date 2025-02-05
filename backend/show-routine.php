@@ -66,7 +66,7 @@ for ($i = 1; $i <= 8; $i++) {
                                     onchange="edit(<?php echo $i . $j; ?>);">
                                     <option value="">Select Subject</option>
                                     <?php
-                                    $sql00xgr = "SELECT * FROM subjects order by subcode";
+                                    $sql00xgr = "SELECT * FROM subjects where sccategory='$sctype' order by subcode";
                                     $result00xgr4 = $conn->query($sql00xgr);
                                     if ($result00xgr4->num_rows > 0) {
                                         while ($row00xgr = $result00xgr4->fetch_assoc()) {
