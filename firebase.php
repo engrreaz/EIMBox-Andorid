@@ -17,7 +17,7 @@ $FcmApi = new \FcmApi(
 //     'data2' => '',
 //     'data3' => '',
 // );
-$token = 'cNKSR8i8QLacoJcB3szsEl:APA91bEfsujRG7BR0sO9nqiBymu5b9LR9W1pU8pIyOQWxqjAbGGWFCnVu6sCc7h-aVlc5N0RkvM7US4RlZzxj4z5FfdPRu4KI7GmsZsk6dXB4ye-dOATdSU';
+$token = 'cMqpsuYWQaOo1W0bnb2OUO:APA91bFuYN0oKVjYItycw3n3I4oQinwWLJyAsSbjsCNih3zmFb0TGRd2rSR35lrf37uvc6MputEmj0xL6X9UJ8a1nbbPBjZk5qPM9R12eIWH6WIQ66dxn8c';
 echo $token . '<br><br>';
 
 if (
