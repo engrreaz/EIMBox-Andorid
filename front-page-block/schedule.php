@@ -165,9 +165,9 @@ include 'events-block.php';
                             // echo $userid;
                         
                             if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
-                                $sql0 = "SELECT * FROM clsroutine where sccode='$sccode' and sessionyear='$sy' and period>='$period' and wday='$wday' and tid='$userid' order by classname, sectionname;";
+                                $sql0 = "SELECT * FROM clsroutine where sccode='$sccode' and sessionyear LIKE '%$sy%' and period>='$period' and wday='$wday' and tid='$userid' order by classname, sectionname;";
                             } else {
-                                $sql0 = "SELECT * FROM clsroutine where sccode='$sccode' and sessionyear='$sy' and period='$period' and wday='$wday' order by classname, sectionname;";
+                                $sql0 = "SELECT * FROM clsroutine where sccode='$sccode' and sessionyear LIKE '%$sy%' and period='$period' and wday='$wday' order by classname, sectionname;";
                             }
                             // echo $sql0;
                             $result0a = $conn->query($sql0);
