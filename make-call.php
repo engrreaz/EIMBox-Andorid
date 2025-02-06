@@ -9,7 +9,7 @@ include 'inc.php';
     // 
     // history.back();
 
-    $(window).focus(function () {
+    $(document).focus(function () {
         alert('fouced');
         // console.log('welcome (back)');
         // const myTimeout = setTimeout(history.back(), 3000);
