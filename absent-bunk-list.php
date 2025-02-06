@@ -22,6 +22,9 @@ if (isset($_GET['cls']) && isset($_GET['sec'])) {
 // var_dump($cteacher_data);
 $count_class = count($cteacher_data);
 
+
+
+
 ?>
 
 <main>
@@ -32,8 +35,8 @@ $count_class = count($cteacher_data);
         <table width="100%">
           <tr>
             <td colspan="2">
-              <div class="menu-icon"><i class="bi bi-people-fill"></i></div>
-              <div class="menu-text"> Student's List </div>
+              <div class="menu-icon"><i class="bi bi-slash-circle"></i></div>
+              <div class="menu-text"> Absent - Bunk List </div>
             </td>
           </tr>
         </table>
@@ -78,6 +81,17 @@ $count_class = count($cteacher_data);
 
       }
 
+      $datam = array();
+      $sql00 = "SELECT * FROM stattnd where  adate = '$td'  and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname' order by rollno";
+      // echo $sql00 . '<br><br>';
+      $result00gt = $conn->query($sql00);
+      if ($result00gt->num_rows > 0) {
+        while ($row00 = $result00gt->fetch_assoc()) {
+          $datam[] = $row00;
+        }
+      }
+      // var_dump($datam);
+    
       ?>
 
       <div id="clssecblock<?php echo $h2; ?>" style="display:<?php echo $ddss; ?>">
@@ -141,6 +155,18 @@ $count_class = count($cteacher_data);
             $modi = $datam_st_profile[$st_ind]["modify"];
             $diff = (strtotime($cur) - strtotime($modi)) / (3600 * 24);
 
+            $status = 0;
+            $bunk = 0;
+            $st_att_ind = array_search($stid, array_column($datam, 'stid'));
+            if ($st_att_ind != '' || $st_att_ind != NULL) {
+              $status = $datam[$st_att_ind]["yn"];
+              $bunk = $datam[$st_att_ind]["bunk"];
+            }
+
+
+
+
+
             $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
             $result00 = $conn->query($sql00);
             if ($result00->num_rows > 0) {
@@ -149,26 +175,32 @@ $count_class = count($cteacher_data);
                 $nben = $row00["stnameben"];
                 $vill = $row00["previll"];
                 $modi = $row00["modify"];
+                $guarmobile = $row00["guarmobile"];
                 $diff = (strtotime($cur) - strtotime($modi)) / (3600 * 24);
               }
             }
             $sector = '';
-
-            if ($status == 0) {
-              $bgc = '--light';
-              $dsbl = ' disabled';
-              $gip = '';
-            } else {
+            // echo $status . '/' . $bunk;
+            if ($status == 0 || $bunk == 1) {
               $bgc = '--lighter';
               $dsbl = '';
-              $gip = 'checked';
+              $hidden = '';
+
+              if ($bunk == 1) {
+                $bgc = '--light';
+              }
+            } else {
+              $bgc = '--light';
+              $dsbl = '  hidden';
+              $hidden = '  hidden';
+
             }
             //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
       
 
             ?>
-            <div class="card text-center mb-1" style="background:var(<?php echo $bgc; ?>); color:var(--darker);"
-              onclick="go(<?php echo $stid; ?>)" id="block<?php echo $stid; ?>" <?php echo $dsbl; ?>>
+            <div class="card text-center " style="background:var(<?php echo $bgc; ?>); color:var(--darker);"
+              onclick="show_extra(<?php echo $stid; ?>)" id="block<?php echo $stid; ?>" <?php echo $hidden; ?>>
               <img class="card-img-top" alt="">
               <div class="card-body">
                 <table width="100%">
@@ -193,144 +225,25 @@ $count_class = count($cteacher_data);
 
               </div>
             </div>
-            <div class="card text-center sele gg"
-              style="background:var(<?php echo $bgc; ?>); display:none; color:var(--darker);"
-              id="blocksel<?php echo $dtid; ?>">
-              <div class="card-body">
 
+            <div id="extra<?php echo $stid; ?>" class="card text-center" onclick="show_extra(<?php echo $stid; ?>)"
+              style="background:var(<?php echo $bgc; ?>); color:var(--normal); display:none;">
 
-                <table style="width:100%;">
-                  <tr>
-
-                    <td>
-                      <?php if ($classname == 'Six' || $classname == 'Seven' || $classname == 'Eight' || $classname == 'Nine') { ?>
-                        <div class="form-group">
-                          <label for="sel<?php echo $stid; ?>"><small><b>Group/Team</b></small></label>
-                          <select class="form-control" id="sel<?php echo $dtid; ?>" onchange="grp(<?php echo $dtid; ?>);">
-                            <option="" selected>
-                              </option>
-                              <?php
-                              $sql00g = "SELECT * FROM pibigroup where  sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by id";
-                              $result00g = $conn->query($sql00g);
-                              if ($result00g->num_rows > 0) {
-                                while ($row00g = $result00g->fetch_assoc()) {
-                                  $ggg = $row00g["groupname"];
-                                  if ($ggg == $grname) {
-                                    $chk = " selected";
-                                  } else {
-                                    $chk = '';
-                                  }
-                                  echo '<option value="' . $ggg . '" ' . $chk . '>' . $ggg . '</option>';
-                                }
-                              }
-                              ?>
-                          </select>
-                        </div>
-                      <?php } else { ?>
-                        <div class="form-group">
-                          <label for="sel<?php echo $stid; ?>"><small>4th Sub</small></label>
-                          <select class="form-control" id="sel<?php echo $dtid; ?>" onchange="grpp(<?php echo $dtid; ?>);">
-                            <option="" selected>
-                              </option>
-                              <?php
-                              $sql00g = "SELECT * FROM subjects where  fourth=1 order by subcode";
-                              $result00g = $conn->query($sql00g);
-                              if ($result00g->num_rows > 0) {
-                                while ($row00g = $result00g->fetch_assoc()) {
-                                  $ggg = $row00g["subcode"];
-                                  $gggx = $row00g["subject"];
-                                  if ($ggg == $four) {
-                                    $chk = " selected";
-                                  } else {
-                                    $chk = '';
-                                  }
-                                  echo '<option value="' . $ggg . '" ' . $chk . '>' . $gggx . '</option>';
-                                }
-                              }
-                              ?>
-                          </select>
-                        </div>
-                      <?php } ?>
-                    </td>
-                    <td style="width:10px;"></td>
-                    <td style="">
-                      <div class="form-group">
-
-                        <label for="rel<?php echo $stid; ?>"><small>Religion</small></label>
-                        <select class="form-control" id="rel<?php echo $stid; ?>" onchange="grps(<?php echo $stid; ?>);">
-                          <option value="" <?php if ($rel == '') {
-                            echo 'selected';
-                          } ?>> </option>
-                          <option value="Islam" <?php if ($rel == 'Islam') {
-                            echo 'selected';
-                          } ?>>Islam</option>
-                          <option value="Hindu" <?php if ($rel == 'Hindu') {
-                            echo 'selected';
-                          } ?>>Hindu</option>
-                          <option value="Christian" <?php if ($rel == 'Christian') {
-                            echo 'selected';
-                          } ?>>Christian</option>
-                          <option value="Buddist" <?php if ($rel == 'Buddist') {
-                            echo 'selected';
-                          } ?>>Buddist</option>
-                        </select>
-                      </div>
-                    </td>
-                    <td style="width:10px;"></td>
-                    <td style="padding:8px 0 0 15px;">
-
-                      <input style="scale:1.5;" class="form-check-input" type="checkbox" name="darkmode" value="no"
-                        id="sta<?php echo $stid; ?>" onchange="grpss(<?php echo $stid; ?>);" <?php echo $gip; ?>>
-                      &nbsp;&nbsp;&nbsp;
-                      <label for="sta<?php echo $stid; ?>">Present</label>
-                      <small> </small>
-                    </td>
-
-                  </tr>
-
-
-
-                  <tr>
-                    <td colspan="3" class="lbl"><small>Category</small></td>
-                    <td></td>
-                    <td class="lbl"><small>Applying Rate (%)</small></td>
-                  </tr>
-                  <tr>
-                    <td colspan="3">
-                      <div class="input-group">
-                        <select class="form-control" id="sector<?php echo $stid; ?>"
-                          onchange="modsector(<?php echo $stid; ?>,0);">
-                          <option value="" <?php if ($sector == '') {
-                            echo 'selected';
-                          } ?>></option>
-                          <option value="Scholarship" <?php if ($sector == 'Scholarship') {
-                            echo 'selected';
-                          } ?>>Scholarship</option>
-                          <option value="Stipend" <?php if ($sector == 'Stipend') {
-                            echo 'selected';
-                          } ?>>Stipend</option>
-                          <option value="Poor" <?php if ($sector == 'Poor') {
-                            echo 'selected';
-                          } ?>>Poor</option>
-                          <option value="On Request" <?php if ($sector == 'On Request') {
-                            echo 'selected';
-                          } ?>>On Request
-                          </option>
-                        </select>
-                      </div>
-                    </td>
-                    <td style="width:10px;"></td>
-                    <td>
-                      <input type="number" id="rate<?php echo $stid; ?>" class="input form-control text-right"
-                        value="<?php echo $rate; ?>"
-                        style=" font-size:16px; color:var(--dark); font-weight:700; text-align:right;" disabled />
-                    </td>
-                  </tr>
-
-                </table>
-                <div id="upd<?php echo $stid; ?>"></div>
+              <div class="row pb-2" style="font-size:24px;">
+                <div class="col-1"></div>
+                <div class="col" onclick="send_absent_notice(<?php echo $stid; ?>, 0, '<?php echo $guarmobile;?>');"><i class="bi bi-telephone-fill"></i>
+                </div>
+                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 1);"><i class="bi bi-bell-fill"></i></div>
+                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 2);"><i
+                    class="bi bi-chat-left-text-fill"></i></div>
+                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 3);"><i class="bi bi-envelope-at-fill"></i>
+                </div>
+                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 4);"><i class="bi bi-file-text-fill"></i>
+                </div>
+                <div class="col-1"></div>
               </div>
             </div>
+            <div style="height:3px;"></div>
 
             <?php
             $cnt++;
@@ -340,6 +253,28 @@ $count_class = count($cteacher_data);
         ?>
         <script>
           document.getElementById("cnt" + <?php echo $h2; ?>).innerHTML = "<?php echo $cnt; ?>";
+
+          function show_extra(id) {
+
+            var elem = document.getElementById("extra" + id);
+            if (elem.style.display === 'block') {
+              elem.style.display = 'none';
+            } else {
+              elem.style.display = 'block';
+            }
+          }
+
+
+          function send_absent_notice(stid, way, mobile) {
+            event.stopPropagation();
+            alert(stid + " | " + way);
+
+            if (way == 0) {
+              window.open("tel:" + mobile);
+            }
+
+
+          }
         </script>
 
       </div>

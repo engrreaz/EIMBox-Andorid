@@ -30,7 +30,7 @@ include 'inc.php';
               <td>
                 <h4>My Class</h4>
                 <div class="menu-item-sub-text"> Student's Report <br>(Attendance, Result, Dues, Co-Curricular Activities)
-                </td>
+              </td>
             </tr>
           </table>
         </div>
@@ -49,168 +49,185 @@ include 'inc.php';
             <td>
               <h4>Students List</h4>
               <div class="menu-item-sub-text"> All of students list accourding to class/section </div>
-              </div>
-            </td>
-          </tr>
-        </table>
       </div>
+      </td>
+      </tr>
+      </table>
     </div>
-    <div class="menu-separator"></div>
+  </div>
+  <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="report_menu_my_collection();">
+  <div class="card menu-item-block" onclick="report_menu_my_collection();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-coin"></i></td>
+          <td>
+            <h4>Collection</h4>
+            <div class="menu-item-sub-text"> All of my collection recorded in cloud </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="menu-separator"></div>
+
+  <?php if ($userlevel == 'Administrator' || $userlevel == 'Super Administrator' || $userlevel == 'Accountants') { ?>
+    <div class="card menu-item-block" onclick="report_menu_daily_collection();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-coin"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-currency-exchange"></i></td>
             <td>
-              <h4>Collection</h4>
-              <div class="menu-item-sub-text"> All of my collection recorded in cloud </div>
+              <h4>Daily Collection</h4>
+              <div class="menu-item-sub-text">Checking/Tracking your daily collection</div>
             </td>
           </tr>
         </table>
       </div>
     </div>
     <div class="menu-separator"></div>
+  <?php } ?>
 
-    <?php if ($userlevel == 'Administrator' || $userlevel == 'Super Administrator' || $userlevel == 'Accountants') { ?>
-      <div class="card menu-item-block" onclick="report_menu_daily_collection();">
-        <div class="card-body">
-          <table style="">
-            <tr>
-              <td class="menu-item-icon"><i class="bi bi-currency-exchange"></i></td>
-              <td>
-                <h4>Daily Collection</h4>
-                <div class="menu-item-sub-text">Checking/Tracking your daily collection</div>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="menu-separator"></div>
-    <?php } ?>
+  <div class="card menu-item-block" onclick="report_menu_attnd_register();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-fingerprint"></i></td>
+          <td>
+            <h4> Attendance </h4>
+            <div class="menu-item-sub-text"> View Students Attendance Report </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="report_menu_attnd_register();">
+  <?php if ($userlevel == 'Administrator') { ?>
+    <div class="card menu-item-block" onclick="report_menu_absent_bunk_list();">
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-fingerprint"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-slash-circle"></i></td>
             <td>
-              <h4> Attendance </h4>
-              <div class="menu-item-sub-text"> View Students Attendance Report </div>
+              <h4> Absent - Bunk List </h4>
+              <div class="menu-item-sub-text"> View the list of absent/bunked students </div>
             </td>
           </tr>
         </table>
       </div>
     </div>
     <div class="menu-separator"></div>
+  <?php } ?>
 
-    <div class="card menu-item-block" onclick="report_menu_cls_routine();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-clock-history"></i></td>
-            <td>
-              <h4> Class Routine </h4>
-              <div class="menu-item-sub-text"> Whole routine, based on class and my routine </div>
-            </td>
-          </tr>
-        </table>
-      </div>
+  <div class="card menu-item-block" onclick="report_menu_cls_routine();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-clock-history"></i></td>
+          <td>
+            <h4> Class Routine </h4>
+            <div class="menu-item-sub-text"> Whole routine, based on class and my routine </div>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class="menu-separator"></div>
+  </div>
+  <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="report_menu_my_subjects();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-file-text"></i></td>
-            <td>
-              <h4> My Subjects </h4>
-              <div class="menu-item-sub-text"> All of my subjects that I teaches </div>
-            </td>
-          </tr>
-        </table>
-      </div>
+  <div class="card menu-item-block" onclick="report_menu_my_subjects();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-file-text"></i></td>
+          <td>
+            <h4> My Subjects </h4>
+            <div class="menu-item-sub-text"> All of my subjects that I teaches </div>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class="menu-separator"></div>
+  </div>
+  <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="report_menu_honorable_teachers();" >
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-file-person"></i></td>
-            <td>
-              <h4> Teachers & Staffs </h4>
-              <div class="menu-item-sub-text"> Honourable Teachers & Staffs </div>
-            </td>
-          </tr>
-        </table>
-      </div>
+  <div class="card menu-item-block" onclick="report_menu_honorable_teachers();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-file-person"></i></td>
+          <td>
+            <h4> Teachers & Staffs </h4>
+            <div class="menu-item-sub-text"> Honourable Teachers & Staffs </div>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class="menu-separator"></div>
+  </div>
+  <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="report_menu_ebooks_x();" >
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-book-half"></i></td>
-            <td>
-              <h4> E-Library </h4>
-              <div class="menu-item-sub-text"> E-books relevant me </div>
-            </td>
-          </tr>
-        </table>
-      </div>
+  <div class="card menu-item-block" onclick="report_menu_ebooks_x();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-book-half"></i></td>
+          <td>
+            <h4> E-Library </h4>
+            <div class="menu-item-sub-text"> E-books relevant me </div>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class="menu-separator"></div>
+  </div>
+  <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="report_menu_calendar();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-calendar-check"></i></td>
-            <td>
-              <h4> Our Academic Calendar</h4>
-              <div class="menu-item-sub-text"> Schedule / Events of our institutions including holidays, exam schedule
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
+  <div class="card menu-item-block" onclick="report_menu_calendar();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-calendar-check"></i></td>
+          <td>
+            <h4> Our Academic Calendar</h4>
+            <div class="menu-item-sub-text"> Schedule / Events of our institutions including holidays, exam schedule
+            </div>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class="menu-separator"></div>
+  </div>
+  <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="report_menu_notices();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-square-fill"></i></td>
-            <td>
-              <h4> Notices </h4>
-              <div class="menu-item-sub-text"> All of notices relevant me </div>
-            </td>
-          </tr>
-        </table>
-      </div>
+  <div class="card menu-item-block" onclick="report_menu_notices();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-square-fill"></i></td>
+          <td>
+            <h4> Notices </h4>
+            <div class="menu-item-sub-text"> All of notices relevant me </div>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class="menu-separator"></div>
+  </div>
+  <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="report_menu_notification();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-chat-right-fill"></i></td>
-            <td>
-              <h4> Notifications </h4>
-              <div class="menu-item-sub-text"> My notifications </div>
-            </td>
-          </tr>
-        </table>
-      </div>
+  <div class="card menu-item-block" onclick="report_menu_notification();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-chat-right-fill"></i></td>
+          <td>
+            <h4> Notifications </h4>
+            <div class="menu-item-sub-text"> My notifications </div>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class="menu-separator"></div>
+  </div>
+  <div class="menu-separator"></div>
 
-    <!-- **************************************************************************************
+  <!-- **************************************************************************************
     **************************************************************************************
     **************************************************************************************
     **************************************************************************************
@@ -218,21 +235,21 @@ include 'inc.php';
     **************************************************************************************
     ************************************************************************************** -->
 
-    <div class="card menu-item-block" onclick="lnk30();" hidden>
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-door-open-fill"></i></td>
-            <td>
-              <h4>Tracking Student</h4>
-              <div class="menu-item-text">Tracking 10th Grade students daily performance</div>
-            </td>
-          </tr>
-        </table>
-      </div>
+  <div class="card menu-item-block" onclick="lnk30();" hidden>
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-door-open-fill"></i></td>
+          <td>
+            <h4>Tracking Student</h4>
+            <div class="menu-item-text">Tracking 10th Grade students daily performance</div>
+          </td>
+        </tr>
+      </table>
     </div>
+  </div>
 
-    <!-- <div class="menu-separator"></div> -->
+  <!-- <div class="menu-separator"></div> -->
 
 
   </div>

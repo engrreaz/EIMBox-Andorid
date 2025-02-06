@@ -8,6 +8,10 @@ if (!file_exists($photo_path)) {
 }
 
 
+// JS Cancel Event if Possible
+event.stopPropagation();
+
+
 // FIREBASE NOTIFICATION
 $token = 'fSsuRE9vTd-cgNR7QI749H:APA91bH7mdd15HFgTnqBTWzD3L1S3j8QV8EnlWn6gcJjFOyKZbmyBPA4A_UZKN-BFkMiAmcpdPR5TwASl3X4Czre4kTXnrYQT9CxYz4RWcF0UI5HmaD7HZ8';
 $firebase_datam = array(

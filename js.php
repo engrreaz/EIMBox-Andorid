@@ -131,6 +131,12 @@
             window.location.href = 'stattndregister.php';
         }
     }
+
+
+ function report_menu_absent_bunk_list() {
+        window.location.href = 'absent-bunk-list.php';
+    }
+    
     function report_menu_cls_routine() {
         window.location.href = 'clsroutine.php';
     }
