@@ -440,10 +440,10 @@ $count_class = count($cteacher_data);
     event.stopPropagation();
     mobile = '01919629672';
 
-    if (way == 0) {
+    // if (way == 0) {
       // alert(mobile);
-      window.location.href = 'tel://' + mobile;
-    }
+      window.location.href = "tel:+8801919629672";
+    // }
     // $("#blocksel" + id).html("");
 
     // $.ajax({
