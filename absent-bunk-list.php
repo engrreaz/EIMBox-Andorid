@@ -231,20 +231,24 @@ $count_class = count($cteacher_data);
 
               <div class="row pb-2" style="font-size:24px;">
                 <div class="col-1"></div>
-                <div class="col" onclick="send_absent_notice(<?php echo $stid; ?>, 0, '<?php echo $guarmobile;?>');"><i class="bi bi-telephone-fill"></i>
+                <div class="col" onclick="send_absent_notice(<?php echo $stid; ?>, 0, '<?php echo $guarmobile; ?>');"><i
+                    class="bi bi-telephone-fill"></i>
                 </div>
-                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 1);"><i class="bi bi-bell-fill"></i></div>
+                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 1);"><i
+                    class="bi bi-bell-fill"></i></div>
                 <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 2);"><i
                     class="bi bi-chat-left-text-fill"></i></div>
-                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 3);"><i class="bi bi-envelope-at-fill"></i>
+                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 3);"><i
+                    class="bi bi-envelope-at-fill"></i>
                 </div>
-                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 4);"><i class="bi bi-file-text-fill"></i>
+                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 4);"><i
+                    class="bi bi-file-text-fill"></i>
                 </div>
                 <div class="col-1"></div>
               </div>
             </div>
 
-            <div style="height:3px;" <?php echo $hidden;?>></div>
+            <div style="height:3px;" <?php echo $hidden; ?>></div>
 
             <?php
             $cnt++;
@@ -255,28 +259,7 @@ $count_class = count($cteacher_data);
         <script>
           document.getElementById("cnt" + <?php echo $h2; ?>).innerHTML = "<?php echo $cnt; ?>";
 
-          function show_extra(id) {
 
-            var elem = document.getElementById("extra" + id);
-            if (elem.style.display === 'block') {
-              elem.style.display = 'none';
-            } else {
-              elem.style.display = 'block';
-            }
-          }
-
-
-          function send_absent_notice(stid, way, mobile) {
-            event.stopPropagation();
-            
-
-            if (way == 0) {
-              alert(mobile );
-              document.location.href("tel:" + mobile);
-            }
-
-
-          }
         </script>
 
       </div>
@@ -437,5 +420,44 @@ $count_class = count($cteacher_data);
     }
     document.getElementById('clssecblock' + cur).style.display = 'block';
     document.getElementById('btn' + cur).classList.add("btn-primary");
+  }
+
+
+
+
+  function show_extra(id) {
+
+    var elem = document.getElementById("extra" + id);
+    if (elem.style.display === 'block') {
+      elem.style.display = 'none';
+    } else {
+      elem.style.display = 'block';
+    }
+  }
+
+
+  function send_absent_notice(stid, way, mobile) {
+    event.stopPropagation();
+
+
+    if (way == 0) {
+      // alert(mobile);
+      window.location.href("tel:" + mobile);
+    }
+    // $("#blocksel" + id).html("");
+
+    // $.ajax({
+    //   type: "POST",
+    //   url: "backend/absent-bunk-notification.php",
+    //   data: infor,
+    //   cache: false,
+    //   beforeSend: function () {
+    //     $("#blocksel" + id).html('<span class=""><center>Fetching Section Name....</center></span>');
+    //   },
+    //   success: function (html) {
+    //     $("#blocksel" + id).html(html);
+    //   }
+    // });
+
   }
 </script>
