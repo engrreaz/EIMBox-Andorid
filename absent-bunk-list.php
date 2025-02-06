@@ -449,10 +449,11 @@ $count_class = count($cteacher_data);
   function send_absent_notice(stid, way, mobile) {
     event.stopPropagation();
     // mobile = '01919629672';
-
+    var lnk = "make-call.php?mobilenumber=" + mobile;
+    alert(lnk);
     // if (way == 0) {
     // alert(mobile);
-    window.location.href = "make-call.php?mobilenumber=" + mobile;
+    window.location.href = lnk;
     // }
     // $("#blocksel" + id).html("");
 
