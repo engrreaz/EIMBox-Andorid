@@ -5,11 +5,11 @@ include 'inc.php';
 
 
 <script>
-
+   alert('fouced');
     // 
     // history.back();
     $( document ).ready(){
-           alert('fouced');
+        
     }
    
 
