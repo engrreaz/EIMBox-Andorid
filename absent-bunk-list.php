@@ -271,7 +271,7 @@ $count_class = count($cteacher_data);
             alert(stid + " | " + way);
 
             if (way == 0) {
-              window.open("tel:" + mobile);
+              document.location.href("tel:" + mobile);
             }
 
 
