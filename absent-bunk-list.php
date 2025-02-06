@@ -268,9 +268,10 @@ $count_class = count($cteacher_data);
 
           function send_absent_notice(stid, way, mobile) {
             event.stopPropagation();
-            alert(stid + " | " + way);
+            
 
             if (way == 0) {
+              alert(mobile );
               document.location.href("tel:" + mobile);
             }
 
