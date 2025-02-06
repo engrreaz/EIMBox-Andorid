@@ -113,6 +113,8 @@ $count_class = count($cteacher_data);
                 </td>
                 <td style="text-align:right;">
                   <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt<?php echo $h2; ?>"></div>
+                  <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt_abs<?php echo $h2; ?>"></div>
+                  <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt_bunk<?php echo $h2; ?>"></div>
                   <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Students</div>
 
                   <br>
@@ -129,7 +131,7 @@ $count_class = count($cteacher_data);
 
 
         <?php
-        $cnt = 0;
+        $cnt = $absent_cnt = $bunk_cnt = 0;
         $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by rollno";
         $result0 = $conn->query($sql0);
         if ($result0->num_rows > 0) {
@@ -175,6 +177,12 @@ $count_class = count($cteacher_data);
               $dsbl = '';
               $hidden = '';
 
+              if ($status == 0) {
+                $absent_cnt++;
+              }
+              if ($bunk == 1) {
+                $bunk_cnt++;
+              }
               if ($bunk == 1) {
                 $bgc = '--light';
               }
@@ -220,8 +228,7 @@ $count_class = count($cteacher_data);
 
               <div class="row pb-2" style="font-size:24px;">
                 <div class="col-1"></div>
-                <div class="col" ><a href="tel://+8801919629672"><i
-                    class="bi bi-telephone-fill"></i></a>
+                <div class="col"><a href="tel://+8801919629672"><i class="bi bi-telephone-fill"></i></a>
                 </div>
                 <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 1);"><i
                     class="bi bi-bell-fill"></i></div>
@@ -247,8 +254,8 @@ $count_class = count($cteacher_data);
         ?>
         <script>
           document.getElementById("cnt" + <?php echo $h2; ?>).innerHTML = "<?php echo $cnt; ?>";
-
-
+          document.getElementById("cnt_abs" + <?php echo $h2; ?>).innerHTML = "<?php echo $absent_cnt; ?>";
+          document.getElementById("cnt_bunk" + <?php echo $h2; ?>).innerHTML = "<?php echo $bunk_cnt; ?>";
         </script>
 
       </div>
@@ -430,8 +437,8 @@ $count_class = count($cteacher_data);
     mobile = '01919629672';
 
     // if (way == 0) {
-      // alert(mobile);
-      window.location.href = "tel://+8801919629672";
+    // alert(mobile);
+    window.location.href = "tel://+8801919629672";
     // }
     // $("#blocksel" + id).html("");
 
