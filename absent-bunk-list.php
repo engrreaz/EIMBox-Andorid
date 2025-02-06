@@ -155,6 +155,7 @@ $count_class = count($cteacher_data);
             $nben = $datam_st_profile[$st_ind]["stnameben"];
             $vill = $datam_st_profile[$st_ind]["previll"];
             $modi = $datam_st_profile[$st_ind]["modify"];
+            $guarmobile = $datam_st_profile[$st_ind]["guarmobile"];
             $diff = (strtotime($cur) - strtotime($modi)) / (3600 * 24);
 
             $status = 0;
@@ -167,20 +168,6 @@ $count_class = count($cteacher_data);
 
 
 
-
-
-            $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
-            $result00 = $conn->query($sql00);
-            if ($result00->num_rows > 0) {
-              while ($row00 = $result00->fetch_assoc()) {
-                $neng = $row00["stnameeng"];
-                $nben = $row00["stnameben"];
-                $vill = $row00["previll"];
-                $modi = $row00["modify"];
-                $guarmobile = $row00["guarmobile"];
-                $diff = (strtotime($cur) - strtotime($modi)) / (3600 * 24);
-              }
-            }
             $sector = '';
             // echo $status . '/' . $bunk;
             if ($status == 0 || $bunk == 1) {

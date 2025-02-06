@@ -125,13 +125,11 @@ if ($result0wwrtd->num_rows > 0) {
         echo '<a href="firebase.php" class="btn btn-danger">Firebase</a>';
 
 
-        $mobile_number = '019196296722';
-        $sms_text = "Final Ceck llsfsfs\\nBangladehবOK";
+        $mobile_number = '01404022557';
+        $sms_text = "Hi Labib,\\n Tui di school e jasna?";
         ?>
         <button class="btn btn-dark"
             onclick="send_sms('<?php echo $mobile_number; ?>', '<?php echo $sms_text; ?>')">SMS</button>
-
-
         <?Php
     }
     ?>
