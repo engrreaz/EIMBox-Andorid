@@ -442,7 +442,7 @@ $count_class = count($cteacher_data);
 
     if (way == 0) {
       // alert(mobile);
-      window.location.href("tel:" + mobile);
+      window.location.href = "tel:" + mobile;
     }
     // $("#blocksel" + id).html("");
 
