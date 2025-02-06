@@ -442,7 +442,7 @@ $count_class = count($cteacher_data);
 
     // if (way == 0) {
       // alert(mobile);
-      window.location.href = "tel:+8801919629672";
+      window.location.href = "tel://+8801919629672";
     // }
     // $("#blocksel" + id).html("");
 
