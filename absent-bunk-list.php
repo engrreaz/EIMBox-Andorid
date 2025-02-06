@@ -243,7 +243,8 @@ $count_class = count($cteacher_data);
                 <div class="col-1"></div>
               </div>
             </div>
-            <div style="height:3px;"></div>
+
+            <div style="height:3px;" <?php echo $hidden;?>></div>
 
             <?php
             $cnt++;
