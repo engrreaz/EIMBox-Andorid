@@ -1,3 +1,3 @@
 <script>
-    // history.back();
+    history.back();
 </script>
