@@ -38,7 +38,7 @@ $count_class = count($cteacher_data);
               <div class="menu-icon"><i class="bi bi-slash-circle"></i></div>
               <div class="menu-text"> Absent - Bunk List </div>
 
-              <a href="https://tel:01919629672">Call</a>
+              <a href="tel:01919629672">Call</a>
             </td>
           </tr>
         </table>
