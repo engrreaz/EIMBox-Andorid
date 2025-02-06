@@ -1,4 +1,4 @@
 <script>
-    const myTimeout = setTimeout(history.back(), 1000);
+    const myTimeout = setTimeout(history.back(), 3000);
     // history.back();
 </script>
