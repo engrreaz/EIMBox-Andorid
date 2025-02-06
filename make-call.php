@@ -8,11 +8,9 @@ include 'inc.php';
 
     // 
     // history.back();
-
-    $(document).focus(function () {
-        alert('fouced');
-        // console.log('welcome (back)');
-        // const myTimeout = setTimeout(history.back(), 3000);
-    });
+    $( document ).ready(){
+           alert('fouced');
+    }
+   
 
 </script>
