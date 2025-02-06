@@ -18,7 +18,7 @@ $firebase_datam = array(
     'data3' => '',
 );
 
-// $token = 'cMqpsuYWQaOo1W0bnb2OUO:APA91bFuYN0oKVjYItycw3n3I4oQinwWLJyAsSbjsCNih3zmFb0TGRd2rSR35lrf37uvc6MputEmj0xL6X9UJ8a1nbbPBjZk5qPM9R12eIWH6WIQ66dxn8c';
+$token = 'dZBoSACOTt-D8Q0sg9QiIT:APA91bGbstCz-SvInpXyG4LbL6DQ9oOudmpsQIhNytONGdcl_Soc3xRzucGJhQw5qSkumkHlfw7lcL6ieC6dRmcP7p3vvIrfO_6ezVGr-4qP36aLgFA9SnY';
 echo $token . '<br><br>';
 
 if (
