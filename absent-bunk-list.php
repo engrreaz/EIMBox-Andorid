@@ -231,7 +231,7 @@ $count_class = count($cteacher_data);
 
               <div class="row pb-2" style="font-size:24px;">
                 <div class="col-1"></div>
-                <div class="col" ><a href="tel:+8801919629672"><i
+                <div class="col" ><a href="tel://+8801919629672"><i
                     class="bi bi-telephone-fill"></i></a>
                 </div>
                 <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 1);"><i
