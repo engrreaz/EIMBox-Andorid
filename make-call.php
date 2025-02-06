@@ -5,17 +5,13 @@ include 'inc.php';
 
 
 <script>
-   var elem = document.getElementById("foc");
+    if (document.hasFocus()){
+         var elem = document.getElementById("foc");
    if(elem.innerHTML==''){
     elem.innerHTML="Calling...";
    } else {
     history.back();
    }
-    // 
-    // 
-    // $( document ).ready(){
-        
-    // }
-   
-
+    }
+  
 </script>
