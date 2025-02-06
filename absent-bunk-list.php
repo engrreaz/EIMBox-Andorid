@@ -100,32 +100,44 @@ $count_class = count($cteacher_data);
 
         <div class="card text-left">
           <div class="card-body page-info-box" style="border-radius:0;">
-            <table width="100%" style="color:white;">
-              <tr>
-                <td>
-                  <div style="font-size:20px; font-weight:700; line-height:15px;"><?php echo strtoupper($classname); ?>
-                  </div>
-                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Class</div>
-                  <br>
-                  <div style="font-size:16px; font-weight:700; line-height:15px;"><?php echo strtoupper($sectionname); ?>
-                  </div>
-                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Section</div>
-                </td>
-                <td style="text-align:right;">
-                  <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt<?php echo $h2; ?>"></div>
-                  <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt_abs<?php echo $h2; ?>"></div>
-                  <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt_bunk<?php echo $h2; ?>"></div>
-                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Students</div>
 
-                  <br>
-                  <div class="form-check form-switch" style="float:right;">
-                    <input class="form-check-input" type="checkbox" id="myswitch" name="darkmode" value="no"
-                      onclick="more();"> <small style="font-size:10px; padding: 2px 0;"> More</small>
-                  </div>
-                </td>
-              </tr>
+            <div class="row ">
+              <div class="col d-flex">
+                <div class="menu-text"> <?php echo strtoupper($classname); ?> </div>
+                <div class="ps-2 pe-2">:</div>
+                <div class="stname-eng fw-bold pt-1"> <?php echo strtoupper($sectionname); ?> </div>
+                <div class="stname-eng text-right flex-grow-1"><?php echo date('d/m/Y'); ?></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col d-flex">
+                <div class="st-roll text-small ">Name of Class & Section</div>
+                <div class="st-roll text-small text-right flex-grow-1">Date</div>
+              </div>
+            </div>
 
-            </table>
+            <div class="row mt-3">
+              <div class="col">
+                <div class="menu-text" id="cnt<?php echo $h2; ?>">0</div>
+                <div class="st-roll text-small text-center">Total</div>
+              </div>
+
+              <div class="col">
+                <div class="menu-text" id="cnt_pre<?php echo $h2; ?>">0</div>
+                <div class="st-roll text-small text-center">Present</div>
+              </div>
+
+              <div class="col">
+                <div class="menu-text" id="cnt_bunk<?php echo $h2; ?>">0</div>
+                <div class="st-roll text-small text-center">Bunk</div>
+              </div>
+
+              <div class="col">
+                <div class="menu-text" id="cnt_abs<?php echo $h2; ?>">0</div>
+                <div class="st-roll text-small text-center">Absent</div>
+              </div>
+
+            </div>
           </div>
         </div>
 
@@ -251,11 +263,13 @@ $count_class = count($cteacher_data);
           }
         }
 
+        $present = $cnt - $absent_cnt;
         ?>
         <script>
           document.getElementById("cnt" + <?php echo $h2; ?>).innerHTML = "<?php echo $cnt; ?>";
           document.getElementById("cnt_abs" + <?php echo $h2; ?>).innerHTML = "<?php echo $absent_cnt; ?>";
           document.getElementById("cnt_bunk" + <?php echo $h2; ?>).innerHTML = "<?php echo $bunk_cnt; ?>";
+          document.getElementById("cnt_pre" + <?php echo $h2; ?>).innerHTML = "<?php echo $present; ?>";
         </script>
 
       </div>
