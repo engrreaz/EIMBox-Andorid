@@ -23,7 +23,7 @@ $date_start = $year . '-' . $month . '-01';
 $date_end = date('Y-' . $month . '-t', strtotime($date_start));
 // echo $last_date;
 $last_date = date('t', strtotime($date_start));
-echo $date_start . $date_end;
+// echo $date_start . $date_end;
 
 $sql00 = "SELECT * FROM settings where  sccode='$sccode' and setting_title='Weekends' ";
 // echo $sql00;
@@ -138,7 +138,7 @@ if ($result00gt->num_rows > 0) {
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" hidden>
     Launch demo modal
 </button>
 
@@ -372,6 +372,7 @@ if ($result00gt->num_rows > 0) {
                                 // var_dump($datam);
                                 //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
                                 $st_att = array("stid" => $stid);
+                                $st_att = array();
                                 for ($my = 0; $my < count($datam); $my++) {
                                     if ($datam[$my]['stid'] == $stid) {
                                         $st_att[] = $datam[$my];
@@ -415,18 +416,25 @@ if ($result00gt->num_rows > 0) {
                                     $clr_dot = 'lightgray';
                                     $day = date('d');
                                     for ($h = 1; $h <= $last_date; $h++) {
-                                        $tarikh = $year . '-' . $month . '-' . $h;
-                                        if (strtotime($tarikh) <= strtotime($td)) {
-                                            if ($h < 10) {
+                                        if ($month < 10) {
+                                                $month = '0' . $month*1;
+                                            } 
+
+                                        if ($h < 10) {
                                                 $h = '0' . $h;
                                             }
+                                        $tarikh = $year . '-' . $month . '-' . $h;
+                                        // echo $tarikh;
+                                        if (strtotime($tarikh) <= strtotime($td)) {
+                                            
 
                                             $bar = date('l', strtotime($tarikh));
 
                                             $open_day++;
                                             $key = array_search($tarikh, array_column($st_att, 'adate'));
+                                            // echo '..............' . $key . '........<br><br>';
                                             if ($key != NULL || $key != '') {
-                                                $status = $st_att[$key]['yn'];
+                                                $status = $st_att[0]['yn'];
                                                 $bunk = $st_att[$key]['bunk'];
 
                                                 $clr = $status;
