@@ -448,11 +448,11 @@ $count_class = count($cteacher_data);
 
   function send_absent_notice(stid, way, mobile) {
     event.stopPropagation();
-    mobile = '01919629672';
+    // mobile = '01919629672';
 
     // if (way == 0) {
     // alert(mobile);
-    window.location.href = "tel://+8801919629672";
+    window.location.href = "make-call.php?mobilenumber=" + mobile;
     // }
     // $("#blocksel" + id).html("");
 
