@@ -240,17 +240,22 @@ $count_class = count($cteacher_data);
 
               <div class="row pb-2" style="font-size:24px;">
                 <div class="col-1"></div>
-                <div class="col"><a href="tel://+8801919629672"><i class="bi bi-telephone-fill"></i></a>
+                <div class="col text-primary"
+                  onclick="send_absent_notice(<?php echo $stid; ?>, 0, '<?php echo $guarmobile; ?>');">
+                  <i class="bi bi-telephone-fill"></i>
                 </div>
-                <div class="col text-muted"
-                  onclick="send_absent_notice(<?php echo $stid; ?>, 1, '<?php echo $guarmobile; ?>');"><i
-                    class="bi bi-bell-fill"></i></div>
-                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 2);"><i
+                <div class="col text-danger"
+                  onclick="send_absent_notice(<?php echo $stid; ?>, 1 '<?php echo $guarmobile; ?>');"><i
                     class="bi bi-chat-left-text-fill"></i></div>
-                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 3);"><i
+
+                <div class="col text-warning"
+                  onclick="send_absent_notice(<?php echo $stid; ?>, 2, '<?php echo $guarmobile; ?>');"><i
+                    class="bi bi-bell-fill"></i></div>
+
+                <div class="col text-info" onclick="send_absent_notice(<?php echo $stid; ?>, 3);"><i
                     class="bi bi-envelope-at-fill"></i>
                 </div>
-                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 4);"><i
+                <div class="col text-success" onclick="send_absent_notice(<?php echo $stid; ?>, 4);"><i
                     class="bi bi-file-text-fill"></i>
                 </div>
                 <div class="col-1"></div>
@@ -449,8 +454,25 @@ $count_class = count($cteacher_data);
 
   function send_absent_notice(stid, way, mobile) {
     event.stopPropagation();
-    var lnk = "make-call.php?mobilenumber=" + mobile;
-    window.location.href = lnk;
 
+    var message = 'Dear Guardian,\\nYour child is not in school today.\\nHead Teacher';
+
+    if (way == 0) {
+
+      var lnk = "make-call.php?mobilenumber=" + mobile;
+      window.location.href = lnk;
+
+    } else if (way == 1) {
+
+      send_sms(mobile, message);
+      $sms_text = "Hi Labib,\\n Tui di school e jasna?";
+
+    } else if (way == 2) {
+      alert('Under Construction.');
+    } else if (way == 3) {
+      alert('Under Construction.');
+    } else if (way == 4) {
+      alert('Under Construction.');
+    }
   }
 </script>
