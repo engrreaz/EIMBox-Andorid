@@ -455,7 +455,7 @@ $count_class = count($cteacher_data);
   function send_absent_notice(stid, way, mobile) {
     event.stopPropagation();
 
-    var message = 'Dear Guardian,\\nYour child is not in school today.\\nHead Teacher';
+    var message = "Dear Guardian,\\nYour child is not in school today.\\nHead Teacher";
 
     if (way == 0) {
 
@@ -465,7 +465,6 @@ $count_class = count($cteacher_data);
     } else if (way == 1) {
 
       send_sms(mobile, message);
-      $sms_text = "Hi Labib,\\n Tui di school e jasna?";
 
     } else if (way == 2) {
       alert('Under Construction.');
