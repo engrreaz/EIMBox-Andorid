@@ -463,9 +463,9 @@ $count_class = count($cteacher_data);
       window.location.href = lnk;
 
     } else if (way == 1) {
-
+      alert('1');
       send_sms(mobile, message);
-
+      alert('2');
     } else if (way == 2) {
       alert('Under Construction.');
     } else if (way == 3) {
