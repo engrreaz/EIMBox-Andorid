@@ -242,7 +242,8 @@ $count_class = count($cteacher_data);
                 <div class="col-1"></div>
                 <div class="col"><a href="tel://+8801919629672"><i class="bi bi-telephone-fill"></i></a>
                 </div>
-                <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 1, '<?php echo $guarmobile;?>');"><i
+                <div class="col text-muted"
+                  onclick="send_absent_notice(<?php echo $stid; ?>, 1, '<?php echo $guarmobile; ?>');"><i
                     class="bi bi-bell-fill"></i></div>
                 <div class="col text-muted" onclick="send_absent_notice(<?php echo $stid; ?>, 2);"><i
                     class="bi bi-chat-left-text-fill"></i></div>
@@ -448,27 +449,8 @@ $count_class = count($cteacher_data);
 
   function send_absent_notice(stid, way, mobile) {
     event.stopPropagation();
-    // mobile = '01919629672';
     var lnk = "make-call.php?mobilenumber=" + mobile;
-    // alert(lnk);
-    // if (way == 0) {
-    // alert(mobile);
     window.location.href = lnk;
-    // }
-    // $("#blocksel" + id).html("");
-
-    // $.ajax({
-    //   type: "POST",
-    //   url: "backend/absent-bunk-notification.php",
-    //   data: infor,
-    //   cache: false,
-    //   beforeSend: function () {
-    //     $("#blocksel" + id).html('<span class=""><center>Fetching Section Name....</center></span>');
-    //   },
-    //   success: function (html) {
-    //     $("#blocksel" + id).html(html);
-    //   }
-    // });
 
   }
 </script>

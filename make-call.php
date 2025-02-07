@@ -5,34 +5,13 @@ include 'inc.php';
 
 
 <script>
-    var isTabActive;
     var tx = document.getElementById("foc");
     window.onfocus = function () {
-        //   isTabActive = true; 
-        //   alert('A');
-tx.innerHTML = "Please wait....";
+        tx.innerHTML = "Please wait....";
         history.back();
     };
 
     window.onblur = function () {
         tx.innerHTML = "Calling...";
     }
-
-    // test
-    // setInterval(function () { 
-    //   alert(window.isTabActive ? 'active' : 'inactive'); 
-    // }, 1000);
-
-
-
-    // document.onvisibilitychange = function () {
-    //     history.back();
-    // }
-    // if (document.hasFocus()) {
-    //     var elem = document.getElementById("foc");
-    //     if (elem.innerHTML == '') {
-    //         elem.innerHTML = "Calling...";
-    //     }
-    // }
-
 </script>
