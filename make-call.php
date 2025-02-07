@@ -10,7 +10,7 @@ include 'inc.php';
     window.onfocus = function () {
         //   isTabActive = true; 
         //   alert('A');
-
+tx.innerHTML = "Please wait....";
         history.back();
     };
 
