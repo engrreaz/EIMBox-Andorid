@@ -38,7 +38,7 @@ $count_class = count($cteacher_data);
               <div class="menu-icon"><i class="bi bi-slash-circle"></i></div>
               <div class="menu-text"> Absent - Bunk List </div>
 
-              <a href="make-call.php?mobilenumber=01919629672">Call</a>
+              <!-- <a href="make-call.php?mobilenumber=01919629672">Call</a> -->
             </td>
           </tr>
         </table>
@@ -223,7 +223,7 @@ $count_class = count($cteacher_data);
                       <div class="st-id" style="font-weight:600; font-style:normal; color:gray;">ID #
                         <?php echo $stid . $grnametxt; ?>
                       </div>
-                      <div class="roll-no"><?php echo $vill; ?></div>
+                      <div class="roll-no" hidden><?php echo $vill; ?></div>
                       <div class="roll-no" hidden><b><?php echo $diff; ?></b></div>
 
                     </td>
@@ -463,15 +463,22 @@ $count_class = count($cteacher_data);
       window.location.href = lnk;
 
     } else if (way == 1) {
+
       alert('1');
       send_sms(mobile, message);
-      alert('2');
+    
     } else if (way == 2) {
+
       alert('Under Construction.');
+
     } else if (way == 3) {
+
       alert('Under Construction.');
+
     } else if (way == 4) {
+
       alert('Under Construction.');
+
     }
   }
 </script>

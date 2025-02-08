@@ -135,31 +135,7 @@ $collection = $accountant = 0;
         </table>
       </div>
     </div>
-    <div class="card page-info-box" hidden>
-      <div class="card-body">
-        <table width="100%" style="color:white;">
 
-          <tr>
-            <td>
-              <div style="font-size:36px; font-weight:700; line-height:15px;" id="cntamt"></div>
-              <div style="color:var(--light); font-size:12px; font-weight:400; font-style:italic; line-height:40px;">
-                Cash-in-hand</div>
-            </td>
-            <td style="text-align:right;">
-              <div style="font-size:24px; font-weight:700; line-height:20px;" id="cnt"></div>
-              <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Receipt</div>
-
-              <div style="font-size:11px; color:graylight; font-style:italic; ">Total Collections : <span
-                  style="font-weight:700;  font-style:normal;" id="collection"></span></div>
-              <div style="font-size:11px; color:graylight;  font-style:italic;">To Accountants : <span
-                  style="font-weight:700; font-style:normal; " id="accountant"></span></div>
-
-            </td>
-          </tr>
-
-        </table>
-      </div>
-    </div>
 
 
 
