@@ -206,7 +206,7 @@ $collection = $accountant = 0;
                   <?php
 
                   $photo_path = $BASE_PATH_URL . 'books/' . $sctype . '_' . $clsname . '_' . $subcode . '_cover.jpg';
-                  if (!file_exists($photo_path)) {
+                  if (!file_exists(strtolower($photo_path))) {
                     $photo_path = $BASE_PATH_URL_FILE . 'books/no-image.png';
                   } else {
                     $photo_path = $BASE_PATH_URL_FILE . 'books/' . $sctype . '_' . $clsname . '_' . $subcode . '_cover.jpg';
