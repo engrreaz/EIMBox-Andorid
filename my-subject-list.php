@@ -199,11 +199,22 @@ $collection = $accountant = 0;
                 <td style="text-align:left; padding-left:5px;">
                   <div class="stname-eng"><?php echo $seng; ?></div>
                   <div class="stname-ben" style="color:gray;"><?php echo $sben; ?></div>
-                  <div class="roll-no fw-bold " style="color: var(--normal);"><?php echo $clsname . ' | ' . $secname; ?></div>
+                  <div class="roll-no fw-bold " style="color: var(--normal);"><?php echo $clsname . ' | ' . $secname; ?>
+                  </div>
                 </td>
                 <td style="text-align:right; font-size:20px; font-weight:600;">
-                  <?php $book_img = strtolower('../books/' . $sctype . '_' . $clsname . '_' . $subcode . '_cover.png'); ?>
-                  <img src="<?php echo $book_img; ?>" class="schedule-book-pic text-right" />
+                  <?php
+
+                  $photo_path = $BASE_PATH_URL . 'books/' . $sctype . '_' . $clsname . '_' . $subcode . '_cover.jpg';
+                  if (!file_exists($photo_path)) {
+                    $photo_path = $BASE_PATH_URL_FILE . 'books/no-image.png';
+                  } else {
+                    $photo_path = $BASE_PATH_URL_FILE . 'books/' . $sctype . '_' . $clsname . '_' . $subcode . '_cover.jpg';
+                  }
+
+
+                  ?>
+                  <img src="<?php echo $photo_path; ?>" class="schedule-book-pic text-right" />
 
                 </td>
               </tr>
@@ -217,7 +228,7 @@ $collection = $accountant = 0;
         <div style="height:3px;"></div>
         <?php
         $cnt++;
- 
+
       }
     }
 
