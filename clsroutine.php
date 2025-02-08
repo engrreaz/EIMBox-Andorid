@@ -33,10 +33,10 @@ if ($result00xgr11tyu->num_rows > 0) {
         <?php 
         if ($userlevel == 'Teacher' || $userlevel !='' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher')
          {
-            $bar = date('w');
+            $bar = date('w')+1;
             $sql00xgr = "SELECT * FROM clsroutine where  sessionyear LIKE '%$sy%' and sccode='$sccode' and tid='$userid' and wday='$bar'  order by period, classname, sectionname , subcode";
             $result00xgr11 = $conn->query($sql00xgr);
-           echo $sql00xgr;
+        //    echo $sql00xgr;
             if ($result00xgr11->num_rows > 0) {
                 while ($row00xgr = $result00xgr11->fetch_assoc()) {
                     $clsname = $row00xgr["classname"];
