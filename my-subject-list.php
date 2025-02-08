@@ -211,6 +211,7 @@ $collection = $accountant = 0;
                   } else {
                     $photo_path = $BASE_PATH_URL_FILE . 'books/' . $sctype . '_' . $clsname . '_' . $subcode . '_cover.jpg';
                   }
+                    $photo_path = $BASE_PATH_URL_FILE . 'books/' . $sctype . '_' . $clsname . '_' . $subcode . '_cover.jpg';
 
 
                   ?>
