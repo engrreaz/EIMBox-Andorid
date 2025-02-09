@@ -114,6 +114,10 @@ include 'events-block.php';
         if ($result0rtxhhh->num_rows > 0) {
             while ($row0 = $result0rtxhhh->fetch_assoc()) {
                 $period = $row0["period"]-1;
+                if($period == 0){
+                    $period = '';
+                }
+                
                 $te = $row0["timestart"];
                 $ts = $ccur;
                 
