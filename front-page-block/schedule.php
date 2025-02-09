@@ -113,7 +113,7 @@ include 'events-block.php';
         $result0rtxhhh = $conn->query($sql0);
         if ($result0rtxhhh->num_rows > 0) {
             while ($row0 = $result0rtxhhh->fetch_assoc()) {
-                $period = $row0["period"];
+                $period = $row0["period"]-1;
                 $te = $row0["timestart"];
                 $ts = $ccur;
                 
