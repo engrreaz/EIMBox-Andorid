@@ -125,7 +125,7 @@ if ($result0wwrtd->num_rows > 0) {
         echo '<a href="firebase.php" class="btn btn-danger">Firebase</a>';
 
 
-        $mobile_number = '01404022557';
+        $mobile_number = '014040225570';
         $sms_text = "Hi Labib,\\n Tui di school e jasna?";
         ?>
         <button class="btn btn-dark"

@@ -2,6 +2,7 @@
 // date_default_timezone_set('Asia/Dhaka');
 // include('incb.php');
 include 'events-block.php';
+include 'dob-history-time-line.php';
 ?>
 <div class="mt-1" <?php echo $sch_block; ?>>
     <?php
