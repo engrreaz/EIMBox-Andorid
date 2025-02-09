@@ -83,9 +83,9 @@ include 'events-block.php';
     
 
     $ccur = date('H:i:s');
-    $sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and sessionyear LIKE '%$sy%' and timestart<='$ccur'
-        and timeend>='$ccur';";
-    // echo $sql0 ;
+    $sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and timestart<='$ccur'
+        and timeend>='$ccur' and sessionyear LIKE '%$sy%' ;";
+    // echo $sql0;
     $result0rtx = $conn->query($sql0);
     if ($result0rtx->num_rows > 0) {
         while ($row0 = $result0rtx->fetch_assoc()) {
@@ -100,9 +100,44 @@ include 'events-block.php';
         $te = 0;
         $dur = 0;
     }
+    $dur_sec = strtotime($te) - strtotime($ccur);
+    // $dur = strtotime($te) - strtotime($ccur);
 
 
-    $dur_sec = strtotime($te) - strtotime($cur);
+
+
+    // echo $period;
+    if ($period == '' || $period == 0) {
+        $sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and sessionyear LIKE '%$sy%' and timestart>='$ccur' order by timestart LIMIT 1;";
+        // echo $sql0 ;
+        $result0rtxhhh = $conn->query($sql0);
+        if ($result0rtxhhh->num_rows > 0) {
+            while ($row0 = $result0rtxhhh->fetch_assoc()) {
+                $period = $row0["period"];
+                $te = $row0["timestart"];
+                $ts = $ccur;
+                
+            }
+        } else {
+            $period = '';
+            $ts = 0;
+            $te = 0;
+            $dur = 0;
+        }
+
+        ?>
+
+        <div class="card-body text-center p-2 text-small fw-bold text-danger" style="background:var(--lighter);">
+            It's offtime now. Classes will started at <?php echo $te; ?>.
+        </div>
+        <?php
+        $dur = strtotime($te) - strtotime($ccur);
+        $dur_sec = strtotime($te) - strtotime($ccur);
+
+
+    }
+
+   
 
     ?>
 
@@ -213,6 +248,15 @@ include 'events-block.php';
 
 
                     <?php
+
+
+
+
+
+
+
+
+
                 } else {
                     ?>
                     <h6 class="font-weight-bold pt-3 text-warning">Examination Schedule</h6>
