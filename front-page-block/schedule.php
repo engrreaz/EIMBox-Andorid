@@ -102,7 +102,7 @@ include 'events-block.php';
     }
     $dur_sec = strtotime($te) - strtotime($ccur);
     // $dur = strtotime($te) - strtotime($ccur);
-
+    
 
 
 
@@ -113,10 +113,10 @@ include 'events-block.php';
         $result0rtxhhh = $conn->query($sql0);
         if ($result0rtxhhh->num_rows > 0) {
             while ($row0 = $result0rtxhhh->fetch_assoc()) {
-                $period = $row0["period"]-1;
+                $period = $row0["period"] - 1;
                 $te = $row0["timestart"];
                 $ts = $ccur;
-                
+
             }
         } else {
             $period = '';
@@ -124,6 +124,11 @@ include 'events-block.php';
             $te = 0;
             $dur = 0;
         }
+        $add_sec = 0;
+        if ($te < $ts) {
+            $add_sec = 3600 / 24;
+        }
+
 
         ?>
 
@@ -131,13 +136,13 @@ include 'events-block.php';
             It's offtime now. Classes will started at <?php echo $te; ?>.
         </div>
         <?php
-        $dur = strtotime($te) - strtotime($ccur);
-        $dur_sec = strtotime($te) - strtotime($ccur);
+        $dur = $add_sec + strtotime($te) - strtotime($ccur);
+        $dur_sec = $add_sec + strtotime($te) - strtotime($ccur);
 
 
     }
 
-   
+
 
     ?>
 
