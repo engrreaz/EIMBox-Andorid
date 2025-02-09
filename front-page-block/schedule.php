@@ -127,7 +127,7 @@ include 'events-block.php';
 
         ?>
 
-        <div class="card-body text-center p-2 text-small fw-bold text-danger" style="background:var(--lighter);">
+        <div class="card-body text-center p-2 text-small fw-bold text-white bg-danger">
             It's offtime now. Classes will started at <?php echo $te; ?>.
         </div>
         <?php
