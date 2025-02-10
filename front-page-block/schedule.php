@@ -151,7 +151,7 @@ include 'dob-history-time-line.php';
                 <?php
             }
             if ($te < $ts) {
-                $add_sec = 3600 / 24;
+                $add_sec = 3600 * 24;
             }
 
 
