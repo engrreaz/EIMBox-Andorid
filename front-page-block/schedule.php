@@ -108,34 +108,64 @@ include 'dob-history-time-line.php';
 
 
     // echo $period;
+    $add_sec = 0;
     if ($period == '' || $period == 0) {
-        $sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and sessionyear LIKE '%$sy%' and (timestart>='$ccur' or timeend<='$ccur') order by timestart desc LIMIT 1;";
+        $sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and sessionyear LIKE '%$sy%' and timestart>='$ccur' order by timestart LIMIT 1;";
         // echo $sql0 ;
         $result0rtxhhh = $conn->query($sql0);
         if ($result0rtxhhh->num_rows > 0) {
             while ($row0 = $result0rtxhhh->fetch_assoc()) {
-                $period = $row0["period"] - 1;
+                $period = 0;//$row0["period"] - 1;
                 $te = $row0["timestart"];
                 $ts = $ccur;
-
             }
+            ?>
+            <div class="card-body text-center p-2 text-small fw-bold text-dark bg-warning">
+                It's break time now. Classes will restarted at <?php echo $te; ?>.
+            </div>
+            <?php
         } else {
-            $period = '';
-            $ts = 0;
-            $te = 0;
-            $dur = 0;
+            $sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and sessionyear LIKE '%$sy%' and timestart<='$ccur' order by timestart LIMIT 1;";
+            // echo $sql0 ;
+            $result0rtxhhh = $conn->query($sql0);
+            if ($result0rtxhhh->num_rows > 0) {
+                while ($row0 = $result0rtxhhh->fetch_assoc()) {
+                    $period = $row0["period"] - 1;
+                    $te = $row0["timestart"];
+                    $ts = $ccur;
+                }
+                ?>
+                <div class="card-body text-center p-2 text-small fw-bold text-white bg-info">
+                    Classes will begins at <?php echo $te; ?>.
+                </div>
+                <?php
+            } else {
+                $period = '';
+                $ts = 0;
+                $te = 0;
+                $dur = 0;
+                ?>
+                <div class="card-body text-center p-2 text-small fw-bold text-white bg-danger">
+                    We didn't determined your schedule. Please chech it now.
+                </div>
+                <?php
+            }
+            if ($te < $ts) {
+                $add_sec = 3600 / 24;
+            }
+
+
         }
-        $add_sec = 0;
-        if ($te < $ts) {
-            $add_sec = 3600 / 24;
-        }
+
+
+
+
+
 
 
         ?>
 
-        <div class="card-body text-center p-2 text-small fw-bold text-white bg-danger">
-            It's offtime now. Classes will started at <?php echo $te; ?>.
-        </div>
+
         <?php
         $dur = $add_sec + strtotime($te) - strtotime($ccur);
         $dur_sec = $add_sec + strtotime($te) - strtotime($ccur);
