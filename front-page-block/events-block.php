@@ -33,7 +33,7 @@ if (str_contains($wday_text, $bar) === true) {
 $sch_block = '';
 if ($workday_flag == 0) {
     $sch_block = 'hidden';
-    $sch_block = '';
+    // $sch_block = '';
 }
 
 // Count Students
