@@ -135,7 +135,7 @@ include 'dob-history-time-line.php';
                     $ts = $ccur;
                 }
                 ?>
-                <div class="card-body text-center p-2 text-small fw-bold text-primary bg-info">
+                <div class="card-body text-center p-2 text-small fw-bold text-dark bg-info">
                     Classes will begins at <?php echo $te; ?>.
                 </div>
                 <?php
