@@ -85,5 +85,3 @@ if (count($final_array) > 0) {
     }
 
 </script>
-
-// echo $stname;
