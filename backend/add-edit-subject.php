@@ -1,13 +1,8 @@
 <?php
 include 'inc.back.php';
 
-
-$sccode = $_POST['sccode'];
-;
-$rootuser = $_POST['rootuser'];
-;
 $id = $_POST['id'];
-;
+$tail = $_POST['tail'];
 
 $sql00xgr = "SELECT * FROM areas where id='$id'";
 $result00xgr = $conn->query($sql00xgr);
@@ -57,11 +52,11 @@ if ($result242->num_rows > 0) {
             <div class="card-body">
                 <table style="width:100%">
                     <tr>
-                        <td style="width:50px;  font-size: 24px; vertical-align:top; color:black;"><i
-                                class="bi bi-book"></i></td>
+                        <td style="width:50px;  font-size: 24px; vertical-align:top; color:black;"><i class="bi bi-book"></i>
+                        </td>
                         <td>
                             <div>
-                                <div class="stname-eng">
+                                <div class="stname-eng ">
                                     <?php echo $subname; ?>
                                 </div>
                                 <div class="stname-ben">
@@ -77,7 +72,7 @@ if ($result242->num_rows > 0) {
                         </td>
                         <td style="text-align:right;">
                             <button class="btn btn-outline-danger p-1 ps-2 pe-2" onclick="adddels(<?php echo $id; ?>, 0);"
-                                disabled><i class="bi bi-trash-fill"></i></button>
+                              disabled  ><i class="bi bi-trash-fill"></i></button>
                             <button class="btn btn-outline-primary p-1 ps-2 pe-2" onclick="adddels(<?php echo $id; ?>, 1);"
                                 disabled><i class="bi bi-pencil-square"></i></button>
                         </td>

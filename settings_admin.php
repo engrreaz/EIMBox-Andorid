@@ -134,7 +134,7 @@ $count_class = count($cteacher_data);
 
     <?php if ($usr == 'engrreaz@gmail.com') { ?>
 
-      <a class="btn btn-dark m-2" href="settingssubject.php">Subject Setup</a>
+      <a class="btn btn-success m-2" href="settings-subject.php">Subject Setup</a>
       <a class="btn btn-dark m-2" href="settingsteacher.php">Add/Edit Teacher</a>
       <a class="btn btn-dark m-2" href="settingsclass.php">Add/Edit CLS-SEC</a>
 

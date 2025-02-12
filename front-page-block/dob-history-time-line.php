@@ -44,8 +44,8 @@ if (count($final_array) > 0) {
     <div class="card-body p-3 mt-1 " style="background:var(--lighter); ">
         <div class="row  align-items-center">
             <!-- <div class="col-1"></div> -->
-            <div class="col-1 m-0 p-0 text-small" >
-                <div  class="text-small dob-title" style="transform: rotate(90deg);">BIRTHDAY</div>
+            <div class="col-1 m-0 p-0 text-small">
+                <div class="text-small dob-title" style="transform: rotate(90deg);">BIRTHDAY</div>
             </div>
             <?php
             foreach ($final_array as $dob) {
@@ -59,9 +59,9 @@ if (count($final_array) > 0) {
                     $photo_path = $BASE_PATH_URL_FILE . 'students/' . $stid . ".jpg";
                 }
                 ?>
-                <div class="col-2 text-center">
+                <div class="col-2 text-center" onclick="stname('<?php echo $stname; ?>');">
                     <img src="<?php echo $photo_path; ?>" class="st-pic-small" />
-                    <div class="event-text text-center text-small" hidden><?php echo $stname;?></div> 
+                    <div class="event-text text-center text-small" hidden><?php echo $stname; ?></div>
                 </div>
 
                 <?php
@@ -74,7 +74,16 @@ if (count($final_array) > 0) {
 }
 
 
+?>
 
+<script>
+    function stname(st) {
+        Swal.fire({
+            title: st,
+            draggable: true
+        });
+    }
+
+</script>
 
 // echo $stname;
-

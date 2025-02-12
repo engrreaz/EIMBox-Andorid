@@ -30,7 +30,7 @@ include 'inc.php';
           </div>
           <div class="form-group input-group">
             <span class="input-group-text text-small"><i class="bi bi-book"></i></span>
-            <select class="form-control text-dark " id="cls" onchange="submit();">
+            <select class="form-control text-dark " id="cls" onchange="submit(0,0);">
 
               <option value="">Choose a Class & Section</option>
               <?php
@@ -46,7 +46,7 @@ include 'inc.php';
                 <?php }
               } ?>
             </select>
-            <span class="input-group-text text-small btn btn-outline-primary " onclick="submit();">
+            <span class="input-group-text text-small btn btn-outline-primary " onclick="submit(0,0);">
               <i class="bi bi-arrow-right"></i>
             </span>
           </div>
@@ -89,15 +89,15 @@ include 'inc.php';
 
 
 <script>
-  function submit() {
+  function submit(x,y) {
     var id = document.getElementById("cls").value;
 
-    var infor = "rootuser=<?php echo $rootuser; ?>&id=" + id + "&sccode=<?php echo $sccode; ?>";
+    var infor = "rootuser=<?php echo $rootuser; ?>&id=" + id + "&sccode=<?php echo $sccode; ?>&tail=2";
     $("#block").html("");
 
     $.ajax({
       type: "POST",
-      url: "backend/addeditsubject.php",
+      url: "backend/add-edit-subject.php",
       data: infor,
       cache: false,
       beforeSend: function () {
@@ -115,12 +115,12 @@ include 'inc.php';
   function adddel(id, tail) {
     var id = document.getElementById("cls").value;
 
-    var infor = "rootuser=<?php echo $rootuser; ?>&id=" + id + "&sccode=<?php echo $sccode; ?>";
+    var infor = "rootuser=<?php echo $rootuser; ?>&id=" + id + "&tail=" + tail +  "&sccode=<?php echo $sccode; ?>";
     $("#block").html("");
 
     $.ajax({
       type: "POST",
-      url: "addeditsubject.php",
+      url: "backend/add-edit-subject.php",
       data: infor,
       cache: false,
       beforeSend: function () {
@@ -143,7 +143,7 @@ include 'inc.php';
 
     $.ajax({
       type: "POST",
-      url: "backend/adddefault.php",
+      url: "backend/add-default.php",
       data: infor,
       cache: false,
       beforeSend: function () {
