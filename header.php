@@ -605,5 +605,17 @@
             font-size:24px;
             padding-top:3px;
         }
+
+        .dob-title{
+            font-size:8px;
+        }
+        .btn-rounded{
+            border-radius:50%;
+            height:36px;
+            width:36px;
+            text-align:center;
+            font-size:20px;
+            padding:3px;
+        }
     </style>
 </head>

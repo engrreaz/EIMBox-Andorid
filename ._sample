@@ -10,6 +10,7 @@ if (!file_exists($photo_path)) {
 
 // JS Cancel Event if Possible
 event.stopPropagation();
+scname = encodeURIComponent(document.getElementById("scname").value);
 
 
 // FIREBASE NOTIFICATION
@@ -25,5 +26,6 @@ $firebase_datam = array(
 );
 include 'firebase.php';
 
+$qq = "INSERT INTO subsetup (sccode, classname, sectionname, subject,fullmarks, subj, obj, pra, ca, camanual, pass_algorithm, cnt, reverse) SELECT '$sccode', classname, '$secf', subject,fullmarks, subj, obj, pra, 0, camanual, pass_algorithm, cnt, reverse from subjectsettinglist where id = '$idr';";
 
 // 

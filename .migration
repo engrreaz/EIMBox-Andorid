@@ -7,3 +7,6 @@ Profile
         page-info-box 
     
 ALTER TABLE `classschedule` CHANGE `sessionyear` `sessionyear` VARCHAR(11) NULL DEFAULT NULL;
+
+sms_campaing table-----------------------------
+sms_temp table........................................

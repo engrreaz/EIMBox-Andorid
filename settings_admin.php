@@ -100,7 +100,7 @@ $count_class = count($cteacher_data);
     </div>
     <div class="menu-separator"></div>
 
-    <div class="card menu-item-block" onclick="settings_sms_menux();">
+    <div class="card menu-item-block" onclick="settings_sms_menu();">
       <div class="card-body">
         <table style="">
           <tr>
