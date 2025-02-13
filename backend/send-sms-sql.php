@@ -51,6 +51,9 @@ if (count($response) == 3) {
     $err_msg = $response[3][1];
 }
 
+if($code == 1001 || $code == 1005) {
+    $cost = 0;
+}
 
 $query33f = "INSERT INTO sms(id, sccode, sessionyear, date, campaign, sms_type, mobile_number, sms_text, sms_len, count, send_by, send_time, cost, response_code, message_id, success_message, error_message, status, comments, modifieddate)
 VALUES (NULL, '$sccode', '$sy', '$td', '$camp', '$type', '$number', '$message', '$len', '$cnt', '$usr', '$cur', '$cost', '$code', '$sms_id', '$succ_msg', '$err_msg', '', '', '$cur');";

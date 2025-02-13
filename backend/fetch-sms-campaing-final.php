@@ -30,7 +30,7 @@ $count_sms = 0;
 
 
 $sms_cnt = $count_sms;
-$audi_cnt = count($final_array);
+// $audi_cnt = count($final_array);
 $total_sms = $sms_cnt * $audi_cnt;
 $price = $total_sms * $sms_price;
 
@@ -62,7 +62,9 @@ foreach ($fetch_temp_data as $sms) {
     // echo $idg . '<br>';
 
     include 'send-sms-sql.php';
+
     $tot_cost += $cost;
+
 
 
     if ($sms_id == '') {
@@ -74,6 +76,7 @@ foreach ($fetch_temp_data as $sms) {
 
     $query332xx = "DELETE FROM sms_temp   where id ='$idg' ;";
     $conn->query($query332xx);
+    $audi_cnt++;
 }
 
 $toto = $succ_sms + $err_sms;
@@ -87,12 +90,21 @@ if ($result0rtty->num_rows > 0) {
 }
 
 echo '<div class="text-small fw-bold text-primary">Message Sending Done</div>';
-$query332 = "UPDATE sms_campaign set camp_status = '1', total_count='$toto', price='$tot_cost'  where id ='$id' ;";
+
+$query332 = "UPDATE sms_campaign set camp_status = '1', total_count='$toto', price='$tot_cost', audi_count='$audi_cnt' where id ='$id' ;";
 $conn->query($query332);
 
 $time_end = date('Y-m-d H:i:s');
 
 $dur = strtotime($time_end) - strtotime($time_start);
+
+
+$sms_bill_count = 0;
+$query332_scinfo = "UPDATE scinfo set sms_send = sms_send + '$toto' , sms_success = sms_success + '$succ_sms', sms_error = sms_error + '$err_sms', sms_cost =  sms_cost + '$tot_cost', sms_balance = sms_balance - '$sms_bill_count', account_balance = account_balance - '$tot_cost'  where sccode ='$sccode' ;";
+$conn->query($query332_scinfo);
+
+
+
 
 ?>
 <div id="status" class="text-small text-success "></div>
@@ -104,7 +116,7 @@ $dur = strtotime($time_end) - strtotime($time_start);
 <div hidden>
     <div id="a"><?php echo $succ_sms; ?></div>
     <div id="b"><?php echo $err_sms; ?></div>
-    <div id="c"><?php echo $succ_sms + $err_sms; ?></div>
+    <div id="c"><?php echo $toto ; ?></div>
     <div id="d"><?php echo $tot_cost; ?></div>
 </div>
 

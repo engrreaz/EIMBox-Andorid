@@ -298,7 +298,7 @@ $curfile = basename($_SERVER["SCRIPT_FILENAME"]);
 
 
 $ins_all_settings = array();
-$sql0x = "SELECT * FROM settings where sccode='$sccode'";  
+$sql0x = "SELECT * FROM settings where sccode='$sccode'";
 // echo $sql0x;
 $result0xrtyv = $conn->query($sql0x);
 if ($result0xrtyv->num_rows > 0) {
@@ -349,4 +349,8 @@ include 'header.php';
         </script>
 
         <?php
+
+        include 'bill.php';
+
+
         include 'footer.php';
