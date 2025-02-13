@@ -29,6 +29,12 @@ include 'datam/datam-teacher.php';
                 $lnk = "cls=" . $cls . '&sec=' . $sec;
 
 
+                $photo_path = $BASE_PATH_URL . 'class-icons/' . strtolower($cls) . ".png";
+                if (!file_exists($photo_path)) {
+                    $photo_path = "https://eimbox.com/teacher/no-img.jpg";
+                } else {
+                    $photo_path = $BASE_PATH_URL_FILE . 'class-icons/' . strtolower($cls) . ".png";
+                }
 
                 ?>
                 <div class="card text-center mb-1" style="background:var(--lighter); color:var(--darker);">
