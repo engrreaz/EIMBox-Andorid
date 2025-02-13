@@ -136,10 +136,10 @@ $count_class = count($cteacher_data);
 
       <a class="btn btn-success m-2" href="settings-subject.php">Subject Setup</a>
       <a class="btn btn-dark m-2" href="settingsteacher.php">Add/Edit Teacher</a>
-      <a class="btn btn-dark m-2" href="settingsclass.php">Add/Edit CLS-SEC</a>
+      <a class="btn btn-dark m-2" href="settings-class.php">Add/Edit CLS-SEC</a>
 
       <!-- <a class="btn btn-dark m-2" href="clsroutine-setup.php">Class Routine Setup</a> -->
-      <a class="btn btn-dark m-2" href="tools_allsubjects.php">Subject list Class wise</a>
+      <a class="btn btn-success m-2" href="tools_all-subjects.php">Subject list Class wise</a>
       <!-- <a class="btn btn-dark m-2" href="globalsetup.php">Global Setup XXX</a> -->
 
 
@@ -149,7 +149,7 @@ $count_class = count($cteacher_data);
       <!-- <a class="btn btn-dark m-2" href="markentryselect.php">Mark Entry Selection</a> -->
       <a class="btn btn-dark m-2" href="grpview.php">Group NEW</a>
       <a class="btn btn-dark m-2" href="transcriptselect.php">Transcript</a>
-      <a class="btn btn-white m-2" href="dailycollection.php">Daily Collection</a>
+      <a class="btn btn-success m-2" href="dailycollection.php">Daily Collection</a>
       <a class="btn btn-dark m-2" href="trackreport.php">Track Student</a>
 
 
