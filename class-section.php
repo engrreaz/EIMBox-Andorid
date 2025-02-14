@@ -8,7 +8,7 @@ include 'inc.php';
       <div class="card-body page-top-box">
 
         <div class="menu-icon"><i class="bi bi-diagram-3-fill"></i></div>
-        <div class="menu-text"> Classes & Sections List</div>
+        <div class="menu-text"> Classes & Sections</div>
       </div>
       <div class="card-body page-info-box">
         <table width="100%" style="color:white;">
@@ -34,7 +34,7 @@ include 'inc.php';
 
 
     <?php
-    $sql0 = "SELECT * FROM areas where sessionyear = '$sy' and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten'), subarea, idno";
+    $sql0 = "SELECT * FROM areas where sessionyear LIKE '%$sy%'  and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten'), subarea, idno";
     //echo $sql0;
     $result0 = $conn->query($sql0);
     if ($result0->num_rows > 0) {

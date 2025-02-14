@@ -19,7 +19,7 @@ include 'inc.php';
 
 
 
-            <div class="card" id="newblock" style="background:var(--lighter); color:var(--darker); display:block;">
+            <div class="card" id="newblock" style="background:var(--lighter); color:var(--darker); display:none;">
                 <div class="card-body">
                     <table style="width:100%;">
                         <tr>
@@ -38,8 +38,8 @@ include 'inc.php';
                                 <div class="form-group input-group">
                                     <span class="input-group-text p-0 ps-2 pe-2"><i class="bi bi-diagram-3-fill"></i></span>
                                     <input type="text" id="cls" name="cls" class="form-control"
-                                    placeholder="Enter Class Name" value="">
-                                   
+                                        placeholder="Enter Class Name" value="">
+
                                     <!-- <select class="form-control" id="cls">
 
                                         <option value="">Choose a Class</option>
@@ -55,7 +55,8 @@ include 'inc.php';
 
                                 <div style="text-align:left; padding-top:0px;">
                                     <div class="input-group">
-                                        <span class="input-group-text p-0 ps-2 pe-2"><i class="bi bi-diagram-3-fill"></i></span>
+                                        <span class="input-group-text p-0 ps-2 pe-2"><i
+                                                class="bi bi-diagram-3-fill"></i></span>
                                         <input type="text" id="sec" name="sec" class="form-control"
                                             placeholder="Enter Section/Group Name" value="">
                                     </div>
@@ -66,7 +67,8 @@ include 'inc.php';
 
                             <td class="text-right pt-2">
                                 <div style="margin:0px 0; height:5px; background:var(--lighter);"></div>
-                                <button class="btn btn-outline-success text-small  ps-5 pe-5" onclick="submit();">Submit</button>
+                                <button class="btn btn-outline-success text-small  ps-5 pe-5"
+                                    onclick="submit();">Submit</button>
                             </td>
                         </tr>
                     </table>
@@ -95,54 +97,7 @@ include 'inc.php';
 
 
             <div id="block">
-                <?php
-                $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear='$sy' order by idno, id";
-                $result00xgr = $conn->query($sql00xgr);
-                if ($result00xgr->num_rows > 0) {
-                    while ($row00xgr = $result00xgr->fetch_assoc()) {
-                        $id = $row00xgr["id"];
-                        $cls2 = $row00xgr["areaname"];
-                        $sec2 = $row00xgr["subarea"];
-
-
-                        $photo_path = $BASE_PATH_URL . 'class-icons/' . strtolower($cls2) . ".png";
-                        if (!file_exists($photo_path)) {
-                            $photo_path = "https://eimbox.com/teacher/no-img.jpg";
-                        } else {
-                            $photo_path = $BASE_PATH_URL_FILE . 'class-icons/' . strtolower($cls2) . ".png";
-                        }
-                        ?>
-
-                        <div class="card mb-1" style="background:var(--lighter); color:var(--darker);">
-                            <div class="card-body">
-
-
-                                <div class="row">
-                                    <div class="col-2">
-                                        <img src="<?php echo $photo_path; ?>" class="st-pic-small" />
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="stname-eng text-dark" id="cls<?php echo $id; ?>"><?php echo $cls2; ?></div>
-                                        <div class="st-id mt-1  text-muted">Class Name</div>
-                                        <div class="stname-ben fw-bold mt-2" id="sec<?php echo $id; ?>"><?php echo $sec2; ?></div>
-                                        <div class="mt-1  st-id text-muted">Section / Group Name</div>
-                                    </div>
-                                    <div class="col-4 text-end">
-                                        <button class="btn btn-white btn-rounded text-danger" onclick="del(<?php echo $id; ?>);">
-                                            <i class="bi bi-pencil-square"></i> </button>
-                                        <button class="btn btn-white btn-rounded text-primary" onclick="edit(<?php echo $id; ?>);">
-                                            <i class="bi bi-trash2-fill"></i> </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    <?php }
-                } ?>
-
-
+                <?php include 'backend/settings-class-class-list.php'; ?>
             </div>
 
 
@@ -174,9 +129,9 @@ include 'inc.php';
     function lnk7() { window.location.href = "settingsinstituteinfo.php"; }
     function lnk6() { window.location.href = "settingsclass.php"; }
 
-function showaddnew() {
-    document.getElementById("newblock").style.display = 'block';
-}
+    function showaddnew() {
+        document.getElementById("newblock").style.display = 'block';
+    }
 
 </script>
 
@@ -192,7 +147,7 @@ function showaddnew() {
 
         $.ajax({
             type: "POST",
-            url: "addeditclass.php",
+            url: "backend/add-edit-class.php",
             data: infor,
             cache: false,
             beforeSend: function () {
@@ -203,12 +158,15 @@ function showaddnew() {
                 document.getElementById("id").value = "";
                 document.getElementById("cls").value = "";
                 document.getElementById("sec").value = "";
+                document.getElementById("newblock").style.display = 'none';
+
             }
         });
     }
 
 
     function edit(id) {
+        document.getElementById("newblock").style.display = 'block';
         let a = document.getElementById("cls" + id).innerHTML;
         let b = document.getElementById("sec" + id).innerHTML;
         document.getElementById("cls").value = a;

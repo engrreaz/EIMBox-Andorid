@@ -235,6 +235,7 @@ include 'dob-history-time-line.php';
                             // echo $userlevel;
                             // echo $userid;
                         
+                            $myclass = array();
                             if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
                                 $sql0 = "SELECT * FROM clsroutine where sccode='$sccode' and sessionyear LIKE '%$sy%' and period>='$period' and wday='$wday' and tid='$userid' order by classname, sectionname;";
                             } else {
@@ -250,6 +251,11 @@ include 'dob-history-time-line.php';
                                     $subj = $row0["subcode"];
                                     $peri = $row0["period"];
                                     $tname = $subname = '';
+
+                                    if ($tid == $userid) {
+                                        $myclass[] = ['cls' => $cls, 'sec' => $sec];
+                                    }
+
                                     $ind1 = array_search($tid, array_column($tlist, 'tid'));
                                     if ($ind1 != '') {
                                         $tname = $tlist[$ind1]['tname'];
@@ -323,7 +329,27 @@ include 'dob-history-time-line.php';
                     <?php
 
                 }
+
+
+
                 ?>
+                <div class="text-small text-dark fw-bold mt-2">Attendace of running period</div>
+                <?php
+                foreach ($myclass as $myc) {
+                    $mycc = $myc['cls'];
+                    $mycs = $myc['sec'];
+                    ?>
+                    <button class="text-small btn btn-outline-dark mt-2 me-2" onclick="period_attnd('<?php echo $mycc;?>', '<?php echo $mycs;?>' );">
+
+                        <i class="bi bi-fingerprint"></i>
+                        <?php echo $mycc . ' <i class="bi bi-arrow-right"></i> ' . $mycs ?>
+                    </button>
+                    <?php
+
+                }
+                ?>
+
+
 
             </div>
 
@@ -332,3 +358,9 @@ include 'dob-history-time-line.php';
         </div>
     </div>
 </div>
+
+<script>
+    function period_attnd(cls, sec) {
+        window.location.href = 'stattnd.php?cls=' + cls + '&sec=' + sec;
+    }
+</script>

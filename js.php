@@ -112,7 +112,7 @@
     }
     function report_menu_student_list() {
         if (user_level == 'Administrator' || user_level == 'Super Administrator' || user_level == 'Head Teacher' || user_level == 'Principal') {
-            window.location.href = 'classsection.php';
+            window.location.href = 'class-section.php';
         } else {
             window.location.href = 'students.php';
         }
@@ -126,7 +126,7 @@
     }
     function report_menu_attnd_register() {
         if (user_level == 'Administrator' || user_level == 'Super Administrator' || user_level == 'Head Teacher' || user_level == 'Principal') {
-            window.location.href = 'attndclssec.php';
+            window.location.href = 'attnd-cls-sec.php';
         } else {
             window.location.href = 'stattndregister.php';
         }

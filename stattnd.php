@@ -11,7 +11,7 @@ if (isset($_GET['dt'])) {
 
 
 $ccur = date('H:i:s');
-$sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and sessionyear='$sy' and timestart<='$ccur' and timeend>='$ccur';";
+$sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and sessionyear LIKE '%$sy%' and timestart<='$ccur' and timeend>='$ccur';";
 // echo $sql0 ;
 $result0rtx = $conn->query($sql0);
 if ($result0rtx->num_rows > 0) {
@@ -29,13 +29,18 @@ if ($result0rtx->num_rows > 0) {
 }
 // $period = 3;
 
-$sql00 = "SELECT * FROM stattnd where  (adate='$td' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname') or yn=100 order by rollno";
+$sql00 = "SELECT * FROM stattnd where  (adate='$td' and sccode='$sccode' and sessionyear LIKE '%$sy%'  and classname = '$classname' and sectionname='$sectionname') or yn=100 order by rollno";
+// echo $sql00 ;
 $result00gt = $conn->query($sql00);
 if ($result00gt->num_rows > 0) {
     while ($row00 = $result00gt->fetch_assoc()) {
         $datam[] = $row00;
     }
 }
+// echo '<pre>';
+// print_r($datam);
+// echo '</pre>';
+
 
 $sql00 = "SELECT * FROM stattndsummery where  date='$td' and sccode='$sccode' and sessionyear='$sy' and classname = '$classname' and sectionname='$sectionname'";
 $result00gtt = $conn->query($sql00);
@@ -113,25 +118,23 @@ if ($period >= 2) {
                         <td style="text-align:right;">
                             <div style="font-size:30px; font-weight:700; line-height:40px;"><span id="att"></span>/<span
                                     id="cnt"></span></div>
-                                    <div class="st-id">Bunk : <b><span id="bunk">0</span></b> out of <span id="found2"></span></div>
-                            <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px; color:var(--light);">
+                            <div class="st-id">Bunk : <b><span id="bunk">0</span></b> out of <span id="found2"></span>
+                            </div>
+                            <div
+                                style="font-size:12px; font-weight:400; font-style:italic; line-height:24px; color:var(--light);">
                                 Attendance Found
                             </div>
 
 
-                            <div style="font-size:15px; font-weight:600; line-height:15px;" id="dddate">
+                            <div style="" id="dddate">
                                 <input onchange="dtcng();" max="<?php echo $td; ?>" id="xp"
-                                    class="form-control text-center  pt-2" type="date" value="<?php echo $td; ?>" />
+                                    class="form-control text-center  pt-2" type="date" value="<?php echo $td; ?>" <?php if($period>1){echo 'disabled';} ?> />
 
                             </div>
                             <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Date
                             </div>
 
 
-                            <div class="form-check form-switch" style="float:right; display:none;">
-                                <input class="form-check-input" type="checkbox" id="myswitch" name="darkmode" value="no"
-                                    onclick="more();"> <small> More</small>
-                            </div>
                         </td>
                     </tr>
 
@@ -154,7 +157,7 @@ if ($period >= 2) {
         $cnt = 0;
         $found = 0;
         $bunk = 0;
-        $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by $stattnd_sort";
+        $sql0 = "SELECT * FROM sessioninfo where sessionyear LIKE '%$sy%' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by $stattnd_sort";
         $result0 = $conn->query($sql0);
         if ($result0->num_rows > 0) {
             while ($row0 = $result0->fetch_assoc()) {
@@ -203,6 +206,7 @@ if ($period >= 2) {
                     $per6 = $datam[$key]['period6'];
                     $per7 = $datam[$key]['period7'];
                     $per8 = $datam[$key]['period8'];
+                    $bunk = $datam[$key]['bunk'];
                 } else {
                     $status = 0;
                     $per1 = '5';
@@ -213,10 +217,10 @@ if ($period >= 2) {
                     $per6 = '5';
                     $per7 = '5';
                     $per8 = '5';
+                    $bunk = 0;
                 }
 
-
-                if ($status == 0) {
+                if ($status == 0 || $bunk == 1) {
                     $bgc = '--light';
                     $dsbl = ' disabled';
                     $gip = '';
@@ -233,8 +237,8 @@ if ($period >= 2) {
                 }
                 ?>
                 <div class="card text-center" style="background:var(<?php echo $bgc; ?>); color:var(--darker);"
-                    onclick="<?php echo $fun; ?>(<?php echo $stid; ?>, <?php echo $rollno; ?>)" id="block<?php echo $stid; ?>"
-                    <?php echo $dsbl; ?>>
+                    onclick="<?php echo $fun; ?>(<?php echo $stid; ?>, <?php echo $rollno; ?>, <?php echo $bunk; ?>)"
+                    id="block<?php echo $stid; ?>" <?php echo $dsbl; ?>>
                     <img class="card-img-top" alt="">
                     <div class="card-body">
                         <table width="100%">
@@ -243,11 +247,13 @@ if ($period >= 2) {
                                     <?php if ($period < 2) { ?>
                                         <input style="scale:1.5; border:1px solid var(--dark); " class="form-check-input"
                                             type="checkbox" name="darkmode" id="sta<?php echo $stid; ?>"
-                                            onchange="grpssx(<?php echo $stid; ?>, <?php echo $rollno; ?>);" <?php echo $gip; ?> disabled>
+                                            onchange="grpssx(<?php echo $stid; ?>, <?php echo $rollno; ?>);" <?php echo $gip; ?>
+                                            disabled>
                                     <?php } else { ?>
                                         <input style="scale:1.5; border:1px solid black; " class="form-check-input" type="checkbox"
                                             name="darkmodes" id="sta2<?php echo $stid; ?>"
-                                            onchange="grpssx2(<?php echo $stid; ?>, <?php echo $rollno; ?>);" <?php echo $gip; ?> disabled > 
+                                            onchange="grpssx2(<?php echo $stid; ?>, <?php echo $rollno; ?>);" <?php echo $gip; ?>
+                                            disabled>
                                     <?php } ?>
                                     <!--<label for="sta<?php echo $stid; ?>">&nbsp;&nbsp;&nbsp;Present</label>-->
                                 </td>
@@ -336,14 +342,6 @@ if ($period >= 2) {
 
 <script>
 
-    function more() {
-        let val = document.getElementById("myswitch").checked;
-        if (val == true) {
-            $(".sele").show();
-        } else {
-            $(".sele").hide();
-        }
-    }
 
     function grp(id) {
         var val = document.getElementById("sel" + id).value;
@@ -414,7 +412,7 @@ if ($period >= 2) {
         $("#sfinal").html("");
         $.ajax({
             type: "POST",
-            url: "backend/savestattnd.php",
+            url: "backend/save-st-attnd.php",
             data: infor,
             cache: false,
             beforeSend: function () {
@@ -451,7 +449,7 @@ if ($period >= 2) {
 
         $.ajax({
             type: "POST",
-            url: "backend/savestattnd.php",
+            url: "backend/save-st-attnd.php",
             data: infor,
             cache: false,
             beforeSend: function () {
@@ -470,8 +468,15 @@ if ($period >= 2) {
     }
 
 
-    function grpssx(id, roll) {
+    function grpssx(id, roll, bunk) {
         // alert(0);
+        if (bunk == 1) {
+            Swal.fire({
+                title: "<small>Already Bunked</small>",
+                icon: "warning",
+                draggable: true
+            });
+        } else {
         var bl = document.getElementById("sta" + id).checked;
         var per = 1;
         var cnt = parseInt(document.getElementById("att").innerHTML) * 1;
@@ -484,22 +489,31 @@ if ($period >= 2) {
         }
         document.getElementById("att").innerHTML = cnt;
         att(id, roll, bl, per);
-    }
+    }}
 
-    function grpssx2(id, roll) {
+    function grpssx2(id, roll, bunk) {
         // alert(2);
-        var per = <?php echo $period; ?>;
 
-        var bl = document.getElementById("sta2" + id).checked;
-        var cnt = parseInt(document.getElementById("att").innerHTML) * 1;
-        if (bl == true) {
-            document.getElementById("sta2" + id).checked = false;
-            cnt--;
+        if (bunk == 1) {
+            Swal.fire({
+                title: "<small>Already Bunked</small>",
+                icon: "warning",
+                draggable: true
+            });
         } else {
-            document.getElementById("sta2" + id).checked = true;
-            cnt++;
+            var per = <?php echo $period; ?>;
+
+            var bl = document.getElementById("sta2" + id).checked;
+            var cnt = parseInt(document.getElementById("att").innerHTML) * 1;
+            if (bl == true) {
+                document.getElementById("sta2" + id).checked = false;
+                cnt--;
+            } else {
+                document.getElementById("sta2" + id).checked = true;
+                cnt++;
+            }
+            document.getElementById("att").innerHTML = cnt;
+            att(id, roll, bl, per);
         }
-        document.getElementById("att").innerHTML = cnt;
-        att(id, roll, bl, per);
     }
 </script>

@@ -83,7 +83,7 @@ $count_class = count($cteacher_data);
       </div>
     </div>
     <div class="menu-separator"></div>
-    
+
     <div class="card menu-item-block" onclick="settings_admin_class_routine_setup();">
       <div class="card-body">
         <table style="">

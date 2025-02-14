@@ -16,7 +16,8 @@ include 'inc.php';
                     <tr>
                         <td>
                             <div style="font-size:16px; font-weight:700; line-height:15px;">
-                                <?php echo date('d F, Y', strtotime($td)); ?></div>
+                                <?php echo date('d F, Y', strtotime($td)); ?>
+                            </div>
                             <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Date
                             </div>
                         </td>
@@ -30,7 +31,7 @@ include 'inc.php';
 
 
         <?php
-        $sql0 = "SELECT * FROM areas where sessionyear = '$sy' and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten'), idno, subarea";
+        $sql0 = "SELECT * FROM areas where sessionyear LIKE '%$sy%' and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten'), idno, subarea";
         //echo $sql0;
         $result0 = $conn->query($sql0);
         if ($result0->num_rows > 0) {
@@ -42,7 +43,7 @@ include 'inc.php';
 
 
                 $month = date('m');
-                $sql0 = "SELECT * FROM stattndsummery where sessionyear='$sy' and sccode='$sccode' and classname='$cls' and sectionname='$sec' and date='$td'";
+                $sql0 = "SELECT * FROM stattndsummery where sessionyear LIKE '%$sy%' and sccode='$sccode' and classname='$cls' and sectionname='$sec' and date='$td'";
                 // echo $sql0;
                 $result01x = $conn->query($sql0);
                 if ($result01x->num_rows > 0) {
@@ -50,30 +51,49 @@ include 'inc.php';
                         $rate = $row0["attndrate"];
                         $fnd = $row0["attndstudent"];
                         $cnt = $row0["totalstudent"];
+                        $bunk = $row0["bunk"];
+                        if ($cnt > 0) {
+                            $bunk_rate = ceil($bunk * 100 / $cnt);
+                        } else {
+                            $bunk_rate = 0;
+                        }
+
 
                     }
                 } else {
                     $rate = 0;
                     $fnd = 0;
                     $cnt = 0;
+                    $bunk = 0;
+                    $bunk_rate = 0;
                 }
-
+                // echo $bunk_rate;
+                $rate -= $bunk_rate;
 
 
                 ?>
                 <div class="card  mb-1" style="background:var(--lighter); color:var(--dark); border-radius:0;"
                     onclick="go('<?php echo $lnk; ?>')">
                     <div class="card-body">
-                        <div style="font-size:30px; font-weight:700; ">
-                            <?php echo $fnd; ?><span style="font-size:12px; font-weight:400;"> out of
-                                <b><?php echo $cnt; ?></b></span>
+                        <div class="row">
+                            <div class="col-8">
+                                <div style="font-size:30px; font-weight:700; ">
+                                    <?php echo $fnd; ?><span style="font-size:12px; font-weight:400;"> out of
+                                        <b><?php echo $cnt; ?></b></span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div style="text-align:right; position:relative; top:20px; font-size:12px; font-weight:700; ">
+                                    <?php echo number_format($rate, 1, ".", ","); ?>%
+                                </div>
+                            </div>
                         </div>
 
-                        <div style="float:right; position:relative; top:-20px; font-size:12px;">
-                            <?php echo number_format($rate, 1, ".", ","); ?>%</div>
-                        <div style="background:var(--light); margin-bottom:5px;">
-                            <div style="position: relative; height:5px; background:var(--dark); width:<?php echo $rate; ?>%;">
-                            </div>
+
+
+                        <div style=" margin-bottom:5px; background:red;" class="d-flex">
+                            <div style="height:5px; width:<?php echo $rate; ?>%;" class="bg-success"> </div>
+                            <div style="height:5px;width:<?php echo $bunk_rate; ?>%;" class="bg-warning"> </div>
                         </div>
 
                         <div style="font-size:16px; font-style:normal; color:gray; font-weight:bold;">
@@ -107,7 +127,7 @@ include 'inc.php';
 
 
     function go(id) {
-        window.location.href = "stattndregister.php?" + id;
+        window.location.href = "st-attnd-register.php?" + id;
     }  
 </script>
 

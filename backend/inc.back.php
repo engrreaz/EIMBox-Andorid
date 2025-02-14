@@ -12,6 +12,8 @@ include '../db.php';
 $sms_price = 0.4;
 $usr = $_SESSION["user"];
 
+$BASE_PATH_URL = '../../';
+$BASE_PATH_URL_FILE = '../';
 
 //*****************************************************************
 $sy = date('y');

@@ -49,5 +49,5 @@ include 'front-page-block/garbage.php';
     function goclsatt(x1, x2) { window.location.href = 'stattnd.php?cls=' + x1 + '&sec=' + x2; }
     function register(x1, x2) { window.location.href = 'stattndregister.php?cls=' + x1 + '&sec=' + x2; }
 
-    function goclsattall() { window.location.href = 'attndclssec.php'; }
+    function goclsattall() { window.location.href = 'attnd-cls-sec.php'; }
 </script>

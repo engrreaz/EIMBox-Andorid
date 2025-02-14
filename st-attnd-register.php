@@ -218,7 +218,7 @@ if ($result00gt->num_rows > 0) {
 
 
         $datam = array();
-        $sql00 = "SELECT * FROM stattnd where  adate between '$date_start' and '$date_end' and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname' order by rollno";
+        $sql00 = "SELECT * FROM stattnd where  adate between '$date_start' and '$date_end' and sccode='$sccode' and sessionyear LIKE '%$sy%'   and classname = '$classname' and sectionname='$sectionname' and yn=1 order by rollno";
         // echo $sql00 . '<br><br>';
         $result00gt = $conn->query($sql00);
         if ($result00gt->num_rows > 0) {
@@ -228,7 +228,7 @@ if ($result00gt->num_rows > 0) {
         }
         // var_dump($datam);
         // *************************************************************
-        $sql00 = "SELECT * FROM stattndsummery where  date='$td' and sccode='$sccode' and sessionyear='$sy' and classname = '$classname' and sectionname='$sectionname'";
+        $sql00 = "SELECT * FROM stattndsummery where  date='$td' and sccode='$sccode' and sessionyear LIKE '%$sy%'  and classname = '$classname' and sectionname='$sectionname'";
         $result00gtt = $conn->query($sql00);
         if ($result00gtt->num_rows > 0) {
             while ($row00 = $result00gtt->fetch_assoc()) {
@@ -336,7 +336,7 @@ if ($result00gt->num_rows > 0) {
                         $cnt = 0;
                         $found = 0;
 
-                        $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by $stattnd_sort";
+                        $sql0 = "SELECT * FROM sessioninfo where sessionyear LIKE '%$sy%'  and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by $stattnd_sort";
                         $result0 = $conn->query($sql0);
                         if ($result0->num_rows > 0) {
                             while ($row0 = $result0->fetch_assoc()) {

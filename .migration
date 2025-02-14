@@ -6,11 +6,9 @@ Profile
     leaves & Movement
         page-info-box 
     
-ALTER TABLE `classschedule` CHANGE `sessionyear` `sessionyear` VARCHAR(11) NULL DEFAULT NULL;
 
 sms_campaing table-----------------------------
 sms_temp table........................................
 
-ALTER TABLE `scinfo` ADD `sms_send` INT NOT NULL DEFAULT '0' AFTER `last_login_time`, ADD `sms_success` INT NOT NULL DEFAULT '0' AFTER `sms_send`, ADD `sms_error` INT NOT NULL DEFAULT '0' AFTER `sms_success`, ADD `sms_cost` FLOAT NOT NULL DEFAULT '0.00' AFTER `sms_error`, ADD `sms_balance` FLOAT NOT NULL DEFAULT '0.00' AFTER `sms_cost`, ADD `account_balance` FLOAT NOT NULL DEFAULT '0.00' AFTER `sms_balance`;
 
 invoices table ...................................

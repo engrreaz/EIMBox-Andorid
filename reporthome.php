@@ -104,7 +104,7 @@ include 'inc.php';
   </div>
   <div class="menu-separator"></div>
 
-  <?php if ($userlevel == 'Administrator') { ?>
+  
     <div class="card menu-item-block" onclick="report_menu_absent_bunk_list();">
       <div class="card-body">
         <table style="">
@@ -119,7 +119,7 @@ include 'inc.php';
       </div>
     </div>
     <div class="menu-separator"></div>
-  <?php } ?>
+ 
 
   <div class="card menu-item-block" onclick="report_menu_cls_routine();">
     <div class="card-body">

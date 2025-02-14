@@ -76,6 +76,7 @@ $absent_teacher = array();
                         $as = 0;
                         $att_cnt = 0;
                         $tot_cnt = 0;
+                        $tstu = $astu = 0;
                         foreach ($datam_teacher_profile as $teacher) {
                             $tid = $teacher["tid"];
 
