@@ -252,7 +252,7 @@ include 'dob-history-time-line.php';
                                     $peri = $row0["period"];
                                     $tname = $subname = '';
 
-                                    if ($tid == $userid) {
+                                    if ($tid == $userid && $period == $peri) {
                                         $myclass[] = ['cls' => $cls, 'sec' => $sec];
                                     }
 
