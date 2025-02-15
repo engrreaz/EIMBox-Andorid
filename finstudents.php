@@ -9,7 +9,7 @@ $totaldues = 0;
 
 $month = date('m');
 $st_dues_list = array();
-$sql0 = "SELECT stid, sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname='$sectionname' and month<='$month' group by stid order by rollno";
+$sql0 = "SELECT stid, sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear LIKE '%$sy%'  and sccode='$sccode' and classname='$classname' and sectionname='$sectionname' and month<='$month' group by stid order by rollno";
 $result01x = $conn->query($sql0);
 if ($result01x->num_rows > 0) {
   while ($row0 = $result01x->fetch_assoc()) {
@@ -170,7 +170,7 @@ if ($result01x->num_rows > 0) {
     <?php
     $cnt = 0;
     $cntamt = 0;
-    $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by rollno";
+    $sql0 = "SELECT * FROM sessioninfo where sessionyear LIKE '%$sy%'  and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by rollno";
     $result0 = $conn->query($sql0);
     if ($result0->num_rows > 0) {
       while ($row0 = $result0->fetch_assoc()) {
