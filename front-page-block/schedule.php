@@ -85,7 +85,7 @@ include 'dob-history-time-line.php';
 
     $ccur = date('H:i:s');
     $sql0 = "SELECT * FROM classschedule where sccode = '$sccode' and timestart<='$ccur'
-        and timeend>='$ccur' and sessionyear LIKE '%$sy%' ;";
+        and timeend>='$ccur' and sessionyear LIKE '%$sy%' order by period;";
     // echo $sql0;
     $result0rtx = $conn->query($sql0);
     if ($result0rtx->num_rows > 0) {
