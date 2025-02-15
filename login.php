@@ -17,9 +17,9 @@
                     placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
             </div>
             <div class="form-group">
-                <label class="text-small text-muted" for="email">Password</label>
+                <label class="text-small text-muted" for="password">Password</label>
                 <input type="password" id="password" name="password" class="form-control bg-transparent text-dark"
-                    placeholder="Username" aria-label="password" aria-describedby="basic-addon1">
+                    placeholder="Password" aria-label="password" aria-describedby="basic-addon1">
             </div>
 
             <div class="form-group">

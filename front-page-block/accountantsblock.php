@@ -3,14 +3,14 @@ if ($rank == 'Accountants' || $rank == 'Principal' || $rank == 'Head Teacher' ||
     $mon = date('m');
 
     $cimh = $money = $money1 = $money2 = $money3 = $money4 = 0;
-    $sql0 = "SELECT sum(amount) as money  FROM transaction where sessionyear='$sy' and sccode='$sccode' and receivedby='$usr'";
+    $sql0 = "SELECT sum(amount) as money  FROM transaction where sessionyear LIKE '%$sy%' and sccode='$sccode' and receivedby='$usr'";
     $result01x2 = $conn->query($sql0);
     if ($result01x2->num_rows > 0) {
         while ($row0 = $result01x2->fetch_assoc()) {
             $money = $row0["money"];
         }
     }
-    $sql0 = "SELECT sum(amount) as money1  FROM transaction where sessionyear='$sy' and sccode='$sccode' and receivedfrom='$usr'";
+    $sql0 = "SELECT sum(amount) as money1  FROM transaction where sessionyear LIKE '%$sy%' and sccode='$sccode' and receivedfrom='$usr'";
     $result01x2 = $conn->query($sql0);
     if ($result01x2->num_rows > 0) {
         while ($row0 = $result01x2->fetch_assoc()) {
@@ -46,7 +46,7 @@ if ($rank == 'Accountants' || $rank == 'Principal' || $rank == 'Head Teacher' ||
 
     $cimh = ($paisi + $money + $money3 - $money1 - $money2 + $money4) * 1;
 
-    $sql0 = "SELECT sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid  FROM stfinance where sessionyear='$sy' and sccode='$sccode' and month<='$mon'";
+    $sql0 = "SELECT sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid  FROM stfinance where sessionyear LIKE '%$sy%' and sccode='$sccode' and month<='$mon'";
     $result01x = $conn->query($sql0);
     if ($result01x->num_rows > 0) {
         while ($row0 = $result01x->fetch_assoc()) {

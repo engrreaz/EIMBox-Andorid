@@ -189,7 +189,7 @@ if ($result0bb->num_rows > 0) {
 }
 
 $cteacher_data = [];
-$sql0 = "SELECT areaname as cteachercls, subarea as cteachersec FROM areas where classteacher='$userid' and sessionyear='$sy' ";
+$sql0 = "SELECT areaname as cteachercls, subarea as cteachersec FROM areas where classteacher='$userid' and sessionyear LIKE '%$sy%' ";
 $result0bbx = $conn->query($sql0);
 if ($result0bbx->num_rows > 0) {
     while ($row0 = $result0bbx->fetch_assoc()) {

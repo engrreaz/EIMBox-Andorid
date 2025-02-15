@@ -1,4 +1,5 @@
 <?php
+// var_dump($cteacher_data);
 if (count($cteacher_data) > 0) {
     foreach ($cteacher_data as $cteacher) {
         $x1 = $cteacher['cteachercls'];

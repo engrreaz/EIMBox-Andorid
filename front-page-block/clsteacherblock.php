@@ -49,7 +49,7 @@ if ($pospos >= 0) {
 
 
 
-                $sql0 = "SELECT sum(amount) as disi FROM transaction where sessionyear='$sy' and sccode='$sccode' and receivedfrom='$usr'";
+                $sql0 = "SELECT sum(amount) as disi FROM transaction where sessionyear LIKE '%$sy%' and sccode='$sccode' and receivedfrom='$usr'";
                 $result01xe = $conn->query($sql0);
                 if ($result01xe->num_rows > 0) {
                     while ($row0 = $result01xe->fetch_assoc()) {
@@ -57,7 +57,7 @@ if ($pospos >= 0) {
                     }
                 }
 
-                $sql0 = "SELECT sum(income) as iii, sum(expenditure) as eee FROM cashbook where sessionyear='$sy' and sccode='$sccode' and entryby='$usr'";
+                $sql0 = "SELECT sum(income) as iii, sum(expenditure) as eee FROM cashbook where sessionyear LIKE '%$sy%' and sccode='$sccode' and entryby='$usr'";
                 $result01xe = $conn->query($sql0);
                 if ($result01xe->num_rows > 0) {
                     while ($row0 = $result01xe->fetch_assoc()) {

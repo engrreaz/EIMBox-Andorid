@@ -24,13 +24,13 @@
                         <?php
                         $ts = 0;
                         $as = 0;
-                        $sql0 = "SELECT * FROM areas where sessionyear = '$sy' and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'SSC $sy'), idno, subarea";
+                        $sql0 = "SELECT * FROM areas where sessionyear  LIKE '%$sy%' and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'SSC $SY'), idno, subarea";
                         $result01xe1 = $conn->query($sql0);
                         if ($result01xe1->num_rows > 0) {
                             while ($row0 = $result01xe1->fetch_assoc()) {
                                 $cls = $row0["areaname"];
                                 $sec = $row0["subarea"];
-                                $sql0 = "SELECT * FROM stattndsummery where sessionyear = '$sy' and sccode='$sccode' and classname='$cls' and sectionname='$sec' and date='$td'";
+                                $sql0 = "SELECT * FROM stattndsummery where sessionyear  LIKE '%$sy%' and sccode='$sccode' and classname='$cls' and sectionname='$sec' and date='$td'";
                                 //echo $sql0;
                                 $result01xe2 = $conn->query($sql0);
                                 if ($result01xe2->num_rows > 0) {

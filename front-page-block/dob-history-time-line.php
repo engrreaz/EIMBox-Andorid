@@ -59,7 +59,7 @@ if (count($final_array) > 0) {
                     $photo_path = $BASE_PATH_URL_FILE . 'students/' . $stid . ".jpg";
                 }
                 ?>
-                <div class="col-2 text-center" onclick="stname('<?php echo $stname; ?>', '<?php echo $sstid; ?>');">
+                <div class="col-2 text-center" onclick="stname('<?php echo $stname; ?>', '<?php echo $stid; ?>');">
                     <img src="<?php echo $photo_path; ?>" class="st-pic-small" />
                     <div class="event-text text-center text-small" hidden><?php echo $stname; ?></div>
                 </div>
@@ -79,7 +79,7 @@ if (count($final_array) > 0) {
 <script>
     function stname(st, stid) {
         Swal.fire({
-            title: st + stid,
+            title: '<span class="text-small">' + st + ', ' + stid + '</span>',
             draggable: true
         });
     }

@@ -61,7 +61,7 @@ if ($tmcnt <= 7 * 24 * 3600) {
 
 <?php
 if ($cntt >= 0) {
-    $sql0 = "SELECT count(*) as cntt FROM areas where sessionyear='$sy' and user='$rootuser' and halfdone=0";
+    $sql0 = "SELECT count(*) as cntt FROM areas where sessionyear LIKE '%$sy%' and user='$rootuser' and halfdone=0";
     $result01g = $conn->query($sql0);
     if ($result01g->num_rows > 0) {
         while ($row0 = $result01g->fetch_assoc()) {
@@ -71,21 +71,21 @@ if ($cntt >= 0) {
 
 
 
-    $sql0 = "SELECT sum(half) as req FROM areas where sessionyear='$sy' and user='$rootuser'";
+    $sql0 = "SELECT sum(half) as req FROM areas where sessionyear LIKE '%$sy%' and user='$rootuser'";
     $result01 = $conn->query($sql0);
     if ($result01->num_rows > 0) {
         while ($row0 = $result01->fetch_assoc()) {
             $req = $row0["req"];
         }
     }
-    $sql0 = "SELECT count(*) as doneold FROM pibientry where sessionyear='$sy' and sccode='$sccode' and exam = 'Half Yearly'";
+    $sql0 = "SELECT count(*) as doneold FROM pibientry where sessionyear LIKE '%$sy%' and sccode='$sccode' and exam = 'Half Yearly'";
     $result01 = $conn->query($sql0);
     if ($result01->num_rows > 0) {
         while ($row0 = $result01->fetch_assoc()) {
             $doneold = $row0["doneold"];
         }
     }
-    $sql0 = "SELECT count(*) as donenew FROM stmark where sessionyear='$sy' and sccode='$sccode' and exam = 'Half Yearly'";
+    $sql0 = "SELECT count(*) as donenew FROM stmark where sessionyear LIKE '%$sy%' and sccode='$sccode' and exam = 'Half Yearly'";
     $result01 = $conn->query($sql0);
     if ($result01->num_rows > 0) {
         while ($row0 = $result01->fetch_assoc()) {
