@@ -178,7 +178,7 @@ $collection = $accountant = 0;
 
     $cnt = 0;
     $cntamt = 0;
-    $sql0 = "SELECT * FROM stpr where sessionyear='$sy' and sccode='$sccode' and entryby='$usr' and entrytime >= '2025-01-01' order by entrytime desc";
+    $sql0 = "SELECT * FROM stpr where sessionyear LIKE '%$sy%'  and sccode='$sccode' and entryby='$usr' and entrytime >= '2025-01-01' order by entrytime desc";
     $result0 = $conn->query($sql0);
     if ($result0->num_rows > 0) {
       while ($row0 = $result0->fetch_assoc()) {

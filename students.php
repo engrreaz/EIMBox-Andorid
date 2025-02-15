@@ -114,7 +114,7 @@ $count_class = count($cteacher_data);
 
         <?php
         $cnt = 0;
-        $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by rollno";
+        $sql0 = "SELECT * FROM sessioninfo where sessionyear LIKE '%$sy%'  and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by rollno";
         $result0 = $conn->query($sql0);
         if ($result0->num_rows > 0) {
           while ($row0 = $result0->fetch_assoc()) {

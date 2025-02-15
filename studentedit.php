@@ -37,7 +37,7 @@ include 'component/student-image-path.php';
                 $predist = $row0["predist"];
 
 
-                $sql0x = "SELECT * FROM sessioninfo where stid='$stid' and sessionyear='$sy' and sccode='$sccode' LIMIT 1";
+                $sql0x = "SELECT * FROM sessioninfo where stid='$stid' and sessionyear LIKE '%$sy%'  and sccode='$sccode' LIMIT 1";
                 $result0x = $conn->query($sql0x);
                 if ($result0x->num_rows > 0) {
                     while ($row0x = $result0x->fetch_assoc()) {

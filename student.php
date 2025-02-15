@@ -57,7 +57,7 @@ if (strpos($profile_entry, $userlevel) != null) {
         $predist = $row0["predist"];
 
 
-        $sql0x = "SELECT * FROM sessioninfo where stid='$stid' and sessionyear='$sy' and sccode='$sccode' LIMIT 1";
+        $sql0x = "SELECT * FROM sessioninfo where stid='$stid' and sessionyear LIKE '%$sy%'  and sccode='$sccode' LIMIT 1";
         $result0x = $conn->query($sql0x);
         if ($result0x->num_rows > 0) {
           while ($row0x = $result0x->fetch_assoc()) {
@@ -68,7 +68,7 @@ if (strpos($profile_entry, $userlevel) != null) {
         }
 
 
-        $sql0x = "SELECT sum(paid) as paid FROM stfinance where stid='$stid' and sessionyear='$sy' and sccode='$sccode' ";
+        $sql0x = "SELECT sum(paid) as paid FROM stfinance where stid='$stid' and sessionyear LIKE '%$sy%'  and sccode='$sccode' ";
         $result0xd = $conn->query($sql0x);
         if ($result0xd->num_rows > 0) {
           while ($row0x = $result0xd->fetch_assoc()) {

@@ -128,7 +128,7 @@
         if (user_level == 'Administrator' || user_level == 'Super Administrator' || user_level == 'Head Teacher' || user_level == 'Principal') {
             window.location.href = 'attnd-cls-sec.php';
         } else {
-            window.location.href = 'stattndregister.php';
+            window.location.href = 'st-attnd-register.php';
         }
     }
 

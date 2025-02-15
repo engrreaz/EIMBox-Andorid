@@ -84,7 +84,7 @@ $count_class = count($cteacher_data);
       }
 
       $datam = array();
-      $sql00 = "SELECT * FROM stattnd where  adate = '$td'  and sccode='$sccode' and sessionyear='$sy'  and classname = '$classname' and sectionname='$sectionname' order by rollno";
+      $sql00 = "SELECT * FROM stattnd where  adate = '$td'  and sccode='$sccode' and sessionyear LIKE '%$sy%'   and classname = '$classname' and sectionname='$sectionname' order by rollno";
       // echo $sql00 . '<br><br>';
       $result00gt = $conn->query($sql00);
       if ($result00gt->num_rows > 0) {
@@ -144,7 +144,7 @@ $count_class = count($cteacher_data);
 
         <?php
         $cnt = $absent_cnt = $bunk_cnt = 0;
-        $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by rollno";
+        $sql0 = "SELECT * FROM sessioninfo where sessionyear LIKE '%$sy%'  and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by rollno";
         $result0 = $conn->query($sql0);
         if ($result0->num_rows > 0) {
           while ($row0 = $result0->fetch_assoc()) {
