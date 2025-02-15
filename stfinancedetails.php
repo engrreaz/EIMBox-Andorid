@@ -30,7 +30,7 @@ if (isset($_GET['edit'])) {
 
         <?php
         $cnt = 0;
-        $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and stid='$stid'";
+        $sql0 = "SELECT * FROM sessioninfo where sessionyear LIKE '%$sy%'  and sccode='$sccode' and stid='$stid'";
         $result0 = $conn->query($sql0);
         if ($result0->num_rows > 0) {
             while ($row0 = $result0->fetch_assoc()) {
@@ -65,7 +65,7 @@ if (isset($_GET['edit'])) {
         if ($lastpr > 0) {
             $prno = $lastpr + 1;
         } else {
-            $prno = ($sy % 100) * 1000000 + ($stid % 10000) * 100 + 1;
+            $prno = ($SY % 100) * 1000000 + ($stid % 10000) * 100 + 1;
         }
 
 
@@ -316,7 +316,7 @@ if (isset($_GET['edit'])) {
             $tamt = 0;
             $month = date('m');
             // $month = 12;
-            $sql0 = "SELECT * FROM stfinance where sessionyear='$sy' and sccode='$sccode' and stid='$stid' and month <='$month' and (dues>0 || particulareng='Fine' || particulareng='Misc') order by id";
+            $sql0 = "SELECT * FROM stfinance where sessionyear LIKE '%$sy%'  and sccode='$sccode' and stid='$stid' and month <='$month' and (dues>0 || particulareng='Fine' || particulareng='Misc') order by id";
             $result0 = $conn->query($sql0);
             if ($result0->num_rows > 0) {
                 while ($row0 = $result0->fetch_assoc()) {
