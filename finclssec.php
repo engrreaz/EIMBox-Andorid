@@ -15,7 +15,7 @@ include 'inc.php';
 
 
         <?php
-        $sql0 = "SELECT * FROM areas where sessionyear = '$sy' and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten'), idno, subarea";
+        $sql0 = "SELECT * FROM areas where sessionyear LIKE '%$sy%' and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten'), idno, subarea";
 
         $result0 = $conn->query($sql0);
         if ($result0->num_rows > 0) {
@@ -27,7 +27,7 @@ include 'inc.php';
 
 
                 $month = date('m');
-                $sql0 = "SELECT sum(payableamt) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear='$sy' and sccode='$sccode' and classname='$cls' and sectionname='$sec' and month<='$month'";
+                $sql0 = "SELECT sum(payableamt) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear LIKE '%$sy%'  and sccode='$sccode' and classname='$cls' and sectionname='$sec' and month<='$month'";
 
                 $result01x = $conn->query($sql0);
                 if ($result01x->num_rows > 0) {
@@ -37,7 +37,7 @@ include 'inc.php';
                     }
                 }
 
-                $sql0 = "SELECT sum(amount) as coll FROM stpr where sessionyear='$sy' and sccode='$sccode' and classname='$cls' and sectionname='$sec' and prdate='$td'";
+                $sql0 = "SELECT sum(amount) as coll FROM stpr where sessionyear LIKE '%$sy%'  and sccode='$sccode' and classname='$cls' and sectionname='$sec' and prdate='$td'";
                 $result01xg = $conn->query($sql0);
                 if ($result01xg->num_rows > 0) {
                     while ($row0 = $result01xg->fetch_assoc()) {
