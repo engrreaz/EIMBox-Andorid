@@ -13,10 +13,10 @@ include 'component/student-image-path.php';
                 <div class="menu-text "> Student's Profile Editor </div>
             </div>
 
-                <div class="card-body page-info-box text-center" style="height:100px;">
-                    <img src="<?php echo $pth; ?>" class="st-pic-bigger" style="margin-left:-75px;" />
-                </div>
-       
+            <div class="card-body page-info-box text-center" style="height:100px;">
+                <img src="<?php echo $pth; ?>" class="st-pic-bigger" style="margin-left:-75px;" />
+            </div>
+
         </div>
 
         <?php
@@ -35,6 +35,7 @@ include 'component/student-image-path.php';
                 $prepo = $row0["prepo"];
                 $preps = $row0["preps"];
                 $predist = $row0["predist"];
+                $dob = $row0["dob"];
 
 
                 $sql0x = "SELECT * FROM sessioninfo where stid='$stid' and sessionyear LIKE '%$sy%'  and sccode='$sccode' LIMIT 1";
@@ -50,7 +51,7 @@ include 'component/student-image-path.php';
                 <div class="card text-center" style="background:var(--lighter);">
 
                     <div class="card-body">
-                   
+
 
                         <div style="text-align:left; padding-top:2px;">
                             <table width="100%">
@@ -68,7 +69,7 @@ include 'component/student-image-path.php';
                                                         <?php echo $sec; ?>
                                                     </div>
                                                     <div class="e">Student's of Class / Section | Group</div>
-                                                
+
                                                 </td>
                                                 <td style="text-align:right; padding-top:15px;" valign="top">
                                                     <div class="roll-big"><?php echo $roll; ?></div>
@@ -155,7 +156,7 @@ include 'component/student-image-path.php';
                         <div style="margin:0px 0; height:1px;"></div>
                         <div style="text-align:left; padding-top:0px;">
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-person-standing-dress" ></i></span>
+                                <span class="input-group-text"><i class="bi bi-person-standing-dress"></i></span>
                                 <input type="text" id="mname" name="mname" class="form-control" placeholder="Mother's Name"
                                     value="<?php echo $mname; ?>">
                             </div>
@@ -173,7 +174,8 @@ include 'component/student-image-path.php';
                         <div style="margin:0px 0; height:1px;"></div>
                         <div style="text-align:left; padding-top:0px;">
                             <div class="input-group">
-                                <span class="input-group-text"><i class=" bi bi-arrow-bar-down"  style="color:lightgray;"></i></span>
+                                <span class="input-group-text"><i class=" bi bi-arrow-bar-down"
+                                        style="color:lightgray;"></i></span>
                                 <input type="text" list="ppp" id="po" name="po" class="form-control" placeholder="Post Office"
                                     value="<?php echo $prepo; ?>">
                             </div>
@@ -181,7 +183,8 @@ include 'component/student-image-path.php';
                         <div style="margin:0px 0; height:1px;"></div>
                         <div style="text-align:left; padding-top:0px;">
                             <div class="input-group">
-                                <span class="input-group-text"><i class=" bi bi-arrow-bar-down"  style="color:lightgray;"></i></span>
+                                <span class="input-group-text"><i class=" bi bi-arrow-bar-down"
+                                        style="color:lightgray;"></i></span>
                                 <input type="text" list="ttt" id="ps" name="ps" class="form-control" placeholder="Upzila/PS"
                                     value="<?php echo $preps; ?>">
                             </div>
@@ -189,20 +192,33 @@ include 'component/student-image-path.php';
                         <div style="margin:0px 0; height:1px;"></div>
                         <div style="text-align:left; padding-top:0px;">
                             <div class="input-group">
-                                <span class="input-group-text"><i class=" bi bi-arrow-bar-down"  style="color:lightgray;"></i></span>
+                                <span class="input-group-text"><i class=" bi bi-arrow-bar-down"
+                                        style="color:lightgray;"></i></span>
                                 <input type="text" list="ddd" id="dist" name="dist" class="form-control" placeholder="District"
                                     value="<?php echo $predist; ?>">
                             </div>
                         </div>
                         <div style="margin:10px 0; height:2px; background:var(--lighter);"></div>
                         <div style="margin:2px 0; height:1px;"></div>
+
+
+                        <div style="text-align:left; padding-top:15px;">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class=" bi bi-calendar-fill"></i></span>
+                                <input type="date" id="dob" name="dob" class="form-control" placeholder="Date of Birth"
+                                    value="<?php echo $dob; ?>">
+                            </div>
+                        </div>
+
+
                         <div style="text-align:left; padding-top:0px;">
                             <div class="input-group">
-                                <span class="input-group-text"><i class=" bi bi-telephone-fill" ></i></span>
+                                <span class="input-group-text"><i class=" bi bi-telephone-fill"></i></span>
                                 <input type="tel" id="mno" name="mno" class="form-control" placeholder="Mobile Number"
                                     value="<?php echo $guarmobile; ?>">
                             </div>
                         </div>
+
 
                         <div style="text-align:left; padding-top :15px;">
                             <button type="button" class="btn btn-primary" onclick="upd();">Update Info</button>
@@ -271,6 +287,7 @@ include 'component/student-image-path.php';
         var ps = document.getElementById("ps").value;
         var dist = document.getElementById("dist").value;
         var mno = document.getElementById("mno").value;
+        var dob = document.getElementById("dob").value;
 
         /*
         if (prno==""||cusid==""||prdate=="") 
@@ -282,9 +299,7 @@ include 'component/student-image-path.php';
         }
         else*/
         {
-
-
-            var infor = "stid=<?php echo $stid; ?>&nameeng=" + nameeng + "&nameben=" + nameben + "&fname=" + fname + "&mname=" + mname + "&vill=" + vill + "&po=" + po + "&ps=" + ps + "&dist=" + dist + "&mno=" + mno;
+            var infor = "stid=<?php echo $stid; ?>&nameeng=" + nameeng + "&nameben=" + nameben + "&fname=" + fname + "&mname=" + mname + "&vill=" + vill + "&po=" + po + "&ps=" + ps + "&dist=" + dist + "&mno=" + mno + "&dob=" + dob;
             $("#px").html("");
 
             $.ajax({
