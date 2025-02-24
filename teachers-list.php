@@ -121,6 +121,6 @@ include 'datam/datam-teacher.php';
 
 <script>
   function go(id) {
-    window.location.href = "student.php?id=" + id;
+    window.location.href = "hr-profile.php?id=" + id;
   }
 </script>
