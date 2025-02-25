@@ -1,7 +1,4 @@
 <?php
-date_default_timezone_set('Asia/Dhaka');
-$cur = date('Y-m-d H:i:s');
-$sy = date('Y');
 include('inc.back.php');
 
 $sccode = $_POST['sccode'];
@@ -16,6 +13,7 @@ if ($result00xgr->num_rows > 0) {
     while ($row00xgr = $result00xgr->fetch_assoc()) {
         $cls = $row00xgr["areaname"];
         $sec = $row00xgr["subarea"];
+        $sy = $row00xgr["sessionyear"];
     }
 }
 
@@ -35,7 +33,7 @@ $lastid = $lastid + 1;
 
 for ($x = $from; $x <= $to; $x++) {
 
-    $sql242 = "SELECT * FROM sessioninfo where sessionyear='$sy' and classname='$cls' and sectionname = '$sec' and rollno = '$x' and sccode='$sccode'";
+    $sql242 = "SELECT * FROM sessioninfo where sessionyear LIKE '%$sy%' and classname='$cls' and sectionname = '$sec' and rollno = '$x' and sccode='$sccode'";
     $result242 = $conn->query($sql242);
     if ($result242->num_rows > 0) {
         while ($row242 = $result242->fetch_assoc()) {

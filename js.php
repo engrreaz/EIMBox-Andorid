@@ -209,11 +209,12 @@
         });
     }
     function my_class_profile(stid) {
-        Swal.fire({
-            title: "<small>Profile</small>",
-            icon: "info",
-            draggable: true
-        });
+        // Swal.fire({
+        //     title: "<small>Profile</small>",
+        //     icon: "info",
+        //     draggable: true
+        // });
+        window.location.href = 'studentedit.php?id=' + stid;
     }
 
     // Tools Navigation

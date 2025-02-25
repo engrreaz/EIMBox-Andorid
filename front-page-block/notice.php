@@ -67,15 +67,15 @@ if ($result0rtx_notice_user->num_rows > 0) {
             </div>
 
             <?php $sl++;
-        } 
-        
-        if(count($notices)>3) { ?>
+        }
 
-        <button class="btn btn-primary text-small " style="margin-left:40px;" onclick="report_menu_notices();">Show
-            All</button>
-            <?php } else if(count($notices)==0) {  ?>
+        if (count($notices) > 3) { ?>
+
+            <button class="btn btn-primary text-small " style="margin-left:40px;" onclick="report_menu_notices();">Show
+                All</button>
+        <?php } else if (count($notices) == 0) { ?>
                 <div class="text-small text-info">You've no any notice to display.</div>
-            <?php } ?>
+        <?php } ?>
     </div>
 </div>
 

@@ -19,7 +19,8 @@ include 'inc.php';
             </div>
         </div>
 
-        <?php if ($userlevel == 'Administrator' || $userlevel == 'Head Teacher'  || $userlevel == 'Principal') { ?>
+        <?php
+        if ($userlevel == 'Administrator' || $userlevel == 'Head Teacher' || $userlevel == 'Principal') { ?>
 
 
 
@@ -80,7 +81,7 @@ include 'inc.php';
 
             <div id="block" style="backgroudn:var(--light);">
                 <?php
-                $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear='$sy' order by idno, id";
+                $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear LIKE '%$sy%' order by idno, id";
                 $result00xgr = $conn->query($sql00xgr);
                 if ($result00xgr->num_rows > 0) {
                     while ($row00xgr = $result00xgr->fetch_assoc()) {
@@ -96,16 +97,17 @@ include 'inc.php';
                             <div class="card-body">
                                 <table style="">
                                     <tr>
-                                        <td style="vertical-align:top; padding-right:25px;" class="menu-item-icon" ><i class="bi bi-diagram-3-fill"></i></td>
+                                        <td style="vertical-align:top; padding-right:25px;" class="menu-item-icon"><i
+                                                class="bi bi-diagram-3-fill"></i></td>
                                         <td class=" menu-item-block" style="border:0;">
                                             <h4 class="text-dark" id="cls<?php echo $id; ?>"><?php echo $cls2; ?></h4>
-                                            <div class="menu-item-sub-text" >Class Name</div>
-                                            
-                                            
+                                            <div class="menu-item-sub-text">Class Name</div>
+
+
                                         </td>
                                         <td class="text-end">
-                                        <h6 class="text-dark mt-3" id="sec<?php echo $id; ?>"><?php echo $sec2; ?></h6>
-                                        <div class="menu-item-sub-text">Section / group Name</div>
+                                            <h6 class="text-dark mt-3" id="sec<?php echo $id; ?>"><?php echo $sec2; ?></h6>
+                                            <div class="menu-item-sub-text">Section / group Name</div>
                                         </td>
                                     </tr>
 
@@ -115,7 +117,7 @@ include 'inc.php';
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td  colspan="2" style="padding-top:5px;">
+                                        <td colspan="2" style="padding-top:5px;">
                                             <table>
                                                 <tr>
                                                     <td>

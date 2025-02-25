@@ -312,8 +312,9 @@ include 'component/student-image-path.php';
                 },
                 success: function (html) {
                     $("#px").html(html);
+                    history.back(-1);
                     //alert('students.php?cls=<?php echo $cls; ?>&sec=<?php echo $sec; ?>#<?php echo $stid; ?>');
-                    window.location.href = 'students.php?cls=<?php echo $cls; ?>&sec=<?php echo $sec; ?>#block<?php echo $stid; ?>';
+                    // window.location.href = 'students.php?cls=<?php echo $cls; ?>&sec=<?php echo $sec; ?>#block<?php echo $stid; ?>';
                 }
             });
         }
