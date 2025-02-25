@@ -12,7 +12,6 @@ $collection = $accountant = 0;
 
 
 <script>
-
   function more() {
     let val = document.getElementById("myswitch").checked;
     if (val == true) {
@@ -218,6 +217,9 @@ $collection = $accountant = 0;
         //   }
         // }
     
+        include 'component/student-image-path.php';
+
+
         ?>
         <div class="card text-center mb-1" style="background:var(<?php echo $bgc; ?>); color:var(--darker);border-radius:0;"
           id="block<?php echo $prno; ?>" <?php echo $dsbl; ?>>
