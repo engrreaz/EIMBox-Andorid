@@ -38,6 +38,40 @@ $count_class = count($cteacher_data);
     </div>
     <div class="menu-separator"></div>
 
+    <div class="card menu-item-block" onclick="settings_admin_add_edit_teacher();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-bank2"></i></td>
+            <td>
+              <h4> Teachers & Staffs </h4>
+              <div class="menu-item-sub-text"> Add/Edit teachers & Staffs Profile </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+
+    <div class="card menu-item-block" onclick="settings_admin_cls_sec();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-bank2"></i></td>
+            <td>
+              <h4> Class & Section Manager </h4>
+              <div class="menu-item-sub-text"> Add/Edit Classes and sections with manage their settings </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+
+
+
     <div class="card menu-item-block" onclick="settings_admin_st_id_generate();">
       <div class="card-body">
         <table style="">

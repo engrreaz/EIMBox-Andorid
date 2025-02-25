@@ -1,5 +1,5 @@
 <?php
-$sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear='$sy' group by areaname order by idno, id";
+$sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear LIKE '%$sy%'  group by areaname order by idno, id";
 $result00xgr = $conn->query($sql00xgr);
 if ($result00xgr->num_rows > 0) {
     while ($row00xgr = $result00xgr->fetch_assoc()) {
@@ -42,7 +42,7 @@ if ($result00xgr->num_rows > 0) {
 
 
                         <?php
-                        $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear='$sy' and areaname= '$cls2' order by idno, id";
+                        $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear LIKE '%$sy%'  and areaname= '$cls2' order by idno, id";
                         $result00xgr_2 = $conn->query($sql00xgr);
                         if ($result00xgr_2->num_rows > 0) {
                             while ($row00xgr = $result00xgr_2->fetch_assoc()) {

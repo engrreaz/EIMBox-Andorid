@@ -41,7 +41,7 @@ if (isset($_GET['sec'])) {
 
                                         <option value="">Choose a Class</option>
                                         <?php
-                                        $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear='$sy' group by areaname order by idno, id ";
+                                        $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear LIKE '%$sy%' group by areaname order by idno, id ";
                                         $result00xgr11 = $conn->query($sql00xgr);
                                         if ($result00xgr11->num_rows > 0) {
                                             while ($row00xgr = $result00xgr11->fetch_assoc()) {
@@ -64,7 +64,7 @@ if (isset($_GET['sec'])) {
 
                                         <option value="">Choose a Section</option>
                                         <?php
-                                        $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear='$sy' and areaname='$cls2'  group by subarea order by idno, id";
+                                        $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear LIKE '%$sy%' and areaname='$cls2'  group by subarea order by idno, id";
                                         $result00xgr = $conn->query($sql00xgr);
                                         if ($result00xgr->num_rows > 0) {
                                             while ($row00xgr = $result00xgr->fetch_assoc()) {

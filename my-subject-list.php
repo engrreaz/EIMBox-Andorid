@@ -130,6 +130,14 @@ $collection = $accountant = 0;
               <div class="menu-text"> My Subjects </div>
             </td>
           </tr>
+          <!-- <tr>
+            <td>
+              <div class="d-flex">
+                <div id="cnt"></div> Subjects.
+              </div>
+              
+            </td>
+          </tr> -->
 
 
         </table>
@@ -190,7 +198,7 @@ $collection = $accountant = 0;
         ?>
         <div class="card text-center mb-1" style="background:var(<?php echo $bgc; ?>); color:var(--darker);border-radius:0;"
           id="block<?php echo $prno; ?>" <?php echo $dsbl; ?>>
-          <div class="card-body" style="border-radius:0;" onclick="go(<?php echo $stid; ?>)">
+          <div class="card-body" style="border-radius:0;" >
             <table width="100%">
               <tr>
                 <td style="width:10px; text-align:center;">
@@ -246,8 +254,6 @@ $collection = $accountant = 0;
 
 
 <script>
-  document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
-  document.getElementById("cntamt").innerHTML = "<?php echo number_format($cash_in_hand, 2, ".", ","); ?>";
-  document.getElementById("collection").innerHTML = "<?php echo number_format($cntamt, 2, ".", ","); ?>";
-  document.getElementById("accountant").innerHTML = "<?php echo number_format($accountant, 2, ".", ","); ?>";
+  // document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
+  
 </script>

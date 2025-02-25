@@ -34,7 +34,7 @@ include 'inc.php';
 
               <option value="">Choose a Class & Section</option>
               <?php
-              $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear = '$sy' order by idno, id";
+              $sql00xgr = "SELECT * FROM areas where user='$rootuser' and sessionyear LIKE '%$sy%'  order by idno, id";
               $result00xgr = $conn->query($sql00xgr);
               if ($result00xgr->num_rows > 0) {
                 while ($row00xgr = $result00xgr->fetch_assoc()) {

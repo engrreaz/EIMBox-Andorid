@@ -16,7 +16,7 @@ include 'datam/datam-teacher.php';
 
 
         <?php
-        $sql0 = "SELECT * FROM areas where sessionyear = '$sy' and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten'), subarea, idno";
+        $sql0 = "SELECT * FROM areas where sessionyear  LIKE '%$sy%'  and user='$rootuser' order by FIELD(areaname,'Six', 'Seven', 'Eight', 'Nine', 'Ten'), subarea, idno";
         //echo $sql0;
         $result0 = $conn->query($sql0);
         if ($result0->num_rows > 0) {

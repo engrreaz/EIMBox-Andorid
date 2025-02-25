@@ -4,7 +4,7 @@ include 'datam/datam-teacher.php';
 $cls = $_GET['cls'];
 $sec = $_GET['sec'];
 
-$sql0b2x = "SELECT * FROM areas where sessionyear='$sy' and user='$rootuser' and areaname='$cls' and subarea='$sec'";
+$sql0b2x = "SELECT * FROM areas where sessionyear LIKE '%$sy%'  and user='$rootuser' and areaname='$cls' and subarea='$sec'";
 $result0b2x = $conn->query($sql0b2x);
 if ($result0b2x->num_rows > 0) {
     while ($row02x = $result0b2x->fetch_assoc()) {
@@ -71,7 +71,7 @@ if ($result0b2x->num_rows > 0) {
 
 
         <?php
-        $sql0 = "SELECT * FROM subsetup where sccode = '$sccode' and classname='$cls' and sectionname = '$sec' and sessionyear='$sy' order by subject";
+        $sql0 = "SELECT * FROM subsetup where sccode = '$sccode' and classname='$cls' and sectionname = '$sec' and sessionyear LIKE '%$sy%'  order by subject";
         //echo $sql0;
         $result0 = $conn->query($sql0);
         if ($result0->num_rows > 0) {
@@ -99,7 +99,7 @@ if ($result0b2x->num_rows > 0) {
                                     <div class="stname-eng"><?php echo $subnameben; ?></div>
                                     <div class="stname-ben"><?php echo $subnameeng; ?></div>
                                 </td>
-                                <td style="text-align:right; width:60px;" rowspan="2"><img src="<?php echo $ico; ?>" class="pic" /></td>
+                                <!-- <td style="text-align:right; width:60px;" rowspan="2"><img src="<?php echo $ico; ?>" class="pic" /></td> -->
                             </tr>
                             <tr>
 
@@ -110,7 +110,7 @@ if ($result0b2x->num_rows > 0) {
                                         <?php
                                         foreach ($datam_teacher_profile as $teatea) {
                                             $tid = $teatea["tid"];
-                                            $teatea = $row01["tname"];
+                                            $tname = $teatea["tname"];
                                             ?>
                                             <option value="<?php echo $tid; ?>" <?php if ($tid == $subtid) {
                                                   echo 'selected';
@@ -174,7 +174,7 @@ if ($result0b2x->num_rows > 0) {
 
         $.ajax({
             type: "POST",
-            url: "settid.php",
+            url: "backend/settid.php",
             data: infor,
             cache: false,
             beforeSend: function () {
