@@ -139,6 +139,10 @@
 
         }
 
+        .sender {
+            width: 30px; width:30px; border-redius: 50%;
+        }
+
         .footer-nav-icon {
             font-size: 20px;
         }
@@ -356,8 +360,11 @@
             height: 8px;
         }
 
-        .text-box {
+        .text-box-yu {
             font-family: 'Yu Gothic';
+            padding: 18px 10px;
+        }
+        .text-box {
             padding: 18px 10px;
         }
 

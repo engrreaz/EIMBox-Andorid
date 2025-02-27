@@ -310,7 +310,7 @@
 
     function epos() {
         let lastpr = document.getElementById("mylastpr").value;
-        // infor = "prno=" + lastpr;
+        infor = "prno=" + lastpr;
         $("#eposlink").html("");
 
         $.ajax({

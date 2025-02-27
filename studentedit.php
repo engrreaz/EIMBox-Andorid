@@ -221,7 +221,8 @@ include 'component/student-image-path.php';
 
 
                         <div style="text-align:left; padding-top :15px;">
-                            <button type="button" class="btn btn-primary" onclick="upd();">Update Info</button>
+                            <button type="button" class="btn btn-primary" onclick="upd(0);">Update Info</button>
+                            <button type="button" class="btn btn-dark float-right" onclick="upd(1);">Update & Next</button>
                             <span id="px"></span>
                         </div>
 
@@ -277,7 +278,7 @@ include 'component/student-image-path.php';
 </script>
 
 <script>
-    function upd() {
+    function upd(act) {
         var nameeng = document.getElementById("nameeng").value;
         var nameben = document.getElementById("nameben").value;
         var fname = document.getElementById("fname").value;
@@ -299,12 +300,12 @@ include 'component/student-image-path.php';
         }
         else*/
         {
-            var infor = "stid=<?php echo $stid; ?>&nameeng=" + nameeng + "&nameben=" + nameben + "&fname=" + fname + "&mname=" + mname + "&vill=" + vill + "&po=" + po + "&ps=" + ps + "&dist=" + dist + "&mno=" + mno + "&dob=" + dob;
+            var infor = "stid=<?php echo $stid; ?>&nameeng=" + nameeng + "&nameben=" + nameben + "&fname=" + fname + "&mname=" + mname + "&vill=" + vill + "&po=" + po + "&ps=" + ps + "&dist=" + dist + "&mno=" + mno + "&dob=" + dob + "&roll=<?php echo $roll;?>&cls=<?php echo $cls; ?>&sec=<?php echo $sec; ?>";
             $("#px").html("");
 
             $.ajax({
                 type: "POST",
-                url: "updatest.php",
+                url: "backend/update-st-profile.php",
                 data: infor,
                 cache: false,
                 beforeSend: function () {
@@ -312,7 +313,15 @@ include 'component/student-image-path.php';
                 },
                 success: function (html) {
                     $("#px").html(html);
-                    history.back(-1);
+
+                    if(act==0){
+                         history.back(-1);
+                    } else {
+                        var stidgo = document.getElementById("stidgo").innerHTML;
+                        window.location.href = 'studentedit.php?id=' + stidgo;
+                    }
+
+                   
                     //alert('students.php?cls=<?php echo $cls; ?>&sec=<?php echo $sec; ?>#<?php echo $stid; ?>');
                     // window.location.href = 'students.php?cls=<?php echo $cls; ?>&sec=<?php echo $sec; ?>#block<?php echo $stid; ?>';
                 }

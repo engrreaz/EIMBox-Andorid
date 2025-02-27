@@ -11,9 +11,8 @@ include 'inc.php';
                 <table width="100%" style="color:white;">
                     <tr>
                         <td>
-                            <div class="logoo"><i class="bi bi-person-circle"></i></div>
-                            <div
-                                style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
+                            <div class="page-icon"><i class="bi bi-person-circle"></i></div>
+                            <div class="page-title">
                                 Teaching Staff Manager
                             </div>
                         </td>

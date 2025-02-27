@@ -2,7 +2,7 @@
 include 'inc.php';
 	
     $td = date('Y-m-d');
-	$count = $_POST['count'];;   //$ = $_POST[''];;  
+	// $count = $_POST['count'];;   //$ = $_POST[''];;  
 	$cls = $_POST['cls'];  $sec = $_POST['sec'];  
 	$user = $_POST['user'];;   $sccode = $_POST['sccode'];;  $sy = $_POST['sy'];;
 	$from = $_POST['from'];;   $amt = $_POST['amt'];; $tail = $_POST['tail'];;

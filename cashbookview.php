@@ -1,128 +1,31 @@
-<?php 
+<?php
 include 'inc.php';
 
-$datefrom = '2023-01-01'; date('Y-m-01');
+$datefrom = '2023-01-01';
+date('Y-m-01');
 $dateto = date('Y-m-t');
 
 ?>
 
-<!doctype html>
-<html lang="en">
-
-<head>
-  <title>Title</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css.css?v=a">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
-    <style>
-        .pic{
-            width:45px; height:45px; padding:1px; border-radius:50%; border:1px solid var(--dark); margin:5px;
-        }
-        
-        .a{font-size:18px; font-weight:700; font-style:normal; line-height:22px; color:var(--dark);}
-        .b{font-size:16px; font-weight:600; font-style:normal; line-height:22px;}
-        .c{font-size:11px; font-weight:400; font-style:italic; line-height:16px;}
-        h4{font-size:18px; color:var(--darker); line-height:12px; font-weight:700;}
-        small{font-size:10px; color:var(--dark); line-height:10px;}
-    </style>
-    <style>
-    .box {
-        padding: 5px 25px;
-        box-sizing: border-box;
-        display: flex;
-        border: 1px solid var(--darker);
-        border-width: 0;
-        margin:5px 0;
-    }
-    
-
-
-    .box-icon {
-        font-size: 15px;
-        display: inline;
-        width: 30px;
-        padding-top: 3px;
-        margin-right: 5px;
-    }
-    
-    .box-icon::before {
-        content: '';
-  position: absolute;
-  width: 0px;
-  background-color: var(--dark);
-  top: 0;
-  bottom: 0;
-  left: 10px;
-  margin-left: -1px;
-    }
-
-
-    .box-text {
-        display: flex;
-        flex-direction: column;
-        flex: auto;
-        margin-top:1px;
-        padding-left:5px;
-    }
-
-    .box-title {
-        font-size: 12px;
-        font-weight: 500;
-        margin: 0;
-    }
-
-
-    .box-subtitle {
-        font-size: 10px;
-        font-weight: 400;
-        margin: 0;
-        color: gray;
-    }
-
-    .box-prog {
-        height: 50px;
-        width: 50px;
-        display: none;
-    }
-    
-    .sender {
-        width:25px; height:25px; border-radius:50%; background: white; z-index:999;
-        box-shadow: 2px 2px 8px #888888;
-    }
-</style>
-</head>
-
-<body style="background:var(--lighter);">
-  <header>
-    <!-- place navbar here -->
-  </header>
-  <main>
+<main>
     <div class="container-fluidx">
 
-        <div class="card text-left" style="background:var(--dark); color:var(--lighter);"  onclick="go(<?php echo $id;?>)">
-          
+        <div class="card text-left" style="background:var(--dark); color:var(--lighter);"
+            onclick="go(<?php echo $id; ?>)">
+
             <div class="card-body">
-                <table width="100%" style="color:white;">
-                    <tr>
-                        <td>
-                            <div class="logoo"><i class="bi bi-bell-fill"></i></div>
-                            <div style="font-size:20px; text-align:center; padding: 2px 2px 8px; font-weight:700; line-height:15px;">
-                                Cashbook Manager
-                            </div>
-                        </td>
-                    </tr>
-                
-                    
-                </table>
+                <div class="page-top-box">
+                    <div class="menu-icon"><i class="bi bi-coin"></i></div>
+                    <div class="menu-text">Cashbook Manager</div>
+                </div>
+                <div class="page-sub-box">
+
+                </div>
                 <style>
-                    .spcl{font-size:12px; font-style:italic;}
+                    .spcl {
+                        font-size: 12px;
+                        font-style: italic;
+                    }
                 </style>
                 <table style="width:100%; display:none;">
                     <tr>
@@ -137,8 +40,8 @@ $dateto = date('Y-m-t');
                                 <i class="bi bi-check-circle-fill"></i> <span class="spcl">Done</span>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <i class="bi-shield-fill-check"></i> <span class="spcl">Tested</span>
-                                
-                                <?php echo $datefrom . '/' . $dateto;?>
+
+                                <?php echo $datefrom . '/' . $dateto; ?>
                             </div>
                         </td>
                         <td style="text-align:center; color:white;">
@@ -149,22 +52,24 @@ $dateto = date('Y-m-t');
                         </td>
                     </tr>
                 </table>
-                            
+
             </div>
-            
-            
+
+
             <div class="card-body" style="display:none;" id="issueblock">
                 <div style="color:white; background:var(--dark);">
                     <b>Add a Issue</b>
                     <br>
                     <span style="font-size:11px; font-style:italic;">Add a new issue or existing module issue</span>
                     <br>
-                    
+
                     <div style="text-align:left; padding-top:0px;">
                         <div class="input-group">
-                            <span class="input-group-text" style="color:white;"><i class="material-icons ico">reorder</i></span>
-                            <select class="form-control" id="cause" style="border:0; background:var(--dark); color:white; border-bottom:1px solid lightgray;">
-                                <option >Select a type</option>
+                            <span class="input-group-text" style="color:white;"><i
+                                    class="material-icons ico">reorder</i></span>
+                            <select class="form-control" id="cause"
+                                style="border:0; background:var(--dark); color:white; border-bottom:1px solid lightgray;">
+                                <option>Select a type</option>
                                 <option value="Student">Student </option>
                                 <option value="Teacher">Teacher</option>
                                 <option value="Columner Cashbook">Cash Book Related</option>
@@ -173,309 +78,333 @@ $dateto = date('Y-m-t');
                             </select>
                         </div>
                     </div>
-                    
+
                     <div style="text-align:left; padding-top:5px;">
                         <div class="input-group">
-                            <span class="input-group-text" style="color:white;"><i class="material-icons ico">description</i></span>
-                            <input  style="color:white;" type="text" id="descrip" name="descrip" class="form-control" placeholder="Your Issue..." value="">
+                            <span class="input-group-text" style="color:white;"><i
+                                    class="material-icons ico">description</i></span>
+                            <input style="color:white;" type="text" id="descrip" name="descrip" class="form-control"
+                                placeholder="Your Issue..." value="">
                         </div>
                     </div>
                     <div style="text-align:left; padding-top:5px;">
                         <div class="input-group">
-                            <span class="input-group-text" style="color:white;"><i class="material-icons ico">event</i></span>
-                            <input  style="color:white; background:var(--dark); border:0; border-bottom:1px solid white;" type="date" id="date" name="date" class="form-control" placeholder="Deadline" value="<?php echo date('Y-m-d');?>">
+                            <span class="input-group-text" style="color:white;"><i
+                                    class="material-icons ico">event</i></span>
+                            <input style="color:white; background:var(--dark); border:0; border-bottom:1px solid white;"
+                                type="date" id="date" name="date" class="form-control" placeholder="Deadline"
+                                value="<?php echo date('Y-m-d'); ?>">
                         </div>
                     </div>
-                    
+
                     <div style="padding:5px 60px;">
-                        <button class="btn " style="background:white; color:var(--dark); border-radius:5px;" onclick="addissue();;"   ><b>Add a issue</b></button>
+                        <button class="btn " style="background:white; color:var(--dark); border-radius:5px;"
+                            onclick="addissue();;"><b>Add a issue</b></button>
                         <span id="settc"></span>
                     </div>
                 </div>
             </div>
-            
+
             <div id="settcc"></div>
-            
+
         </div>
 
-    
-    
-            <!--<div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk3();" >-->
-            <!--  <img class="card-img-top"  alt="">-->
-            <!--  <div class="card-body">-->
-            <!--    <table style="">-->
-            <!--        <tr>-->
-            <!--            <td style="width:50px;color:var(--dark);"><i class="material-icons">group</i></td>-->
-            <!--            <td>-->
-            <!--                <h4>Administrative Setup</h4>-->
-            <!--                <small>Class & Sections, Subjects, Teachers, Users etc.</small>-->
-            <!--            </td>-->
-            <!--        </tr>-->
-            <!--    </table>-->
-            <!--  </div>-->
-            <!--</div>-->
-            
-            
-            <?php
-            
-                $inr = 0; $exr = 0; $inw = 0; $exw = 0;
-                for($jj=0; $jj<2; $jj++){
-                
-                if($jj == 0){$ssc = $sccode; $ttxx = 'Sanctioned Bill/Vouchers'; $idin = 'in0'; $idex = 'ex0';} else if($jj==1){$ssc = $sccode * 10; $ttxx = 'Ignored Bill/Vouchers';  $idin = 'in1'; $idex = 'ex1'; $datefrom = '2023-01-01'; $dateto = $td;}
-                ?>
-            
-            
+
+
+        <!--<div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk3();" >-->
+        <!--  <img class="card-img-top"  alt="">-->
+        <!--  <div class="card-body">-->
+        <!--    <table style="">-->
+        <!--        <tr>-->
+        <!--            <td style="width:50px;color:var(--dark);"><i class="material-icons">group</i></td>-->
+        <!--            <td>-->
+        <!--                <h4>Administrative Setup</h4>-->
+        <!--                <small>Class & Sections, Subjects, Teachers, Users etc.</small>-->
+        <!--            </td>-->
+        <!--        </tr>-->
+        <!--    </table>-->
+        <!--  </div>-->
+        <!--</div>-->
+
+
+        <?php
+
+        $inr = 0;
+        $exr = 0;
+        $inw = 0;
+        $exw = 0;
+        for ($jj = 0; $jj < 2; $jj++) {
+
+            if ($jj == 0) {
+                $ssc = $sccode;
+                $ttxx = 'Sanctioned Bill/Vouchers';
+                $idin = 'in0';
+                $idex = 'ex0';
+            } else if ($jj == 1) {
+                $ssc = $sccode * 10;
+                $ttxx = 'Ignored Bill/Vouchers';
+                $idin = 'in1';
+                $idex = 'ex1';
+                $datefrom = '2023-01-01';
+                $dateto = $td;
+            }
+            ?>
+
+
             <div class="card-body">
-            <div class="card" style="background:var(--lighter); border:0; color:var(--darker);" onclick="lnk30();" >
-                <div style=" width:80%; border-radius:35px; background:var(--darker); color:white; font-weight:bold; margin:8px auto; text-align:center; padding:8px;"><?php echo $ttxx;?></div>
-              <img class="card-img-top"  alt="">
-              <table style="width:65%; margin:0 auto 15px; border-bottom:1px dashed var(--dark); font-size:13px; color:var(--darker);">
-                  <tr>
-                      <td><div id="<?php echo $idin;?>"></div></td>
-                      <td><div style="text-align:right;" id="<?php echo $idex;?>"></div></td>
-                  </tr>
-              </table>
-              <?php
-              
-              
-                $sql0 = "SELECT * FROM cashbook where sccode='$ssc' and date between '$datefrom' and '$dateto'  and entryby !='System-Auto' order by date desc, partid";
-                $result0wwrt = $conn->query($sql0);
-                if ($result0wwrt->num_rows > 0) 
-                {while($row0 = $result0wwrt->fetch_assoc()) { 
-                $type = $row0["type"];
-                $partid = $row0["partid"];
-                $particul = $row0["particulars"];
-                $taka = $row0["amount"];
-                $date = $row0["date"];
-                
-                $eby = $row0["entryby"];
-                $id = $row0["id"];
-                
-                $sql0 = "SELECT * FROM financesetup where sccode='$sccode' and id='$partid'";
-                $result0wwrtx = $conn->query($sql0);
-                if ($result0wwrtx->num_rows > 0) 
-                {while($row0 = $result0wwrtx->fetch_assoc()) { 
-                $partxt = $row0["particulareng"] . ' / ' . $row0["particularben"];
-                }}
-                
-                if($type == 'Income'){$txtclr = 'seagreen';} else {$txtclr = 'Tomato';}
-                
-               
-                
-            ?>  
-                    <div class="box" style="color:<?php echo $txtclr;?>; border-bottom: 1px solid var(--dark); ">
-                        <div class="box-icon">
-                            <img onclick="progress(<?php echo $id;?>);"  class="sender" src="https://eimbox.com/androidapplicationversion/iimg/icon/<?php echo $partid;?>.png" />
-                        </div>
-                        <div class="box-text">
-                            <div style="float:right;text-align:right; right:25px; position:absolute;">
-                                <div style="font-size:18px; font-weight:700; color:<?php echo $clr;?>"><?php echo $taka;?></div>
+                <div class="card" style="background:var(--lighter); border:0; color:var(--darker);" onclick="lnk30();">
+                    <div
+                        style=" width:80%; border-radius:35px; background:var(--darker); color:white; font-weight:bold; margin:8px auto; text-align:center; padding:8px;">
+                        <?php echo $ttxx; ?></div>
+                    <table
+                        style="width:65%; margin:0 auto 15px; border-bottom:1px dashed var(--dark); font-size:13px; color:var(--darker);">
+                        <tr>
+                            <td>
+                                <div id="<?php echo $idin; ?>"></div>
+                            </td>
+                            <td>
+                                <div style="text-align:right;" id="<?php echo $idex; ?>"></div>
+                            </td>
+                        </tr>
+                    </table>
+                    <?php
+
+
+                    $sql0 = "SELECT * FROM cashbook where sccode='$ssc' and date between '$datefrom' and '$dateto'  and entryby !='System-Auto' order by date desc, partid";
+                    $result0wwrt = $conn->query($sql0);
+                    if ($result0wwrt->num_rows > 0) {
+                        while ($row0 = $result0wwrt->fetch_assoc()) {
+                            $type = $row0["type"];
+                            $partid = $row0["partid"];
+                            $particul = $row0["particulars"];
+                            $taka = $row0["amount"];
+                            $date = $row0["date"];
+
+                            $eby = $row0["entryby"];
+                            $id = $row0["id"];
+
+                            $sql0 = "SELECT * FROM financesetup where sccode='$sccode' and id='$partid'";
+                            $result0wwrtx = $conn->query($sql0);
+                            if ($result0wwrtx->num_rows > 0) {
+                                while ($row0 = $result0wwrtx->fetch_assoc()) {
+                                    $partxt = $row0["particulareng"] . ' / ' . $row0["particularben"];
+                                }
+                            }
+
+                            if ($type == 'Income') {
+                                $txtclr = 'seagreen';
+                            } else {
+                                $txtclr = 'Tomato';
+                            }
+
+
+
+                            ?>
+                            <div class="box" style="color:<?php echo $txtclr; ?>; border-bottom: 1px solid var(--dark); ">
+                                <div class="box-icon">
+                                    <img onclick="progress(<?php echo $id; ?>);" class="sender"
+                                        src="https://eimbox.com/androidapplicationversion/iimg/icon/<?php echo $partid; ?>.png" />
+                                </div>
+                                <div class="box-text">
+                                    <div style="float:right;text-align:right; right:25px; position:absolute;">
+                                        <div style="font-size:18px; font-weight:700; color:<?php echo $clr; ?>"><?php echo $taka; ?>
+                                        </div>
+                                    </div>
+                                    <div style="font-size:10px; font-weight:700;"><?php echo $partxt; ?></div>
+                                    <div class="box-title" style="width: calc(100% - 60px);"><?php echo $particul; ?></div>
+                                    <div class="box-subtitle">
+                                        <?php echo date('d/m/Y', strtotime($date)) . ' by <b>' . $eby . '</b>'; ?></div>
+                                    <div style="height:10px;"></div>
+                                </div>
+
+                                <div>
+                                    <br>
+
+                                    <span id="ddx<?php echo $id; ?>">
+                                        <button class="btn btn-success" onclick="delitem(<?php echo $id; ?>,2);">Accept</button>
+                                        <button class="btn btn-danger" onclick="delitem(<?php echo $id; ?>,1);">Delete</button>
+                                    </span>
+                                </div>
+
                             </div>
-                            <div style="font-size:10px; font-weight:700;" ><?php echo $partxt; ?></div>
-                            <div class="box-title" style="width: calc(100% - 60px);"><?php echo $particul;?></div>
-                            <div class="box-subtitle"  ><?php echo date('d/m/Y', strtotime($date)) . ' by <b>' . $eby . '</b>'  ;?></div>
-                            <div style="height:10px;"></div>
-                        </div>
-                        
-                        <div >
-                            <br>
-                            
-                            <span id="ddx<?php echo $id;?>">
-                                <button class="btn btn-success" onclick="delitem(<?php echo $id;?>,2);">Accept</button>
-                                <button class="btn btn-danger" onclick="delitem(<?php echo $id;?>,1);">Delete</button>
-                            </span>
-                        </div>
-                        
-                    </div>
-            <?php 
-            
-                            if($jj == 0){
-                                if($type == 'Income'){
+                            <?php
+
+                            if ($jj == 0) {
+                                if ($type == 'Income') {
                                     $inr += $taka;
                                 } else {
                                     $exr += $taka;
                                 }
                             } else {
-                                if($type == 'Income'){
+                                if ($type == 'Income') {
                                     $inw += $taka;
                                 } else {
                                     $exw += $taka;
                                 }
                             }
-                }}
-                
-               
-              ?>
-              
+                        }
+                    }
 
-              </div>
+
+                    ?>
+
+
+                </div>
             </div>
-            
-            
-            
-            <?php } 
-            
-            
-            ?>
-            
-            
-            
-            <!-------------------------------------------------------->
 
-            
-         
 
-        
-        
-        
-        
+
+        <?php }
+
+
+        ?>
+
+
+
+        <!-------------------------------------------------------->
+
+
+
+
+
+
+
+
     </div>
 
-  </main>
-  <div style="height:52px;"></div>
-  <footer>
-    <!-- place footer here -->
-  </footer>
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
+</main>
+<div style="height:52px;"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  
-  <script>
-  document.getElementById("in0").innerHTML = "Income : <b><?php echo $inr;?></b>";
-  document.getElementById("in1").innerHTML = "Income : <b><?php echo $inw;?></b>";
-  document.getElementById("ex0").innerHTML = "Expenditure : <b><?php echo $exr;?></b>";
-  document.getElementById("ex1").innerHTML = "Expenditure : <b><?php echo $exw;?></b>";
-  
-  document.getElementById("cnt").innerHTML = "<?php echo $cnt;?>";
-  
-  
-  
-    function iss(){
+<script>
+    document.getElementById("in0").innerHTML = "Income : <b><?php echo $inr; ?></b>";
+    document.getElementById("in1").innerHTML = "Income : <b><?php echo $inw; ?></b>";
+    document.getElementById("ex0").innerHTML = "Expenditure : <b><?php echo $exr; ?></b>";
+    document.getElementById("ex1").innerHTML = "Expenditure : <b><?php echo $exw; ?></b>";
+
+    document.getElementById("cnt").innerHTML = "<?php echo $cnt; ?>";
+
+
+
+    function iss() {
         document.getElementById("issueblock").style.display = 'block';
     }
-    
-    function go(){
-        var cls=document.getElementById("classname").value; 
-        var sec=document.getElementById("sectionname").value; 
-        var sub=document.getElementById("subject").value; 
-        var assess=document.getElementById("assessment").value; 
-        var exam=document.getElementById("exam").value; 
-        let tail = '?exam=' + exam + '&cls=' + cls + '&sec=' + sec + '&sub=' + sub + '&assess=' + assess; 
-        if(cls=='Six'|| cls == 'Seven'){
-            window.location.href="markpibi.php" + tail; 
+
+    function go() {
+        var cls = document.getElementById("classname").value;
+        var sec = document.getElementById("sectionname").value;
+        var sub = document.getElementById("subject").value;
+        var assess = document.getElementById("assessment").value;
+        var exam = document.getElementById("exam").value;
+        let tail = '?exam=' + exam + '&cls=' + cls + '&sec=' + sec + '&sub=' + sub + '&assess=' + assess;
+        if (cls == 'Six' || cls == 'Seven') {
+            window.location.href = "markpibi.php" + tail;
         } else {
-            window.location.href="markentry.php" + tail; 
+            window.location.href = "markentry.php" + tail;
         }
-    }  
-    
-        function lnk1(){ window.location.href="tools_allsubjects.php"; }
-        function lnk2(){ window.location.href="pibiprocess.php"; }
-        function lnk3(){ window.location.href="settings.php"; }
-        function lnk4(){ window.location.href="transcriptselect.php"; }
-        function lnk5(){ window.location.href="userlist.php"; }
-        function lnk6(){ window.location.href="classes.php"; }
-        function lnk7(){ window.location.href="transcriptselect.php"; }
-        function lnk8(){ window.location.href="transcriptselect.php"; }
-        function lnk31(){ window.location.href="accountsecurity.php"; }
-        
-        
-  </script>
-  
-  
-  <script>
-      function fetchsection() {
-		var cls=document.getElementById("classname").value;
-
-		var infor="user=<?php echo $rootuser;?>&cls=" + cls;
-	$("#sectionblock").html( "" );
-
-	 $.ajax({
-			type: "POST",
-			url: "fetchsection.php",
-			data: infor,
-			cache: false,
-			beforeSend: function () { 
-				$('#sectionblock').html('<span class=""><center>Fetching Section Name....</center></span>');
-			},
-			success: function(html) {    
-				$("#sectionblock").html( html );
-			}
-		});
     }
-  </script>
-  
-  <script>
-      function addissue() {
-		var cause=document.getElementById("cause").value;
-		var descrip=document.getElementById("descrip").value;
-		var date=document.getElementById("date").value;
 
-		var infor="sccode=<?php echo $sccode;?>&cause=" + cause + "&descrip=" + descrip + "&date="+ date + "&tail=0";
-	$("#settc").html( "" );
+    function lnk1() { window.location.href = "tools_allsubjects.php"; }
+    function lnk2() { window.location.href = "pibiprocess.php"; }
+    function lnk3() { window.location.href = "settings.php"; }
+    function lnk4() { window.location.href = "transcriptselect.php"; }
+    function lnk5() { window.location.href = "userlist.php"; }
+    function lnk6() { window.location.href = "classes.php"; }
+    function lnk7() { window.location.href = "transcriptselect.php"; }
+    function lnk8() { window.location.href = "transcriptselect.php"; }
+    function lnk31() { window.location.href = "accountsecurity.php"; }
 
-	 $.ajax({
-			type: "POST",
-			url: "saveissue.php",
-			data: infor,
-			cache: false,
-			beforeSend: function () { 
-				$('#settc').html('<span class="">Adding your issue...</span>');
-			},
-			success: function(html) {    
-				$("#settc").html( html );
-			}
-		});
+
+</script>
+
+
+<script>
+    function fetchsection() {
+        var cls = document.getElementById("classname").value;
+
+        var infor = "user=<?php echo $rootuser; ?>&cls=" + cls;
+        $("#sectionblock").html("");
+
+        $.ajax({
+            type: "POST",
+            url: "fetchsection.php",
+            data: infor,
+            cache: false,
+            beforeSend: function () {
+                $('#sectionblock').html('<span class=""><center>Fetching Section Name....</center></span>');
+            },
+            success: function (html) {
+                $("#sectionblock").html(html);
+            }
+        });
     }
-  </script>
-  
-  <script>
-      function progress(id) {
-		var infor="sccode=<?php echo $sccode;?>&id=" + id  + "&tail=1";
-	$("#settcc").html( "" );
+</script>
 
-	 $.ajax({
-			type: "POST",
-			url: "saveissue.php",
-			data: infor,
-			cache: false,
-			beforeSend: function () { 
-				$('#settcc').html('<span class="">Adding your issue...</span>');
-			},
-			success: function(html) {    
-				$("#settcc").html( html );
-			}
-		});
-    }
-  </script>
-  
-  <script>
-      function delitem(id, tail) {
-		var infor="sccode=<?php echo $sccode;?>&id=" + id  + "&tail=" + tail;
-	$("#ddx"+id).html( "" );
+<script>
+    function addissue() {
+        var cause = document.getElementById("cause").value;
+        var descrip = document.getElementById("descrip").value;
+        var date = document.getElementById("date").value;
 
-	 $.ajax({
-			type: "POST",
-			url: "delcashbook.php",
-			data: infor,
-			cache: false,
-			beforeSend: function () { 
-				$('#ddx'+id).html('<span class="">Deleting....</span>');
-			},
-			success: function(html) {    
-				$("#ddx"+id).html( html );
-			}
-		});
+        var infor = "sccode=<?php echo $sccode; ?>&cause=" + cause + "&descrip=" + descrip + "&date=" + date + "&tail=0";
+        $("#settc").html("");
+
+        $.ajax({
+            type: "POST",
+            url: "saveissue.php",
+            data: infor,
+            cache: false,
+            beforeSend: function () {
+                $('#settc').html('<span class="">Adding your issue...</span>');
+            },
+            success: function (html) {
+                $("#settc").html(html);
+            }
+        });
     }
-  </script>
-    
-    
-  
+</script>
+
+<script>
+    function progress(id) {
+        var infor = "sccode=<?php echo $sccode; ?>&id=" + id + "&tail=1";
+        $("#settcc").html("");
+
+        $.ajax({
+            type: "POST",
+            url: "saveissue.php",
+            data: infor,
+            cache: false,
+            beforeSend: function () {
+                $('#settcc').html('<span class="">Adding your issue...</span>');
+            },
+            success: function (html) {
+                $("#settcc").html(html);
+            }
+        });
+    }
+</script>
+
+<script>
+    function delitem(id, tail) {
+        var infor = "sccode=<?php echo $sccode; ?>&id=" + id + "&tail=" + tail;
+        $("#ddx" + id).html("");
+
+        $.ajax({
+            type: "POST",
+            url: "delcashbook.php",
+            data: infor,
+            cache: false,
+            beforeSend: function () {
+                $('#ddx' + id).html('<span class="">Deleting....</span>');
+            },
+            success: function (html) {
+                $("#ddx" + id).html(html);
+            }
+        });
+    }
+</script>
+
+
+
 </body>
 
 </html>
