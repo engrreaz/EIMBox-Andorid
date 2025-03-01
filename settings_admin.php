@@ -42,7 +42,7 @@ $count_class = count($cteacher_data);
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-bank2"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-person-circle"></i></td>
             <td>
               <h4> Teachers & Staffs </h4>
               <div class="menu-item-sub-text"> Add/Edit teachers & Staffs Profile </div>
@@ -58,7 +58,7 @@ $count_class = count($cteacher_data);
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-bank2"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-diagram-3-fill"></i></td>
             <td>
               <h4> Class & Section Manager </h4>
               <div class="menu-item-sub-text"> Add/Edit Classes and sections with manage their settings </div>
@@ -76,7 +76,7 @@ $count_class = count($cteacher_data);
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-bank2"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-person-vcard-fill"></i></td>
             <td>
               <h4> Generate Student's ID </h4>
               <div class="menu-item-sub-text"> Generate student's ID for emergency profile creating </div>
@@ -95,6 +95,23 @@ $count_class = count($cteacher_data);
             <td>
               <h4> Payment Setup (Indivisual) </h4>
               <div class="menu-item-sub-text"> Change Payment Setup for indivisual Student </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
+    <div class="card menu-item-block" onclick="settings_admin_subject_setup();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-book-half"></i></td>
+            <td>
+              <h4> Subjects Manager</h4>
+              <div class="menu-item-sub-text"> 
+                Setup Subjects and Manage Marks Distribution 
+              </div>
             </td>
           </tr>
         </table>
@@ -122,9 +139,26 @@ $count_class = count($cteacher_data);
       <div class="card-body">
         <table style="">
           <tr>
-            <td class="menu-item-icon"><i class="bi bi-square-half"></i></td>
+            <td class="menu-item-icon"><i class="bi bi-clock"></i></td>
             <td>
               <h4> Setup Class Routine </h4>
+              <div class="menu-item-sub-text"> Setup you class routine according to period, day with teachers binding
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+    
+    
+    <div class="card menu-item-block" onclick="settings_admin_subject_list_teacher_bind();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-clock"></i></td>
+            <td>
+              <h4> View Subjects </h4>
               <div class="menu-item-sub-text"> Setup you class routine according to period, day with teachers binding
               </div>
             </td>
@@ -168,12 +202,12 @@ $count_class = count($cteacher_data);
 
     <?php if ($usr == 'engrreaz@gmail.com') { ?>
 
-      <a class="btn btn-success m-2" href="settings-subject.php">Subject Setup</a>
-      <a class="btn btn-dark m-2" href="settingsteacher.php">Add/Edit Teacher</a>
-      <a class="btn btn-dark m-2" href="settings-class.php">Add/Edit CLS-SEC</a>
+      <!-- <a class="btn btn-success m-2" href="settings-subject.php">Subject Setup</a> -->
+      <!-- <a class="btn btn-dark m-2" href="settingsteacher.php">Add/Edit Teacher</a> -->
+      <!-- <a class="btn btn-dark m-2" href="settings-class.php">Add/Edit CLS-SEC</a> -->
 
       <!-- <a class="btn btn-dark m-2" href="clsroutine-setup.php">Class Routine Setup</a> -->
-      <a class="btn btn-success m-2" href="tools_all-subjects.php">Subject list Class wise</a>
+      <!-- <a class="btn btn-success m-2" href="tools_all-subjects.php">Subject list Class wise</a> -->
       <!-- <a class="btn btn-dark m-2" href="globalsetup.php">Global Setup XXX</a> -->
 
 

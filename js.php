@@ -7,6 +7,43 @@
     // Front page block
     //Schedule
     function oneSecondFunction() {
+
+
+
+        //********************************** */
+        const dx = new Date();
+        let timex = dx.getTime();
+        document.getElementById("cur-time").innerHTML = timex;
+
+
+        var d2 = document.getElementById("next-event").innerHTML;
+        var d1 = document.getElementById("last-event").innerHTML;
+        var date1 = new Date(d1);
+        var date2 = new Date(d2);
+        var whole_time_line = (date2.getTime() - date1.getTime()) / 1000;
+        var rest_time_line = (date2.getTime() - timex) / 1000;
+        if (rest_time_line <= 0) {
+            window.location.href = 'index.php';
+        }
+        document.getElementById("ramadan-dur").innerHTML = rest_time_line;
+        var rama_rate = 100 - Math.round(100 * rest_time_line / whole_time_line);
+        document.getElementById("ramadan-rate").innerHTML = rama_rate;
+        document.getElementById("waiting-line").style.width = rama_rate + '%';
+
+        var ram_h = 0, ram_m = 0, ram_s = 0;
+        ram_h = Math.floor(rest_time_line / 3600);
+        rest_time_line = rest_time_line - ram_h * 3600;
+        ram_m = Math.floor(rest_time_line / 60);
+        ram_s = Math.floor(rest_time_line - ram_m * 60);
+
+        if (ram_h < 10) ram_h = '0' + ram_h;
+        if (ram_m < 10) ram_m = '0' + ram_m;
+        if (ram_s < 10) ram_s = '0' + ram_s;
+        document.getElementById("wait-time").innerHTML = 'Time Remaining : <b>' +  ram_h + ':' + ram_m + ':' + ram_s + '</b>';
+
+        //********************************** */
+
+
         var x = document.getElementById("kk").innerHTML;
         x = parseInt(x) - 1;
         var cd = document.getElementById("class-dur").innerHTML;
@@ -133,10 +170,10 @@
     }
 
 
- function report_menu_absent_bunk_list() {
+    function report_menu_absent_bunk_list() {
         window.location.href = 'absent-bunk-list.php';
     }
-    
+
     function report_menu_cls_routine() {
         window.location.href = 'clsroutine.php';
     }
@@ -268,6 +305,8 @@
     function settings_admin_cls_sec() { window.location.href = "settings-class.php"; }
     function settings_admin_st_id_generate() { window.location.href = "settings-student.php"; }
     function settings_admin_st_id_payment_indivisula() { window.location.href = "st-payment-setup-indivisual.php"; }
+    function settings_admin_subject_setup() { window.location.href = "settings-subject.php"; }
+    function settings_admin_subject_list_teacher_bind() { window.location.href = "tools_all-subjects.php"; }
     function settings_admin_bind_teacher_subject() { window.location.href = "classes.php"; }
     function settings_admin_class_routine_setup() { window.location.href = "clsroutine-setup.php"; }
     function settings_sms_menu() { window.location.href = "sms-manager.php"; }
@@ -306,7 +345,7 @@
 
 
     //********************************************************************* */
-    
+
 
     function epos() {
         let lastpr = document.getElementById("mylastpr").value;
