@@ -15,7 +15,13 @@ $today_iftar = date('Y-m-d H:i:s', ($today_iftar));
 $today_sehri = strtotime(date('Y-m-d') . ' 05:06:00') - date('d') * 60;
 $today_sehri = date('Y-m-d H:i:s', ($today_sehri));
 
-if (strtotime($cur) >= strtotime($today_sehri)) {
+
+if (strtotime($cur) >= strtotime($today_iftar)) {
+    $last_time = $today_iftar;
+    $last_name = 'Iftar';
+    $next_time = $today_sehri;
+    $next_name = 'Sehri';
+} else if (strtotime($cur) >= strtotime($today_sehri)) {
     $last_time = $today_sehri;
     $last_name = 'Sehri';
     $next_time = $today_iftar;
