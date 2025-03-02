@@ -17,10 +17,18 @@ $today_sehri = date('Y-m-d H:i:s', ($today_sehri));
 
 
 if (strtotime($cur) >= strtotime($today_iftar)) {
-    $last_time = $today_iftar;
-    $last_name = 'Iftar';
-    $next_time = $today_sehri;
-    $next_name = 'Sehri';
+    if (date('H') <= 5) {
+        $last_time = $today_iftar;
+        $last_name = 'Iftar';
+        $next_time = $today_sehri;
+        $next_name = 'Sehri';
+    } else {
+        $last_time = $today_iftar;
+        $last_name = 'Iftar';
+        $next_time = date('Y-m-d H:i:s',strtotime($today_sehri) + 3600 * 24);
+        $next_name = 'Sehri';
+    }
+
 } else if (strtotime($cur) >= strtotime($today_sehri)) {
     $last_time = $today_sehri;
     $last_name = 'Sehri';
@@ -84,23 +92,23 @@ if (strtotime($cur) > $i_time)
         <div class="text-small" id="wait-time"></div>
 
         <div class="d-flex mt-2">
-            <div class="col text-<?php echo $f_clr;?>">
+            <div class="col text-<?php echo $f_clr; ?>">
                 <div class="pra-time"><?php echo date('H:i:s', $f_time); ?></div>
                 <div class="pra-name">Fajr</div>
             </div>
-            <div class="col text-<?php echo $z_clr;?>">
+            <div class="col text-<?php echo $z_clr; ?>">
                 <div class="pra-time"><?php echo date('H:i:s', $z_time); ?></div>
                 <div class="pra-name">Zuhr</div>
             </div>
-            <div class="col text-<?php echo $a_clr;?>">
+            <div class="col text-<?php echo $a_clr; ?>">
                 <div class="pra-time"><?php echo date('H:i:s', $a_time); ?></div>
                 <div class="pra-name">Asr</div>
             </div>
-            <div class="col text-<?php echo $m_clr;?>">
+            <div class="col text-<?php echo $m_clr; ?>">
                 <div class="pra-time"><?php echo date('H:i:s', $m_time); ?></div>
                 <div class="pra-name">Magrib</div>
             </div>
-            <div class="col text-<?php echo $i_clr;?>">
+            <div class="col text-<?php echo $i_clr; ?>">
                 <div class="pra-time"><?php echo date('H:i:s', $i_time); ?></div>
                 <div class="pra-name">Isha</div>
             </div>
