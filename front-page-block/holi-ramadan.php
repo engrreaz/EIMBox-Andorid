@@ -29,8 +29,23 @@ if (strtotime($cur) >= strtotime($today_sehri)) {
 
 // echo $last_time . '/' . $last_name . '//' . $next_time . '/' . $next_name;
 
+$f_time = strtotime($today_sehri);
+$z_time = strtotime(date('Y-m-d') . ' 12:11:00') - date('d') * 15;
+$a_time = strtotime(date('Y-m-d') . ' 16:22:00') + date('d') * 15;
+$m_time = strtotime($today_iftar);
+$i_time = strtotime(date('Y-m-d') . ' 19:18:00') - date('d') * 10;
 
-
+$f_clr = $z_clr = $a_clr = $m_clr = $i_clr = 'dark';
+if (strtotime($cur) > $f_time)
+    $f_clr = 'muted';
+if (strtotime($cur) > $z_time)
+    $z_clr = 'muted';
+if (strtotime($cur) > $a_time)
+    $a_clr = 'muted';
+if (strtotime($cur) > $m_time)
+    $m_clr = 'muted';
+if (strtotime($cur) > $i_time)
+    $i_clr = 'muted';
 ?>
 
 <div class="main-card gg card">
@@ -41,7 +56,7 @@ if (strtotime($cur) >= strtotime($today_sehri)) {
         </div>
     </div>
     <div class="card-body" style="background:var(--lighter); ">
-<h6 class="text-center pb-3">Holy Ramadan</h6>
+        <h6 class="text-center pb-3">Holy Ramadan</h6>
         <div hidden>
             <div id="last-event"><?php echo $last_time; ?></div>
             <div id="last-name"><?php echo $last_name; ?></div>
@@ -58,9 +73,32 @@ if (strtotime($cur) >= strtotime($today_sehri)) {
             waiting to <b><?php echo $next_name; ?></b> @ <?php echo $next_time; ?>
         </div>
         <div id="time-line" class="d-block" style="background:red;">
-            <div id="waiting-line" style="width:47%; height:20px; background:seagreen;"></div>
+            <div id="waiting-line" style="width:47%; height:2px; background:seagreen;"></div>
         </div>
         <div class="text-small" id="wait-time"></div>
+
+        <div class="d-flex mt-2">
+            <div class="col text-<?php echo $f_clr;?>">
+                <div class="pra-time"><?php echo date('H:i:s', $f_time); ?></div>
+                <div class="pra-name">Fajr</div>
+            </div>
+            <div class="col text-<?php echo $z_clr;?>">
+                <div class="pra-time"><?php echo date('H:i:s', $z_time); ?></div>
+                <div class="pra-name">Zuhr</div>
+            </div>
+            <div class="col text-<?php echo $a_clr;?>">
+                <div class="pra-time"><?php echo date('H:i:s', $a_time); ?></div>
+                <div class="pra-name">Asr</div>
+            </div>
+            <div class="col text-<?php echo $m_clr;?>">
+                <div class="pra-time"><?php echo date('H:i:s', $m_time); ?></div>
+                <div class="pra-name">Magrib</div>
+            </div>
+            <div class="col text-<?php echo $i_clr;?>">
+                <div class="pra-time"><?php echo date('H:i:s', $i_time); ?></div>
+                <div class="pra-name">Isha</div>
+            </div>
+        </div>
 
     </div>
 </div>

@@ -140,7 +140,9 @@
         }
 
         .sender {
-            width: 30px; width:30px; border-redius: 50%;
+            width: 30px;
+            width: 30px;
+            border-redius: 50%;
         }
 
         .footer-nav-icon {
@@ -247,7 +249,7 @@
             color: var(--dark);
             border: 1px solid red;
             padding-top: 0px;
-            margin:0;
+            margin: 0;
         }
 
         .disable {
@@ -364,6 +366,7 @@
             font-family: 'Yu Gothic';
             padding: 18px 10px;
         }
+
         .text-box {
             padding: 18px 10px;
         }
@@ -626,6 +629,14 @@
             text-align: center;
             font-size: 20px;
             padding: 3px;
+        }
+
+
+
+        .pra-time,
+        .pra-name {
+            font-size: 10px;
+            text-align:center;
         }
     </style>
 </head>
