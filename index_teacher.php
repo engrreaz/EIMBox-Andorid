@@ -1,11 +1,9 @@
 <?php
-echo 'xxx';
+
 include 'front-page-block/holi-ramadan.php';
-echo 'yyy';
 include 'front-page-block/head-block.php';
-echo 'zzz';
 include 'front-page-block/schedule.php';
-echo 'xyz';
+
 include 'front-page-block/task-teacher.php';
 include 'front-page-block/notice.php';
 
