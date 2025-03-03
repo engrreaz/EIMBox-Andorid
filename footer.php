@@ -101,7 +101,7 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
 
 
 <div class="noprint" onclick="document.location.reload();"
-    style="background:var(--lighter); border:1px solid var(--darker); font-size:25px; width:25px; height:25px; float:right; right:10px; top:10px; position:fixed; z-index:99999; border-radius:50%;  line-height:25px;">
+    style="background:var(--lighter); border:1px solid var(--darker); font-size:25px; width:25px; height:25px; float:right; right:10px; top:10px; position:fixed; z-index:99999; border-radius:50%;  line-height:25px; text-align:center;">
     <!-- <i class="bi bi-arrow-repeat"></i> -->
      <img src="https://eimbox.com/logo/<?php echo $sccode;?>.png" style="height:20px"/>
 </div>
