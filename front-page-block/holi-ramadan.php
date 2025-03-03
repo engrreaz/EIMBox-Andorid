@@ -25,7 +25,7 @@ if (strtotime($cur) >= strtotime($today_iftar)) {
     } else {
         $last_time = $today_iftar;
         $last_name = 'Iftar';
-        $next_time = date('Y-m-d H:i:s',strtotime($today_sehri) + 3600 * 24);
+        $next_time = date('Y-m-d H:i:s', strtotime($today_sehri) + 3600 * 24);
         $next_name = 'Sehri';
     }
 
@@ -44,10 +44,10 @@ if (strtotime($cur) >= strtotime($today_iftar)) {
 // echo $last_time . '/' . $last_name . '//' . $next_time . '/' . $next_name;
 
 $f_time = strtotime($today_sehri);
-$z_time = strtotime(date('Y-m-d') . ' 13:00:00') - date('d') * 15;
-$a_time = strtotime(date('Y-m-d') . ' 16:22:00') + date('d') * 15;
+$z_time = strtotime(date('Y-m-d') . ' 13:00:00') - date('d') * 0;
+$a_time = strtotime(date('Y-m-d') . ' 16:30:00') + date('d') * 0;
 $m_time = strtotime($today_iftar);
-$i_time = strtotime(date('Y-m-d') . ' 19:30:00') - date('d') * 10;
+$i_time = strtotime(date('Y-m-d') . ' 19:30:00') - date('d') * 0;
 
 $f_clr = $z_clr = $a_clr = $m_clr = $i_clr = 'dark';
 if (strtotime($cur) > $f_time)
@@ -69,27 +69,45 @@ if (strtotime($cur) > $i_time)
             <i class="bi bi-megaphone-fill front-icon"></i>
         </div>
     </div>
-    <div class="card-body" style="background:var(--lighter); ">
-        <h6 class="text-center pb-3">Holy Ramadan</h6>
-        <div hidden>
-            <div id="last-event"><?php echo $last_time; ?></div>
-            <div id="last-name"><?php echo $last_name; ?></div>
-            <div id="next-event"><?php echo $next_time; ?></div>
-            <div id="next-name"><?php echo $next_name; ?></div>
-            <div id="cur-time">-----</div>
-            <div id="ramadan-dur">-----</div>
-            <div id="ramadan-rate">-----</div>
+    <div class="card-body" style="background:var(--lighter); color: var(--dark); ">
+        <div class="row mb-2">
+            <div class="col-9">
+                <h6 class="text-start  pb-3">Holy Ramadan</h6>
+                <div hidden>
+                    <div id="last-event"><?php echo $last_time; ?></div>
+                    <div id="last-name"><?php echo $last_name; ?></div>
+                    <div id="next-event"><?php echo $next_time; ?></div>
+                    <div id="next-name"><?php echo $next_name; ?></div>
+                    <div id="cur-time">-----</div>
+                    <div id="ramadan-dur">-----</div>
+                    <div id="ramadan-rate">-----</div>
+                </div>
+                <div class="text-small">
+                    waiting to <b><?php echo $next_name; ?></b> @ <?php echo $next_time; ?>
+                </div>
+                <div class="text-small" id="wait-time"></div>
+            </div>
+            <div class="col-3" hidden>
+                <div
+                    style="border:1px solid var(--lighter); poisition:relative; margin:auto; text-align:center; border-radius:50%; height:72px; width:72px; background-image: conic-gradient(seagreen 0deg, seagreen 100deg, orange 100deg, orange 250deg, red 250deg, red 360deg);">
+                    <div
+                        style="border:1px solid  var(--light); border-radius:50%; left:5px; top:5px; position:relative; background:var(--light); color:purple;;width:60px; height:60px; padding-top:20px;">
+                        <?php echo date('d')-1; ?>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
 
-        <div class="text-small">
-            waiting to <b><?php echo $next_name; ?></b> @ <?php echo $next_time; ?>
-        </div>
+
+
+
+
         <div id="time-line" class="d-block" style="background:red;">
             <div id="waiting-line" style="width:47%; height:2px; background:seagreen;"></div>
         </div>
-        <div class="text-small" id="wait-time"></div>
+
 
         <div class="d-flex mt-2">
             <div class="col text-<?php echo $f_clr; ?>">
