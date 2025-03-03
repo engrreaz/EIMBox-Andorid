@@ -44,10 +44,10 @@ if (strtotime($cur) >= strtotime($today_iftar)) {
 // echo $last_time . '/' . $last_name . '//' . $next_time . '/' . $next_name;
 
 $f_time = strtotime($today_sehri);
-$z_time = strtotime(date('Y-m-d') . ' 12:11:00') - date('d') * 15;
+$z_time = strtotime(date('Y-m-d') . ' 13:00:00') - date('d') * 15;
 $a_time = strtotime(date('Y-m-d') . ' 16:22:00') + date('d') * 15;
 $m_time = strtotime($today_iftar);
-$i_time = strtotime(date('Y-m-d') . ' 19:18:00') - date('d') * 10;
+$i_time = strtotime(date('Y-m-d') . ' 19:30:00') - date('d') * 10;
 
 $f_clr = $z_clr = $a_clr = $m_clr = $i_clr = 'dark';
 if (strtotime($cur) > $f_time)
