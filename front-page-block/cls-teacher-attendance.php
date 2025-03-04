@@ -105,7 +105,7 @@ if (count($cteacher_data) > 0) {
 
                     <tr>
                         <td colspan="2">
-                            <a href="stattndregister.php?cls=<?php echo $x1; ?>&sec=<?php echo $x2; ?>"
+                            <a href="st-attnd-register.php?cls=<?php echo $x1; ?>&sec=<?php echo $x2; ?>"
                                 class="btn btn-info btn-block mt-3">View Attendance Register</a>
                         </td>
                     </tr>
