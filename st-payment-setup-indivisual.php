@@ -13,6 +13,9 @@ if (isset($_GET['year'])) {
 } else {
     $year = date('Y');
 }
+if(strlen($year)<4){
+    $year += 2000;
+}
 
 if (isset($_GET['cls'])) {
     $cls2 = $_GET['cls'];
@@ -104,8 +107,12 @@ if ($result0xvalst->num_rows > 0) {
 }
 // var_dump($finsetupind);
 
+echo '<pre>';
+print_r( $finsetupind);
+echo '</pre>';
+
 $clslist = array();
-$sql0x = "SELECT areaname, slot, sessionyear FROM areas where user='$rootuser' and sessionyear like '$year%' group by areaname order by idno ;";
+$sql0x = "SELECT areaname, slot, sessionyear FROM areas where user='$rootuser' and sessionyear like '%$year%' group by areaname order by idno ;";
 $result0xxt = $conn->query($sql0x);
 if ($result0xxt->num_rows > 0) {
     while ($row0x = $result0xxt->fetch_assoc()) {
@@ -322,7 +329,8 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
                             $id1 = $finsetupval[$i]['id'];
                         }
 
-
+                        // echo '////' . $finsetupind[0]['amount'];
+                        // echo $amt; 
                         $ind_ind = array_search($itemcode, array_column($finsetupind, 'itemcode'));
                         if ($ind_ind != '' || $ind_ind != NULL) {
                             $amt = $finsetupind[$ind_ind]['amount'];
@@ -330,7 +338,8 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
                         } else {
                             $ind_id = 0;
                         }
-                        // echo $ind_id;
+                        echo $amt;
+                   
                     }
                 }
                 $arrcnt = count($finvalcode);

@@ -9,18 +9,18 @@ if (isset($_GET['cls']) && isset($_GET['sec'])) {
   $cteacher_data[] = ['cteachercls' => $classname, 'cteachersec' => $sectionname];
 }
 
-// var_dump($cteacher_data);
+var_dump($cteacher_data);
 $count_class = count($cteacher_data);
 $totaldues = 0;
 
 $collection_by = -1;
 $collection_ind = array_search('Collection', array_column($ins_all_settings, 'setting_title'));
-if($collection_ind != '' || $collection_ind != null){
+if ($collection_ind != '' || $collection_ind != null) {
   $collection_by = $ins_all_settings[$collection_ind]['settings_value'];
 }
 
 
-if(strpos($collection_by, $userlevel) != null){
+if (strpos($collection_by, $userlevel) != null) {
   $collection_permission = 1;
 } else {
   $collection_permission = 0;
@@ -29,10 +29,10 @@ if(strpos($collection_by, $userlevel) != null){
 
 $profile_entry = '';
 $profile_ind = array_search('Profile Entry', array_column($ins_all_settings, 'setting_title'));
-if($profile_ind != '' || $profile_ind != null){
+if ($profile_ind != '' || $profile_ind != null) {
   $profile_entry = $ins_all_settings[$profile_ind]['settings_value'];
 }
-if(strpos($profile_entry, $userlevel) != null){
+if (strpos($profile_entry, $userlevel) != null) {
   $profile_entry_permission = 1;
 } else {
   $profile_entry_permission = 0;
@@ -238,14 +238,13 @@ if(strpos($profile_entry, $userlevel) != null){
                 <td style="text-align:right;">
                   <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt<?php echo $h2; ?>">...</div>
                   <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Students</div>
-                  <?php if($collection_permission == 1){ ?>
-                  <br>
-                  <div style="font-size:30px; font-weight:700; line-height:20px;" id="cntamt<?php echo $h2; ?>">...</div>
-                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Total Dues</div>
-                <?php } ?>
+                  <?php if ($collection_permission == 1) { ?>
+                    <br>
+                    <div style="font-size:30px; font-weight:700; line-height:20px;" id="cntamt<?php echo $h2; ?>">...</div>
+                    <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Total Dues</div>
+                  <?php } ?>
                 </td>
               </tr>
-
             </table>
           </div>
         </div>
@@ -253,7 +252,6 @@ if(strpos($profile_entry, $userlevel) != null){
 
 
         <?php
-
         $month = date('m');
         $data_dues = array();
         $sql0 = "SELECT stid, sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear LIKE '%$sy%' and sccode='$sccode' and classname='$classname' and sectionname='$sectionname' and month<='$month' group by stid ";
@@ -328,12 +326,12 @@ if(strpos($profile_entry, $userlevel) != null){
 
                     </td>
                     <td rowspan="2" style="text-align:right; font-size:20px; font-weight:600; vertical-align:top;">
-                      <?php 
+                      <?php
                       $photo_path = $BASE_PATH_URL . 'students/' . $stid . ".jpg";
                       if (!file_exists($photo_path)) {
-                          $photo_path = "https://eimbox.com/teacher/no-img.jpg";
+                        $photo_path = "https://eimbox.com/teacher/no-img.jpg";
                       } else {
-                          $photo_path = $BASE_PATH_URL_FILE . 'students/' . $stid . ".jpg";
+                        $photo_path = $BASE_PATH_URL_FILE . 'students/' . $stid . ".jpg";
                       }
                       ?>
                       <img src="<?php echo $photo_path; ?>" class="st-pic-normal" />
@@ -349,23 +347,23 @@ if(strpos($profile_entry, $userlevel) != null){
                           <i class="bi bi-fingerprint toolbar-icon"></i>
                           <div class="toolbar-text">--%</div>
                         </div>
-                        <?php if($collection_permission==1){?>
-                        <div class="col text-center" onclick="my_class_payment(<?php echo $stid; ?>);">
-                          <i class="bi bi-coin toolbar-icon"></i>
-                          <div class="toolbar-text">
-                            <?php echo number_format($totaldues, 2, ".", ","); ?>
+                        <?php if ($collection_permission == 1) { ?>
+                          <div class="col text-center" onclick="my_class_payment(<?php echo $stid; ?>);">
+                            <i class="bi bi-coin toolbar-icon"></i>
+                            <div class="toolbar-text">
+                              <?php echo number_format($totaldues, 2, ".", ","); ?>
+                            </div>
                           </div>
-                        </div>
                         <?php } ?>
                         <div class="col text-center" onclick="my_class_result(<?php echo $stid; ?>);">
                           <i class="bi bi-file-earmark-text toolbar-icon"></i>
                           <div class="toolbar-text">--.-%</div>
                         </div>
-                        <?php if($profile_entry_permission==1) {?>
-                        <div class="col text-center" onclick="my_class_profile(<?php echo $stid; ?>);">
-                          <i class="bi bi-person-circle toolbar-icon"></i>
-                          <div class="toolbar-text">Profile</div>
-                        </div>
+                        <?php if ($profile_entry_permission == 1) { ?>
+                          <div class="col text-center" onclick="my_class_profile(<?php echo $stid; ?>);">
+                            <i class="bi bi-person-circle toolbar-icon"></i>
+                            <div class="toolbar-text">Profile</div>
+                          </div>
                         <?php } ?>
                       </div>
 

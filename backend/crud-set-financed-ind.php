@@ -7,6 +7,9 @@ include('inc.back.php');
 $id = $_POST['id'];
 $slot = $_POST['slot'];
 $sy = $_POST['sy'];
+if (strlen($sy) < 4) {
+    $sy += 2000;
+}
 $item = $_POST['item'];
 $cls = $_POST['cls'];
 $sec = $_POST['sec'];
