@@ -9,7 +9,7 @@ if (isset($_GET['cls']) && isset($_GET['sec'])) {
   $cteacher_data[] = ['cteachercls' => $classname, 'cteachersec' => $sectionname];
 }
 
-var_dump($cteacher_data);
+// var_dump($cteacher_data);
 $count_class = count($cteacher_data);
 $totaldues = 0;
 
