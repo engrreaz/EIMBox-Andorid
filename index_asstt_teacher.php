@@ -29,8 +29,9 @@ if ($result01xe->num_rows > 0) {
 </style>
 
 <?php
-include 'front-page-block/holi-ramadan.php';
 include 'front-page-block/schedule.php';
+include 'front-page-block/holi-ramadan.php';
+
 include 'front-page-block/task-teacher.php';
 include 'front-page-block/notice.php';
 $randval = random_int(1000000, 99999999);
