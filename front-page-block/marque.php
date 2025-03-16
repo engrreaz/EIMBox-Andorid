@@ -5,7 +5,7 @@ $speed = "5";
     <?php
     foreach ($notices as $notice) {
         $txt = htmlspecialchars($notice['descrip']);
-        $txt = str_replace('<br>', ', ', $txt);
+        $txt = str_replace('<br>', ', ', $notice['descrip']);
         echo $txt;
         echo ' -- ';
     }
