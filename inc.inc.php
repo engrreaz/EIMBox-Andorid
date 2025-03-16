@@ -310,9 +310,11 @@ if ($result0xrtyv->num_rows > 0) {
 }
 
 
-include 'component/sms-func.php';
 
+
+include 'component/sms-func.php';
 include 'header.php';
+
 ?>
     <style>
   #mbox {

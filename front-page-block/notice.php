@@ -1,13 +1,5 @@
 <?php
-$notices = array();
-$sql0 = "SELECT * FROM notice where sccode = '$sccode' and (expdate = NULL || expdate = '0000-00-00' || expdate >= '$td') order by entrytime desc;";
-// echo $sql0 ;
-$result0rtx_notice = $conn->query($sql0);
-if ($result0rtx_notice->num_rows > 0) {
-    while ($row0 = $result0rtx_notice->fetch_assoc()) {
-        $notices[] = $row0;
-    }
-}
+
 // var_dump($notices);
 
 

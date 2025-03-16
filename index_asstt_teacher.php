@@ -33,7 +33,9 @@ include 'front-page-block/schedule.php';
 include 'front-page-block/holi-ramadan.php';
 
 include 'front-page-block/task-teacher.php';
-include 'front-page-block/notice.php';
+if($notice_block==1){
+    include 'front-page-block/notice.php';
+}
 $randval = random_int(1000000, 99999999);
 include 'front-page-block/cls-teacher-attendance.php';
 include 'front-page-block/clsteacherblock.php';

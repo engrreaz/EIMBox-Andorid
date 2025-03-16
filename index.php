@@ -90,6 +90,28 @@ if ($result0wwrtd->num_rows > 0) {
 }
 
 
+$notice_marque = 0;
+$notice_block = 0;
+$find_app_notice = array_search('App Notice', array_column($ins_all_settings, 'setting_title'));
+if ($find_app_notice != '' || $find_app_notice != null) {
+    if (strlen(strpos($ins_all_settings[$find_app_notice]['settings_value'], 'Marque')) > 0) {
+        $notice_marque = 1;
+    }
+    if (strlen(strpos($ins_all_settings[$find_app_notice]['settings_value'], 'Block')) > 0) {
+        $notice_block = 1;
+    }
+}
+
+$notices = array();
+$sql0 = "SELECT * FROM notice where sccode = '$sccode' and (expdate = NULL || expdate = '0000-00-00' || expdate >= '$td') order by entrytime desc;";
+// echo $sql0 ;
+$result0rtx_notice = $conn->query($sql0);
+if ($result0rtx_notice->num_rows > 0) {
+    while ($row0 = $result0rtx_notice->fetch_assoc()) {
+        $notices[] = $row0;
+    }
+}
+
 ?>
 
 <main>
@@ -146,14 +168,21 @@ if ($result0wwrtd->num_rows > 0) {
         } else if ($userlevel == 'Student') {
             include 'index_student.php';
         } else if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $userlevel == 'Administrator') {
-            include 'index_teacher.php';
 
+            if ($notice_marque == 1) {
+                include 'front-page-block/marque.php';
+            }
+            include 'index_teacher.php';
         } else if ($userlevel == 'Visitor') {
             include 'index_visitor.php';
 
         } else if ($userlevel == 'Guardian') {
             include 'index_guardian.php';
         } else if ($userlevel == 'Teacher' || $userlevel == 'Asstt. Teacher' || $userlevel == 'Class Teacher') {
+
+            if ($notice_marque == 1) {
+                include 'front-page-block/marque.php';
+            }
             include 'index_asstt_teacher.php';
         } else {
             include 'index_undef.php';
