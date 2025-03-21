@@ -1,24 +1,14 @@
 <?php
-date_default_timezone_set('Asia/Dhaka');
-;
-$dt = date('Y-m-d H:i:s');
-;
-$sy = date('Y');
-include('incb.php');
-;
+
+include('inc.back.php');
 
 $user = $_POST['user'];
-;
 $cls = $_POST['cls'];
-;
-
-
-
 
 ?>
 
 
-<div class="form-group">ffff
+<div class="form-group">
   <label class="lblx text-muted mt-3" for="">Section/Group</label>
   <select class="form-control" id="sectionname" onchange="fetchsubject();">
     <option></option>
