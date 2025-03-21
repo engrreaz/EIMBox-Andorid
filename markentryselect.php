@@ -25,14 +25,14 @@ include 'inc.php';
             <?php
             $exn = 'Annual';
             $selex = '';
-            $sql0 = "SELECT * FROM examname order by id";
+            $sql0 = "SELECT * FROM examlist where sccode='$sccode' and sessionyear like '%$sy%'  order by id";
 
             $result0vf = $conn->query($sql0);
             if ($result0vf->num_rows > 0) {
               while ($row0 = $result0vf->fetch_assoc()) {
-                $exname = $row0["examtitle"];
+                $exname = $exdisp = $row0["examtitle"];
 
-                $exdisp = $row0["examdisplayname"];
+                // $exdisp = $row0["examdisplayname"];
                 echo $exname . $exdisp;
                 if ($exname == $exn) {
                   $selex = 'selected';
@@ -51,7 +51,7 @@ include 'inc.php';
           <select class="form-control" id="classname" onchange="fetchsection();">
             <option></option>
             <?php
-            $sql0 = "SELECT areaname as aname FROM areas where sessionyear='$sy' and user='$rootuser'  group by areaname order by idno";
+            $sql0 = "SELECT areaname as aname FROM areas where sessionyear LIKE '%$sy%' and user='$rootuser'  group by areaname order by idno";
 
             $result0 = $conn->query($sql0);
             if ($result0->num_rows > 0) {
@@ -94,10 +94,10 @@ include 'inc.php';
               <?php
 
               if ($userlevel == 'Administrator' || $userlevel == 'Super Administrator') {
-                $sql0 = "SELECT subject FROM subsetup where sccode='$sccode' and classname='$cls' and sectionname='$sec' and sessionyear='$sy'  order by subject";
+                $sql0 = "SELECT subject FROM subsetup where sccode='$sccode' and classname='$cls' and sectionname='$sec' and sessionyear LIKE '%$sy%'  order by subject";
 
               } else {
-                $sql0 = "SELECT subject FROM subsetup where sccode='$sccode' and classname='$cls' and sectionname='$sec' and sessionyear='$sy' and tid='$userid' order by subject";
+                $sql0 = "SELECT subject FROM subsetup where sccode='$sccode' and classname='$cls' and sectionname='$sec' and sessionyear LIKE '%$sy%' and tid='$userid' order by subject";
               }
 
               $result0 = $conn->query($sql0);
@@ -197,7 +197,7 @@ include 'inc.php';
 
     $.ajax({
       type: "POST",
-      url: "fetchsection.php",
+      url: "backend/fetch-section-mark.php",
       data: infor,
       cache: false,
       beforeSend: function () {
