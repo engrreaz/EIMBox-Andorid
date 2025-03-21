@@ -186,11 +186,11 @@ $sql00 = "SELECT stid, stnameeng, stnameben, previll FROM students where  sccode
                             }
                         }
 
-                        $sy = date('Y');
+                        // $sy = date('Y');
                                                 $ex = $exam;
                                                 $stmark = array();
                                                 $sql00x = "SELECT * FROM stmark where  sccode='$sccode' and exam = '$ex' and classname='$classname' and sectionname='$sectionname' and sessionyear LIKE '%$sy%'  and subject ='$subj' ";
-                                                //echo $sql00x;
+                                                echo $sql00x;
                                                 $result00x = $conn->query($sql00x);
                                                 if ($result00x->num_rows > 0) {
                                                     while ($row00x = $result00x->fetch_assoc()) {
