@@ -189,7 +189,7 @@ $sql00 = "SELECT stid, stnameeng, stnameben, previll FROM students where  sccode
                         $sy = date('Y');
                                                 $ex = $exam;
                                                 $stmark = array();
-                                                $sql00x = "SELECT * FROM stmark where  sccode='$sccode' and exam = '$ex' and classname='$classname' and sectionname='$sectionname' and sessionyear='$sy' and subject ='$subj' ";
+                                                $sql00x = "SELECT * FROM stmark where  sccode='$sccode' and exam = '$ex' and classname='$classname' and sectionname='$sectionname' and sessionyear LIKE '%$sy%'  and subject ='$subj' ";
                                                 //echo $sql00x;
                                                 $result00x = $conn->query($sql00x);
                                                 if ($result00x->num_rows > 0) {
@@ -198,7 +198,7 @@ $sql00 = "SELECT stid, stnameeng, stnameben, previll FROM students where  sccode
                                                     }}
                 //**********************************************************************************************************************
                 $cnt = 0;
-                $sql0 = "SELECT * FROM sessioninfo where sessionyear='$sy' and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by rollno";
+                $sql0 = "SELECT * FROM sessioninfo where sessionyear LIKE '%$sy%'  and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by rollno";
                 $result0 = $conn->query($sql0);
                 if ($result0->num_rows > 0) {
                     while ($row0 = $result0->fetch_assoc()) {
@@ -277,7 +277,7 @@ $sql00 = "SELECT stid, stnameeng, stnameben, previll FROM students where  sccode
                                     <tr>
                                         <td style="width:30px;">
                                             <span style="">
-                                                <img src="<?php echo $pth; ?>" class="pic" />
+                                                <img src="<?php echo $pth; ?>" class="st-pic-small" />
                                             </span>
                                         </td>
                                         <td style="text-align:left; padding-left:5px;">
