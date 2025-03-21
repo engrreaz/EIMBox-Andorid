@@ -1,35 +1,25 @@
 <?php
-date_default_timezone_set('Asia/Dhaka');
-;
-$dt = date('Y-m-d H:i:s');
-;
-include('inc.php');
-;
+include('inc.back.php');
 
 $sccode = $_POST['sccode'];
-;
 $cls = $_POST['cls'];
-;
 $sec = $_POST['sec'];
-;
+
 if (isset($_POST['tid'])) {
     $tid = $_POST['tid'];
-    ;
 } else {
     $tid = $userid;
 }
 
-
 $sql0 = "SELECT subject FROM subsetup where sccode='$sccode' and classname='$cls' and sectionname='$sec'  and sessionyear='$sy' and tid='$tid' order by subject";
 //echo $sql0;
 if ($userlevel == 'Administrator' || $userlevel == 'Super Administrator') {
-    $sql0 = "SELECT subject FROM subsetup where sccode='$sccode' and classname='$cls' and sectionname='$sec' and sessionyear='$sy'  order by subject";
+    $sql0 = "SELECT subject FROM subsetup where sccode='$sccode' and classname='$cls' and sectionname='$sec' and sessionyear LIKE '%$sy%'  order by subject";
 
 } else {
-    $sql0 = "SELECT subject FROM subsetup where sccode='$sccode' and classname='$cls' and sectionname='$sec' and sessionyear='$sy' and tid='$userid' order by subject";
+    $sql0 = "SELECT subject FROM subsetup where sccode='$sccode' and classname='$cls' and sectionname='$sec' and sessionyear LIKE '%$sy%'  and tid='$userid' order by subject";
 
 }
-
 ?>
 
 <div class="form-group">
