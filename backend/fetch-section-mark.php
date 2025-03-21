@@ -23,7 +23,7 @@ $cls = $_POST['cls'];
   <select class="form-control" id="sectionname" onchange="fetchsubject();">
     <option></option>
     <?php
-    $sql0 = "SELECT subarea as sec FROM areas where sessionyear LIKE '%$sy%' and user='$user' and areaname='$cls' group by subarea order by idno";
+    $sql0 = "SELECT subarea as sec FROM areas where sessionyear LIKE '%$sy%' and user='$rootuser' and areaname='$cls' group by subarea order by idno";
     $result0 = $conn->query($sql0);
     if ($result0->num_rows > 0) {
       while ($row0 = $result0->fetch_assoc()) {
