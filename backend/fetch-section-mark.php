@@ -18,7 +18,7 @@ $cls = $_POST['cls'];
 ?>
 
 
-<div class="form-group">
+<div class="form-group">ffff
   <label class="lblx text-muted mt-3" for="">Section/Group</label>
   <select class="form-control" id="sectionname" onchange="fetchsubject();">
     <option></option>
