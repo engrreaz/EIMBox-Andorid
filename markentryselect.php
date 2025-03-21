@@ -220,7 +220,7 @@ include 'inc.php';
 
     $.ajax({
       type: "POST",
-      url: "backend/fetch-subject-marks.php",
+      url: "backend/fetch-subject-mark.php",
       data: infor,
       cache: false,
       beforeSend: function () {
