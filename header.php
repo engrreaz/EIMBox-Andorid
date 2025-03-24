@@ -632,6 +632,25 @@
         }
 
 
+        .datam, .datam-2 {
+            font-size:13px;
+        }
+        .datam { 
+            color: var(--dark);
+            width: 30px;
+            padding: 1px 3px;
+        }
+        .datam-2 {
+            color: black;
+            padding: 1px 3px;
+        }
+
+        .hr-line {
+            margin:2px 0;
+            padding:0;
+            width:100%;
+            height:1px;
+        }
 
         .pra-time,
         .pra-name {

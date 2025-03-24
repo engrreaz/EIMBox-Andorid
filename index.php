@@ -112,7 +112,7 @@ if ($result0rtx_notice->num_rows > 0) {
     }
 }
 
-if($cteacher_data[0]['cteachercls'] !='' && $cteacher_data[0]['cteachersec'] !='') {
+if ($cteacher_data[0]['cteachercls'] != '' && $cteacher_data[0]['cteachersec'] != '') {
     $cteacher_text = '<span class="text-white"> (' . $cteacher_data[0]['cteachercls'] . ' : ' . $cteacher_data[0]['cteachersec'] . ')</span>';
 } else {
     $cteacher_text = '';
@@ -123,7 +123,7 @@ if($cteacher_data[0]['cteachercls'] !='' && $cteacher_data[0]['cteachersec'] !='
 <main>
     <div class="containerx" style="width:100%;">
 
-        <div class="card text-center" style="background:var(--dark);  padding:40px 0 10px 0; border-radius:0;">
+        <div class="card text-center" style="background:var(--dark);  padding:20px 0 10px 0; border-radius:0;">
             <?php if ($gps == 1) { ?>
                 <div class="float-end" style="position:fixed; right:50px; top:15px; color:white;"><i
                         class="bi bi-geo-alt-fill"></i></div><?php } ?>
@@ -132,13 +132,48 @@ if($cteacher_data[0]['cteachercls'] !='' && $cteacher_data[0]['cteachersec'] !='
                     <td style="text-align:center;">
                         <img src="<?php echo $pth; ?>" class="st-pic-big" /><br>
                         <div class="b"><?php echo $fullname; ?></div>
-                        <div class="c"><?php echo $userlevel . $cteacher_text ; ?></div>
+                        <div class="c"><?php echo $userlevel . $cteacher_text; ?></div>
                         <div class="d"><?php echo $scname; ?></div>
                     </td>
                 </tr>
             </table>
+            <?php
+
+            $sql0 = "SELECT * from teacher where sccode='$sccode' and tid='$userid'";
+            $result0wwrtdtt = $conn->query($sql0);
+            if ($result0wwrtdtt->num_rows > 0) {
+                while ($row0 = $result0wwrtdtt->fetch_assoc()) {
+                    $dobx = $row0["dob"];
+                    $jdatex = $row0["jdate"];
+                    $dobstamp = strtotime($dobx);
+                    $jdatestamp = strtotime($jdatex);
+
+                    $tdstamp = strtotime($td);
+
+                    $lprstamp = new DateTime($dobx); // যেকোনো তারিখ নির্ধারণ করুন
+                    date_add($lprstamp, date_interval_create_from_date_string("60 years"));
+                    date_sub($lprstamp, date_interval_create_from_date_string("1 days"));
+                    $lprstamp = strtotime($lprstamp->format("Y-m-d"));
+
+                    $total_career_days = $lprstamp - $jdatestamp;
+                    $rest_career_days = $lprstamp - $tdstamp;
+                    $dot_pos = 100 - ceil(100 * $rest_career_days / $total_career_days);
+                   
+                    ?>
+                    <div style="height:1px; background: var(--light); margin:10px 0 8px;">
+                        <div class="float-end text-small font-weight-bold text-white pe-2 "><?php echo date('d.m.Y', $lprstamp);?></div>
+                        <div class="float-start text-small font-weight-bold text-white ps-2 "><?php echo date('d.m.Y', $jdatestamp);?></div>
+                        <div
+                            style="height:10px; width:10px; border-radius:50%; background:var(--lighter); position:relative; left:<?php echo $dot_pos; ?>%; top:-5px;">
+                        </div>
+                    </div>
+
+                <?php }
+            } ?>
 
         </div>
+
+
 
     </div>
 
