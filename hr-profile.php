@@ -42,9 +42,10 @@ if ($result0->num_rows > 0) {
       </div>
       <div class="card-body page-info-box d-flex" >
         <img  src="<?php echo $pth; ?>" style="border-radius:50%;" class="col-2 st-pic text-center" />
-        <div class="ps-2 text-start">
-        <div class="stname-eng"><?php echo $teacher_pfofile_data[0]['tname']; ?></div>
+        <div class="ps-3 pt-2 text-start">
+        <div class="stname-eng text-white"><?php echo $teacher_pfofile_data[0]['tname']; ?></div>
         <div class="stname-ben"><?php echo $teacher_pfofile_data[0]['tnameb']; ?></div>
+        <div class="st-id">ID # <b><?php echo $teacher_pfofile_data[0]['tid']; ?></b></div>
         </div>
       </div>
     </div>
