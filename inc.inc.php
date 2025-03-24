@@ -196,7 +196,7 @@ if ($result0bbx->num_rows > 0) {
         $cteacher_data[] = $row0;
     }
 }
-//  echo $sql0 ;
+
 
 
 

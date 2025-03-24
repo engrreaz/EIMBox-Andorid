@@ -245,7 +245,7 @@ $count_class = count($cteacher_data);
                   <i class="bi bi-telephone-fill"></i>
                 </div>
                 <div class="col text-danger"
-                  onclick="send_absent_notice(<?php echo $stid; ?>, 1 '<?php echo $guarmobile; ?>');"><i
+                  onclick="send_absent_notice(<?php echo $stid; ?>, 1, '<?php echo $guarmobile; ?>');"><i
                     class="bi bi-chat-left-text-fill"></i></div>
 
                 <div class="col text-warning"
@@ -451,34 +451,38 @@ $count_class = count($cteacher_data);
     }
   }
 
-
-  function send_absent_notice(stid, way, mobile) {
-    event.stopPropagation();
-
-    var message = "Dear Guardian,\\nYour child is not in school today.\\nHead Teacher";
-
-    if (way == 0) {
-
-      var lnk = "make-call.php?mobilenumber=" + mobile;
-      window.location.href = lnk;
-
-    } else if (way == 1) {
-
-      alert('1');
-      send_sms(mobile, message);
-    
-    } else if (way == 2) {
-
-      alert('Under Construction.');
-
-    } else if (way == 3) {
-
-      alert('Under Construction.');
-
-    } else if (way == 4) {
-
-      alert('Under Construction.');
-
-    }
-  }
 </script>
+
+<!-- 
+<script>
+  
+  function send_absent_notice(stid, way, mobile) {
+        event.stopPropagation();
+
+        var message = "Dear Guardian,\\nYour child is not in school today.\\nHead Teacher";
+
+        if (way == 0) {
+
+            var lnk = "make-call.php?mobilenumber=" + mobile;
+            window.location.href = lnk;
+
+        } else if (way == 1) {
+
+            alert('1');
+            send_sms(mobile, message);
+
+        } else if (way == 2) {
+
+            alert('Under Construction.');
+
+        } else if (way == 3) {
+
+            alert('Under Construction.');
+
+        } else if (way == 4) {
+
+            alert('Under Construction.');
+
+        }
+    }
+</script> -->

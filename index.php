@@ -112,6 +112,12 @@ if ($result0rtx_notice->num_rows > 0) {
     }
 }
 
+if($cteacher_data[0]['cteachercls'] !='' && $cteacher_data[0]['cteachersec'] !='') {
+    $cteacher_text = '<span class="text-white"> (' . $cteacher_data[0]['cteachercls'] . ' : ' . $cteacher_data[0]['cteachersec'] . ')</span>';
+} else {
+    $cteacher_text = '';
+}
+
 ?>
 
 <main>
@@ -126,17 +132,13 @@ if ($result0rtx_notice->num_rows > 0) {
                     <td style="text-align:center;">
                         <img src="<?php echo $pth; ?>" class="st-pic-big" /><br>
                         <div class="b"><?php echo $fullname; ?></div>
-                        <div class="c"><?php echo $userlevel; ?></div>
+                        <div class="c"><?php echo $userlevel . $cteacher_text ; ?></div>
                         <div class="d"><?php echo $scname; ?></div>
                     </td>
                 </tr>
             </table>
 
         </div>
-
-
-
-
 
     </div>
 

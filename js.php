@@ -39,7 +39,7 @@
         if (ram_h < 10) ram_h = '0' + ram_h;
         if (ram_m < 10) ram_m = '0' + ram_m;
         if (ram_s < 10) ram_s = '0' + ram_s;
-        document.getElementById("wait-time").innerHTML = 'Time Remaining : <b>' +  ram_h + ':' + ram_m + ':' + ram_s + '</b>';
+        document.getElementById("wait-time").innerHTML = 'Time Remaining : <b>' + ram_h + ':' + ram_m + ':' + ram_s + '</b>';
 
         //********************************** */
 
@@ -172,6 +172,38 @@
 
     function report_menu_absent_bunk_list() {
         window.location.href = 'absent-bunk-list.php';
+    }
+
+
+
+    function send_absent_notice(stid, way, mobile) {
+        event.stopPropagation();
+
+        var message = "Dear Guardian,\\nYour child is not in school today.\\nHead Teacher";
+
+        if (way == 0) {
+
+            var lnk = "make-call.php?mobilenumber=" + mobile;
+            window.location.href = lnk;
+
+        } else if (way == 1) {
+            console.log("hello");
+            alert('---1');
+            send_sms(mobile, message);
+
+        } else if (way == 2) {
+
+            alert('Under Construction-2.');
+
+        } else if (way == 3) {
+
+            alert('Under Construction-3.');
+
+        } else if (way == 4) {
+
+            alert('Under Construction-4.');
+
+        }
     }
 
     function report_menu_cls_routine() {
