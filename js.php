@@ -148,11 +148,11 @@
         window.location.href = 'student-list.php';
     }
     function report_menu_student_list() {
-        if (user_level == 'Administrator' || user_level == 'Super Administrator' || user_level == 'Head Teacher' || user_level == 'Principal') {
+        // if (user_level == 'Administrator' || user_level == 'Super Administrator' || user_level == 'Head Teacher' || user_level == 'Principal') {
             window.location.href = 'class-section.php';
-        } else {
-            window.location.href = 'students.php';
-        }
+        // } else {
+            // window.location.href = 'students.php';
+        // }
         // window.location.href = 'students.php';
     }
     function class_section_list_for_student_list_edit(id) {
