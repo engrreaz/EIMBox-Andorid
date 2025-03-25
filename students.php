@@ -122,6 +122,7 @@ $cnt = count($stslist);
           $modi = $datam_st_profile[$st_ind]["modify"];
           $diff = (strtotime($cur) - strtotime($modi)) / (3600 * 24);
 
+          /*
           $sql00 = "SELECT * FROM students where  sccode='$sccode' and stid='$stid' LIMIT 1";
           $result00 = $conn->query($sql00);
           if ($result00->num_rows > 0) {
@@ -134,6 +135,7 @@ $cnt = count($stslist);
               $diff = (strtotime($cur) - strtotime($modi)) / (3600 * 24);
             }
           }
+            */
           $sector = '';
 
           if ($status == 0) {
