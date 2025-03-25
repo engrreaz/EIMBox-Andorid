@@ -150,7 +150,7 @@ if ($cteacher_data[0]['cteachercls'] != '' && $cteacher_data[0]['cteachersec'] !
 
                     $tdstamp = strtotime($td);
 
-                    $lprstamp = new DateTime($dobx); // যেকোনো তারিখ নির্ধারণ করুন
+                    $lprstamp = new DateTime($dobx); 
                     date_add($lprstamp, date_interval_create_from_date_string("60 years"));
                     date_sub($lprstamp, date_interval_create_from_date_string("1 days"));
                     $lprstamp = strtotime($lprstamp->format("Y-m-d"));

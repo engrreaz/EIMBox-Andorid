@@ -33,7 +33,7 @@ if ($result0->num_rows > 0) {
 }
 $cnt = count($stslist);
 
-// var_dump($stslist);
+var_dump($stslist);
 
 
 
@@ -58,9 +58,43 @@ $cnt = count($stslist);
 
 
 
+    <?php if ($count_class > 1) { ?>
+      <div class="d-flex table-responsive m-0 p-0">
+        <?php
+        for ($h = 0; $h < $count_class; $h++) {
+          $classname = $cteacher_data[$h]['cteachercls'];
+          $sectionname = $cteacher_data[$h]['cteachersec'];
+
+          if ($h == 0) {
+            $btn = 'primary';
+          } else {
+            $btn = 'dark';
+          }
+
+          ?>
+          <button id="btn<?php echo $h; ?>" class="btn btn-<?php echo $btn; ?> flex-fill " style="border-radius:0;"
+            onclick="myclass('<?php echo $h; ?>', '<?php echo $count_class; ?>' );">
+            <?php echo $classname . ' <i class="bi bi-arrow-right"></i>  ' . $sectionname; ?>
+          </button>
+          <?php
+        }
+        ?>
+      </div>
+    <?php } ?>
 
     <!-- *************************************************** -->
-   
+    <?php for ($h2 = 0; $h2 < $count_class; $h2++) {
+      $classname = $cteacher_data[$h2]['cteachercls'];
+      $sectionname = $cteacher_data[$h2]['cteachersec'];
+      if ($h2 == 0) {
+        $ddss = 'block';
+
+      } else {
+        $ddss = 'none';
+
+      }
+
+      ?>
 
       <div id="clssecblock<?php echo $h2; ?>" style="display:<?php echo $ddss; ?>">
 
@@ -366,7 +400,7 @@ $cnt = count($stslist);
       </div>
       <?php
 
-    // }
+    }
     ?>
     <!-- *********************************************************** -->
 
