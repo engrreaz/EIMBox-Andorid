@@ -103,10 +103,43 @@
             document.getElementById("period-icon").innerHTML = '<i class="bi bi-' + period + '-circle-fill period-icon"></i>';
 
         }
+
+
+        var car_sec_val = parseInt(document.getElementById("career_rest_val").innerHTML);
+        var convertsec = convertSeconds(car_sec_val);
+        document.getElementById("career_rest").innerHTML = convertsec;
+        car_sec_val--;
+        document.getElementById("career_rest_val").innerHTML = car_sec_val;
+
     }
 
 
 </script>
+
+<script>
+    function convertSeconds(seconds) {
+    const years = Math.floor(seconds / (365 * 24 * 60 * 60)); // 1 বছর = 365 দিন
+    seconds %= (365 * 24 * 60 * 60);
+
+    const months = Math.floor(seconds / (30 * 24 * 60 * 60)); // 1 মাস = ৩০ দিন (গড়)
+    seconds %= (30 * 24 * 60 * 60);
+
+    const days = Math.floor(seconds / (24 * 60 * 60)); // 1 দিন = ২৪ ঘণ্টা
+    seconds %= (24 * 60 * 60);
+
+    const hours = Math.floor(seconds / (60 * 60)); // 1 ঘণ্টা = ৬০ মিনিট
+    seconds %= (60 * 60);
+
+    const minutes = Math.floor(seconds / 60); // 1 মিনিট = ৬০ সেকেন্ড
+    seconds %= 60;
+
+    return `${years}Y ${months}M ${days}D ${hours}h ${minutes}m ${seconds}s`;
+}
+
+// 🔥 উদাহরণ:
+</script>
+
+
 <script>
 
 
@@ -149,9 +182,9 @@
     }
     function report_menu_student_list() {
         // if (user_level == 'Administrator' || user_level == 'Super Administrator' || user_level == 'Head Teacher' || user_level == 'Principal') {
-            window.location.href = 'class-section.php';
+        window.location.href = 'class-section.php';
         // } else {
-            // window.location.href = 'students.php';
+        // window.location.href = 'students.php';
         // }
         // window.location.href = 'students.php';
     }
