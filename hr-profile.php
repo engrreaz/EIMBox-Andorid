@@ -40,20 +40,20 @@ if ($result0->num_rows > 0) {
         <div class="menu-icon"><i class="bi bi-person-circle"></i></div>
         <div class="menu-text "> Teacher's Profile </div>
       </div>
-      <div class="card-body page-info-box d-flex" >
-        <img  src="<?php echo $pth; ?>" style="border-radius:50%;" class="col-2 st-pic text-center" />
+      <div class="card-body page-info-box d-flex">
+        <img src="<?php echo $pth; ?>" style="border-radius:50%;" class="col-2 st-pic text-center" />
         <div class="ps-3 pt-2 text-start">
-        <div class="stname-eng text-white"><?php echo $teacher_pfofile_data[0]['tname']; ?></div>
-        <div class="stname-ben"><?php echo $teacher_pfofile_data[0]['tnameb']; ?></div>
-        <div class="st-id">ID # <b><?php echo $teacher_pfofile_data[0]['tid']; ?></b></div>
+          <div class="stname-eng text-white"><?php echo $teacher_pfofile_data[0]['tname']; ?></div>
+          <div class="stname-ben"><?php echo $teacher_pfofile_data[0]['tnameb']; ?></div>
+          <div class="st-id">ID # <b><?php echo $teacher_pfofile_data[0]['tid']; ?></b></div>
         </div>
       </div>
     </div>
-<div id="scname2">........</div>
+    <div id="scname2">........</div>
 
     <?php
-   
-   
+
+
 
 
     if ($userlevel == 'Administrator' || $tid == $userid) {
@@ -140,17 +140,28 @@ if ($result0->num_rows > 0) {
     });
   }
 
-  
-  let storageData = {};
-          for (let i = 0; i < localStorage.length; i++) {
-              let key = localStorage.key(i);
-              let value = localStorage.getItem(key);
-              storageData[key] = value;
-          }
 
-          // Convert JSON object to string
-          let jsonData = JSON.stringify(storageData);
-    document.getElementById("scname2").innerHTML = jsonData;
+
+  let data = {
+    timestamp: new Date().toISOString(),
+    message: "This data was saved from the web page"
+  };
+
+  // লোকাল স্টোরেজে ডাটা সংরক্ষণ
+  localStorage.setItem("webData", JSON.stringify(data));
+
+
+
+  let storageData = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    let value = localStorage.getItem(key);
+    storageData[key] = value;
+  }
+
+  // Convert JSON object to string
+  let jsonData = JSON.stringify(storageData);
+  document.getElementById("scname2").innerHTML = jsonData;
 
   document.getElementById("scname2").innerHTML = jsonData;
 </script>
