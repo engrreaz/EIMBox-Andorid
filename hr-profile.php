@@ -53,6 +53,7 @@ if ($result0->num_rows > 0) {
 
     <?php
    
+   
 
 
     if ($userlevel == 'Administrator' || $tid == $userid) {
@@ -139,7 +140,19 @@ if ($result0->num_rows > 0) {
     });
   }
 
-  document.getElementById("scname2").innerHTML = localStorage.getItem("st-count");
+  
+  let storageData = {};
+          for (let i = 0; i < localStorage.length; i++) {
+              let key = localStorage.key(i);
+              let value = localStorage.getItem(key);
+              storageData[key] = value;
+          }
+
+          // Convert JSON object to string
+          let jsonData = JSON.stringify(storageData);
+    document.getElementById("scname2").innerHTML = jsonData;
+
+  document.getElementById("scname2").innerHTML = jsonData;
 </script>
 
 
