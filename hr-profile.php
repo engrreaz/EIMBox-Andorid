@@ -49,7 +49,7 @@ if ($result0->num_rows > 0) {
         </div>
       </div>
     </div>
-
+<div id="scname2">........</div>
 
     <?php
    
@@ -138,6 +138,8 @@ if ($result0->num_rows > 0) {
       }
     });
   }
+
+  document.getElementById("scname2").innerHTML = localStorage.getItem("st-count");
 </script>
 
 
