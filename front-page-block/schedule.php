@@ -16,6 +16,8 @@ include 'dob-history-time-line.php';
     $expense_month = 0;
     $total_students = 0;
 
+    $myclass = array();
+
 
 
     // Count Students
@@ -335,11 +337,13 @@ include 'dob-history-time-line.php';
                 ?>
                 <div class="text-small text-dark fw-bold mt-2">Attendace of running period</div>
                 <?php
+                // var_dump($myclass);
                 foreach ($myclass as $myc) {
                     $mycc = $myc['cls'];
                     $mycs = $myc['sec'];
                     ?>
-                    <button class="text-small btn btn-outline-dark mt-2 me-2" onclick="period_attnd('<?php echo $mycc;?>', '<?php echo $mycs;?>' );">
+                    <button class="text-small btn btn-outline-dark mt-2 me-2"
+                        onclick="period_attnd('<?php echo $mycc; ?>', '<?php echo $mycs; ?>' );">
 
                         <i class="bi bi-fingerprint"></i>
                         <?php echo $mycc . ' <i class="bi bi-arrow-right"></i> ' . $mycs ?>
@@ -360,6 +364,8 @@ include 'dob-history-time-line.php';
 </div>
 
 <script>
+    localStorage.setItem("st-count", 1130);
+
     function period_attnd(cls, sec) {
         window.location.href = 'stattnd.php?cls=' + cls + '&sec=' + sec;
     }

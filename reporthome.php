@@ -11,7 +11,7 @@ include 'inc.php';
           <tr>
             <td>
               <div class="menu-icon"><i class="bi bi-mortarboard-fill"></i></div>
-              <div class="menu-text"> Reports </div>
+              <div class="menu-text"> Informations Center </div>
             </td>
           </tr>
         </table>
@@ -104,22 +104,22 @@ include 'inc.php';
   </div>
   <div class="menu-separator"></div>
 
-  
-    <div class="card menu-item-block" onclick="report_menu_absent_bunk_list();">
-      <div class="card-body">
-        <table style="">
-          <tr>
-            <td class="menu-item-icon"><i class="bi bi-slash-circle"></i></td>
-            <td>
-              <h4> Absent - Bunk List </h4>
-              <div class="menu-item-sub-text"> View the list of absent/bunked students </div>
-            </td>
-          </tr>
-        </table>
-      </div>
+
+  <div class="card menu-item-block" onclick="report_menu_absent_bunk_list();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-slash-circle"></i></td>
+          <td>
+            <h4> Absent - Bunk List </h4>
+            <div class="menu-item-sub-text"> View the list of absent/bunked students </div>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class="menu-separator"></div>
- 
+  </div>
+  <div class="menu-separator"></div>
+
 
   <div class="card menu-item-block" onclick="report_menu_cls_routine();">
     <div class="card-body">
@@ -159,6 +159,36 @@ include 'inc.php';
           <td>
             <h4> Teachers & Staffs </h4>
             <div class="menu-item-sub-text"> Honourable Teachers & Staffs </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="menu-separator"></div>
+
+  <div class="card menu-item-block" onclick="report_menu_honorable_teachers();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-microsoft-teams"></i></td>
+          <td>
+            <h4> Committees </h4>
+            <div class="menu-item-sub-text"> All of Committess in this institution </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="menu-separator"></div>
+
+  <div class="card menu-item-block" onclick="report_menu_honorable_teachers();">
+    <div class="card-body">
+      <table style="">
+        <tr>
+          <td class="menu-item-icon"><i class="bi bi-emoji-heart-eyes-fill"></i></td>
+          <td>
+            <h4> Clubs </h4>
+            <div class="menu-item-sub-text"> All clubs in this institutions </div>
           </td>
         </tr>
       </table>

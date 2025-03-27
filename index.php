@@ -148,17 +148,16 @@ if ($cteacher_data[0]['cteachercls'] != '' && $cteacher_data[0]['cteachersec'] !
                     $dobstamp = strtotime($dobx);
                     $jdatestamp = strtotime($jdatex);
 
-                    $tdstamp = strtotime($td);
+                    $tdstamp = strtotime($cur);
 
                     $lprstamp = new DateTime($dobx); 
                     date_add($lprstamp, date_interval_create_from_date_string("60 years"));
                     date_sub($lprstamp, date_interval_create_from_date_string("1 days"));
-                    $lprstamp = strtotime($lprstamp->format("Y-m-d"));
+                    $lprstamp = strtotime($lprstamp->format("Y-m-d 16:00:00"));
 
                     $total_career_days = $lprstamp - $jdatestamp;
                     $rest_career_days = $lprstamp - $tdstamp;
                     $dot_pos = 100 - ceil(100 * $rest_career_days / $total_career_days);
-                   
                     ?>
                     <div style="height:1px; background: var(--light); margin:10px 0 15px;">
                         <div class="float-end text-small font-weight-bold text-white pe-2 " hidden><?php echo date('d.m.Y', $lprstamp);?></div>
