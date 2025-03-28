@@ -158,7 +158,7 @@ if ($result0->num_rows > 0) {
 
 
   let storedData = JSON.parse(localStorage.getItem("webData"));
-  alert(storedData ? `Saved Data: ${storedData.message} at ${storedData.timestamp}` : "No Data Found!");
+  // alert(storedData ? `Saved Data: ${storedData.message} at ${storedData.timestamp}` : "No Data Found!");
 
   let storageData = {};
   for (let i = 0; i < localStorage.length; i++) {
