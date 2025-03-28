@@ -22,7 +22,7 @@ if (isset($_GET['cls']) && isset($_GET['sec'])) {
 // var_dump($cteacher_data);
 $count_class = count($cteacher_data);
 
-
+var_dump($datam_st_profile);
 
 
 ?>
