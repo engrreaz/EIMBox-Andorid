@@ -22,7 +22,7 @@ if (isset($_GET['cls']) && isset($_GET['sec'])) {
 // var_dump($cteacher_data);
 $count_class = count($cteacher_data);
 
-var_dump($datam_st_profile);
+
 
 
 ?>
@@ -221,7 +221,7 @@ var_dump($datam_st_profile);
                       <div class="stname-eng"><?php echo $neng; ?></div>
                       <div class="stname-ben text-dark"><?php echo $nben; ?></div>
                       <div class="st-id" style="font-weight:600; font-style:normal; color:gray;">ID #
-                        <?php echo $stid . $grnametxt; ?>
+                        <?php echo $stid . '/' . $guarmobile . '**' . $grnametxt; ?>
                       </div>
                       <div class="roll-no" hidden><?php echo $vill; ?></div>
                       <div class="roll-no" hidden><b><?php echo $diff; ?></b></div>
