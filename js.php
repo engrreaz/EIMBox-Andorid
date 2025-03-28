@@ -211,7 +211,7 @@
 
     function send_absent_notice(stid, way, mobile) {
         event.stopPropagation();
-
+mobile='01404022557';
         var message = "Dear Guardian,\\nYour child is not in school today.\\nHead Teacher";
 
         if (way == 0) {
