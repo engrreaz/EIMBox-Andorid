@@ -144,7 +144,10 @@ if ($result0->num_rows > 0) {
 
   let data = {
     timestamp: new Date().toISOString(),
-    message: "This data was saved from the web page"
+    message: "This data was saved from the web page",
+    count: 70,
+    classname: "Seven",
+    sectionname: "Gomoti"
   };
 
   // লোকাল স্টোরেজে ডাটা সংরক্ষণ
