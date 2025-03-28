@@ -152,6 +152,7 @@ if ($result0->num_rows > 0) {
 
   if (window.Android) {
     window.Android.saveToSharedPreferences("webData", JSON.stringify(data));
+    alert('Action Taken');
   } else {
     alert('Not Saved..');
   }
