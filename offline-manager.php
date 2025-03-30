@@ -466,14 +466,19 @@ if (strpos($profile_entry, $userlevel) != null) {
     },
   };
 
-
+  var full_str = '';
   for (var i = 1; i <= <?php echo $cnt; ?>; i++) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
     var stid = document.getElementById('stid' + i).innerHTML;
     var stname = document.getElementById('stname' + i).innerHTML;
     var str = i + ": { rollno: " + rollno + ", stid: " + stid + ", stname: " + stname + "}, ";
-    datam['<?php echo $usr; ?>']['<?php echo $cteacher_data[0]['cteachercls']; ?>']['<?php echo $cteacher_data[0]['cteachersec']; ?>'].push(str);
+
+    full_str += str;
   }
+  full_str = JSON.stringify(full_str);
+
+  var str_arr = JSON.parse(full_str);
+  datam['<?php echo $usr; ?>']['<?php echo $cteacher_data[0]['cteachercls']; ?>']['<?php echo $cteacher_data[0]['cteachersec']; ?>'] = str_arr;
 
   // লোকাল স্টোরেজে ডাটা সংরক্ষণ
   localStorage.setItem("webData", JSON.stringify(datam));
