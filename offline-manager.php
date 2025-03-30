@@ -505,4 +505,19 @@ if (strpos($profile_entry, $userlevel) != null) {
   let jsonData = JSON.stringify(storageData);
   document.getElementById("jsondatablock").innerHTML = jsonData;
 
+
+  if (window.Android) {
+    storedData = window.Android.getFromSharedPreferences("webData");
+
+    let jsonPata = JSON.parse(storedData);
+    // document.getElementById("jsons").innerHTML = jsonPata["count"];
+
+    //  jsonData = JSON.stringify(storedData);
+    jsonData = JSON.stringify(jsonPata);
+    document.getElementById("jsondatablock").innerHTML += jsonData;
+
+    alert("Action" + jsonData);
+  }
+
+
 </script>
