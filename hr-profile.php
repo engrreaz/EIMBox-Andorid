@@ -148,8 +148,8 @@ alert('OK');
 
 var datam = {
   '<?php echo $usr;?>': {
-      classname: '<?php echo $cteacher_data['cteachercls'];?>',
-      sectionname: 'Bok',
+      classname: '<?php echo $cteacher_data[0]['cteachercls'];?>',
+      sectionname: '<?php echo $cteacher_data[0]['cteachersec'];?>',
       stcount: 3,
       Six: {
           Bok: {
