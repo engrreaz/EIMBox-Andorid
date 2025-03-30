@@ -148,7 +148,7 @@ alert('OK');
 
 var datam = {
   '<?php echo $usr;?>': {
-      classname: 'Six',
+      classname: '<?php echo $cteacher_data['cteachercls'];?>',
       sectionname: 'Bok',
       stcount: 3,
       Six: {
