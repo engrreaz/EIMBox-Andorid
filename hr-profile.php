@@ -142,13 +142,21 @@ if ($result0->num_rows > 0) {
 
 
 
-  let data = {
-    timestamp: new Date().toISOString(),
-    message: "This data was saved from the web page",
-    count: 70,
-    classname: "Seven",
-    sectionname: "Gomoti"
-  };
+  var data = {
+    <?php echo $usr;?>: {
+        classname: 'Six',
+        sectionname: 'Bok',
+        stcount: 3,
+        Six: {
+            Bok: {
+                1: { roll: 1, stid: 7070709999, stname: 'Palak Bajpai' },
+                2: { roll: 11, stid: 7070709969, stname: 'Kiron Malik' },
+                3: { roll: 15, stid: 7070709964, stname: 'Soron Panday', yn: 1 },
+            }
+
+        }
+    },
+};
 
   // লোকাল স্টোরেজে ডাটা সংরক্ষণ
   localStorage.setItem("webData", JSON.stringify(data));
@@ -175,7 +183,7 @@ if ($result0->num_rows > 0) {
   let jsonData = JSON.stringify(storageData);
   document.getElementById("scname2").innerHTML = jsonData;
 
-  document.getElementById("scname2").innerHTML = jsonData;
+  // document.getElementById("scname2").innerHTML = jsonData;
 </script>
 
 
