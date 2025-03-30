@@ -67,6 +67,23 @@ include 'inc.php';
     </div>
     <div class="menu-separator"></div>
 
+
+
+    <div class="card menu-item-block" onclick="profile_menu_offline_manager();">
+      <div class="card-body">
+        <table style="">
+          <tr>
+            <td class="menu-item-icon"><i class="bi bi-fingerprint"></i></td>
+            <td>
+              <h4> Offline Manager </h4>
+              <div class="menu-item-sub-text"> My Offline Data Management Tool </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="menu-separator"></div>
+
     <div class="card menu-item-block " onclick="lnk3();" hidden>
       <div class="card-body ">
         <table style="">

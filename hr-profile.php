@@ -142,52 +142,6 @@ if ($result0->num_rows > 0) {
 
 </script>
 
-<script>
-  
-alert('OK');
-
-var datam = {
-  '<?php echo $usr;?>': {
-      classname: '<?php echo $cteacher_data[0]['cteachercls'];?>',
-      sectionname: '<?php echo $cteacher_data[0]['cteachersec'];?>',
-      stcount: 3,
-      Six: {
-          Bok: {
-              1: { roll: 1, stid: 7070709999, stname: 'Palak Bajpai' },
-              2: { roll: 11, stid: 7070709969, stname: 'Kiron Malik' },
-              3: { roll: 15, stid: 7070709964, stname: 'Soron Panday', yn: 1 },
-          }
-
-      }
-  },
-};
-
-// লোকাল স্টোরেজে ডাটা সংরক্ষণ
-localStorage.setItem("webData", JSON.stringify(datam));
-
-if (window.Android) {
-  window.Android.saveToSharedPreferences("webData", JSON.stringify(datam));
-  alert('Action Taken');
-} else {
-  alert('Not Saved..');
-}
-
-
-let storedData = JSON.parse(localStorage.getItem("webData"));
-// alert(storedData ? `Saved Data: ${storedData.message} at ${storedData.timestamp}` : "No Data Found!");
-
-let storageData = {};
-for (let i = 0; i < localStorage.length; i++) {
-  let key = localStorage.key(i);
-  let value = localStorage.getItem(key);
-  storageData[key] = value;
-}
-
-// Convert JSON object to string
-let jsonData = JSON.stringify(storageData);
-document.getElementById("scname2").innerHTML = jsonData;
-
-</script>
 
 
 </body>
