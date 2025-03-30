@@ -455,7 +455,7 @@ if (strpos($profile_entry, $userlevel) != null) {
       classname: '<?php echo $cteacher_data[0]['cteachercls']; ?>',
       sectionname: '<?php echo $cteacher_data[0]['cteachersec']; ?>',
       stcount: <?php echo $cnt; ?>,
-      attnddate: '<?php echo $td;?>',
+      attnddate: '<?php echo $td; ?>',
       '<?php echo $cteacher_data[0]['cteachercls']; ?>': {
         '<?php echo $cteacher_data[0]['cteachersec']; ?>': {
 
@@ -471,10 +471,8 @@ if (strpos($profile_entry, $userlevel) != null) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
     var stid = document.getElementById('stid' + i).innerHTML;
     var stname = document.getElementById('stname' + i).innerHTML;
-    datam['<?php echo $usr; ?>']['<?php echo $cteacher_data[0]['cteachercls']; ?>']['<?php echo $cteacher_data[0]['cteachersec']; ?>'][i]['rollno'] = rollno;
-    datam['<?php echo $usr; ?>']['<?php echo $cteacher_data[0]['cteachercls']; ?>']['<?php echo $cteacher_data[0]['cteachersec']; ?>'][i]['stid'] = stid;
-    datam['<?php echo $usr; ?>']['<?php echo $cteacher_data[0]['cteachercls']; ?>']['<?php echo $cteacher_data[0]['cteachersec']; ?>'][i]['stname'] = stname;
-
+    var str = i + ": { rollno: " + rollno + ", stid: " + stid + ", stname: " + stname + "}, ";
+    datam['<?php echo $usr; ?>']['<?php echo $cteacher_data[0]['cteachercls']; ?>']['<?php echo $cteacher_data[0]['cteachersec']; ?>'].push(str);
   }
 
   // লোকাল স্টোরেজে ডাটা সংরক্ষণ
