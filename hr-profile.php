@@ -140,7 +140,7 @@ if ($result0->num_rows > 0) {
     });
   }
 
-
+alert('OK');
 
   var data = {
     <?php echo $usr;?>: {
