@@ -471,7 +471,7 @@ if (strpos($profile_entry, $userlevel) != null) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
     var stid = document.getElementById('stid' + i).innerHTML;
     var stname = document.getElementById('stname' + i).innerHTML;
-    var str = i + ": { rollno: " + rollno + ", stid: " + stid + ", stname: " + stname + "}, ";
+    var str = i + ": { rollno: " + rollno + ", stid: " + stid + ", stname: " + stname + ", yn: 0 }, ";
 
     full_str += str;
   }
