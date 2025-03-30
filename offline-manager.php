@@ -445,7 +445,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   }
 </script>
 
-
+<?php $usr = 'sex';?>
 <script>
 
   alert('OK');
