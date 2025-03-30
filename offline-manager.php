@@ -466,7 +466,7 @@ if (strpos($profile_entry, $userlevel) != null) {
     },
   };
 
-/*
+
   for (var i = 1; i <= <?php echo $cnt; ?>; i++) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
     var stid = document.getElementById('stid' + i).innerHTML;
@@ -476,7 +476,7 @@ if (strpos($profile_entry, $userlevel) != null) {
     datam['<?php echo $usr; ?>']['<?php echo $cteacher_data[0]['cteachercls']; ?>']['<?php echo $cteacher_data[0]['cteachersec']; ?>'][i]['stname'] = stname;
 
   }
-*/
+
   // লোকাল স্টোরেজে ডাটা সংরক্ষণ
   localStorage.setItem("webData", JSON.stringify(datam));
 
