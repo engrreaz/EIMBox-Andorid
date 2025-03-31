@@ -495,14 +495,14 @@ if (strpos($profile_entry, $userlevel) != null) {
   var stx = JSON.parse(full_str);
   alert('Stringify' + stx);
 
-  document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
+  // document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
-  var str_arr = JSON.parse(full_str);
-
-
+  // var str_arr = JSON.parse(full_str);
 
 
-  datam[email][cls][sec].push(str_arr);
+
+
+  datam[email][cls][sec] = push(stx);
 
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
