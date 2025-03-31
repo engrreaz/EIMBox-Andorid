@@ -476,14 +476,14 @@ if (strpos($profile_entry, $userlevel) != null) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
     var stid = document.getElementById('stid' + i).innerHTML;
     var stname = document.getElementById('stname' + i).innerHTML;
-    var str = '{"' + i + '": { "rollno": ' + rollno + ', "stid": ' + stid + ', "stname": ' + stname + ', "yn": 0 }}, ';
+    var str = '{"' + i + '": { "rollno": ' + rollno + ', "stid": ' + stid + ', "stname": ' + stname + ', "yn": 0 },}, ';
     // var strstr = JSON.stringify(str);
     full_str += str;
   }
   full_str += '}';
 
   full_str = JSON.stringify(full_str);
-
+alert('Stringify' + full_str);
 
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
   var stx = JSON.parse(full_str);
