@@ -502,7 +502,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
 
 
-  datam[email][cls][sec] =JSON.parse(stx);
+  datam[email][cls][sec] =stx;
   alert('Stringify' + stx);
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
