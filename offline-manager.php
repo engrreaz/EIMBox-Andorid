@@ -482,7 +482,7 @@ if (strpos($profile_entry, $userlevel) != null) {
       coma = ', ';
     }
     
-    var str = `{ "rollno": ${rollno} , "stid": ${stid} , "stname": "${stname}", "yn": 0 }${coma}`;
+    var str = `{ "rollno": ${rollno} , "stid": ${stid} , "stname": "${stname}", "yn": 0 }${coma} `;
     // 
   //  var strstr = JSON.stringify(str);
     full_str += str;
