@@ -541,12 +541,12 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     //  jsonData = JSON.stringify(storedData);
     jsonData = JSON.stringify(jsonPata);
-    document.getElementById("jsondatablock").innerHTML += "<br>...........<br>"+ jsonPata;
+    document.getElementById("jsondatablock").innerHTML += "<br>...........<br>"+ jsonData;
 
     alert("Action" + jsonData);
 
 
-    var sing = JSON.stringify(jsonPata['engrreaz']['Seven']['Gomoti'][1]);
+    var sing = JSON.stringify(jsonData['engrreaz']['Seven']['Gomoti'][1]);
     alert(sing);
   }
 
