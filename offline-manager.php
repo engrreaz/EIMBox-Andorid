@@ -471,7 +471,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
 
 
-  var full_str = '';
+  var full_str = '[';
   /*
   for (var i = 1; i <= <?php echo $cnt; ?>; i++) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
@@ -489,7 +489,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   str += `{"roll":3, "stid":1056732027, "stname":"Sydney Lodge"},`;
   str += `{"roll":4, "stid":1056732028, "stname":"Hawra Station"}`;
 
-  full_str += str + '';
+  full_str += str + ']';
 
   // full_str = JSON.stringify(full_str);
   var stx = JSON.parse(full_str);
@@ -502,7 +502,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
 
 
-  datam[email][cls][sec] =stx;
+  datam[email][cls][sec] = stx;
   alert('Stringify' + stx);
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
