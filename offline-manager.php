@@ -533,6 +533,9 @@ if (strpos($profile_entry, $userlevel) != null) {
     document.getElementById("jsondatablock").innerHTML += jsonData;
 
     alert("Action" + jsonData);
+
+
+    var sing = JSON.stringify(jsonPata['engrreaz']['Seven']['Gomoti'][1]);
   }
 
 
