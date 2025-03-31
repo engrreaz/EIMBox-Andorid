@@ -479,7 +479,7 @@ if (strpos($profile_entry, $userlevel) != null) {
     var stname = document.getElementById('stname' + i).innerHTML;
     var str = `{ "rollno": ${rollno} , "stid": ${stid} , "stname": "${stname}", "yn": 0 },`;
     // 
-   ar strstr = JSON.stringify(str);
+  //  var strstr = JSON.stringify(str);
     full_str += str;
      if (i == 55) {
       alert(str);
