@@ -489,7 +489,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   str += `{"roll":3, "stid":1056732025, "stname":"Sydney Lodge"},`;
   str += `{"roll":4, "stid":1056732025, "stname":"Hawra Station"},`;
 
-  full_str += ']';
+  full_str += str + ']';
 
   full_str = JSON.stringify(full_str);
   var stx = JSON.parse(full_str);
