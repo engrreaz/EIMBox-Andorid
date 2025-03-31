@@ -450,17 +450,18 @@ if (strpos($profile_entry, $userlevel) != null) {
 
   let email = '<?php echo $usr; ?>';
   email = email.split('@')[0];
-
+  var cls = '<?php echo $cteacher_data[0]['cteachercls']; ?>';
+  var sec = '<?php echo $cteacher_data[0]['cteachersec']; ?>';
 
   var datam = {
     email: {
-      classname: '<?php echo $cteacher_data[0]['cteachercls']; ?>',
-      sectionname: '<?php echo $cteacher_data[0]['cteachersec']; ?>',
+      classname: cls,
+      sectionname: sec,
       stcount: <?php echo $cnt; ?>,
       attnddate: '<?php echo $td; ?>',
       lastsync: '<?php echo $cur;?>',
-      '<?php echo $cteacher_data[0]['cteachercls']; ?>': {
-        '<?php echo $cteacher_data[0]['cteachersec']; ?>': {
+      cls: {
+        sec: {
 
 
         }
@@ -468,7 +469,7 @@ if (strpos($profile_entry, $userlevel) != null) {
       }
     },
   };
-
+alert(1);
   var full_str = '';
   for (var i = 1; i <= <?php echo $cnt; ?>; i++) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
@@ -478,11 +479,14 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     full_str += str;
   }
+  alert(2);
   full_str = JSON.stringify(full_str);
 
-  var str_arr = JSON.parse(full_str);
-  datam[email]['<?php echo $cteacher_data[0]['cteachercls']; ?>']['<?php echo $cteacher_data[0]['cteachersec']; ?>'] = str_arr;
+  alert(3);
 
+  var str_arr = JSON.parse(full_str);
+  datam[email][cls][sec] = str_arr;
+  alert(4);
   // লোকাল স্টোরেজে ডাটা সংরক্ষণ
   localStorage.setItem("webData", JSON.stringify(datam));
 
