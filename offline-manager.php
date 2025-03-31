@@ -493,7 +493,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
   full_str = JSON.stringify(full_str);
   var stx = JSON.parse(full_str);
-  alert('Stringify' + stx);
+
 
   // document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
@@ -503,7 +503,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
 
   datam[email][cls][sec] =JSON.parse(stx);
-
+  alert('Stringify' + stx);
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
 
