@@ -454,14 +454,14 @@ if (strpos($profile_entry, $userlevel) != null) {
   var sec = '<?php echo $cteacher_data[0]['cteachersec']; ?>';
 
   var datam = {
-   email: {
+   [email]: {
       classname: cls,
       sectionname: sec,
       stcount: <?php echo $cnt; ?>,
       attnddate: '<?php echo $td; ?>',
       lastsync: '<?php echo $cur;?>',
-      cls: {
-        sec: {
+      [cls]: {
+        [sec]: {
 
 
         }
@@ -469,6 +469,10 @@ if (strpos($profile_entry, $userlevel) != null) {
       }
     },
   };
+
+  document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
+
+
 
   var full_str = '';
   for (var i = 1; i <= <?php echo $cnt; ?>; i++) {
@@ -482,13 +486,13 @@ if (strpos($profile_entry, $userlevel) != null) {
 
   full_str = JSON.stringify(full_str);
 
- alert(1);
+ 
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
   var str_arr = JSON.parse(full_str);
 
 
-  datam[${email}][${cls}][${sec}] = str_arr;
+  datam[email][cls][sec] = str_arr;
 
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
@@ -502,7 +506,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   } else {
     alert('Not Saved..');
   }
-  alert(email);
+ 
 
   let storedData = JSON.parse(localStorage.getItem("webData"));
   // alert(storedData ? `Saved Data: ${storedData.message} at ${storedData.timestamp}` : "No Data Found!");
