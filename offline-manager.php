@@ -454,7 +454,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   var sec = '<?php echo $cteacher_data[0]['cteachersec']; ?>';
 
   var datam = {
-    email: {
+    ${email}: {
       classname: cls,
       sectionname: sec,
       stcount: <?php echo $cnt; ?>,
@@ -486,10 +486,11 @@ if (strpos($profile_entry, $userlevel) != null) {
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
   var str_arr = JSON.parse(full_str);
-   str_arr = JSON.parse(str_arr);
 
-  datam[email][cls][sec] = str_arr;
 
+  datam[${email}][${cls}][${sec}] = str_arr;
+
+  document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
 
   // লোকাল স্টোরেজে ডাটা সংরক্ষণ
