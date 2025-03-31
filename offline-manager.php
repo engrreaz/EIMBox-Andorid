@@ -445,17 +445,19 @@ if (strpos($profile_entry, $userlevel) != null) {
   }
 </script>
 
-<?php $usr = 'sex';?>
+
 <script>
 
-  alert('OK');
+  let email = '<?php echo $usr; ?>';
+  email = email.split('@')[0];
 
   var datam = {
-    '<?php echo $usr; ?>': {
+    email: {
       classname: '<?php echo $cteacher_data[0]['cteachercls']; ?>',
       sectionname: '<?php echo $cteacher_data[0]['cteachersec']; ?>',
       stcount: <?php echo $cnt; ?>,
       attnddate: '<?php echo $td; ?>',
+      lastsync: '<?php echo $cur;?>',
       '<?php echo $cteacher_data[0]['cteachercls']; ?>': {
         '<?php echo $cteacher_data[0]['cteachersec']; ?>': {
 
