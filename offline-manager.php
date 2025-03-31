@@ -472,25 +472,28 @@ if (strpos($profile_entry, $userlevel) != null) {
 
 
   var full_str = '[';
- 
+
   for (var i = 1; i <= <?php echo $cnt; ?>; i++) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
     var stid = document.getElementById('stid' + i).innerHTML;
     var stname = document.getElementById('stname' + i).innerHTML;
     var str = `{ "rollno": ${rollno} , "stid": ${stid} , "stname": "${stname}", "yn": 0 },`;
-    // alert(str);
+    // 
+    if (i == 55) {
+      alert(str);
+    }
     // var strstr = JSON.stringify(str);
     full_str += str;
   }
   // full_str += `{"roll":100, "stid":1056432025, "stname":"Jacson Height"}`;
- /*
-
-  var str = '';
-  str += `{"roll":1, "stid":1056732025, "stname":"Jacson Height"},`;
-  str += `{"roll":2, "stid":1056732026, "stname":"London Bridge"},`;
-  str += `{"roll":3, "stid":1056732027, "stname":"Sydney Lodge"},`;
-  str += `{"roll":4, "stid":1056732028, "stname":"Hawra Station"}`;
-*/
+  /*
+ 
+   var str = '';
+   str += `{"roll":1, "stid":1056732025, "stname":"Jacson Height"},`;
+   str += `{"roll":2, "stid":1056732026, "stname":"London Bridge"},`;
+   str += `{"roll":3, "stid":1056732027, "stname":"Sydney Lodge"},`;
+   str += `{"roll":4, "stid":1056732028, "stname":"Hawra Station"}`;
+ */
   full_str += ']';
 
   // full_str = JSON.stringify(full_str);
@@ -543,19 +546,19 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     //  jsonData = JSON.stringify(storedData);
     jsonData = JSON.stringify(jsonPata);
-    document.getElementById("jsondatablock").innerHTML += "<br>...........<br>"+ jsonData;
+    document.getElementById("jsondatablock").innerHTML += "<br>...........<br>" + jsonData;
 
     alert("Action" + jsonData);
 
 
     var sing = jsonPata['engrreaz']['Seven']['Gomoti'][2]['stname'];
-   
-   alert(sing);
-   
+
+    alert(sing);
+
     sing = JSON.parse(sing);
-   
-   
-   
+
+
+
     alert(JSON.stringify(sing[0]));
   }
 
