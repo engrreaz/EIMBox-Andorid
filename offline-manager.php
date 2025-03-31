@@ -491,7 +491,7 @@ if (strpos($profile_entry, $userlevel) != null) {
  
 
 
-  datam[email][cls][sec] = str_arr;
+  datam[email][cls][sec]['Data'] = str_arr;
 
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
