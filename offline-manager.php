@@ -483,10 +483,11 @@ if (strpos($profile_entry, $userlevel) != null) {
   full_str += '';
 
   full_str = JSON.stringify(full_str);
-alert('Stringify' + full_str);
+    var stx = JSON.parse(full_str);
+alert('Stringify' + stx);
 
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
-  var stx = JSON.parse(full_str);
+
   var str_arr = JSON.parse(full_str);
 
 
