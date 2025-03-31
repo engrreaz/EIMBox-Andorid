@@ -568,11 +568,8 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     alert('OK' + sing);
 
-    sing = JSON.parse(sing);
-
-
-
-    alert("POKE" + JSON.stringify(sing[0]));
+    // sing = JSON.parse(sing);
+    // alert("POKE" + JSON.stringify(sing[0]));
   }
 
 // ***************************************************************************************

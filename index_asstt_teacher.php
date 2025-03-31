@@ -30,7 +30,7 @@ if ($result01xe->num_rows > 0) {
 
 <?php
 include 'front-page-block/schedule.php';
-include 'front-page-block/holi-ramadan.php';
+// include 'front-page-block/holi-ramadan.php';
 
 include 'front-page-block/task-teacher.php';
 if($notice_block==1){

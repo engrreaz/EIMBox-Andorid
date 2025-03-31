@@ -1,6 +1,6 @@
 <?php
 include 'front-page-block/schedule.php';
-include 'front-page-block/holi-ramadan.php';
+// include 'front-page-block/holi-ramadan.php';
 include 'front-page-block/head-block.php';
 
 
