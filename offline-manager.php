@@ -484,10 +484,10 @@ if (strpos($profile_entry, $userlevel) != null) {
 
 */
   var str = '';
-  str += `[{"roll":1, "stid":1056732025, "stname":"Jacson Height"}],`;
-  str += `[{"roll":2, "stid":1056732025, "stname":"London Bridge"}],`;
-  str += `[{"roll":3, "stid":1056732025, "stname":"Sydney Lodge"}],`;
-  str += `[{"roll":4, "stid":1056732025, "stname":"Hawra Station"}],`;
+  str += `{"roll":1, "stid":1056732025, "stname":"Jacson Height"},`;
+  str += `{"roll":2, "stid":1056732025, "stname":"London Bridge"},`;
+  str += `{"roll":3, "stid":1056732025, "stname":"Sydney Lodge"},`;
+  str += `{"roll":4, "stid":1056732025, "stname":"Hawra Station"}`;
 
   full_str += str + '';
 
