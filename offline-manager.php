@@ -454,7 +454,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   var sec = '<?php echo $cteacher_data[0]['cteachersec']; ?>';
 
   var datam = {
-    ${email}: {
+   email: {
       classname: cls,
       sectionname: sec,
       stcount: <?php echo $cnt; ?>,
