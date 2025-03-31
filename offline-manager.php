@@ -450,6 +450,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
   let email = '<?php echo $usr; ?>';
   email = email.split('@')[0];
+alert(email);
 
   var datam = {
     email: {
