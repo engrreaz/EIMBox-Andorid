@@ -484,8 +484,8 @@ alert(1);
 
   alert(3);
 
-  var str_arr = JSON.parse(full_str);
-  datam[email][cls][sec] = str_arr;
+  // var str_arr = JSON.parse(full_str);
+  datam[email][cls][sec] = full_str;
   alert(4);
   // লোকাল স্টোরেজে ডাটা সংরক্ষণ
   localStorage.setItem("webData", JSON.stringify(datam));
