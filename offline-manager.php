@@ -482,7 +482,7 @@ if (strpos($profile_entry, $userlevel) != null) {
     // var strstr = JSON.stringify(str);
     full_str += str;
   }
-  full_str += `{"roll":100, "stid":1056432025, "stname":"Jacson Height"}`;
+  // full_str += `{"roll":100, "stid":1056432025, "stname":"Jacson Height"}`;
  /*
 
   var str = '';
