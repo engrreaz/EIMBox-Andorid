@@ -468,7 +468,7 @@ if (strpos($profile_entry, $userlevel) != null) {
       }
     },
   };
-  alert(email);
+
   var full_str = '';
   for (var i = 1; i <= <?php echo $cnt; ?>; i++) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
@@ -492,7 +492,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   } else {
     alert('Not Saved..');
   }
-
+  alert(email);
 
   let storedData = JSON.parse(localStorage.getItem("webData"));
   // alert(storedData ? `Saved Data: ${storedData.message} at ${storedData.timestamp}` : "No Data Found!");
@@ -508,7 +508,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   let jsonData = JSON.stringify(storageData);
   document.getElementById("jsondatablock").innerHTML = jsonData;
 
-
+  
   if (window.Android) {
     storedData = window.Android.getFromSharedPreferences("webData");
 
