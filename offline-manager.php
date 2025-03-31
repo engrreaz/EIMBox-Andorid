@@ -461,7 +461,7 @@ if (strpos($profile_entry, $userlevel) != null) {
       attnddate: '<?php echo $td; ?>',
       lastsync: '<?php echo $cur;?>',
       [cls]: {
-        [sec]: 'Data',
+        [sec]: {}
 
       }
     },
