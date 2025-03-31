@@ -481,7 +481,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   full_str = JSON.stringify(full_str);
 
   var str_arr = JSON.parse(full_str);
-  datam['<?php echo $usr; ?>']['<?php echo $cteacher_data[0]['cteachercls']; ?>']['<?php echo $cteacher_data[0]['cteachersec']; ?>'] = str_arr;
+  datam[email]['<?php echo $cteacher_data[0]['cteachercls']; ?>']['<?php echo $cteacher_data[0]['cteachersec']; ?>'] = str_arr;
 
   // লোকাল স্টোরেজে ডাটা সংরক্ষণ
   localStorage.setItem("webData", JSON.stringify(datam));
