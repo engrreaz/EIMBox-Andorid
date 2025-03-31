@@ -454,12 +454,12 @@ if (strpos($profile_entry, $userlevel) != null) {
   var sec = '<?php echo $cteacher_data[0]['cteachersec']; ?>';
 
   var datam = {
-   [email]: {
+    [email]: {
       classname: cls,
       sectionname: sec,
       stcount: <?php echo $cnt; ?>,
       attnddate: '<?php echo $td; ?>',
-      lastsync: '<?php echo $cur;?>',
+      lastsync: '<?php echo $cur; ?>',
       [cls]: {
         [sec]: {}
 
@@ -477,19 +477,19 @@ if (strpos($profile_entry, $userlevel) != null) {
     var stid = document.getElementById('stid' + i).innerHTML;
     var stname = document.getElementById('stname' + i).innerHTML;
     var str = '"' + i + '": { "rollno": ' + rollno + ', "stid": ' + stid + ', "stname": ' + stname + ', "yn": 0 }, ';
-var strstr = JSON.stringify(str);
-    full_str += strstr;
+    // var strstr = JSON.stringify(str);
+    full_str += str;
   }
   full_str += '';
 
   full_str = JSON.stringify(full_str);
 
- 
+
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
   var str_arr = JSON.parse(full_str);
- 
- 
+
+
 
 
   datam[email][cls][sec] = str_arr;
@@ -506,7 +506,7 @@ var strstr = JSON.stringify(str);
   } else {
     alert('Not Saved..');
   }
- 
+
 
   let storedData = JSON.parse(localStorage.getItem("webData"));
   // alert(storedData ? `Saved Data: ${storedData.message} at ${storedData.timestamp}` : "No Data Found!");
@@ -522,7 +522,7 @@ var strstr = JSON.stringify(str);
   let jsonData = JSON.stringify(storageData);
   document.getElementById("jsondatablock").innerHTML = jsonData;
 
-  
+
   if (window.Android) {
     storedData = window.Android.getFromSharedPreferences("webData");
 
