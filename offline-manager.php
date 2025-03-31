@@ -483,13 +483,17 @@ if (strpos($profile_entry, $userlevel) != null) {
   }
 
 */
-
+  var str = '';
+  str += `{"roll":1, "stid":1056732025, "stname":"Jacson Height"},`;
+  str += `{"roll":2, "stid":1056732025, "stname":"London Bridge"},`;
+  str += `{"roll":3, "stid":1056732025, "stname":"Sydney Lodge"},`;
+  str += `{"roll":4, "stid":1056732025, "stname":"Hawra Station"},`;
 
   full_str += ']';
 
   full_str = JSON.stringify(full_str);
-    var stx = JSON.parse(full_str);
-alert('Stringify' + stx);
+  var stx = JSON.parse(full_str);
+  alert('Stringify' + stx);
 
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
@@ -498,7 +502,7 @@ alert('Stringify' + stx);
 
 
 
-  datam[email][cls][sec].push(str_arr) ;
+  datam[email][cls][sec].push(str_arr);
 
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
