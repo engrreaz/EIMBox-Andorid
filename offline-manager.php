@@ -493,7 +493,7 @@ alert('Stringify' + stx);
 
 
 
-  datam[email][cls][sec] = str_arr;
+  datam[email][cls][sec].push(str_arr) ;
 
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
