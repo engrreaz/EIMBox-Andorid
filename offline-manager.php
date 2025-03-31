@@ -471,7 +471,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
 
 
-  var full_str = '';
+  var full_str = '{';
   for (var i = 1; i <= <?php echo $cnt; ?>; i++) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
     var stid = document.getElementById('stid' + i).innerHTML;
@@ -480,6 +480,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 var strstr = JSON.stringify(str);
     full_str += strstr;
   }
+  full_str += '}';
 
   full_str = JSON.stringify(full_str);
 
