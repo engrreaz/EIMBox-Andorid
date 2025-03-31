@@ -454,7 +454,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   var sec = '<?php echo $cteacher_data[0]['cteachersec']; ?>';
 
   var datam = {
-    email: {
+    'engrrez': {
       classname: cls,
       sectionname: sec,
       stcount: <?php echo $cnt; ?>,
@@ -469,7 +469,7 @@ if (strpos($profile_entry, $userlevel) != null) {
       }
     },
   };
-alert(1);
+
   var full_str = '';
   for (var i = 1; i <= <?php echo $cnt; ?>; i++) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
@@ -479,7 +479,7 @@ alert(1);
 
     full_str += str;
   }
-  alert(2);
+
   full_str = JSON.stringify(full_str);
 
   alert(3);
