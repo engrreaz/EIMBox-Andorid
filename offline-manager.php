@@ -541,7 +541,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     //  jsonData = JSON.stringify(storedData);
     jsonData = JSON.stringify(jsonPata);
-    document.getElementById("jsondatablock").innerHTML += jsonData;
+    document.getElementById("jsondatablock").innerHTML += jsonPata;
 
     alert("Action" + jsonData);
 
