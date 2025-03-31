@@ -482,7 +482,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
   full_str = JSON.stringify(full_str);
 
- 
+ alert(1);
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
   var str_arr = JSON.parse(full_str);
