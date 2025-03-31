@@ -480,14 +480,14 @@ if (strpos($profile_entry, $userlevel) != null) {
     // var strstr = JSON.stringify(str);
     full_str += str;
   }
-  full_str += '{';
+  full_str += '}';
 
   full_str = JSON.stringify(full_str);
 
 
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
   var stx = JSON.parse(full_str);
-  var str_arr = JSON.parse(stx);
+  var str_arr = JSON.parse(full_str);
 
 
 
