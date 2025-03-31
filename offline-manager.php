@@ -477,8 +477,8 @@ if (strpos($profile_entry, $userlevel) != null) {
     var stid = document.getElementById('stid' + i).innerHTML;
     var stname = document.getElementById('stname' + i).innerHTML;
     var str = i + ": { rollno: " + rollno + ", stid: " + stid + ", stname: " + stname + ", yn: 0 }, ";
-
-    full_str += str;
+var strstr = JSON.stringify(str);
+    full_str += strstr;
   }
 
   full_str = JSON.stringify(full_str);
