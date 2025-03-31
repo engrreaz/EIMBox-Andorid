@@ -478,9 +478,11 @@ if (strpos($profile_entry, $userlevel) != null) {
     var stid = document.getElementById('stid' + i).innerHTML;
     var stname = document.getElementById('stname' + i).innerHTML;
     var str = `{ "rollno": ${rollno} , "stid": ${stid} , "stname": ${stname}, "yn": 0 },`;
+    alert(str);
     // var strstr = JSON.stringify(str);
     full_str += str;
   }
+  full_str += `{"roll":100, "stid":1056432025, "stname":"Jacson Height"}`;
  /*
 
   var str = '';
