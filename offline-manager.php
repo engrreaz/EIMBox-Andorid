@@ -546,7 +546,7 @@ if (strpos($profile_entry, $userlevel) != null) {
     alert("Action" + jsonData);
 
 
-    var sing = JSON.stringify(jsonData['engrreaz']['Seven']['Gomoti']);
+    var sing = JSON.stringify(jsonPata['engrreaz']['Seven']['Gomoti']);
     alert(sing);
   }
 
