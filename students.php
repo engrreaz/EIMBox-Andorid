@@ -120,6 +120,7 @@ $cnt = count($stslist);
         $nben = $datam_st_profile[$st_ind]["stnameben"];
         $vill = $datam_st_profile[$st_ind]["previll"];
         $modi = $datam_st_profile[$st_ind]["modify"];
+        $guarmobile = $datam_st_profile[$st_ind]["guarmobile"];
         $diff = (strtotime($cur) - strtotime($modi)) / (3600 * 24);
 
         /*
