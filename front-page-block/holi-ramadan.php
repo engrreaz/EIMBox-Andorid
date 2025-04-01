@@ -69,7 +69,7 @@ if (strtotime($cur) > $i_time)
             <i class="bi bi-megaphone-fill front-icon"></i>
         </div>
     </div>
-    <div class="card-body" style="background:var(--lighter); color: var(--dark); ">
+    <div class="card-body" style="background:var(--lighter); color: var(--dark); " hidden>
         <div class="row mb-2">
             <div class="col-9">
                 <h6 class="text-start  pb-3">Holy Ramadan</h6>
