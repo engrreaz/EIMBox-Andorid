@@ -569,7 +569,7 @@ if (strpos($profile_entry, $userlevel) != null) {
       var singa = JSON.stringify(jsonPata[email][cls][sec][d]["yn"]).replaceAll('"', '');;
      yy+=singa;
       if (singa == 1) {
-        document.getElementById('off' + KeyframeEffect).style.display = "none";
+        document.getElementById('off' + k).style.display = "none";
       } else {
         // document.getElementById('off' + d + 1).style.color = "gray";
       }
