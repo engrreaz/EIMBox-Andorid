@@ -554,14 +554,9 @@ if (strpos($profile_entry, $userlevel) != null) {
     storedData = window.Android.getFromSharedPreferences("webData");
 
     let jsonPata = JSON.parse(storedData);
-    // document.getElementById("jsons").innerHTML = jsonPata["count"];
-
-    //  jsonData = JSON.stringify(storedData);
     jsonData = JSON.stringify(jsonPata);
-    // document.getElementById("jsondatablock").innerHTML += "<br>...........<br>" + jsonData;
-
     alert("Action" + jsonData);
-
+    alert(myself);
     var stc = jsonPata[myself]["stcount"];
     alert(stc);
     var yy = '';
