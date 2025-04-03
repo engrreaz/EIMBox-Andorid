@@ -502,7 +502,7 @@ if (strpos($profile_entry, $userlevel) != null) {
    str += `{"roll":4, "stid":1056732028, "stname":"Hawra Station"}`;
  */
   full_str += ']';
-  document.getElementById("jsondatablock").innerHTML = full_str;
+  // document.getElementById("jsondatablock").innerHTML = full_str;
 
   // full_str = JSON.stringify(full_str);
   var stx = JSON.parse(full_str);
