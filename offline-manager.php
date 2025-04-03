@@ -557,17 +557,17 @@ if (strpos($profile_entry, $userlevel) != null) {
     jsonData = JSON.stringify(jsonPata);
     alert("Action" + jsonData);
     alert(myself);
-    var stc = jsonPata[myself]["stcount"];
+    var stc = jsonPata[email]["stcount"];
     alert(stc);
     var yy = '';
     for (var d = 0; d < stc; d++) {
-      var sing = jsonPata[myself][cls][sec][d]['yn'].replaceAll('"', '');;
+      var sing = jsonPata[email][cls][sec][d]['yn'].replaceAll('"', '');;
       yy += sing;
-      // if (sing == "1") {
-      //   document.getElementById('off' + d + 1).style.color = "red";
-      // } else {
-      //   document.getElementById('off' + d + 1).style.color = "gray";
-      // }
+      if (sing == "1") {
+        document.getElementById('off' + d + 1).style.color = "red";
+      } else {
+        document.getElementById('off' + d + 1).style.color = "gray";
+      }
 
     }
     alert(yy);
