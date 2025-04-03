@@ -487,8 +487,8 @@ if (strpos($profile_entry, $userlevel) != null) {
   //  var strstr = JSON.stringify(str);
     full_str += str;
      if (i == 55) {
-      alert(str);
-      alert(full_str);
+      // alert(str);
+      // alert(full_str);
     }
     // v
   }
@@ -516,7 +516,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
 
   datam[email][cls][sec] = stx;
-  alert('Stringify' + stx);
+  // alert('Stringify' + stx);
   document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
 
@@ -525,9 +525,9 @@ if (strpos($profile_entry, $userlevel) != null) {
 
   if (window.Android) {
     window.Android.saveToSharedPreferences("webData", JSON.stringify(datam));
-    alert('Action Taken');
+    // alert('Action Taken');
   } else {
-    alert('Not Saved..');
+    alert('Not Synced..');
   }
 
 // **********************************************************************
@@ -548,7 +548,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
   // Convert JSON object to string
   let jsonData = JSON.stringify(storageData);
-  document.getElementById("jsondatablock").innerHTML = jsonData;
+  // document.getElementById("jsondatablock").innerHTML = jsonData;
 
 
   if (window.Android) {
@@ -559,14 +559,14 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     //  jsonData = JSON.stringify(storedData);
     jsonData = JSON.stringify(jsonPata);
-    document.getElementById("jsondatablock").innerHTML += "<br>...........<br>" + jsonData;
+    // document.getElementById("jsondatablock").innerHTML += "<br>...........<br>" + jsonData;
 
-    alert("Action" + jsonData);
+    // alert("Action" + jsonData);
 
 
     var sing = jsonPata['engrreaz']['Seven']['Gomoti'][2]['stname'];
 
-    alert('OK' + sing);
+    // alert('OK' + sing);
 
     // sing = JSON.parse(sing);
     // alert("POKE" + JSON.stringify(sing[0]));
