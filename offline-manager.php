@@ -467,7 +467,7 @@ if (strpos($profile_entry, $userlevel) != null) {
     },
   };
 
-  document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
+  // document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
 
 
