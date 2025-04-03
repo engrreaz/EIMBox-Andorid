@@ -562,6 +562,9 @@ if (strpos($profile_entry, $userlevel) != null) {
     var yy = '';
     for (var d = 0; d < stc; d++) {
       var sing = jsonPata[email][cls][sec][d]['yn'].replaceAll('"', '');;
+      if(d==3){
+        alert(sing);
+      }
       yy += sing;
       // if (sing == "1") {
       //   document.getElementById('off' + d + 1).style.color = "red";
