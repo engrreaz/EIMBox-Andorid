@@ -565,10 +565,11 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     var yy = '';
     for (var d = 0; d < stc; d++) {
+      var k = d+1;
       var singa = JSON.stringify(jsonPata[email][cls][sec][d]["yn"]).replaceAll('"', '');;
      yy+=singa;
       if (singa == '1') {
-        document.getElementById('off' + d + 1).style.display = "none";
+        document.getElementById('off' + KeyframeEffect).style.display = "none";
       } else {
         // document.getElementById('off' + d + 1).style.color = "gray";
       }
