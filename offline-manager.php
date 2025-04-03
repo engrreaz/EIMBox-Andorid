@@ -265,14 +265,14 @@ if (strpos($profile_entry, $userlevel) != null) {
               </div>
               
               <div class="col">
-                <button class="btn btn-warning btn-block">
+                <button class="btn btn-warning btn-block" onclick="data_store();">
                   <i class="bi bi-database"></i>
                   <div class="text-small">Download Data</div>
                 </button>
               </div>
               
               <div class="col">
-                <button class="btn btn-danger btn-block">
+                <button class="btn btn-danger btn-block" onclick="data_sync();">
                   <i class="bi bi-database"></i>
                   <div class="text-small">Push Data</div>
                 </button>
@@ -436,6 +436,14 @@ if (strpos($profile_entry, $userlevel) != null) {
   }
 </script>
 
+<script>
+  function data_store() {
+    window.location.href = '?store=1';
+  }
+  function data_sync() {
+    window.location.href = '?sync=1';
+  }
+</script>
 
 <script>
 
