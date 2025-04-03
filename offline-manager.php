@@ -556,7 +556,7 @@ if (strpos($profile_entry, $userlevel) != null) {
     let jsonPata = JSON.parse(storedData);
     jsonData = JSON.stringify(jsonPata);
     alert("Action" + jsonData);
-    alert(myself);
+    alert(email);
     var stc = jsonPata[email]["stcount"];
     alert(stc);
     var yy = '';
