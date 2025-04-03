@@ -375,14 +375,18 @@ if (strpos($profile_entry, $userlevel) != null) {
                       }
                       ?>
                       <img src="<?php echo $photo_path; ?>" class="st-pic-small" />
-                      <div class="d-flex text-center">
-                      <div id="on<?php echo $cnt + 1; ?>"  class=" " style="font-size: 14px;">
+             
+        <br>
+                        <span id="on<?php echo $cnt + 1; ?>" class=" " style="font-size: 14px; color:gray;">
                           <i class="bi bi-fingerprint "></i>
-                        </div>
-                        <div id="off<?php echo $cnt + 1; ?>"  class=" " style="font-size: 14px;">
+                        </span>
+                        <span id="off<?php echo $cnt + 1; ?>" class=" " style="font-size: 14px;">
                           <i class="bi bi-wifi-off "></i>
-                        </div>                      
-                      </div>
+                        </span>
+        
+     
+                     
+                      
                     </td>
                   </tr>
 
@@ -559,19 +563,19 @@ if (strpos($profile_entry, $userlevel) != null) {
     let jsonPata = JSON.parse(storedData);
     jsonData = JSON.stringify(jsonPata);
     // alert("Action" + cls + "/" + sec + "/" + jsonData);
- 
+
     var stc = jsonPata[email]["stcount"];
 
 
     var yy = '';
     for (var d = 0; d < stc; d++) {
-      var k = d+1;
+      var k = d + 1;
       var singa = JSON.stringify(jsonPata[email][cls][sec][d]["yn"]).replaceAll('"', '');;
-     yy+=singa;
+      yy += singa;
       if (singa == 1) {
         document.getElementById('off' + k).style.color = "red";
       } else {
-        document.getElementById('off' + k).style.color = "lightgray";
+        document.getElementById('off' + k).style.color = "gray";
       }
     }
     alert(yy);
