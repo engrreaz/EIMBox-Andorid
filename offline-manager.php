@@ -263,14 +263,14 @@ if (strpos($profile_entry, $userlevel) != null) {
                   <div class="text-small">Get Data</div>
                 </button>
               </div>
-              
+
               <div class="col">
                 <button class="btn btn-warning btn-block" onclick="data_store();">
                   <i class="bi bi-database"></i>
                   <div class="text-small">Download Data</div>
                 </button>
               </div>
-              
+
               <div class="col">
                 <button class="btn btn-danger btn-block" onclick="data_sync();">
                   <i class="bi bi-database"></i>
@@ -376,8 +376,8 @@ if (strpos($profile_entry, $userlevel) != null) {
                       ?>
                       <img src="<?php echo $photo_path; ?>" class="st-pic-small" />
                       <div>
-                        <i class="bi bi-fingerprint text-success " style="font-size: 14px;"></i>
-                        <i class="bi bi-wifi-off text-red" style="font-size: 14px;"></i>
+                        <i id="on<?php echo $cnt + 1; ?>" class="bi bi-fingerprint text-success " style="font-size: 14px;"></i>
+                        <i id="off<?php echo $cnt + 1; ?>" class="bi bi-wifi-off text-red" style="font-size: 14px;"></i>
                       </div>
                     </td>
                   </tr>
@@ -440,6 +440,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   function data_store() {
     window.location.href = '?store=1';
   }
+
   function data_sync() {
     window.location.href = '?sync=1';
   }
@@ -562,8 +563,17 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     // alert("Action" + jsonData);
 
-
-    var sing = jsonPata['engrreaz']['Seven']['Gomoti'][2]['stname'];
+    var stc = jsonPata[myself][stcount];
+    for(var d=1; d<=stc; d++) {
+      var sing = jsonPata[myself][cls][sec][d]['yn'];
+      if(sing == 1){
+        document.getElementById('off'+d).style.color = 'red';
+      } else {
+        document.getElementById('off'+d).style.color = 'gray';
+      }
+      
+    }
+    
 
     // alert('OK' + sing);
 
