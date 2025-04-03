@@ -620,7 +620,7 @@ if (strpos($profile_entry, $userlevel) != null) {
         document.getElementById('off' + k).style.color = "gray";
       }
     }
-    alert(yy);
+    // alert(yy);
 
     // alert('OK' + sing);
 
