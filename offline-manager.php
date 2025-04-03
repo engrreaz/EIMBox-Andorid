@@ -563,13 +563,13 @@ if (strpos($profile_entry, $userlevel) != null) {
     var yy = '';
     for (var d = 0; d < stc; d++) {
       var singa = JSON.stringify(jsonPata[email][cls][sec][d]["yn"]).replaceAll('"', '');;
-      if (sing == 1) {
+      if (singa == 1) {
         document.getElementById('off' + d + 1).style.color = "red";
       } else {
         document.getElementById('off' + d + 1).style.color = "gray";
       }
     }
-    // alert(yy);
+    alert(yy);
 
     // alert('OK' + sing);
 
