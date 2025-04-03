@@ -555,7 +555,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     let jsonPata = JSON.parse(storedData);
     jsonData = JSON.stringify(jsonPata);
-    alert("Action" + cls + "/" + sec + "/" + jsonData);
+    // alert("Action" + cls + "/" + sec + "/" + jsonData);
  
     var stc = jsonPata[email]["stcount"];
 
@@ -563,18 +563,14 @@ if (strpos($profile_entry, $userlevel) != null) {
     var yy = '';
     for (var d = 0; d < stc; d++) {
       var singa = JSON.stringify(jsonPata[email][cls][sec][d]["yn"]).replaceAll('"', '');;
-      if(d==3){
-        alert(singa);
+      if (sing == "1") {
+        document.getElementById('off' + d + 1).style.color = "red";
+      } else {
+        document.getElementById('off' + d + 1).style.color = "gray";
       }
-      yy += singa;
-      // if (sing == "1") {
-      //   document.getElementById('off' + d + 1).style.color = "red";
-      // } else {
-      //   document.getElementById('off' + d + 1).style.color = "gray";
-      // }
 
     }
-    alert(yy);
+    // alert(yy);
 
     // alert('OK' + sing);
 
