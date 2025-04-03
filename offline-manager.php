@@ -564,12 +564,14 @@ if (strpos($profile_entry, $userlevel) != null) {
     // alert("Action" + jsonData);
 
     var stc = jsonPata[myself][stcount];
+    var yy = '';
     for(var d=1; d<=stc; d++) {
       var sing = jsonPata[myself][cls][sec][d]['yn'];
+
       if(sing == 1){
-        document.getElementById('off'+d).style.color = 'red';
+        document.getElementById('off'+d).style.color = "red";
       } else {
-        document.getElementById('off'+d).style.color = 'gray';
+        document.getElementById('off'+d).style.color = "gray";
       }
       
     }
