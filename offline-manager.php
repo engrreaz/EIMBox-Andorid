@@ -559,10 +559,10 @@ if (strpos($profile_entry, $userlevel) != null) {
  
     var stc = jsonPata[email]["stcount"];
 
-    
+
     var yy = '';
     for (var d = 0; d < stc; d++) {
-      var singa = jsonPata[email][cls][sec][d]["yn"].replaceAll('"', '');;
+      var singa = JSON.stringify(jsonPata[email][cls][sec][d]["yn"]).replaceAll('"', '');;
       if(d==3){
         alert(singa);
       }
