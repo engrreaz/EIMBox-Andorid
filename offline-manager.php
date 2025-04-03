@@ -517,7 +517,7 @@ if (strpos($profile_entry, $userlevel) != null) {
 
   datam[email][cls][sec] = stx;
   // alert('Stringify' + stx);
-  document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
+  // document.getElementById("jsondatablock").innerHTML = JSON.stringify(datam);
 
 
   // লোকাল স্টোরেজে ডাটা সংরক্ষণ
