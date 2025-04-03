@@ -48,6 +48,8 @@ if (strpos($profile_entry, $userlevel) != null) {
 }
 
 
+
+
 ?>
 
 
@@ -200,6 +202,8 @@ if (strpos($profile_entry, $userlevel) != null) {
           $classname = $cteacher_data[$h]['cteachercls'];
           $sectionname = $cteacher_data[$h]['cteachersec'];
 
+
+
           if ($h == 0) {
             $btn = 'primary';
           } else {
@@ -228,6 +232,18 @@ if (strpos($profile_entry, $userlevel) != null) {
         $ddss = 'none';
 
       }
+
+
+      $datamg = array();
+      $sql00 = "SELECT * FROM stattnd where  (adate='$td' and sccode='$sccode' and sessionyear LIKE '%$sy%'  and classname = '$classname' and sectionname='$sectionname') or yn=100 order by rollno";
+      // echo $sql00 ;
+      $result00gt = $conn->query($sql00);
+      if ($result00gt->num_rows > 0) {
+        while ($row00 = $result00gt->fetch_assoc()) {
+          $datamg[] = $row00;
+        }
+      }
+
 
       ?>
       <div id="clssecblock<?php echo $h2; ?>" style="display:<?php echo $ddss; ?>">
@@ -335,6 +351,32 @@ if (strpos($profile_entry, $userlevel) != null) {
 
             //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
       
+
+
+            $key = array_search($stid, array_column($datamg, 'stid'));
+            if ($key != NULL || $key != '') {
+              $status = $datamg[$key]['yn'];
+            } else {
+              $status = 0;
+            }
+
+            if ($status == 0) {
+              $kkk = 'gray';
+            } else {
+              $kkk = 'forestgreen';
+            }
+
+
+
+
+
+
+
+
+
+
+
+
             $indues = array_search($stid, array_column($data_dues, 'stid'));
             $totaldues = $data_dues[$indues]["dues"];
             $tpaya = $data_dues[$indues]["paya"];
@@ -375,18 +417,18 @@ if (strpos($profile_entry, $userlevel) != null) {
                       }
                       ?>
                       <img src="<?php echo $photo_path; ?>" class="st-pic-small" />
-             
-        <br>
-                        <span id="on<?php echo $cnt + 1; ?>" class=" " style="font-size: 14px; color:gray;">
-                          <i class="bi bi-fingerprint "></i>
-                        </span>
-                        <span id="off<?php echo $cnt + 1; ?>" class=" " style="font-size: 14px;">
-                          <i class="bi bi-wifi-off "></i>
-                        </span>
-        
-     
-                     
-                      
+
+                      <br>
+                      <span id="on<?php echo $cnt + 1; ?>" class=" " style="font-size: 14px; color:<?php echo $kkk; ?>;">
+                        <i class="bi bi-fingerprint "></i>
+                      </span>
+                      <span id="off<?php echo $cnt + 1; ?>" class=" " style="font-size: 14px;">
+                        <i class="bi bi-wifi-off "></i>
+                      </span>
+
+
+
+
                     </td>
                   </tr>
 

@@ -128,7 +128,9 @@ if ($period >= 2) {
 
                             <div style="" id="dddate">
                                 <input onchange="dtcng();" max="<?php echo $td; ?>" id="xp"
-                                    class="form-control text-center  pt-2" type="date" value="<?php echo $td; ?>" <?php if($period>1){echo 'disabled';} ?> />
+                                    class="form-control text-center  pt-2" type="date" value="<?php echo $td; ?>" <?php if ($period > 1) {
+                                           echo 'disabled';
+                                       } ?> />
 
                             </div>
                             <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Date
@@ -477,19 +479,20 @@ if ($period >= 2) {
                 draggable: true
             });
         } else {
-        var bl = document.getElementById("sta" + id).checked;
-        var per = 1;
-        var cnt = parseInt(document.getElementById("att").innerHTML) * 1;
-        if (bl == true) {
-            document.getElementById("sta" + id).checked = false;
-            cnt--;
-        } else {
-            document.getElementById("sta" + id).checked = true;
-            cnt++;
+            var bl = document.getElementById("sta" + id).checked;
+            var per = 1;
+            var cnt = parseInt(document.getElementById("att").innerHTML) * 1;
+            if (bl == true) {
+                document.getElementById("sta" + id).checked = false;
+                cnt--;
+            } else {
+                document.getElementById("sta" + id).checked = true;
+                cnt++;
+            }
+            document.getElementById("att").innerHTML = cnt;
+            att(id, roll, bl, per);
         }
-        document.getElementById("att").innerHTML = cnt;
-        att(id, roll, bl, per);
-    }}
+    }
 
     function grpssx2(id, roll, bunk) {
         // alert(2);
