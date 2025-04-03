@@ -376,12 +376,13 @@ if (strpos($profile_entry, $userlevel) != null) {
                       ?>
                       <img src="<?php echo $photo_path; ?>" class="st-pic-small" />
                       <div class="d-flex text-center">
-                      <div id="on<?php echo $cnt + 1; ?>"  class=" text-success" style="font-size: 14px;">
+                      <div id="on<?php echo $cnt + 1; ?>"  class=" " style="font-size: 14px;">
                           <i class="bi bi-fingerprint "></i>
                         </div>
-                        <div id="off<?php echo $cnt + 1; ?>"  class=" text-danger" style="font-size: 14px;">
+                        <div id="off<?php echo $cnt + 1; ?>"  class=" " style="font-size: 14px;">
                           <i class="bi bi-wifi-off "></i>
-                        </div>                      </div>
+                        </div>                      
+                      </div>
                     </td>
                   </tr>
 
