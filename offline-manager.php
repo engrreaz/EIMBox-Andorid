@@ -562,8 +562,8 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     alert("Action" + jsonData);
 
-    var stc = jsonPata[myself][stcount];
-    alert(stc);
+    var stc = stcount;// jsonPata[myself][stcount];
+    alert(stcount);
     var yy = '';
     for (var d = 0; d < stc; d++) {
       var sing = jsonPata[myself][cls][sec][d]['yn'].replaceAll('"', '');;
