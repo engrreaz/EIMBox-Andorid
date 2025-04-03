@@ -9,6 +9,15 @@ if (isset($_GET['cls']) && isset($_GET['sec'])) {
   $cteacher_data[] = ['cteachercls' => $classname, 'cteachersec' => $sectionname];
 }
 
+$data_store = 0;
+if (isset($_GET['store'])) {
+  $data_store = $_GET['store'];
+}
+$data_sync = 0;
+if (isset($_GET['sync'])) {
+  $data_sync = $_GET['sync'];
+}
+
 // var_dump($cteacher_data);
 $count_class = count($cteacher_data);
 $totaldues = 0;
@@ -176,8 +185,8 @@ if (strpos($profile_entry, $userlevel) != null) {
         <table width="100%" style="color:white;">
           <tr>
             <td colspan="2">
-              <div class="menu-icon"> <i class="bi bi-diagram-2"></i> </div>
-              <div class="menu-text"> My Class </div>
+              <div class="menu-icon"> <i class="bi bi-wifi-off"></i> </div>
+              <div class="menu-text"> Offline Data Tool </div>
             </td>
           </tr>
         </table>
@@ -227,31 +236,57 @@ if (strpos($profile_entry, $userlevel) != null) {
             <table width="100%">
               <tr>
                 <td>
-                  <div style="font-size:20px; font-weight:700; line-height:15px;"><?php echo strtoupper($classname); ?>
+                  <div style="font-size:20px; font-weight:700; line-height:15px;">
+                    <?php echo strtoupper($classname); ?>
+                    <?php echo strtoupper($sectionname); ?>
                   </div>
-                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Class</div>
-                  <br>
-                  <div style="font-size:16px; font-weight:700; line-height:15px;"><?php echo strtoupper($sectionname); ?>
-                  </div>
-                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Section</div>
+                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Class &
+                    Section</div>
                 </td>
                 <td style="text-align:right;">
                   <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt<?php echo $h2; ?>">...</div>
                   <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Students</div>
-                  <?php if ($collection_permission == 1) { ?>
-                    <br>
-                    <div style="font-size:30px; font-weight:700; line-height:20px;" id="cntamt<?php echo $h2; ?>">...</div>
-                    <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">Total Dues</div>
-                  <?php } ?>
                 </td>
               </tr>
             </table>
           </div>
-        </div>
-        <div style="height:8px;"></div>
 
-        <div id="jsondatablock">~~~~~~</div>
-        <div style="height:8px;"></div>
+
+
+          <div class="card-body page-top-box bg-dark" style="border-radius:0; ">
+
+            <div class="row">
+
+              <div class="col">
+                <button class="btn btn-primary btn-block">
+                  <i class="bi bi-database"></i>
+                  <div class="text-small">Get Data</div>
+                </button>
+              </div>
+              
+              <div class="col">
+                <button class="btn btn-warning btn-block">
+                  <i class="bi bi-database"></i>
+                  <div class="text-small">Download Data</div>
+                </button>
+              </div>
+              
+              <div class="col">
+                <button class="btn btn-danger btn-block">
+                  <i class="bi bi-database"></i>
+                  <div class="text-small">Push Data</div>
+                </button>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+        <!-- <div style="height:8px;"></div> -->
+
+        <div id="jsondatablock" hidden></div>
+        <!-- <div style="height:8px;"></div> -->
 
 
         <?php
@@ -339,58 +374,14 @@ if (strpos($profile_entry, $userlevel) != null) {
                         $photo_path = $BASE_PATH_URL_FILE . 'students/' . $stid . ".jpg";
                       }
                       ?>
-                      <img src="<?php echo $photo_path; ?>" class="st-pic-normal" />
-                    </td>
-                  </tr>
-                  <tr>
-
-                    <td></td>
-                    <td>
-
-                      <div class="row mt-3">
-                        <div class="col text-center" onclick="my_class_attendance(<?php echo $stid; ?>);">
-                          <i class="bi bi-fingerprint toolbar-icon"></i>
-                          <div class="toolbar-text">--%</div>
-                        </div>
-                        <?php if ($collection_permission == 1) { ?>
-                          <div class="col text-center" onclick="my_class_payment(<?php echo $stid; ?>);">
-                            <i class="bi bi-coin toolbar-icon"></i>
-                            <div class="toolbar-text">
-                              <?php echo number_format($totaldues, 2, ".", ","); ?>
-                            </div>
-                          </div>
-                        <?php } ?>
-                        <div class="col text-center" onclick="my_class_result(<?php echo $stid; ?>);">
-                          <i class="bi bi-file-earmark-text toolbar-icon"></i>
-                          <div class="toolbar-text">--.-%</div>
-                        </div>
-                        <?php if ($profile_entry_permission == 1) { ?>
-                          <div class="col text-center" onclick="my_class_profile(<?php echo $stid; ?>);">
-                            <i class="bi bi-person-circle toolbar-icon"></i>
-                            <div class="toolbar-text">Profile</div>
-                          </div>
-                        <?php } ?>
-                      </div>
-
-
-
-                      <div style="display:none;">
-                        <div class="mr-2">
-                          <a class="btn btn-<?php echo $btn; ?>" style="font-size:10px;"
-                            href="stprdetails.php?id=<?php echo $stid; ?>" disabled>Attendance</a>
-                        </div>
-                        <div class="d-block">
-                          <div>
-
-                          </div>
-                          <div>
-                            <a class="btn btn-<?php echo $btn; ?>" style="font-size:10px;"
-                              href="stprdetails.php?id=<?php echo $stid; ?>">Payment History</a>
-                          </div>
-                        </div>
+                      <img src="<?php echo $photo_path; ?>" class="st-pic-small" />
+                      <div>
+                        <i class="bi bi-fingerprint text-success " style="font-size: 14px;"></i>
+                        <i class="bi bi-wifi-off text-red" style="font-size: 14px;"></i>
                       </div>
                     </td>
                   </tr>
+
 
                 </table>
 
@@ -409,7 +400,7 @@ if (strpos($profile_entry, $userlevel) != null) {
         ?>
         <script>
           document.getElementById("cnt" + <?php echo $h2; ?>).innerHTML = "<?php echo $cnt; ?>";
-          document.getElementById("cntamt" + <?php echo $h2; ?>).innerHTML = "<?php echo number_format($cntamt, 2, ".", ","); ?>";
+          // document.getElementById("cntamt" + <?php echo $h2; ?>).innerHTML = "<?php echo number_format($cntamt, 2, ".", ","); ?>";
         </script>
 
       </div>
@@ -477,16 +468,16 @@ if (strpos($profile_entry, $userlevel) != null) {
     var rollno = document.getElementById('rollno' + i).innerHTML;
     var stid = document.getElementById('stid' + i).innerHTML;
     var stname = document.getElementById('stname' + i).innerHTML;
-  var coma = '';
+    var coma = '';
     if (i != <?php echo $cnt; ?>) {
       coma = ', ';
     }
-    
+
     var str = `{ "rollno": ${rollno} , "stid": ${stid} , "stname": "${stname}", "yn": 0 }${coma} `;
     // 
-  //  var strstr = JSON.stringify(str);
+    //  var strstr = JSON.stringify(str);
     full_str += str;
-     if (i == 55) {
+    if (i == 55) {
       // alert(str);
       // alert(full_str);
     }
@@ -523,19 +514,19 @@ if (strpos($profile_entry, $userlevel) != null) {
   // লোকাল স্টোরেজে ডাটা সংরক্ষণ
   localStorage.setItem("webData", JSON.stringify(datam));
 
-  if (window.Android) {
+  if (window.Android && <?php echo $data_store; ?> == 1) {
     window.Android.saveToSharedPreferences("webData", JSON.stringify(datam));
     // alert('Action Taken');
   } else {
     alert('Not Synced..');
   }
 
-// **********************************************************************
-// **********************************************************************
-// **********************************************************************
-// **********************************************************************
-// **********************************************************************
-// **********************************************************************
+  // **********************************************************************
+  // **********************************************************************
+  // **********************************************************************
+  // **********************************************************************
+  // **********************************************************************
+  // **********************************************************************
   let storedData = JSON.parse(localStorage.getItem("webData"));
   // alert(storedData ? `Saved Data: ${storedData.message} at ${storedData.timestamp}` : "No Data Found!");
 
@@ -572,9 +563,9 @@ if (strpos($profile_entry, $userlevel) != null) {
     // alert("POKE" + JSON.stringify(sing[0]));
   }
 
-// ***************************************************************************************
-// ***************************************************************************************
-// ***************************************************************************************
-// ***************************************************************************************
-// ***************************************************************************************
+  // ***************************************************************************************
+  // ***************************************************************************************
+  // ***************************************************************************************
+  // ***************************************************************************************
+  // ***************************************************************************************
 </script>
