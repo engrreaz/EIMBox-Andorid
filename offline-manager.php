@@ -555,10 +555,11 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     let jsonPata = JSON.parse(storedData);
     jsonData = JSON.stringify(jsonPata);
-    alert("Action" + jsonData);
+    alert("Action" + cls + "/" + sec + "/" + jsonData);
  
     var stc = jsonPata[email]["stcount"];
 
+    
     var yy = '';
     for (var d = 0; d < stc; d++) {
       var sing = jsonPata[email][cls][sec][d]["yn"].replaceAll('"', '');;
