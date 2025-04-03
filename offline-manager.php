@@ -376,7 +376,8 @@ if (strpos($profile_entry, $userlevel) != null) {
                       ?>
                       <img src="<?php echo $photo_path; ?>" class="st-pic-small" />
                       <div>
-                        <i id="on<?php echo $cnt + 1; ?>" class="bi bi-fingerprint text-success " style="font-size: 14px;"></i>
+                        <i id="on<?php echo $cnt + 1; ?>" class="bi bi-fingerprint text-success "
+                          style="font-size: 14px;"></i>
                         <i id="off<?php echo $cnt + 1; ?>" class="bi bi-wifi-off text-red" style="font-size: 14px;"></i>
                       </div>
                     </td>
@@ -565,17 +566,17 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     var stc = jsonPata[myself][stcount];
     var yy = '';
-    for(var d=1; d<=stc; d++) {
+    for (var d = 1; d <= stc; d++) {
       var sing = jsonPata[myself][cls][sec][d]['yn'];
-
-      if(sing == 1){
-        document.getElementById('off'+d).style.color = "red";
+      yy += sing;
+      if (sing == 1) {
+        document.getElementById('off' + d).style.color = "red";
       } else {
-        document.getElementById('off'+d).style.color = "gray";
+        document.getElementById('off' + d).style.color = "gray";
       }
-      
+
     }
-    
+    alert(yy);
 
     // alert('OK' + sing);
 
