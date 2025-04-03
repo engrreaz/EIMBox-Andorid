@@ -527,8 +527,6 @@ if (strpos($profile_entry, $userlevel) != null) {
   if (window.Android && <?php echo $data_store; ?> == 1) {
     window.Android.saveToSharedPreferences("webData", JSON.stringify(datam));
     // alert('Action Taken');
-  } else {
-    alert('Not Synced..');
   }
 
   // **********************************************************************
@@ -566,13 +564,13 @@ if (strpos($profile_entry, $userlevel) != null) {
 
     var stc = jsonPata[myself][stcount];
     var yy = '';
-    for (var d = 1; d <= stc; d++) {
+    for (var d = 0; d < stc; d++) {
       var sing = jsonPata[myself][cls][sec][d]['yn'];
       yy += sing;
-      if (sing == 1) {
-        document.getElementById('off' + d).style.color = "red";
+      if (sing == "1") {
+        document.getElementById('off' + d + 1).style.color = "red";
       } else {
-        document.getElementById('off' + d).style.color = "gray";
+        document.getElementById('off' + d + 1).style.color = "gray";
       }
 
     }
