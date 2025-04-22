@@ -252,16 +252,19 @@ if (strpos($profile_entry, $userlevel) != null) {
             <table width="100%">
               <tr>
                 <td>
-                  <div style="font-size:20px; font-weight:700; line-height:15px;">
+                  <div style="font-size:16px; font-weight:700; line-height:15px;">
                     <?php echo strtoupper($classname); ?>
+                    <i class="bi bi-circle-fill ms-1 me-1"></i>
                     <?php echo strtoupper($sectionname); ?>
                   </div>
-                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:18px;">Name of Class &
+                  <div style="font-size:12px; color:var(--dark); font-weight:400; font-style:italic; line-height:18px;">
+                    Name of Class &
                     Section</div>
                 </td>
                 <td style="text-align:right;">
                   <div style="font-size:30px; font-weight:700; line-height:20px;" id="cnt<?php echo $h2; ?>">...</div>
-                  <div style="font-size:12px; font-weight:400; font-style:italic; line-height:24px;">No. of Students</div>
+                  <div style="font-size:12px;  color:var(--dark); font-weight:400; font-style:italic; line-height:24px;">
+                    No. of Students</div>
                 </td>
               </tr>
             </table>
@@ -274,23 +277,26 @@ if (strpos($profile_entry, $userlevel) != null) {
             <div class="row">
 
               <div class="col">
-                <button class="btn btn-primary btn-block">
+                <button class="btn btn-primary btn-block" onclick="data_get();">
                   <i class="bi bi-database"></i>
                   <div class="text-small">Get Data</div>
                 </button>
               </div>
 
+             
+
               <div class="col">
-                <button class="btn btn-warning btn-block" onclick="data_store();">
-                  <i class="bi bi-database"></i>
-                  <div class="text-small">Download Data</div>
+                <button class="btn btn-success btn-block" onclick="data_sync();">
+                  <i class="bi bi-cloud-arrow-up-fill"></i>
+                  <div class="text-small">Sync Data</div>
                 </button>
               </div>
 
+
               <div class="col">
-                <button class="btn btn-danger btn-block" onclick="data_sync();">
-                  <i class="bi bi-database"></i>
-                  <div class="text-small">Push Data</div>
+                <button class="btn btn-danger btn-block" onclick="data_store();">
+                  <i class="bi bi-cloud-arrow-down-fill"></i>
+                  <div class="text-small">Reset List</div>
                 </button>
               </div>
 
@@ -487,6 +493,9 @@ if (strpos($profile_entry, $userlevel) != null) {
 </script>
 
 <script>
+  function data_get() {
+    window.location.href = 'offline-manager.php';
+  }
   function data_store() {
     window.location.href = '?store=1';
   }
@@ -599,33 +608,51 @@ if (strpos($profile_entry, $userlevel) != null) {
   // document.getElementById("jsondatablock").innerHTML = jsonData;
 
 
-  if (window.Android) {
-    storedData = window.Android.getFromSharedPreferences("webData");
+  // if (window.Android) {
+  storedData = window.Android.getFromSharedPreferences("webData");
 
-    let jsonPata = JSON.parse(storedData);
-    jsonData = JSON.stringify(jsonPata);
-    // alert("Action" + cls + "/" + sec + "/" + jsonData);
+  let jsonPata = JSON.parse(storedData);
+  jsonData = JSON.stringify(jsonPata);
+  // alert("Action" + cls + "/" + sec + "/" + jsonData);
 
-    var stc = jsonPata[email]["stcount"];
+  var stc = jsonPata[email]["stcount"];
+  var tarikh = jsonPata[email]["attnddate"];
 
 
-    var yy = '';
-    for (var d = 0; d < stc; d++) {
-      var k = d + 1;
-      var singa = JSON.stringify(jsonPata[email][cls][sec][d]["yn"]).replaceAll('"', '');;
-      yy += singa;
-      if (singa == 1) {
-        document.getElementById('off' + k).style.color = "red";
-      } else {
-        document.getElementById('off' + k).style.color = "gray";
-      }
+  var yy = ''; var datah = 'count=' + stc;
+  for (var d = 0; d < stc; d++) {
+    var k = d + 1;
+    var stid = docuemnt.getElementById("stid" + k).innerHTML;
+
+    var singa = JSON.stringify(jsonPata[email][cls][sec][d]["yn"]).replaceAll('"', '');;
+    yy += singa;
+    if (singa == 1) {
+      document.getElementById('off' + k).style.color = "red";
+    } else {
+      document.getElementById('off' + k).style.color = "gray";
     }
-    // alert(yy);
 
-    // alert('OK' + sing);
+    datah += '&stid' + d + "=" + stid + "&yn=" + singa;
 
-    // sing = JSON.parse(sing);
-    // alert("POKE" + JSON.stringify(sing[0]));
+
+  }
+
+
+
+  // alert(yy);
+
+  // alert('OK' + sing);
+
+  // sing = JSON.parse(sing);
+  // alert("POKE" + JSON.stringify(sing[0]));
+  // }
+
+
+  // if (window.Android && <?php echo $data_sync; ?> == 1) {
+  if (<?php echo $data_sync; ?> == 1) {
+
+    datah += "&cls=" + cls + "&sec=" + sec + "&adate=" + tarikh + '&eby=' + email;
+    alert(datah);
   }
 
   // ***************************************************************************************

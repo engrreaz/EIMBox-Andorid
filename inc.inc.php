@@ -265,7 +265,20 @@ if ($sccode > 100) {
 
 $l = strlen($pth);
 if ($l < 5) {
-    $pth = "https://eimbox.com/images/no-image.png?v=c";
+    $lb = substr($userid, -4, 2);
+    if ($lb == 99) {
+        $chk_pth = $BASE_PATH_URL_FILE . 'teacher/' . $userid . '.jpg';
+    } else {
+        $chk_pth = $BASE_PATH_URL_FILE . 'students/' . $userid . '.jpg';
+
+    }
+    if (file_exists($chk_pth)) {
+        $pth = $chk_pth;
+    } else {
+        $pth = "https://eimbox.com/images/no-image.png?v=c";
+
+    }
+
 }
 
 
