@@ -241,12 +241,18 @@ if ($result01x->num_rows > 0) {
         // }
     
 
+      
+
 
         if ($totaldues < 100) {
           $bgc = 'white';
           $btn = 'success';
         } else {
           $btn = 'warning';
+        }
+
+        if($status == 0){
+          $totaldues = 0;
         }
         ?>
         <div class="card text-center" style="background:var(<?php echo $bgc; ?>); color:var(--darker);border-radius:0;"
