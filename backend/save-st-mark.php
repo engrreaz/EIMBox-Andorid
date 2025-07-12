@@ -66,6 +66,7 @@ if ($pass_algorithm == 0) {
 
 	if ($ynt >= 33) {
 		$sql22 = "SELECT * FROM gpa where maxvalues >='$ynt'  order by maxvalues desc LIMIT 0,1";
+		echo $sql22;
 		$result22 = $conn->query($sql22);
 		if ($result22->num_rows > 0) {
 			while ($row22 = $result22->fetch_assoc()) {
@@ -82,7 +83,7 @@ if ($pass_algorithm == 0) {
 
 		if ($ynt >= 33) {
 			$sql22 = "SELECT * FROM gpa where maxvalues >='$ynt'  order by maxvalues LIMIT 0,1";
-echo $sql22;
+			echo $sql22;
 			$result22 = $conn->query($sql22);
 			if ($result22->num_rows > 0) {
 				while ($row22 = $result22->fetch_assoc()) {
