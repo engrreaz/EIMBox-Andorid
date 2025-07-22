@@ -235,6 +235,7 @@ $sql00 = "SELECT stid, stnameeng, stnameben, previll, religion FROM students whe
                             $cd = '';
                             $cdh = '';
                         }
+                        echo $profile['religion'];
 if($profile['religion'] == 'Islam' && $subj == 112){
     $sta = 0;
 }
