@@ -235,11 +235,17 @@ $sql00 = "SELECT stid, stnameeng, stnameben, previll, religion FROM students whe
                             $cd = '';
                             $cdh = '';
                         }
-                        echo $profile['religion'];
-if($profile['religion'] == 'Islam' && $subj == 112){
+      $ind = array_search($stid, array_column($profile, 'stid'));
+                        if($ind != NULL || $ind != ''){
+                            $neng = $profile[$ind]['stnameeng'];
+                            $nben = $profile[$ind]['stnameben'];
+                            $ggg = $profile[$ind]['previll'];
+                        }
+                 
+if($profile[$ind]['religion'] == 'Islam' && $subj == 112){
     $sta = 0;
 }
-if($profile['religion'] == 'Hindu' && $subj == 111){
+if($profile[$ind]['religion'] == 'Hindu' && $subj == 111){
     $sta = 0;
 }
 
@@ -264,13 +270,7 @@ if($profile['religion'] == 'Hindu' && $subj == 111){
                             $pth = 'https://eimbox.com/students/noimg.jpg';
                         }
 
-                        $ind = array_search($stid, array_column($profile, 'stid'));
-                        if($ind != NULL || $ind != ''){
-                            $neng = $profile[$ind]['stnameeng'];
-                            $nben = $profile[$ind]['stnameben'];
-                            $ggg = $profile[$ind]['previll'];
-                        }
-
+                    
 
                         //if($card == 'x'){$bgc = '--light';} else {$bgc = '--lighter';}
                         //if($card == '1'){$qrc = '<img src="https://chart.googleapis.com/chart?chs=20x20&cht=qr&chl=http://www.students.eimbox.com/myinfo.php?id=5000&choe=UTF-8&chld=L|0" />';} else {$qrc = '';}
