@@ -235,10 +235,10 @@ $sql00 = "SELECT stid, stnameeng, stnameben, previll, religion FROM students whe
                             $cd = '';
                             $cdh = '';
                         }
-if($profile['religion' == 'Islam'] && $subj == 112){
+if($profile['religion'] == 'Islam' && $subj == 112){
     $sta = 0;
 }
-if($profile['religion' == 'Hindu'] && $subj == 111){
+if($profile['religion'] == 'Hindu' && $subj == 111){
     $sta = 0;
 }
 
