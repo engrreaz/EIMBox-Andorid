@@ -178,7 +178,7 @@ if ($result0->num_rows > 0) {
                 <?php
 
 $profile = array();
-$sql00 = "SELECT stid, stnameeng, stnameben, previll FROM students where  sccode='$sccode'";
+$sql00 = "SELECT stid, stnameeng, stnameben, previll, religion FROM students where  sccode='$sccode'";
                         $result00 = $conn->query($sql00);
                         if ($result00->num_rows > 0) {
                             while ($row00 = $result00->fetch_assoc()) {
@@ -235,7 +235,12 @@ $sql00 = "SELECT stid, stnameeng, stnameben, previll FROM students where  sccode
                             $cd = '';
                             $cdh = '';
                         }
-
+if($profile['religion' == 'Islam'] && $subj == 112){
+    $sta = 0;
+}
+if($profile['religion' == 'Hindu'] && $subj == 111){
+    $sta = 0;
+}
 
                         if ($sta == 0) {
                             $dsbl = 'disabled';
@@ -248,6 +253,8 @@ $sql00 = "SELECT stid, stnameeng, stnameben, previll FROM students where  sccode
                             $dsbl = '';
                             $bgc = 'lighter';
                         }
+
+
 
                         $pth = '../students/' . $stid . '.jpg';
                         if (file_exists($pth)) {
