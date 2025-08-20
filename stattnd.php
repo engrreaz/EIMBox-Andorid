@@ -37,6 +37,17 @@ if ($result00gt->num_rows > 0) {
         $datam[] = $row00;
     }
 }
+
+$from = date("Y-m-d", strtotime("-7 days"));
+$stattnd_7 = [];
+$sql00 = "SELECT * FROM stattnd where  (adate between '$from' and  '$td' and sccode='$sccode' and sessionyear LIKE '%$sy%'  and classname = '$classname' and sectionname='$sectionname') or yn=100 order by rollno, adate";
+// echo $sql00 ;
+$result00gt = $conn->query($sql00);
+if ($result00gt->num_rows > 0) {
+    while ($row00 = $result00gt->fetch_assoc()) {
+        $stattnd_7[] = $row00;
+    }
+}
 // echo '<pre>';
 // print_r($datam);
 // echo '</pre>';
@@ -237,6 +248,29 @@ if ($period >= 2) {
                         $bunk++;
                     }
                 }
+
+                $day7 = '';
+                for ($u = 0; $u < 7; $u++) {
+                    $curdatet = strtotime($from) + $u * 86400;
+                    $curdate = date('Y-m-d', $curdatet);
+                    $clra = 'gray';
+                    foreach ($stattnd_7 as $iii => $st) {
+                        if ($st['stid'] == $stid && $st['adate'] == $curdate) {
+                            if ($st['yn'] == 1) {
+                                $clra = 'green';
+                            } else {
+                                $clra = 'red';
+                            }
+                            if ($st['bunk'] == 1) {
+                                $clra = 'orange';
+                            }
+                            unset($stattnd_7[$iii]);
+                        }
+                    }
+                    $day7 .= '<div class="attnd-dot" style="background:' . $clra . '; "></div>';
+                }
+
+
                 ?>
                 <div class="card text-center" style="background:var(<?php echo $bgc; ?>); color:var(--darker);"
                     onclick="<?php echo $fun; ?>(<?php echo $stid; ?>, <?php echo $rollno; ?>, <?php echo $bunk; ?>)"
@@ -276,6 +310,8 @@ if ($period >= 2) {
                                     ; ?>
 
                                         <div class="d-flex">
+                                            <div style="font-size:11px; font-weight:bold; padding-right:8px;">Today </div>
+
                                             <?php
                                             for ($u = 1; $u <= 8; $u++) {
                                                 if ($per1 == 0) {
@@ -300,6 +336,11 @@ if ($period >= 2) {
                                                 <?php
                                             }
                                             ?>
+                                        </div>
+
+                                        <div class="d-flex mt-1">
+                                            <div style="font-size:11px; font-weight:bold; padding-right:8px;">Last 7 days </div>
+                                            <?php echo $day7; ?>
                                         </div>
 
 
