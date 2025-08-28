@@ -1,5 +1,9 @@
 <?php
-if ($reallevel == 'Super Administrator') { ?>
+
+if ($reallevel == 'Super Administrator') { 
+    $cteachercls = $cteachersec = '';
+    $cntt = 0;
+    ?>
     <div class="card gg" >
         <div class="card-body">
             EIIN : <b><?php echo $sccode; ?></b><br>
@@ -9,7 +13,6 @@ if ($reallevel == 'Super Administrator') { ?>
 
     <div class="card gg" >
         <div class="card-body">
-
             <a class="btn btn-warning" href="admin-sclist.php">Institute List</a>
             <a class="btn btn-danger" href="sout.php">Log Out</a>
             <br>
