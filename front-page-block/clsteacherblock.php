@@ -15,10 +15,10 @@ $ind = array_search('Collection', array_column($ins_all_settings, 'setting_title
 // echo $ind. '<br>................<br>';
 if ($ind != '' || $ind != null) {
     $sett_val = $ins_all_settings[$ind]['settings_value'];
- 
+
     $pospos = strpos($sett_val, $userlevel);
 }
-if($pospos == '' || $pospos == null){
+if ($pospos == '' || $pospos == null) {
     $pospos = -1;
 }
 
@@ -74,8 +74,8 @@ if ($pospos >= 0) {
                 ?>
 
 
-                <div class="card ">
-                    <div class="card-header"><b> Student's Payment</b>
+                <div class="card box-shadow">
+                    <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;"><b> Student's Payment</b>
                         <div class="float-end">
                             <i class="bi bi-currency-exchange front-icon"></i>
                         </div>
@@ -86,7 +86,7 @@ if ($pospos >= 0) {
 
                         <table width="100%">
                             <tr>
-                                <td>
+                                <td colspan="2">
                                     <div class="nmbr" style="color:var(--dark);"><small>BDT </small><span
                                             id="duess"><?php echo number_format($ase, 2, ".", ","); ?></span></div>
                                     <small>
@@ -128,9 +128,9 @@ if ($pospos >= 0) {
                                     </div>
                                 </td>
 
-                                <td>
+                                <td colspan="2">
 
-                                    <a class="btn btn-dark" style="margin-top:8px;" href="mypr.php">My Receipts</a>
+                                    <a class="btn btn-dark text-small" style="margin-top:8px;" href="mypr.php">My Receipts</a>
                                 </td>
                             </tr>
                         </table>

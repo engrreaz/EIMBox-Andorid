@@ -1,6 +1,8 @@
 <?php
 include 'inc.php';
 
+
+$rest_career_days = 0;
 if ($usr == 'engrreaz@gmail.com') {
     // echo $token_found;
 // echo '<br><br>' . $_SERVER['REQUEST_URI'];
@@ -157,23 +159,25 @@ if (count($cteacher_data) > 0 && $cteacher_data[0]['cteachercls'] != '' && $ctea
                     $total_career_days = $lprstamp - $jdatestamp;
                     $rest_career_days = $lprstamp - $tdstamp;
                     $dot_pos = 100 - ceil(100 * $rest_career_days / $total_career_days);
-                    ?>
-                    <div style="height:1px; background: var(--light); margin:10px 0 15px;">
-                        <div class="float-end text-small font-weight-bold text-white pe-2 " hidden>
-                            <?php echo date('d.m.Y', $lprstamp); ?></div>
-                        <div class="float-start text-small font-weight-bold text-white ps-2 " hidden>
-                            <?php echo date('d.m.Y', $jdatestamp); ?></div>
-                        <div
-                            style="height:10px; width:10px; border-radius:50%; background:var(--lighter); position:relative; left:<?php echo $dot_pos; ?>%; top:-5px;">
-                        </div>
-                        <div id="career_rest_val" hidden><?php echo $rest_career_days; ?></div>
-                        <div class="text-center text-small font-weight-bold text-white  " style="position:relative; top:-5px;"
-                            id="career_rest">0</div>
-
-                    </div>
-
-                <?php }
+                }
             } ?>
+
+            <div style="height:1px; background: var(--light); margin:10px 0 15px;">
+                <div class="float-end text-small font-weight-bold text-white pe-2 " hidden>
+                    <?php echo date('d.m.Y', $lprstamp); ?>
+                </div>
+                <div class="float-start text-small font-weight-bold text-white ps-2 " hidden>
+                    <?php echo date('d.m.Y', $jdatestamp); ?>
+                </div>
+                <div
+                    style="height:10px; width:10px; border-radius:50%; background:var(--lighter); position:relative; left:<?php echo $dot_pos; ?>%; top:-5px;">
+                </div>
+                <div id="career_rest_val" hidden><?php echo $rest_career_days; ?></div>
+                <div class="text-center text-small font-weight-bold text-white  " style="position:relative; top:-5px;"
+                    id="career_rest">0</div>
+
+            </div>
+
 
         </div>
 

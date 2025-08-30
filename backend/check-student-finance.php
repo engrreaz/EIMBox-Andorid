@@ -331,7 +331,7 @@ $time_elapsed = strtotime($etime) - strtotime($stime);
 ?>
 <div class="float-right"><?php echo $time_elapsed; ?>s.</div>
 <?php
-echo '> ' . $cls . ' (' . $sec . ') : ' . $roll . ' => ' . $stid . '. ';
-echo 'Stat -> insert-new ' . $new . ', update ' . $update . ', no-need ' . $noneed . ' [clean tree]<br>';
+echo '<span style="font-size:12px;">> ' . $cls . ' (' . $sec . ') : ' . $roll . ' => ' . $stid . '. ';
+echo 'Stat -> insert-new ' . $new . ', update ' . $update . ', no-need ' . $noneed . ' [clean tree]</span><br>';
 ?>
 <div id="totaltotal" hidden><?php echo $total_students_count; ?></div>

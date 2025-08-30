@@ -33,8 +33,14 @@ if ($indid == 0) {
         $conn->query($query331);
     }
 } else {
-    $query331 = "UPDATE financesetupind set amount = '$amt', update_time = '$cur' where id='$indid' and sccode = '$sccode';";
-    $conn->query($query331);
+    if ($amt > 0) {
+        $query331 = "UPDATE financesetupind set amount = '$amt', update_time = '$cur' where id='$indid' and sccode = '$sccode';";
+        $conn->query($query331);
+    } else {
+        $query331 = "DELETE from financesetupind where id='$indid' and sccode = '$sccode';";
+        $conn->query($query331);
+    }
+
 }
 
 // echo $query331;

@@ -13,7 +13,7 @@ if (isset($_GET['year'])) {
 } else {
     $year = date('Y');
 }
-if(strlen($year)<4){
+if (strlen($year) < 4) {
     $year += 2000;
 }
 
@@ -107,9 +107,9 @@ if ($result0xvalst->num_rows > 0) {
 }
 // var_dump($finsetupind);
 
-echo '<pre>';
-print_r( $finsetupind);
-echo '</pre>';
+// echo '<pre>';
+// print_r( $finsetupind);
+// echo '</pre>';
 
 $clslist = array();
 $sql0x = "SELECT areaname, slot, sessionyear FROM areas where user='$rootuser' and sessionyear like '%$year%' group by areaname order by idno ;";
@@ -173,15 +173,16 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
                         <td>
                             <div class="stname-eng" id="cntamt"> <?php echo $stname_eng; ?> </div>
                             <div class="stname-ben" id="cntamt"> <?php echo $stname_ben; ?> </div>
-                            <div class="st-id" id="cntamt">ID #  <?php echo $stid; ?> </div>
-                            <div style="color:var(--light); font-size:12px; font-weight:400; line-height:30px;"> Student's Information </div>
+                            <div class="st-id" id="cntamt">ID # <?php echo $stid; ?> </div>
+                            <div style="color:var(--light); font-size:12px; font-weight:400; line-height:30px;">
+                                Student's Information </div>
                         </td>
-                        
+
                         <td style="text-align:right;">
 
                             <button class="btn btn-info"
                                 onclick="checknow('stid','', '', '<?php echo $stid; ?>','', '');">Update</button>
-                            <div id="run-text">....</div>
+                            <div id="run-text"></div>
                         </td>
                     </tr>
 
@@ -338,8 +339,8 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
                         } else {
                             $ind_id = 0;
                         }
-                        echo $amt;
-                   
+                        // echo $amt;
+            
                     }
                 }
                 $arrcnt = count($finvalcode);
@@ -355,56 +356,56 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
                 }
                 ?>
 
-                    <div class="card-body" id="item<?php echo $itemcode; ?>">
-                        <div class="row">
-                            <div class="col p-0 m-0 d-flex">
-                                <div class="pointer">
-                                    <i id="chev<?php echo $itemcode; ?>" class="mdi mdi-chevron-right text-success mdi-24px"
-                                        onclick="itemsx('<?php echo $itemcode; ?>');"></i>
-                                </div>
-                                <div class="ms-3 pointer " onclick="itemsx('<?php echo $itemcode; ?>');">
-                                    <h6 class="p-0 m-0"><?php echo $finitem['particulareng']; ?></h6>
-                                    <div class="text-small text-muted m-0 p-0">
-                                        <?php echo $finitem['particularben']; ?> <span
-                                            class="text-<?php echo $txt_color; ?>">
-                                            <b> (<?php echo str_replace($frval, $frtxt, $freq); ?>)</b></span>
-                                    </div>
-                                </div>
-
-
+                <div class="card-body" id="item<?php echo $itemcode; ?>">
+                    <div class="row">
+                        <div class="col p-0 m-0 d-flex">
+                            <div class="pointer">
+                                <i id="chev<?php echo $itemcode; ?>" class="mdi mdi-chevron-right text-success mdi-24px"
+                                    onclick="itemsx('<?php echo $itemcode; ?>');"></i>
                             </div>
-                            <div class="col p-0">
-                                <div class="form-group m-0 p-0 d-flex">
-                                    <div id="status<?php echo $itemcode; ?>">
-                                        <button class="btn  pt-2  mr-3" style="color:gray;"><i class="bi bi-floppy-fill"></i></button>
-
-                                    </div>
-                                    <input type="text" id="id<?php echo $itemcode; ?>" value="<?php echo $id1; ?>" hidden />
-
-
-
-                                    <div class="input-group">
-                                        <input type="text" class="form-control m-0 text-right"
-                                            id="amt<?php echo $itemcode; ?>" value="<?php echo $amt; ?>" onclick="no();"
-                                            onblur="upddata('<?php echo $slot; ?>','<?php echo $syear; ?>', '<?php echo $itemcode; ?>','','', <?php echo $ind_id; ?>);;" />
-
-                                        <div class="input-group-apend ">
-                                            <button class="btn btn-inverse-success  p-2" type="button"
-                                                data-toggle="dropdown" aria-haspopup="true"
-                                                onclick="upddata('<?php echo $slot; ?>','<?php echo $syear; ?>', '<?php echo $itemcode; ?>','','', <?php echo $ind_id; ?>);;"
-                                                aria-expanded="false"><i class="mdi mdi-content-save"></i></button>
-
-                                        </div>
-
-                                    </div>
+                            <div class="ms-3 pointer " onclick="itemsx('<?php echo $itemcode; ?>');">
+                                <h6 class="p-0 m-0"><?php echo $finitem['particulareng']; ?></h6>
+                                <div class="text-small text-muted m-0 mt-2 p-0">
+                                    <?php echo $finitem['particularben']; ?> <span class="text-<?php echo $txt_color; ?>">
+                                        <b> (<?php echo str_replace($frval, $frtxt, $freq); ?>)</b></span>
+                                </div>
+                            </div>
 
 
+                        </div>
+                        <div class="col p-0">
+                            <div class="form-group m-0 p-0 d-flex">
+                                <div id="status<?php echo $itemcode; ?>">
+                                    <button class="btn  pt-2  mr-3" style="color:gray;" onclick="upddata('<?php echo $slot; ?>','<?php echo $syear; ?>', '<?php echo $itemcode; ?>','','', <?php echo $ind_id; ?>);;"><i
+                                            class="bi bi-floppy-fill"></i></button>
 
                                 </div>
+                                <input type="text" id="id<?php echo $itemcode; ?>" value="<?php echo $id1; ?>" hidden />
+
+
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control m-0 text-right" id="amt<?php echo $itemcode; ?>"
+                                        value="<?php echo $amt; ?>" onclick="no();"
+                                        onblur="upddata('<?php echo $slot; ?>','<?php echo $syear; ?>', '<?php echo $itemcode; ?>','','', <?php echo $ind_id; ?>);;" />
+
+                                    <div class="input-group-apend ">
+                                        <button class="btn btn-inverse-success  p-2" type="button" data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            onclick="upddata('<?php echo $slot; ?>','<?php echo $syear; ?>', '<?php echo $itemcode; ?>','','', <?php echo $ind_id; ?>);;"
+                                            aria-expanded="false"><i class="mdi mdi-content-save"></i></button>
+
+                                    </div>
+
+                                </div>
+
+
+
                             </div>
                         </div>
                     </div>
-                    <div style="height:1px; border-top:1px solid lightgray;"></div>
+                </div>
+                <div style="height:1px; border-top:1px solid lightgray;"></div>
 
                 <?php
 
@@ -771,7 +772,8 @@ $frtxt = array('October', 'November', 'December', 'Two Months Frequency', 'Quart
             },
             success: function (html) {
                 $("#run-text").html(html);
-                history.back();
+                window.history.back();
+                window.location.href = document.referrer;
             }
         });
     }
