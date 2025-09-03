@@ -66,6 +66,20 @@ if ($result0885->num_rows > 0) {
         $uuu[] = $row0;
     }
 }
+
+$sccodefound = $uuu[0]['sccode'];
+$level = $uuu[0]['userlevel'];
+$scc = 'EIMBox Institute';
+$sql0 = "SELECT scname from scinfo where sccode = '$sccodefound' ";
+// echo $sql0;
+$result0885fff = $conn->query($sql0);
+if ($result0885fff->num_rows > 0) {
+    while ($row0 = $result0885fff->fetch_assoc()) {
+        $scc = $row0['scname'];
+    }
+} 
+
+
 // var_dump($uuu);
 
 echo '<div class="mt-5 text-center">';
@@ -90,7 +104,7 @@ if (count($uuu) == 1) {
         setcookie("user", time() + (3600 * 24 * 365));
         ?>
         <script>
-            window.location.href = 'index.php?email=<?php echo $user; ?>&fullname=<?php echo $uuu[0]['profilename'];?>&photourl=<?php echo $uuu[0]['photourl'];?>&truelogin=1<?php echo $gps; ?>';
+            window.location.href = 'index.php?email=<?php echo $user; ?>&lbl=<?php echo $level;?>$scn=<?php echo $scc;?>&fullname=<?php echo $uuu[0]['profilename'];?>&photourl=<?php echo $uuu[0]['photourl'];?>&truelogin=1<?php echo $gps; ?>';
         </script>
         <?php
 
@@ -125,7 +139,7 @@ if (count($uuu) == 1) {
                 ?>
 
                 <script>
-                    window.location.href = 'index.php?email=<?php echo $user; ?>&fullname=<?php echo $uuu[0]['profilename'];?>&photourl=<?php echo $uuu[0]['photourl'];?>&truelogin=1<?php echo $gps; ?>';
+                    window.location.href = 'index.php?email=<?php echo $user; ?>&lbl=<?php echo $level;?>$scn=<?php echo $scc;?>&fullname=<?php echo $uuu[0]['profilename'];?>&photourl=<?php echo $uuu[0]['photourl'];?>&truelogin=1<?php echo $gps; ?>';
                 </script>
                 
                 <?php
@@ -136,7 +150,7 @@ if (count($uuu) == 1) {
                 $conn->query($query33);
                 ?>
                     <script>
-                        window.location.href = 'index.php?email=<?php echo $user; ?>&truelogin=1<?php echo $gps; ?>';
+                        window.location.href = 'index.php?email=<?php echo $user; ?>&lbl=<?php echo $level;?>$scn=<?php echo $scc;?>&truelogin=1<?php echo $gps; ?>';
                     </script><?php
             } else {
                 echo "OPT Expired!";
