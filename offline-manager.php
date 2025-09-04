@@ -283,7 +283,7 @@ if (strpos($profile_entry, $userlevel) != null) {
                 </button>
               </div>
 
-             
+
 
               <div class="col">
                 <button class="btn btn-success btn-block" onclick="data_sync();">
@@ -307,7 +307,7 @@ if (strpos($profile_entry, $userlevel) != null) {
         </div>
         <!-- <div style="height:8px;"></div> -->
 
-        <div id="jsondatablock" ></div>
+        <div id="jsondatablock"></div>
         <!-- <div style="height:8px;"></div> -->
 
 
@@ -654,6 +654,25 @@ if (strpos($profile_entry, $userlevel) != null) {
     datah += "&cls=" + cls + "&sec=" + sec + "&adate=" + tarikh + '&eby=' + email;
     // alert(datah);
     document.getElementById("jsondatablock").innerHTML = datah;
+
+    datah += "&cls=" + cls + "&sec=" + sec + "&adate=" + tarikh + '&eby=' + email;
+
+    // AJAX দিয়ে offline.php এ পাঠানো
+    fetch("backend/offline.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: datah
+    })
+      .then(res => res.text())
+      .then(response => {
+        alert("Server Response: " + response);
+      })
+      .catch(err => {
+        console.error("Error syncing:", err);
+      });
+
   }
 
   // ***************************************************************************************
