@@ -12,7 +12,7 @@ $eby = $_POST['eby'] ?? '';
 echo "<pre>";
 print_r($_POST);   // POST ডেটা দেখাবে
 echo "</pre>";
-exit; 
+// exit; 
 
 
 // লুপ করে ডাটাবেজে ইন্সার্ট/আপডেট
