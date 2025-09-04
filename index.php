@@ -260,7 +260,7 @@ if (count($cteacher_data) > 0 && $cteacher_data[0]['cteachercls'] != '' && $ctea
         // setInterval(oneSecondFunction, 1000);
 
     });
-document.getElementById("uri").innerHTML = window.location.href;
+// document.getElementById("uri").innerHTML = window.location.href;
 
 </script>
 
