@@ -56,7 +56,7 @@ for ($i = 0; $i < $count; $i++) {
             $yn,
             $yn, // ssssss.. (period1–period8, একই ভ্যালু দিলে)
             $yn,          // i/string (main yn)
-            $usr,         // s (entryby)
+            $eby,         // s (entryby)
             $cur,         // s (entrytime)
             $cls,         // s (classname)
             $sec,         // s (sectionname)
@@ -66,6 +66,8 @@ for ($i = 0; $i < $count; $i++) {
         $stmt->execute();
     }
 }
-
+if(!$stmt->execute()){
+    echo "❌ Error: " . $stmt->error;
+}
 echo "✅ Attendance synced successfully.";
 ?>
