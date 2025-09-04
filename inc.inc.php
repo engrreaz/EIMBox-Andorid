@@ -49,7 +49,7 @@ if (isset($_GET["token"])) {
     $devicetoken = $_GET["token"];
     $token_found = 1;
     $_SESSION["devicetoken"] = $devicetoken;
-    echo $devicetoken;
+    // echo $devicetoken;
 }
 
 if (isset($_GET["photo"])) {

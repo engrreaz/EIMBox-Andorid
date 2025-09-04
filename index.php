@@ -123,7 +123,7 @@ if (count($cteacher_data) > 0 && $cteacher_data[0]['cteachercls'] != '' && $ctea
 
 <main>
     <div class="containerx" style="width:100%;">
-<!-- <div id="uri"></div> -->
+<div id="uri"></div>
         <div class="card text-center" style="background:var(--dark);  padding:20px 0 10px 0; border-radius:0;">
             <?php if ($gps == 1) { ?>
                 <div class="float-end" style="position:fixed; right:50px; top:15px; color:white;"><i
@@ -259,7 +259,7 @@ if (count($cteacher_data) > 0 && $cteacher_data[0]['cteachercls'] != '' && $ctea
         // setInterval(oneSecondFunction, 1000);
 
     });
-// document.getElementById("uri").innerHTML = window.location.href;
+document.getElementById("uri").innerHTML = window.location.href;
 
 </script>
 
