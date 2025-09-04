@@ -55,7 +55,7 @@ if ($userlevel == 'Student') {
     }
 }
 
-echo   $_SESSION["devicetoken"] ;
+
 
 $sql0 = "SELECT count(*) as koy  FROM todolist where date='$td' and sccode='$sccode' and user='$usr' and status=0";
 // echo $sql0;
