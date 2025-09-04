@@ -55,6 +55,7 @@ if ($userlevel == 'Student') {
     }
 }
 
+echo   $_SESSION["devicetoken"] ;
 
 $sql0 = "SELECT count(*) as koy  FROM todolist where date='$td' and sccode='$sccode' and user='$usr' and status=0";
 // echo $sql0;
@@ -259,7 +260,7 @@ if (count($cteacher_data) > 0 && $cteacher_data[0]['cteachercls'] != '' && $ctea
         // setInterval(oneSecondFunction, 1000);
 
     });
-document.getElementById("uri").innerHTML = window.location.href;
+// document.getElementById("uri").innerHTML = window.location.href;
 
 </script>
 
