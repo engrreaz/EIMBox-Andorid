@@ -650,13 +650,14 @@ if (strpos($profile_entry, $userlevel) != null) {
 
   // if (window.Android && <?php echo $data_sync; ?> == 1) {
   if (<?php echo $data_sync; ?> == 1) {
-    datah += "&cls=" + encodeURIComponent(cls) +
-      "&sec=" + encodeURIComponent(sec) +
-      "&adate=" + encodeURIComponent(tarikh) +
-      "&eby=" + encodeURIComponent(email);
 
-    console.log("POST Data:", datah); // debug
+    datah += "&cls=" + cls + "&sec=" + sec + "&adate=" + tarikh + '&eby=' + email;
+    // alert(datah);
+    document.getElementById("jsondatablock").innerHTML = datah;
 
+    datah += "&cls=" + cls + "&sec=" + sec + "&adate=" + tarikh + '&eby=' + email;
+
+    // AJAX দিয়ে offline.php এ পাঠানো
     fetch("backend/offline.php", {
       method: "POST",
       headers: {
@@ -671,6 +672,7 @@ if (strpos($profile_entry, $userlevel) != null) {
       .catch(err => {
         console.error("Error syncing:", err);
       });
+
   }
 
   // ***************************************************************************************
