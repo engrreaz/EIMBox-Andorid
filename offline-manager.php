@@ -307,7 +307,7 @@ if (strpos($profile_entry, $userlevel) != null) {
         </div>
         <!-- <div style="height:8px;"></div> -->
 
-        <div id="jsondatablock" hidden></div>
+        <div id="jsondatablock" ></div>
         <!-- <div style="height:8px;"></div> -->
 
 
@@ -652,7 +652,8 @@ if (strpos($profile_entry, $userlevel) != null) {
   if (<?php echo $data_sync; ?> == 1) {
 
     datah += "&cls=" + cls + "&sec=" + sec + "&adate=" + tarikh + '&eby=' + email;
-    alert(datah);
+    // alert(datah);
+    document.getElementById("jsondatablock").innerHTML = datah;
   }
 
   // ***************************************************************************************
