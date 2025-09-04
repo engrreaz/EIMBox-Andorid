@@ -8,3 +8,4 @@ db.php
 .migration
 ._sample.php
 firebase.json
+firebase.php
