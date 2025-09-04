@@ -622,7 +622,7 @@ if (strpos($profile_entry, $userlevel) != null) {
   var yy = ''; var datah = 'count=' + stc;
   for (var d = 0; d < stc; d++) {
     var k = d + 1;
-    var stid = docuemnt.getElementById("stid" + k).innerHTML;
+    var stid = document.getElementById("stid" + k).innerHTML;
 
     var singa = JSON.stringify(jsonPata[email][cls][sec][d]["yn"]).replaceAll('"', '');;
     yy += singa;
