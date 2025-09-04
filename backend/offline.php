@@ -9,6 +9,11 @@ $sec = $_POST['sec'] ?? '';
 $adate = $_POST['adate'] ?? '';
 $eby = $_POST['eby'] ?? '';
 
+echo "<pre>";
+print_r($_POST);   // POST ডেটা দেখাবে
+echo "</pre>";
+exit; 
+
 
 // লুপ করে ডাটাবেজে ইন্সার্ট/আপডেট
 for ($i = 0; $i < $count; $i++) {
