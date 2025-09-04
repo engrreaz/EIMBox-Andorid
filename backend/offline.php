@@ -25,7 +25,7 @@ for ($i = 0; $i < $count; $i++) {
 
     if ($stid != '') {
         $stmt = $conn->prepare("
-    INSERT INTO attendance 
+    INSERT INTO stattnd 
     (sccode, sessionyear, stid, adate, 
      period1, period2, period3, period4, 
      period5, period6, period7, period8, 
