@@ -632,7 +632,7 @@ if (strpos($profile_entry, $userlevel) != null) {
       document.getElementById('off' + k).style.color = "gray";
     }
 
-    datah += '&stid' + d + "=" + stid + "&yn=" + singa;
+    datah += '&stid' + d + "=" + stid + "&yn" + d + "=" + singa;
 
 
   }
