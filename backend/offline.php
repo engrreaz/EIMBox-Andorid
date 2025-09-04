@@ -21,6 +21,8 @@ for ($i = 0; $i < $count; $i++) {
     $yn = $_POST['yn' . $i] ?? 0;
     $rollno = $i + 1;
 
+    echo $stid .'/' . $yn . '/' . $rollno . '////';
+
     if ($stid != '') {
         $stmt = $conn->prepare("
     INSERT INTO attendance 
