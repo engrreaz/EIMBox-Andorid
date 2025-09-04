@@ -73,9 +73,7 @@ for ($i = 0; $i < $count; $i++) {
         $stmt->execute();
     }
 
-    if (!$stmt->execute()) {
-        echo "❌ Error: " . $stmt->error;
-    }
+
 }
 
 echo "✅ Attendance synced successfully.";
