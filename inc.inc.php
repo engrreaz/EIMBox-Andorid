@@ -49,6 +49,7 @@ if (isset($_GET["token"])) {
     $devicetoken = $_GET["token"];
     $token_found = 1;
     $_SESSION["devicetoken"] = $devicetoken;
+    echo $devicetoken;
 }
 
 if (isset($_GET["photo"])) {
@@ -78,6 +79,7 @@ $pxx = '';
 if ($token_found == 1 && $devicetoken != '') {
     $query33pxy_device_token = "UPDATE usersapp set token='$devicetoken' where email='$usr';";
     $conn->query($query33pxy_device_token);
+
 }
 
 
