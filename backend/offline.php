@@ -42,7 +42,7 @@ for ($i = 0; $i < $count; $i++) {
 ");
 
         $stmt->bind_param(
-            "iisiiiiiiiissssi",
+            "isisiiiiiiiissssi",
             $sccode,      // s
             $sy,          // s (sessionyear)
             $stid,        // i
