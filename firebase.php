@@ -5,20 +5,21 @@ require('firebase/FcmApi.php');
 $FcmApi = new \FcmApi(
     [
         'path' => 'firebase.json',
-        'project_id' => 'eimbox-4c743'
+        'project_id' => 'eimbox-2ca37'
     ]
 );
 
+
 $firebase_datam = array(
     'title' => 'Hello Sir',
-    'body' => 'Your next class at Nine (Rajanigandha) on ICT after 10 minutes.',
-    'image' => '',
-    'data1' => '',
-    'data2' => '',
-    'data3' => '',
+    'body' => 'Your next class at ' . $cur ,
+    'image' => 'https://eimbox.com/students/1031872003.jpg',
+    'data1' => 'First Line',
+    'data2' => '2nd Line',
+    'data3' => 'Third LINE',
 );
 
-$token = 'dZBoSACOTt-D8Q0sg9QiIT:APA91bGbstCz-SvInpXyG4LbL6DQ9oOudmpsQIhNytONGdcl_Soc3xRzucGJhQw5qSkumkHlfw7lcL6ieC6dRmcP7p3vvIrfO_6ezVGr-4qP36aLgFA9SnY';
+$token = 'dBn2jB7SR9m0704sk0xdsD:APA91bHeSFi6PEkOhKbjNxMRC8gZ1UJxIbOeQPxJUDDk9b1dtwkTXEDUyFVBerAChZ0yIcRDWzE_paCj7s-53jPwrz_J-4DymJXo0KW0YTbZMEY1rPiIyTM';
 echo $token . '<br><br>';
 
 if (
@@ -32,6 +33,20 @@ if (
             'data3' => $firebase_datam['data3'],
             'priority' => 'high',
             'content_available' => true
+            
+            
+            // "priority" => "high",
+            // "time_to_live" => 86400,
+            // "notification" => [
+            //     "title" => "Hello Sir",
+            //     "body"  => "Your next class at Nine (Bangla) on ICT after 10 minutes."
+            // ],
+            // "data" => [
+            //     "data1" => "value1",
+            //     "data2" => "value2"
+            // ]
+            
+            
         ]
     )->send($token)
 ) {
