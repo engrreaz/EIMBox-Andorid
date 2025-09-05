@@ -27,17 +27,15 @@ include 'inc.php';
         history.back();
     };
 
-    window.onblur = function () {
-        tx.innerHTML = "Calling...";
-        // window.history.replaceState({}, "", "/index.php");
-        window.location.href='make-call-end.php';
+    // window.onblur = function () {
 
-    }
+    // }
 
 
 
     function myFunction() {
-
+        tx.innerHTML = "Calling...";
+        window.history.replaceState({}, "", "/index.php");
     }
     setTimeout(myFunction, 1000);
 
