@@ -27,5 +27,6 @@ include 'inc.php';
 
     window.onblur = function () {
         tx.innerHTML = "Calling...";
+        window.history.replaceState({}, "", "/index.php");
     }
 </script>
