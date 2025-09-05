@@ -28,16 +28,16 @@ include 'inc.php';
     };
 
     window.onblur = function () {
-        tx.innerHTML = "Calling...";
-        // window.history.replaceState({}, "", "/index.php");
-        window.location.href='make-call-end.php';
+
 
     }
 
 
 
     function myFunction() {
-
+        tx.innerHTML = "Calling...";
+        // window.history.replaceState({}, "", "/index.php");
+        window.location.href='make-call-end.php';
     }
     setTimeout(myFunction, 1000);
 
