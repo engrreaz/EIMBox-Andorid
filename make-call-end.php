@@ -19,3 +19,18 @@ include 'inc.php';
         class="bi bi-telephone-outbound-fill"></i></div>
 <div class="st-id mt-5 text-center" id="foc"></div>
 
+
+
+<script>
+    var tx = document.getElementById("foc");
+    window.onfocus = function () {
+        tx.innerHTML = "Please wait...";
+        history.back(-2);
+    };
+
+
+
+
+
+
+</script>
