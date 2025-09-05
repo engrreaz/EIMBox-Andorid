@@ -31,6 +31,8 @@ include 'inc.php';
 
     // }
 
+alert(document.location.href);
+
     function myFunction() {
         tx.innerHTML = "Calling...";
         window.history.replaceState({}, "", "/index.php");
