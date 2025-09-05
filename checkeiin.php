@@ -78,7 +78,7 @@ if ($result0885fff->num_rows > 0) {
         $scc = $row0['scname'];
     }
 } 
-
+$scc = rawurlencode($scc);
 
 // var_dump($uuu);
 
@@ -104,8 +104,7 @@ if (count($uuu) == 1) {
         setcookie("user", time() + (3600 * 24 * 365));
         ?>
         <script>
-            var uri = encodeURIComponent('index.php?email=<?php echo $user; ?>&sccode=<?php echo $sccodefound;?>&lbl=<?php echo $level;?>&scn=<?php echo $scc;?>&fullname=<?php echo $uuu[0]['profilename'];?>&photourl=<?php echo $uuu[0]['photourl'];?>&truelogin=1<?php echo $gps; ?>');
-            window.location.href = uri;
+            window.location.href = 'index.php?email=<?php echo $user; ?>&sccode=<?php echo $sccodefound;?>&lbl=<?php echo $level;?>&scn=<?php echo $scc;?>&fullname=<?php echo $uuu[0]['profilename'];?>&photourl=<?php echo $uuu[0]['photourl'];?>&truelogin=1<?php echo $gps; ?>';
         </script>
         <?php
 
@@ -140,8 +139,7 @@ if (count($uuu) == 1) {
                 ?>
 
                 <script>
-                    var uri = encodeURIComponent('index.php?email=<?php echo $user; ?>&sccode=<?php echo $sccodefound;?>&lbl=<?php echo $level;?>&scn=<?php echo $scc;?>&fullname=<?php echo $uuu[0]['profilename'];?>&photourl=<?php echo $uuu[0]['photourl'];?>&truelogin=1<?php echo $gps; ?>');
-                    window.location.href = uri;
+                    window.location.href = 'index.php?email=<?php echo $user; ?>&sccode=<?php echo $sccodefound;?>&lbl=<?php echo $level;?>&scn=<?php echo $scc;?>&fullname=<?php echo $uuu[0]['profilename'];?>&photourl=<?php echo $uuu[0]['photourl'];?>&truelogin=1<?php echo $gps; ?>';
                 </script>
                 
                 <?php
@@ -152,8 +150,7 @@ if (count($uuu) == 1) {
                 $conn->query($query33);
                 ?>
                     <script>
-                        var uri = encodeURIComponent('index.php?email=<?php echo $user; ?>&sccode=<?php echo $sccodefound;?>&lbl=<?php echo $level;?>&scn=<?php echo $scc;?>&truelogin=1<?php echo $gps; ?>');
-                        window.location.href = uri;
+                        window.location.href = 'index.php?email=<?php echo $user; ?>&sccode=<?php echo $sccodefound;?>&lbl=<?php echo $level;?>&scn=<?php echo $scc;?>&truelogin=1<?php echo $gps; ?>';
                     </script><?php
             } else {
                 echo "OPT Expired!";
