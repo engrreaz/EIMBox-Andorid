@@ -25,8 +25,11 @@ include 'inc.php';
         history.back();
     };
 
-    window.onblur = function () {
+    // window.onblur = function () {
         tx.innerHTML = "Calling...";
         window.history.replaceState({}, "", "/index.php");
-    }
+    // }
+
+
+
 </script>
