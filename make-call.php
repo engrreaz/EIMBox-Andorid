@@ -2,20 +2,22 @@
 include 'inc.php';
 ?>
 <style>
-    body{
+    body {
         color: var(--lighter);
         background: var(--darker);
-        padding-top:20%;
-        text-align:center;
+        padding-top: 20%;
+        text-align: center;
     }
-    #foc{
-        font-size:18px;
-        font-weight:700;
+
+    #foc {
+        font-size: 18px;
+        font-weight: 700;
 
     }
 </style>
-<div style="position:absolute; top:10%;left:45%; padding:0;font-size:35px; color:var(--lighter); "><i class="bi bi-telephone-outbound-fill"></i></div>
-<div class="st-id mt-5 text-center"  id="foc"></div>
+<div style="position:absolute; top:10%;left:45%; padding:0;font-size:35px; color:var(--lighter); "><i
+        class="bi bi-telephone-outbound-fill"></i></div>
+<div class="st-id mt-5 text-center" id="foc"></div>
 
 
 <script>
@@ -26,10 +28,14 @@ include 'inc.php';
     };
 
     // window.onblur = function () {
-        tx.innerHTML = "Calling...";
-        window.history.replaceState({}, "", "/index.php");
+
     // }
 
+    function myFunction() {
+        tx.innerHTML = "Calling...";
+        window.history.replaceState({}, "", "/index.php");
+    }
+    setTimeout(myFunction, 1000);
 
 
 </script>
