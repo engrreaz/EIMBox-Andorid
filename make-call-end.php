@@ -4,7 +4,7 @@ include 'inc.php';
 <style>
     body {
         color: var(--lighter);
-        background: var(--darker);
+        background: var(--lighter);
         padding-top: 20%;
         text-align: center;
     }
@@ -19,25 +19,3 @@ include 'inc.php';
         class="bi bi-telephone-outbound-fill"></i></div>
 <div class="st-id mt-5 text-center" id="foc"></div>
 
-
-<script>
-    var tx = document.getElementById("foc");
-    window.onfocus = function () {
-        tx.innerHTML = "Please wait...";
-        history.back();
-    };
-
-    // window.onblur = function () {
-
-    // }
-
-
-
-    function myFunction() {
-        tx.innerHTML = "Calling...";
-        window.history.replaceState({}, "", "/index.php");
-    }
-    setTimeout(myFunction, 1000);
-
-
-</script>
