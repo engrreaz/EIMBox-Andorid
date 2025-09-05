@@ -24,7 +24,7 @@ include 'inc.php';
     var tx = document.getElementById("foc");
     window.onfocus = function () {
         tx.innerHTML = "Please wait...";
-        history.back();
+        history.back(-2);
     };
 
     window.onblur = function () {
