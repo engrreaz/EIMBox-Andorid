@@ -24,7 +24,7 @@ include 'inc.php';
     var tx = document.getElementById("foc");
     window.onfocus = function () {
         tx.innerHTML = "Please wait...";
-        history.back(-2);
+    
     };
 
     window.onblur = function () {
@@ -37,6 +37,7 @@ include 'inc.php';
     function myFunction() {
         tx.innerHTML = "Calling...";
         // window.history.replaceState({}, "", "/index.php");
+            history.back();
         window.location.href='make-call-end.php';
     }
     setTimeout(myFunction, 1000);
