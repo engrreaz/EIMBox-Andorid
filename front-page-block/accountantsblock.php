@@ -1,5 +1,5 @@
 <?php
-if ($rank == 'Accountants' || $rank == 'Principal' || $rank == 'Head Teacher' || $reallevel == 'Super Administrator' || $rank == 'Office Assistant') {
+if ($rank == 'Accountants' || $rank == 'Principal' || $rank == 'Head Teacher' || $reallevel == 'Super Administrator' || $rank == 'Office Assistant' || $userlevel=='Administrator') {
     $mon = date('m');
 
     $cimh = $money = $money1 = $money2 = $money3 = $money4 = 0;
