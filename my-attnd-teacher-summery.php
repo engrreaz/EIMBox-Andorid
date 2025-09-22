@@ -252,7 +252,7 @@ $teacher_application_count = count($my_app_datam);
             </div>
           </div>
 
-          <div class=" flex-grow-1 text-end" style="">
+          <div class=" flex-grow-1 text-end">
             <div style="font-size:11px; font-weight:400; line-height:15px;">
 
               <?php if ($real_in != '') {

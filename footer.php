@@ -98,9 +98,9 @@ if ($userlevel == 'Asstt. Head Teacher' || $userlevel == 'Head Teacher' || $user
                 <table width="100%">
                     <tr>
                         <td style="width:<?php echo $hb; ?>%"></td>
-                        <td ><a style="color:white;" href="index.php"><i class="material-icons">home</i></a></td>
-                        <td ><a style="color:white;" href="#"><i class="material-icons">person</i></a></td>
-                        <td ><a style="color:white;" href="globalsetting.php"><i class="material-icons">build</i></a></td>
+                        <td ><a style="color:white;" href="index.php"><i class="bi bi-house"></i></a></td>
+                        <td ><a style="color:white;" href="my-attnd-teacher-summery.php"><i class="bi bi-fingerprint"></i></a></td>
+                        <td ><a style="color:white;" href="globalsetting.php"><i class="bi bi-gear"></i></a></td>
                         <td style="width:<?php echo $hb; ?>%"></td>
                     </tr>
                 </table>
