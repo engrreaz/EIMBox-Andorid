@@ -74,6 +74,8 @@ if ($result5r->num_rows > 0) {
     }
     if ($lastpr > 0) {
         $prno = $lastpr + 1;
+        $aa = $prno % 100;
+        $prno = ($SY % 100) * 1000000 + ($stid % 10000) * 100 + $aa;
     } else {
         $prno = ($SY % 100) * 1000000 + ($stid % 10000) * 100 + 1;
     }

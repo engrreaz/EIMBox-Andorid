@@ -75,7 +75,8 @@ if ($pospos >= 0) {
 
 
                 <div class="card box-shadow">
-                    <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;"><b> Student's Payment</b>
+                    <div class="card-header" style="color:var(--darker); background:var(--light);border-radius:0;"><b> Student's
+                            Payment</b>
                         <div class="float-end">
                             <i class="bi bi-currency-exchange front-icon"></i>
                         </div>
@@ -145,28 +146,7 @@ if ($pospos >= 0) {
                 </div>
 
 
-            <?php } ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <?php
-
+            <?php }
         }
     }
 }
