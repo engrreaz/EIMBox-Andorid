@@ -337,7 +337,6 @@ if ($result00gt->num_rows > 0) {
                         $found = 0;
 
                         $sql0 = "SELECT * FROM sessioninfo where sessionyear LIKE '%$sy%'  and sccode='$sccode' and classname='$classname' and sectionname = '$sectionname' order by $stattnd_sort";
-                     echo  $sql0;
                         $result0 = $conn->query($sql0);
                         if ($result0->num_rows > 0) {
                             while ($row0 = $result0->fetch_assoc()) {
