@@ -21,7 +21,7 @@ if ($result5r->num_rows > 0) {
 
 <style>
     input[type="checkbox"] {
-        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
         margin: 5px;
     }
 
@@ -91,7 +91,7 @@ if ($result5r->num_rows > 0) {
 
     <!-- Modal Structure -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" style="">
+        <div class="modal-dialog modal-dialog-centered" >
             <div class="modal-content">
                 <!-- Header -->
                 <div class="modal-header">
@@ -119,7 +119,7 @@ if ($result5r->num_rows > 0) {
 
 
     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" style="">
+        <div class="modal-dialog modal-dialog-centered" >
             <div class="modal-content">
                 <!-- Header -->
                 <div class="modal-header">
@@ -143,7 +143,7 @@ if ($result5r->num_rows > 0) {
     </div>
 
 
-    <div class="containerx-fluid" style=" ">
+    <div class="containerx-fluid" >
         <div style="position:relative; z-index:99; width:100%;">
 
             <div class="card text-start page-top-box ">

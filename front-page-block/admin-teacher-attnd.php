@@ -24,7 +24,7 @@ $absent_teacher = array();
 
 ?>
 
-<div class="main-card gg card" style="">
+<div class="main-card gg card" >
     <div class="card-header front-card">
         <b>Teachers Attendance</b>
         <div class="float-end">
@@ -66,7 +66,7 @@ $absent_teacher = array();
                 </td>
             </tr>
         </table>
-        <table class="" style="marging:auto;">
+        <table class="" style="margin:auto;">
             <tr>
                 <td class="text-center">
                     <div class="d-flex flex-wrap"
@@ -153,7 +153,7 @@ $absent_teacher = array();
         </div>
         <div class="card-body card-back ">
 
-            <table class="" style="marging:auto;">
+            <table class="" style="margin:auto;">
                 <tr>
                     <td class="text-center">
                         <div class="d-flex flex-wrap" style=" text-align:center !important; ">

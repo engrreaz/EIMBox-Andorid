@@ -120,6 +120,9 @@ if (count($cteacher_data) > 0 && $cteacher_data[0]['cteachercls'] != '' && $ctea
     $cteacher_text = '<span class="text-white"> (' . $cteacher_data[0]['cteachercls'] . ' : ' . $cteacher_data[0]['cteachersec'] . ')</span>';
 }
 
+if($userlevel == 'Staff'){
+    $cteacher_text = '';
+}
 ?>
 
 <main>
@@ -230,6 +233,8 @@ if (count($cteacher_data) > 0 && $cteacher_data[0]['cteachercls'] != '' && $ctea
                 include 'front-page-block/marque.php';
             }
             include 'index_asstt_teacher.php';
+        } else if($userlevel == 'Staff'){
+            include 'index_staff.php';
         } else {
             include 'index_undef.php';
         }

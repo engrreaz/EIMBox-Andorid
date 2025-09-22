@@ -10,7 +10,6 @@
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link rel="stylesheet" href="variant/<?php echo $css; ?>.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -140,7 +139,7 @@
         .sender {
             width: 30px;
             width: 30px;
-            border-redius: 50%;
+            border-radius: 50%;
         }
 
         .footer-nav-icon {
@@ -564,11 +563,11 @@
             width: 12px;
             border-radius: 50%;
             margin-right: 4px;
-            background: black:
+            background: black;
         }
 
         .clr-5 {
-            background: black:
+            background: black;
         }
 
         .clr-1 {
