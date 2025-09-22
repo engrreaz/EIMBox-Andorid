@@ -68,7 +68,7 @@ if ($rank == 'Accountants' || $rank == 'Principal' || $rank == 'Head Teacher' ||
     ?>
     <div class="card gg">
         <div class="card-header front-card">
-            <b>Accounts33</b>
+            <b>Accounts</b>
             <div class="float-end">
                 <i class="bi bi-cash-coin front-icon"></i>
             </div>
