@@ -91,7 +91,7 @@ if ($result5r->num_rows > 0) {
 
     <!-- Modal Structure -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <!-- Header -->
                 <div class="modal-header">
@@ -119,7 +119,7 @@ if ($result5r->num_rows > 0) {
 
 
     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <!-- Header -->
                 <div class="modal-header">
@@ -143,7 +143,7 @@ if ($result5r->num_rows > 0) {
     </div>
 
 
-    <div class="containerx-fluid" >
+    <div class="containerx-fluid">
         <div style="position:relative; z-index:99; width:100%;">
 
             <div class="card text-start page-top-box ">
@@ -459,7 +459,7 @@ if ($result5r->num_rows > 0) {
                                     <div class="stname-eng" id="peng<?php echo $cnt; ?>"><?php echo $peng; ?></div>
                                     <div class="stname-ben" id="pben<?php echo $cnt; ?>"><?php echo $pben; ?></div>
                                 </td>
-                                <td  style="text-align:right;">
+                                <td style="text-align:right;">
                                     <?php
                                     if ($splt == 1) {
                                         if ($splitid > 0) {
@@ -484,13 +484,13 @@ if ($result5r->num_rows > 0) {
 
                                     }
 
-                                    if(strpos($peng, 'FINE') !== false ) {
+                                    if (strpos($peng, 'FINE') !== false) {
                                         ?>
                                         <span class="btn text-danger m-0 pl-1 pr-1 fs-3"
-                                           onclick="mergerow(<?php echo $fid; ?>, 0, 4);" title="Remove Fine">
+                                            onclick="mergerow(<?php echo $fid; ?>, 0, 4);" title="Remove Fine">
                                             <i class="bi bi-trash3-fill"></i>
-                                        </span> 
-                                        <?php 
+                                        </span>
+                                    <?php
                                     }
 
                                     ?>
@@ -663,7 +663,7 @@ if ($result5r->num_rows > 0) {
                 },
                 success: function (html) {
                     $("#btnblock").html(html);
-                    // document.location.href = "finstudents.php?cls=<?php echo $ccc; ?>&sec=<?php echo $sss; ?>";
+                    document.location.href = "finstudents.php?cls=<?php echo $ccc; ?>&sec=<?php echo $sss; ?>";
                 }
             });
         }
@@ -804,7 +804,7 @@ if ($result5r->num_rows > 0) {
                 var modal = bootstrap.Modal.getInstance(modalEl);
                 modal.hide();
 
-               
+
                 window.location.reload();
 
             }
@@ -868,7 +868,7 @@ if ($result5r->num_rows > 0) {
             success: function (html) {
                 $("#history").html(html);
 
-            
+
                 window.location.reload();
 
             }
