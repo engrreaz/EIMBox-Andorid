@@ -194,6 +194,8 @@ if ($result5r->num_rows > 0) {
                                                     style="color: var(--light); font-size:12px; font-weight:400; font-style:italic; line-height:30px;">
                                                     Total Dues</div>
                                             </div>
+
+                                            <div id="btnblock"></div>
                                             <div class="col-12 text-right">
 
                                                 <input type="text" class="text-danger" id="mylastpr" value="23272003"
@@ -661,7 +663,7 @@ if ($result5r->num_rows > 0) {
                 },
                 success: function (html) {
                     $("#btnblock").html(html);
-                    document.location.href = "finstudents.php?cls=<?php echo $ccc; ?>&sec=<?php echo $sss; ?>";
+                    // document.location.href = "finstudents.php?cls=<?php echo $ccc; ?>&sec=<?php echo $sss; ?>";
                 }
             });
         }
