@@ -75,7 +75,7 @@ if ($result5r->num_rows > 0) {
     }
 
 
-    $sql00x = "SELECT prno FROM stpr where  sccode='$sccode' and stid='$stid' and sessionyear= '$ssyy' order by prno DESC LIMIT 1";
+    $sql00x = "SELECT prno FROM stpr where  sccode='$sccode' and stid='$stid' and sessionyear LIKE '%$sy%' order by prno DESC LIMIT 1";
     echo  $sql00x;
     $result00x = $conn->query($sql00x);
     if ($result00x->num_rows > 0) {
