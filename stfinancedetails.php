@@ -84,6 +84,7 @@ if ($result5r->num_rows > 0) {
     } else {
         $lastpr = 0;
     }
+    echo '.................' . $lastpr;
 
     if ($lastpr > 0) {
         $prno = $lastpr + 1;
@@ -93,7 +94,7 @@ if ($result5r->num_rows > 0) {
         $prno = ($SY % 100) * 1000000 + ($stid % 10000) * 100 + 1;
     }
 
-
+echo $prno;
 
     if ($userlevel == 'Administrator' or $userlevel == 'Super Administrator') {
         $dtds = '';
@@ -142,7 +143,6 @@ if ($result5r->num_rows > 0) {
                 <!-- Body -->
                 <div class="modal-body">
                     Enter the amount.<br>
-
                     <input type="text" class="form-control" id="fineamt" placeholder="Enter Amount" value="">
 
                 </div>
