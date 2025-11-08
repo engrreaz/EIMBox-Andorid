@@ -54,6 +54,7 @@ if ($result5r->num_rows > 0) {
             $ccc = $row0["classname"];
             $sss = $row0["sectionname"];
             $lastpr = $row0["lastpr"];
+            $ssyy = $row0["sessionyear"];
 
             $sector = $row0["sector"];
             $rate = $row0["rate"];
@@ -72,6 +73,18 @@ if ($result5r->num_rows > 0) {
             }
         }
     }
+
+
+    $sql00x = "SELECT prno FROM stpr where  sccode='$sccode' and stid='$stid' and sessionyear= '$ssyy' order by prno DESC LIMIT 1";
+    $result00x = $conn->query($sql00x);
+    if ($result00x->num_rows > 0) {
+        while ($row00x = $result00x->fetch_assoc()) {
+            $lastpr = $row00x["prno"];
+        }
+    } else {
+        $lastpr = 0;
+    }
+
     if ($lastpr > 0) {
         $prno = $lastpr + 1;
         $aa = $prno % 100;
@@ -490,7 +503,7 @@ if ($result5r->num_rows > 0) {
                                             onclick="mergerow(<?php echo $fid; ?>, 0, 4);" title="Remove Fine">
                                             <i class="bi bi-trash3-fill"></i>
                                         </span>
-                                    <?php
+                                        <?php
                                     }
 
                                     ?>
@@ -667,7 +680,6 @@ if ($result5r->num_rows > 0) {
                 }
             });
         }
-
     }
 </script>
 
