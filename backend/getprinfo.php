@@ -88,7 +88,7 @@ if ($result0bg->num_rows > 0) {
 
 $lnk = 'https://playstore.eimbox.com/receipt.php?prno=' . $prno . '&prdate=' . $prdate . '&stname=' . $stname . '&cls=' . $cls . '&sec=' . $sec . '&roll=' . $roll . '&total=' . $total . '&stid=' . $stid . '&collname=' . $collname . '&cnt=' . $cnt . $loop;
 // $lnk = 'receipt.php?prno='.$prno.'&prdate='.$prdate.'&stname='.$stname.'&cls='.$cls.'&sec='.$sec.'&roll='.$roll.'&total='.$total.'&stid='.$stid.'&collname='.$collname.'&cnt='.$cnt.$loop;
-// echo $lnk;
+echo $lnk;
 ?>
 
 <!-- <meta http-equiv="refresh" content="0; URL=<?php echo $lnk; ?>" /> -->
