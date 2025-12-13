@@ -418,14 +418,16 @@
     //********************************************************************* */
 
 
-    function epos(prno='') {
-        let uri ;
-        if(prno==''){
-            uri = "backend/getprinfo.php"
+    function epos(prno = '') {
+        let uri;
+        if (prno == '') {
+            uri = "backend/getprinfo.php";
+            let lastpr = document.getElementById("mylastpr").value;
         } else {
-            "backend/getprinfo.php?ppp=" + prno;
+            uri = "backend/getprinfo.php?ppp=" + prno;
+            let lastpr = prno;
         }
-        let lastpr = document.getElementById("mylastpr").value;
+
         infor = "prno=" + lastpr;
         $("#eposlink").html("");
 

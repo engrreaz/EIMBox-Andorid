@@ -1,7 +1,7 @@
 <?php
 include 'inc.back.php';
 
-$prno = $_GET['ppp'] ?? '';
+$prno = $_POST['prno'] ?? '';
 if ($prno == '') {
 } else {
     $sql0r = "SELECT * FROM stpr where sccode='$sccode' and prno='$prno' order by entrytime desc limit 1 ";
