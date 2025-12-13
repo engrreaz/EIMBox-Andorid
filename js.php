@@ -422,7 +422,7 @@
         alert('a' + prno + 'b');
 
         let uri = "backend/getprinfo.php";
-        let lastpr = prno || document.getElementById("mylastpr").value;
+        let lastpr = prno || '';
 
         $("#eposlink").html("");
 
