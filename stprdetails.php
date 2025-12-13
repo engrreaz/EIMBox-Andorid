@@ -169,9 +169,9 @@ $tamt = 0;
                                     </td>
                                     <td>
                                         <button type="button"
-    class="btn btn-sm btn-primary"
+    class="btn btn-sm btn-primary btn-sm"
     onclick="epos('<?php echo $prno; ?>', event)">
-    Edit
+    Print with POS
 </button>
                                     </td>
                                     <td rowspan="2" style="text-align:right; font-size:20px; color:seagreen;">
