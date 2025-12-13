@@ -418,14 +418,20 @@
     //********************************************************************* */
 
 
-    function epos() {
+    function epos(prno='') {
+        let uri ;
+        if(prno==''){
+            uri = "backend/getprinfo.php"
+        } else {
+            "backend/getprinfo.php?ppp=" + prno;
+        }
         let lastpr = document.getElementById("mylastpr").value;
         infor = "prno=" + lastpr;
         $("#eposlink").html("");
 
         $.ajax({
             type: "POST",
-            url: "backend/getprinfo.php",
+            url: uri,
             data: infor,
             cache: false,
             beforeSend: function () {
