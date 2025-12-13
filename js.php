@@ -419,22 +419,16 @@
 
 
     function epos(prno = '') {
-        let uri;
-        if (prno == '') {
-            uri = "backend/getprinfo.php";
-            let lastpr = document.getElementById("mylastpr").value;
-        } else {
-            uri = "backend/getprinfo.php?ppp=" + prno;
-            let lastpr = prno;
-        }
 
-        infor = "prno=" + lastpr;
+        let uri = "backend/getprinfo.php";
+        let lastpr = prno || document.getElementById("mylastpr").value;
+
         $("#eposlink").html("");
 
         $.ajax({
             type: "POST",
             url: uri,
-            data: infor,
+            data: { prno: lastpr },
             cache: false,
             beforeSend: function () {
                 $("#eposlink").html('.....');
@@ -444,6 +438,7 @@
             }
         });
     }
+
 
     function send_sms(number, message) {
 
