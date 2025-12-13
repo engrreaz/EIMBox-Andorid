@@ -419,6 +419,7 @@
 
 
     function epos(prno = '') {
+        alert('ready');
 
         let uri = "backend/getprinfo.php";
         let lastpr = prno || document.getElementById("mylastpr").value;
