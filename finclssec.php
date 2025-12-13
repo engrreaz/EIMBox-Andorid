@@ -27,7 +27,7 @@ include 'inc.php';
 
 
                 $month = date('m');
-                $sql0 = "SELECT sum(payableamt) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear LIKE '%$sy%'  and sccode='$sccode' and classname='$cls' and sectionname='$sec' and month<='$month'";
+                $sql0 = "SELECT sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid FROM stfinance where sessionyear LIKE '%$sy%'  and sccode='$sccode' and classname='$cls' and sectionname='$sec' and month<='$month'";
 
                 $result01x = $conn->query($sql0);
                 if ($result01x->num_rows > 0) {
