@@ -37,7 +37,7 @@ if ($result0b->num_rows > 0) {
 
 
 
-$sql0r = "SELECT count(*) as cnt FROM stfinance where pr1no='$prno' || pr2no='$prno' ";
+$sql0r = "SELECT count(*) as cnt FROM stfinance where (pr1no='$prno' || pr2no='$prno') and sccode='$sccode' and stid='$stid' ";
 $result0bt = $conn->query($sql0r);
 if ($result0bt->num_rows > 0) {
     while ($row0r = $result0bt->fetch_assoc()) {
