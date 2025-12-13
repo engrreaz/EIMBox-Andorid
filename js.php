@@ -419,8 +419,6 @@
 
 
     function epos(prno = '') {
-        alert('a' + prno + 'b');
-
         let uri = "backend/getprinfo.php";
         let lastpr = prno || '';
 
