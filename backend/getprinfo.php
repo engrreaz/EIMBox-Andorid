@@ -3,6 +3,7 @@ include 'inc.back.php';
 
 $prno = $_POST['prno'] ?? '';
 if ($prno == '') {
+    $sql0r = "SELECT * FROM stpr where sccode='$sccode' and entryby='$usr' order by entrytime desc limit 1 ";
 } else {
     $sql0r = "SELECT * FROM stpr where sccode='$sccode' and prno='$prno' order by entrytime desc limit 1 ";
 
@@ -64,7 +65,7 @@ if ($collname == '') {
 
 $loop = '';
 $item = 1;
-$sql0r = "SELECT * FROM stfinance where pr1no='$prno' || pr2no='$prno' and sccode  = '$sccode' and stid='$stid' ";
+$sql0r = "SELECT * FROM stfinance where pr1no='$prno' || pr2no='$prno' ";
 $result0bg = $conn->query($sql0r);
 if ($result0bg->num_rows > 0) {
     while ($row0r = $result0bg->fetch_assoc()) {
