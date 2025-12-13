@@ -47,7 +47,7 @@ include 'inc.php';
                 if ($tpaid == 0) {
                     $rate = 0;
                 } else {
-                    $rate = ceil($tpaid * 100 / $totaldues);
+                    $rate = ceil($tpaid * 100 / ($totaldues+$tpaid));
                 }
                 // 
                 ?>
@@ -71,7 +71,7 @@ include 'inc.php';
                                 style="font-size:16px; font-style:normal; font-weight:bold;"><?php echo number_format($totaldues, 2, ".", ","); ?></span>
                             till Today.
                             <br>Total Collection <b><?php echo number_format($tpaid, 2, ".", ","); ?></b> out of Total Dues
-                            <b><?php echo number_format($totaldues, 2, ".", ","); ?></b>.
+                            <b><?php echo number_format($totaldues+$tpaid, 2, ".", ","); ?></b>.
                         </div>
                         <div style="font-size:16px; font-style:normal; color:gray; font-weight:bold;">
                             for Class <?php echo $cls . ' (' . $sec . ')'; ?>
