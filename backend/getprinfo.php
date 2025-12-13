@@ -65,7 +65,7 @@ if ($collname == '') {
 
 $loop = '';
 $item = 1;
-$sql0r = "SELECT * FROM stfinance where pr1no='$prno' || pr2no='$prno' ";
+$sql0r = "SELECT * FROM stfinance where (pr1no='$prno' || pr2no='$prno') and sccode='$sccode' and stid='$stid'";
 $result0bg = $conn->query($sql0r);
 if ($result0bg->num_rows > 0) {
     while ($row0r = $result0bg->fetch_assoc()) {
@@ -91,4 +91,4 @@ $lnk = 'https://playstore.eimbox.com/receipt.php?prno=' . $prno . '&prdate=' . $
 // echo $lnk;
 ?>
 
-<meta http-equiv="refresh" content="0; URL=<?php echo $lnk; ?>" />
+<!-- <meta http-equiv="refresh" content="0; URL=<?php echo $lnk; ?>" /> -->
