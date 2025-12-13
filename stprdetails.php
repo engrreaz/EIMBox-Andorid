@@ -56,7 +56,7 @@ $tamt = 0;
 
     ?>
 
-    <div class="containerx-fluid" style=" ">
+    <div class="containerx-fluid" >
         <div style="position:relative; z-index:99; width:100%;">
             <div class="card text-start page-top-box ">
                 <div class="card-body">
@@ -164,6 +164,13 @@ $tamt = 0;
                                                 <td><b><?php echo date('d/m/Y', strtotime($prdate)); ?></b></td>
                                             </tr>
                                         </table>
+                                    </td>
+                                    <td>
+                                        <button type="button"
+    class="btn btn-sm btn-primary"
+    onclick="epos('<?php echo $prno; ?>', event)">
+    Edit
+</button>
                                     </td>
                                     <td rowspan="2" style="text-align:right; font-size:20px; color:seagreen;">
                                         <b><?php echo number_format($prtaka, "2", ".", ","); ?></b>

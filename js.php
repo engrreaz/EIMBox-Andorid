@@ -418,7 +418,8 @@
     //********************************************************************* */
 
 
-    function epos(prno = '') {
+    function epos(prno = '', e) {
+        if (e) e.stopPropagation();
         let uri = "backend/getprinfo.php";
         let lastpr = prno || '';
 

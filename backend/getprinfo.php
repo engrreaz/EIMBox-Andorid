@@ -53,6 +53,7 @@ if ($result0bx->num_rows > 0) {
         $uid = $row0r["userid"];
     }
 }
+
 if ($collname == '') {
     $sql0r = "SELECT * FROM teacher where tid='$uid' ";
     $result0bxg = $conn->query($sql0r);
