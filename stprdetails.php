@@ -96,6 +96,8 @@ $tamt = 0;
                                                 style="color: var(--light); font-size:12px; font-weight:400; font-style:italic; line-height:30px;">
                                                 Total
                                                 Paid</div>
+
+                                                <div id="eposlink"></div>
                                         </div>
                                     </div>
                                 </div>
