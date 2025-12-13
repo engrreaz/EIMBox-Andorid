@@ -17,6 +17,7 @@ if ($pospos >= 0 ) {
     $mon = date('m');
     $tgot = $tsend = 0;
     $sql0 = "SELECT sum(dues) as dues, sum(payableamt) as paya, sum(paid) as paid  FROM stfinance where sessionyear LIKE '%$sy%' and sccode='$sccode' and month<='$mon'";
+    echo $sql0;
     $result01x = $conn->query($sql0);
     if ($result01x->num_rows > 0) {
         while ($row0 = $result01x->fetch_assoc()) {
