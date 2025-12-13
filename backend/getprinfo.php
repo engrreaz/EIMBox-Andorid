@@ -9,6 +9,7 @@ if ($prno == '') {
 
 }
 
+echo $sql0r;
 
 $result0r = $conn->query($sql0r);
 if ($result0r->num_rows > 0) {
