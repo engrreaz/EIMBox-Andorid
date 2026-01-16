@@ -59,7 +59,7 @@ $classname = $_GET['cls']; $sectionname = $_GET['sec']; $box=0;//
             <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk7();" >
               <img class="card-img-top"  alt="">
               <div class="card-body">
-                <table style="">
+                <table >
                     <tr>
                         <td style="width:50px;color:var(--dark);"><i class="material-icons">school</i></td>
                         <td>
@@ -77,7 +77,7 @@ $classname = $_GET['cls']; $sectionname = $_GET['sec']; $box=0;//
         <div class="card" style="background:var(--lighter); color:var(--darker);" onclick="lnk77();" >
               <img class="card-img-top"  alt="">
               <div class="card-body">
-                <table style="">
+                <table >
                     <tr>
                         <td style="width:50px;color:var(--dark);"><i class="material-icons">school</i></td>
                         <td>

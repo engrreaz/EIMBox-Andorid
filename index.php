@@ -194,6 +194,7 @@ if($userlevel == 'Staff'){
 
     if ($usr == 'engrreaz@gmail.com') {
         echo '<a href="firebase.php" class="btn btn-danger">Firebase</a>';
+        echo '<a href="https://playconsole.eimbox.php" class="btn btn-success">Firebase</a>';
 
 
         $mobile_number = '014040225570';
