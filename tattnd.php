@@ -60,7 +60,7 @@ if ($result0ghq->num_rows > 0) {
 
     $query33pxy = "insert into teacherattnd (id, user, tid, adate, reqin, reqout, realin, realout, balin, balout, statusin, statusout, detectin, detectout, disin, disout, dutytime, entryby, sccode, st, entrycode, entrytime) 
                                         values (NULL, '$usr', '$userid', '$td', '$reqin', '$reqout', '$cur', NULL, '$balin', NULL, '$stin', NULL, 'GPS', NULL, '$distance', 0,  NULL, '$usr', '$sccode', NULL, NULL, '$cur' );";
-    // echo $query33pxy . $diff;
+    echo $query33pxy . $diff;
     $conn->query($query33pxy);
     $query33pxz = "UPDATE todolist set status=1, responsetime='$cur' where id = '$id'";
     $conn->query($query33pxz);
