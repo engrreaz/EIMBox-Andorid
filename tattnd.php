@@ -58,9 +58,9 @@ if ($result0ghq->num_rows > 0) {
     $balin = $h . ':' . $m . ':' . $s;
 
 
-    $query33pxy = "insert into teacherattnd (id, user, tid, adate, reqin, reqout, realin, realout, balin, balout, statusin, statusout, detectin, detectout, disin, disout, dutytime, entryby, sccode, st, entrycode, entrytime) 
+    $query33pxy = "insert into teacherattnd (id, entryuser, tid, adate, reqin, reqout, realin, realout, balin, balout, statusin, statusout, detectin, detectout, disin, disout, dutytime, entryby, sccode, st, entrycode, entrytime) 
                                         values (NULL, '$usr', '$userid', '$td', '$reqin', '$reqout', '$cur', NULL, '$balin', NULL, '$stin', NULL, 'GPS', NULL, '$distance', 0,  NULL, '$usr', '$sccode', NULL, NULL, '$cur' );";
-    echo $query33pxy . $diff;
+    // echo $query33pxy . $diff;
     $conn->query($query33pxy);
     $query33pxz = "UPDATE todolist set status=1, responsetime='$cur' where id = '$id'";
     $conn->query($query33pxz);
@@ -75,7 +75,7 @@ if ($result0ghq->num_rows > 0) {
 
 // header('location:index.php');
 $datam = array();
-$sql0 = "SELECT * FROM teacherattnd where user='$usr' and adate='$td' and sccode='$sccode'";
+$sql0 = "SELECT * FROM teacherattnd where entryuser='$usr' and adate='$td' and sccode='$sccode'";
 $result0ghq_show = $conn->query($sql0);
 if ($result0ghq_show->num_rows > 0) {
     while ($row0 = $result0ghq_show->fetch_assoc()) {
